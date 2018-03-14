@@ -106,7 +106,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong><code>list</code></strong> : lists all contacts</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the Address Book.</p>
+<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> $/10 sub/Math lvl/Secondary 1 stat/NotMatched: adds a contact named <code>John Doe</code> to the Address Book.</p>
 </li>
 <li>
 <p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
@@ -163,7 +163,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <h3 id="adding-a-person-code-add-code-or-code-a-code"><a class="link" href="#adding-a-person-code-add-code-or-code-a-code">3.2. Adding a person: <code>add</code> or <code>a</code></a></h3>
 <div class="paragraph">
 <p>Adds a person to the address book<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS $/BUDGET sub/SUBJECT lvl/EDUCATION_LEVEL [t/TAG]&#8230;&#8203;</code></p>
+Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS $/BUDGET sub/SUBJECT lvl/EDUCATION_LEVEL t/Student [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -172,7 +172,7 @@ Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS $/BUDGET sub/SUBJECT l
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-A person can have any number of tags (including 0)
+A person must have at least one tag (Tutor/Student)
 The budget, subject, education level and status of each person will be displayed as tags
 </td>
 </tr>
@@ -184,10 +184,10 @@ The budget, subject, education level and status of each person will be displayed
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 $/150 sub/Math lvl/Secondary 1</code></p>
+<p>`add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 $/150 sub/Math lvl/Secondary 1`t/Tutor</p>
 </li>
 <li>
-<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 $/200 sub/Physics lvl/Secondary 4 t/criminal</code></p>
+<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 $/200 sub/Physics lvl/Secondary 4 t/Student</code></p>
 </li>
 </ul>
 </div>
@@ -583,7 +583,7 @@ e.g.<code>select 2</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-13 18:05:56 UTC
+Last updated 2018-03-14 01:29:49 UTC
 </div>
 </div>
 </body>
