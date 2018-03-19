@@ -81,6 +81,18 @@
 </ul>
 </li>
 <li><a href="#product-scope">Appendix B: Product Scope</a></li>
+<li><a href="#user-stories">Appendix C: User Stories</a></li>
+<li><a href="#use-cases">Appendix D: Use Cases</a></li>
+<li><a href="#non-functional-requirements">Appendix E: Non Functional Requirements</a></li>
+<li><a href="#glossary">Appendix F: Glossary</a></li>
+<li><a href="#product-survey">Appendix G: Product Survey</a></li>
+<li><a href="#instructions-for-manual-testing">Appendix H: Instructions for Manual Testing</a>
+<ul class="sectlevel2">
+<li><a href="#launch-and-shutdown">H.1. Launch and Shutdown</a></li>
+<li><a href="#deleting-a-person">H.2. Deleting a person</a></li>
+<li><a href="#saving-data">H.3. Saving data</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -1916,306 +1928,723 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="paragraph">
 <p><strong>Feature Contributions</strong>:</p>
 </div>
-<div class="paragraph">
-<p>|=======================================================================s
-|Name |Minor Enhancement |Major Enhancement
-|Danny <span class="underline">Ng</span> Ming Xuan |Create new command to filter the person list with respect to the various tags in
-Person card. This will enable the user to view people with tags he/she is interested in.|Create viewStats command.
-This allows the user to view information such as number of students/tutors/matched and more in the form of graph.
-|<span class="underline">Ng</span> Xin Ler |Change browser panel to view Person&#8217;s details and remove all attributes except tags in
-Person card. This helps to improve the readability of Person details and prevents cluttering on the side panel.|
-Create <code>unmatch</code> command. This allows the user to unmatch a pair of Tutor and Student in the event where the pair is
-wrongly matched or either the Tutor or Student wants to change a matching.
-|<span class="underline">Wang</span> Zi |Create shortcut for the user in filling subject,level,status, and role. For instance, <code>sub/eng</code> and <code>sub/english</code> both result in adding the subject English.
-After that, accommodate case-insensitive input, and standardize display to follow <a href="#proper-case">proper case</a>.
-|Create <code>match</code> command. This allows the user to match a pair of Tutor and Student from a list of potential matches.
-|<span class="underline">Yan</span> Hong Yao Alvin | Automatically generate tags for some attribute fields. This makes them easy to view by the user |
-Allow all non-name fields to be optional. This makes input easier for the user as the add command is extremely long otherwise.</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all" style="width: 59%;">
 <colgroup>
-<col style="width: 100%;">
+<col style="width: 30%;">
+<col style="width: 35%;">
+<col style="width: 35%;">
 </colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Minor Enhancement</th>
+<th class="tableblock halign-left valign-top">Major Enhancement</th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">[appendix]
-== User Stories</p>
-<p class="tableblock">Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
-<p class="tableblock">[width="59%",cols="22%,&lt;23%,&lt;25%,&lt;30%",options="header",]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Danny NG Ming Xuan</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create new command to filter the person list with respect to the various tags in
+Person card. This will enable the user to view people with tags he/she is interested in.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create <code>viewStats</code> command.
+This allows the user to view information such as number of students/tutors/matched and more in the form of graph.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NG Xin Ler</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Change browser panel to view Person&#8217;s details and remove all attributes except tags in
+Person card. This helps to improve the readability of Person details and prevents cluttering on the side panel.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create <code>unmatch</code> command. This allows the user to unmatch a pair of Tutor and Student in the event where the pair is
+wrongly matched or either the Tutor or Student wants to change a matching.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WANG Zi</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create shortcut for the user in filling subject, level, status and role. For instance, <code>sub/eng</code> and <code>sub/english</code> both result in adding the subject English.
+After that, accommodate case-insensitive input, and standardize display to follow <a href="#proper-case">proper case</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create <code>match</code> command. This allows the user to match a pair of Tutor and Student from a list of potential matches.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">YAN Hong Yao Alvin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Automatically generate tags for some attribute fields. This makes them easy to view by the user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow all non-name fields to be optional. This makes input easier for the user as the add command is extremely long otherwise.</p></td>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>|Priority |As a &#8230;&#8203; |I want to &#8230;&#8203; |So that I can&#8230;&#8203;
-|<code>* * *</code> |new user |see usage instructions |refer to instructions when I forget how to use the App</p>
 </div>
-<div class="paragraph">
-<p>|<code>* * *</code> |user |add a new tutor/student |</p>
 </div>
+<div class="sect1">
+<h2 id="user-stories"><a class="link" href="#user-stories">Appendix C: User Stories</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>|<code>* * *</code> |user |delete a tutor/student |remove entries that I no longer need</p>
+<p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
 </div>
-<div class="paragraph">
-<p>|<code>* * *</code> |user |find a tutor/student by name |locate details of persons without having to go through the entire list</p>
-</div>
-<div class="paragraph">
-<p>|<code>* * *</code> |user |edit the <a href="#criteria">criteria</a> of a tutor/student |change criteria without re-adding the entry</p>
-</div>
-<div class="paragraph">
-<p>|<code>* * *</code> |user |list all tutors or students separately |view a cleaner list without mixing tutors and students</p>
-</div>
-<div class="paragraph">
-<p>|<code>* * *</code> |user |set a tutor/student’s <a href="#status">status</a> |know who is available</p>
-</div>
-<div class="paragraph">
-<p>|<code>* * *</code> |user |mark a tutor/student as <a href="#matched">matched</a> with some other tutor/student for a certain subject |identify tutor/student status</p>
-</div>
-<div class="paragraph">
-<p>|<code>* *</code> |user |hide <a href="#private-contact-detail">private contact details</a> by default |minimize chance of someone else seeing them by accident</p>
-</div>
-<div class="paragraph">
-<p>|<code>* *</code> |user |protect the app with a password |ensure confidentiality of the contacts</p>
-</div>
-<div class="paragraph">
-<p>|<code>* *</code> |user |tag a person with role, subject, level, and status |identify details of each tutor/student easily</p>
-</div>
-<div class="paragraph">
-<p>|<code>* *</code> |user |sort matching list by budget |find the best match at the lowest price</p>
-</div>
-<div class="paragraph">
-<p>|<code>* *</code> |user |rate a tutor according to student’s feedback |identify tutors’ capability for future references</p>
-</div>
-<div class="paragraph">
-<p>|<code>* *</code> |user |store a list of all tutor/student that have been matched |I can have a cleaner list consisting of only unmatched tutor/student and also able to refer to past records if required</p>
-</div>
-<div class="paragraph">
-<p>|<code>* *</code> |user |find all pairs of tutor/students that are <a href="#matching-in-progress">matching in progress</a> |easily set a pair to matched or unmatched depending if they have agreed upon the tutoring</p>
-</div>
-<div class="paragraph">
-<p>|<code>* *</code> |user |indicate the special request by tutor/student (e.g. prefer female tutor)|consider these factors when performing match</p>
-</div>
-<div class="paragraph">
-<p>|<code>* *</code> |user |change theme of the app |personalise the app to user’s preference</p>
-</div>
-<div class="paragraph">
-<p>|<code>* *</code> |forgetful user | view password hint |recall my password</p>
-</div>
-<div class="paragraph">
-<p>|<code>* *</code> |user with poor eyesight |change the font and font size |easily read the output text</p>
-</div>
-<div class="paragraph">
-<p>|<code>*</code> |user with many persons in the address book |sort persons by name |locate a person easily</p>
-</div>
-<div class="paragraph">
-<p>|<code>*</code> |user |add upload tutors’ qualifications via pdf file |add in data easily without typing them down individually</p>
-</div>
-<div class="paragraph">
-<p>|<code>*</code> |user |view the location markers of tutor/student on a map |see the geographical concentration of tutors/students</p>
-</div>
-<div class="paragraph">
-<p>|<code>*</code> |user |automatically send email to the matched pair of tutor and student |inform both parties efficiently</p>
-</div>
-<div class="paragraph">
-<p>|<code>*</code> |user |select a particular criteria and get tutors/students fulfilling that criteria | easily find a suitable tutor/student if one criteria takes priority</p>
-</div>
-<div class="paragraph">
-<p>|<code>*</code> |user |allow a tutor/student to have multiple subject to teach/learn |have more possibilities when matching tutors and students</p>
-</div>
-<div class="paragraph">
-<p>|<code>*</code> |user |sort the matching list by distance |pair tutor/student who lives nearer to each other</p>
-</div>
-<div class="paragraph">
-<p>|<code>*</code> |user |sync database to google |work on multiple devices without losing data</p>
-</div>
-<div class="paragraph">
-<p>|<code>*</code> |user |view statistics on tutor/student numbers and statuses |have a clearer picture of the status of tutor/student</p>
-</div>
-<div class="paragraph">
-<p>|<code>*</code> |user |auto-match tutor and student based on available time slots |save time in matching schedules</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all" style="width: 59%;">
 <colgroup>
-<col style="width: 100%;">
+<col style="width: 22%;">
+<col style="width: 23%;">
+<col style="width: 25%;">
+<col style="width: 30%;">
 </colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Priority</th>
+<th class="tableblock halign-left valign-top">As a &#8230;&#8203;</th>
+<th class="tableblock halign-left valign-top">I want to &#8230;&#8203;</th>
+<th class="tableblock halign-left valign-top">So that I can&#8230;&#8203;</th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">[appendix]
-== Use Cases</p>
-<p class="tableblock">(For all use cases below, the <strong>System</strong> is the <code>STUtor</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
-<p class="tableblock">[discrete]
-=== Use case: Delete person</p>
-<p class="tableblock"><strong>MSS</strong></p>
-<p class="tableblock">1.  User requests to list persons
-2.  STUtor shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  STUtor deletes the person
-+
-Use case ends.</p>
-<p class="tableblock"><strong>Extensions</strong></p>
-<p class="tableblock">[none]
-* 2a. The list is empty.
-+
-Use case ends.</p>
-<p class="tableblock">* 3a. The given index is invalid.
-+
-[none]
-<strong> 3a1. STUtor shows an error message.
-+
-Use case resumes at step 2.</p>
-<p class="tableblock">[discrete]
-=== Use case: Edit the criteria of a certain tutor/student</p>
-<p class="tableblock"><strong>MSS</strong></p>
-<p class="tableblock">1.  User requests to edit a criteria of a certain tutor/student
-2.  STUtor updates the criteria
-+
-Use case ends.</p>
-<p class="tableblock"><strong>Extensions</strong></p>
-<p class="tableblock">[none]
-* 1a. The given tutor/student is invalid.
-+
-[none]
-</strong> 1a1. STUtor shows an error message.
-+
-Use case ends.</p>
-<p class="tableblock">[discrete]
-=== Use case: Input a certain criteria of a student/tutor and get back a list of tutor/student fulfilling that criteria</p>
-<p class="tableblock"><strong>MSS</strong></p>
-<p class="tableblock">1.  User requests a certain criteria of student/tutor (e.g. budget: below 200)
-2.  STUtor shows a list of tutor/student fulfilling that criteria
-+
-Use case ends.</p>
-<p class="tableblock"><strong>Extensions</strong></p>
-<p class="tableblock">[none]
-* 1a. The given criteria is invalid
-+
-[none]
-<strong> 1a1. STUtor shows an error message.
-+
-Use case resumes at step 1.</p>
-<p class="tableblock">[none]
-* 2a. The list is empty.
-+
-Use case ends.</p>
-<p class="tableblock">[discrete]
-=== Use case: Match tutor and student</p>
-<p class="tableblock"><strong>MSS</strong></p>
-<p class="tableblock">1.  User requests to show a list of all tutors/students
-2.  STUtor returns a list of all tutors/students
-3.  User selects a tutor/student for matching
-4.  STUtor returns a list of students/tutors that fulfils the criteria of tutor/student selected
-5.  User creates a match with the most suitable criteria
-6.  STUtor creates the match and updates the status of the matched tutor and student to ‘Matching-in-progress’
-+
-Use case ends.</p>
-<p class="tableblock"><strong>Extensions</strong></p>
-<p class="tableblock">[none]
-* 3a. The given index is invalid.
-+
-[none]
-</strong> 3a1. STUtor shows an error message.
-+
-Use case resumes at step 2.</p>
-<p class="tableblock">[none]
-* 4a. The list is empty (no tutor/student fulfills the criteria)
-+
-Use case ends.</p>
-<p class="tableblock">[discrete]
-=== Use case: Confirm a match</p>
-<p class="tableblock"><strong>MSS</strong></p>
-<p class="tableblock">1.  User requests for a list of pending matches
-2.  STUtor shows a list of ‘Matching-in-progress’ entries
-3.  User select a particular entry
-4.  STUtor updates the status of the tutor and student
-+
-Use case ends.</p>
-<p class="tableblock"><strong>Extensions</strong></p>
-<p class="tableblock">[none]
-* 2a. The list is empty.
-+
-Use case ends.</p>
-<p class="tableblock">[none]
-* 3a. The given index is invalid.
-+
-[none]
-<strong>* 3a1. STUtor shows an error message.
-+
-Use case resumes at step 2.</p>
-<p class="tableblock">[appendix]
-== Non Functional Requirements</p>
-<p class="tableblock">.  Should work on any <a href="#mainstream-os">mainstream OS</a> as long as it has Java <code>1.8.0_60</code> or higher installed.
-.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
-.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
-.  Should be fast in responding to request (within 2 seconds)</p>
-<p class="tableblock"><em>{More to be added}</em></p>
-<p class="tableblock">[appendix]
-== Glossary</p>
-<p class="tableblock"><a id="mainstream-os"></a> Mainstream OS::
-Windows, Linux, Unix, OS-X</p>
-<p class="tableblock"><a id="private-contact-detail"></a> Private contact detail::
-A contact detail that is not meant to be shared with others</p>
-<p class="tableblock"><a id="proper-case"></a> Proper case::
-Proper case is any text that is written with each of the first letters of every word being capitalized.
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">new user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see usage instructions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">refer to instructions when I forget how to use the App</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add a new tutor/student</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete a tutor/student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remove entries that I no longer need</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">find a tutor/student by name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locate details of persons without having to go through the entire list</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">edit the <a href="#criteria">criteria</a> of a tutor/student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">change criteria without re-adding the entry</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list all tutors or students separately</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view a cleaner list without mixing tutors and students</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">set a tutor/student’s <a href="#status">status</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know who is available</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mark a tutor/student as <a href="#matched">matched</a> with some other tutor/student for a certain subject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">identify tutor/student status</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hide <a href="#private-contact-detail">private contact details</a> by default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">minimize chance of someone else seeing them by accident</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">protect the app with a password</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ensure confidentiality of the contacts</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tag a person with role, subject, level, and status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">identify details of each tutor/student easily</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sort matching list by budget</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">find the best match at the lowest price</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rate a tutor according to student’s feedback</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">identify tutors’ capability for future references</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">store a list of all tutor/student that have been matched</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can have a cleaner list consisting of only unmatched tutor/student and also able to refer to past records if required</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">find all pairs of tutor/students that are <a href="#matching-in-progress">matching in progress</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">easily set a pair to matched or unmatched depending if they have agreed upon the tutoring</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">indicate the special request by tutor/student (e.g. prefer female tutor)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">consider these factors when performing match</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">change theme of the app</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">personalise the app to user’s preference</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">forgetful user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view password hint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">recall my password</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user with poor eyesight</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">change the font and font size</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">easily read the output text</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user with many persons in the address book</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sort persons by name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locate a person easily</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add upload tutors’ qualifications via pdf file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add in data easily without typing them down individually</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view the location markers of tutor/student on a map</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see the geographical concentration of tutors/students</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">automatically send email to the matched pair of tutor and student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inform both parties efficiently</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">select a particular criteria and get tutors/students fulfilling that criteria</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">easily find a suitable tutor/student if one criteria takes priority</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">allow a tutor/student to have multiple subject to teach/learn</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have more possibilities when matching tutors and students</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sort the matching list by distance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pair tutor/student who lives nearer to each other</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sync database to google</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">work on multiple devices without losing data</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view statistics on tutor/student numbers and statuses</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have a clearer picture of the status of tutor/student</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">auto-match tutor and student based on available time slots</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">save time in matching schedules</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="use-cases"><a class="link" href="#use-cases">Appendix D: Use Cases</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>(For all use cases below, the <strong>System</strong> is the <code>STUtor</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+</div>
+<h3 id="use-case-delete-person" class="discrete">Use case: Delete person</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list persons</p>
+</li>
+<li>
+<p>STUtor shows a list of persons</p>
+</li>
+<li>
+<p>User requests to delete a specific person in the list</p>
+</li>
+<li>
+<p>STUtor deletes the person</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. STUtor shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-edit-the-criteria-of-a-certain-tutor-student" class="discrete">Use case: Edit the criteria of a certain tutor/student</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to edit a criteria of a certain tutor/student</p>
+</li>
+<li>
+<p>STUtor updates the criteria</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The given tutor/student is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. STUtor shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-input-a-certain-criteria-of-a-student-tutor-and-get-back-a-list-of-tutor-student-fulfilling-that-criteria" class="discrete">Use case: Input a certain criteria of a student/tutor and get back a list of tutor/student fulfilling that criteria</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests a certain criteria of student/tutor (e.g. budget: below 200)</p>
+</li>
+<li>
+<p>STUtor shows a list of tutor/student fulfilling that criteria</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The given criteria is invalid</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. STUtor shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-match-tutor-and-student" class="discrete">Use case: Match tutor and student</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to show a list of all tutors/students</p>
+</li>
+<li>
+<p>STUtor returns a list of all tutors/students</p>
+</li>
+<li>
+<p>User selects a tutor/student for matching</p>
+</li>
+<li>
+<p>STUtor returns a list of students/tutors that fulfils the criteria of tutor/student selected</p>
+</li>
+<li>
+<p>User creates a match with the most suitable criteria</p>
+</li>
+<li>
+<p>STUtor creates the match and updates the status of the matched tutor and student to ‘Matching-in-progress’</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. STUtor shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>4a. The list is empty (no tutor/student fulfills the criteria)</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-confirm-a-match" class="discrete">Use case: Confirm a match</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests for a list of pending matches</p>
+</li>
+<li>
+<p>STUtor shows a list of ‘Matching-in-progress’ entries</p>
+</li>
+<li>
+<p>User select a particular entry</p>
+</li>
+<li>
+<p>STUtor updates the status of the tutor and student</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. STUtor shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Appendix E: Non Functional Requirements</a></h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Should work on any <a href="#mainstream-os">mainstream OS</a> as long as it has Java <code>1.8.0_60</code> or higher installed.</p>
+</li>
+<li>
+<p>Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.</p>
+</li>
+<li>
+<p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
+</li>
+<li>
+<p>Should be fast in responding to request (within 2 seconds)</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><em>{More to be added}</em></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="glossary"><a class="link" href="#glossary">Appendix F: Glossary</a></h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
+<dd>
+<p>Windows, Linux, Unix, OS-X</p>
+</dd>
+<dt class="hdlist1"><a id="private-contact-detail"></a> Private contact detail</dt>
+<dd>
+<p>A contact detail that is not meant to be shared with others</p>
+</dd>
+<dt class="hdlist1"><a id="proper-case"></a> Proper case</dt>
+<dd>
+<p>Proper case is any text that is written with each of the first letters of every word being capitalized.
 For example, "This Is An Example Of Proper Case."</p>
-<p class="tableblock"><a id="criteria"></a> Criteria::
-Subject and grade level</p>
-<p class="tableblock"><a id="match"></a> Match::
-A tutor and a student are paired for a subject</p>
-<p class="tableblock"><a id="matched"></a> Matched::
-Tutor and student have confirmed the match and are ready to start lessons</p>
-<p class="tableblock"><a id="matching-in-progress"></a> Matching in progress::
-Waiting for tutor and student to confirm the match</p>
-<p class="tableblock"><a id="status"></a> Status::
-Includes unmatch, matching-in-progress, matched</p>
-<p class="tableblock"><a id="unmatch"></a> Unmatch::
-A tutor/student does not have any match</p>
-<p class="tableblock">[appendix]
-== Product Survey</p>
-<p class="tableblock">*Product Name</strong></p>
-<p class="tableblock">Author: &#8230;&#8203;</p>
-<p class="tableblock">Pros:</p>
-<p class="tableblock">* &#8230;&#8203;
-* &#8230;&#8203;</p>
-<p class="tableblock">Cons:</p>
-<p class="tableblock">* &#8230;&#8203;
-* &#8230;&#8203;</p>
-<p class="tableblock">[appendix]
-== Instructions for Manual Testing</p>
-<p class="tableblock">Given below are instructions to test the app manually.</p>
-<p class="tableblock">[NOTE]
-These instructions only provide a starting point for testers to work on; testers are expected to do more <em>exploratory</em> testing.</p>
-<p class="tableblock">=== Launch and Shutdown</p>
-<p class="tableblock">. Initial launch</p>
-<p class="tableblock">.. Download the jar file and copy into an empty folder
-.. Double-click the jar file<br>
-   Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.</p>
-<p class="tableblock">. Saving window preferences</p>
-<p class="tableblock">.. Resize the window to an optimum size. Move the window to a different location. Close the window.
-.. Re-launch the app by double-clicking the jar file.<br>
-   Expected: The most recent window size and location is retained.</p>
-<p class="tableblock"><em>{ more test cases &#8230;&#8203; }</em></p>
-<p class="tableblock">=== Deleting a person</p>
-<p class="tableblock">. Deleting a person while all persons are listed</p>
-<p class="tableblock">.. Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.
-.. Test case: <code>delete 1</code><br>
-   Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
-.. Test case: <code>delete 0</code><br>
-   Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
-.. Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
-   Expected: Similar to previous.</p>
-<p class="tableblock"><em>{ more test cases &#8230;&#8203; }</em></p>
-<p class="tableblock">=== Saving data</p>
-<p class="tableblock">. Dealing with missing/corrupted data files</p>
-<p class="tableblock">.. <em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
-<p class="tableblock"><em>{ more test cases &#8230;&#8203; }</em></p></td>
+</dd>
+<dt class="hdlist1"><a id="criteria"></a> Criteria</dt>
+<dd>
+<p>Subject and grade level</p>
+</dd>
+<dt class="hdlist1"><a id="match"></a> Match</dt>
+<dd>
+<p>A tutor and a student are paired for a subject</p>
+</dd>
+<dt class="hdlist1"><a id="matched"></a> Matched</dt>
+<dd>
+<p>Tutor and student have confirmed the match and are ready to start lessons</p>
+</dd>
+<dt class="hdlist1"><a id="matching-in-progress"></a> Matching in progress</dt>
+<dd>
+<p>Waiting for tutor and student to confirm the match</p>
+</dd>
+<dt class="hdlist1"><a id="status"></a> Status</dt>
+<dd>
+<p>Includes unmatch, matching-in-progress, matched</p>
+</dd>
+<dt class="hdlist1"><a id="unmatch"></a> Unmatch</dt>
+<dd>
+<p>A tutor/student does not have any match</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="product-survey"><a class="link" href="#product-survey">Appendix G: Product Survey</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Product Name</strong></p>
+</div>
+<div class="paragraph">
+<p>Author: &#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>Pros:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>&#8230;&#8203;</p>
+</li>
+<li>
+<p>&#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Cons:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>&#8230;&#8203;</p>
+</li>
+<li>
+<p>&#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix H: Instructions for Manual Testing</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Given below are instructions to test the app manually.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+These instructions only provide a starting point for testers to work on; testers are expected to do more <em>exploratory</em> testing.
+</td>
 </tr>
-</tbody>
 </table>
+</div>
+<div class="sect2">
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">H.1. Launch and Shutdown</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Initial launch</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Download the jar file and copy into an empty folder</p>
+</li>
+<li>
+<p>Double-click the jar file<br>
+Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Saving window preferences</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Resize the window to an optimum size. Move the window to a different location. Close the window.</p>
+</li>
+<li>
+<p>Re-launch the app by double-clicking the jar file.<br>
+Expected: The most recent window size and location is retained.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><em>{ more test cases &#8230;&#8203; }</em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">H.2. Deleting a person</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a person while all persons are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+</li>
+<li>
+<p>Test case: <code>delete 1</code><br>
+Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>delete 0</code><br>
+Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><em>{ more test cases &#8230;&#8203; }</em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-data"><a class="link" href="#saving-data">H.3. Saving data</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dealing with missing/corrupted data files</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><em>{ more test cases &#8230;&#8203; }</em></p>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-19 05:54:34 UTC
+Last updated 2018-03-19 11:04:21 UTC
 </div>
 </div>
 </body>
