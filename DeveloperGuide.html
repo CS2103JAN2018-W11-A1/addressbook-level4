@@ -49,6 +49,8 @@
 <li><a href="#logging">3.3. Logging</a></li>
 <li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
 <li><a href="#automatic-creation-of-tags-from-person-attributes">3.5. Automatic creation of tags from person attributes</a></li>
+<li><a href="#making-input-case-insensitive">3.6. Making input case-insensitive</a></li>
+<li><a href="#create-shortcuts-for-the-user-in-filling-fields">3.7. Create shortcuts for the user in filling fields</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -1055,6 +1057,166 @@ The respective tagName and tagType can be obtained by splitting the read string 
 </li>
 </ul>
 </div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="making-input-case-insensitive"><a class="link" href="#making-input-case-insensitive">3.6. Making input case-insensitive</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.6.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>We made input of all fields case insensitive to reduce hassles for the user.</p>
+</div>
+<div class="paragraph">
+<p>After parsing and validation, the field entered is converted to <a href="#proper-case">proper case</a> internally,
+so tags generated from the field information will be standardized and more readable for the user.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="model-implementation"><a class="link" href="#model-implementation">3.6.2. Model Implementation</a></h4>
+<div class="paragraph">
+<p>We utilise the <code>ProperCaseConverter</code> object to convert all parsed and valid input into proper case.
+See the example below for an actual implementation found in the <code>Role</code> class.
+All the fields utilise the <code>ProperCaseConverter</code> object in similar way.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">Role</span>{
+ <span class="comment">//...other implementations...</span>
+ <span class="directive">public</span> <span class="predefined-type">Role</span>(<span class="predefined-type">String</span> role) {
+         <span class="comment">//... Validating input...</span>
+         ProperCaseConverter pc = <span class="keyword">new</span> ProperCaseConverter();
+         <span class="local-variable">this</span>.value = pc.convertToProperCase(role);
+     }
+ <span class="comment">//...other implementations...</span>
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="create-shortcuts-for-the-user-in-filling-fields"><a class="link" href="#create-shortcuts-for-the-user-in-filling-fields">3.7. Create shortcuts for the user in filling fields</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.7.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>Due to the nature of the application, the user will input certain information repetitively.
+For example, <code>role</code> can only be one of <code>student</code> or <code>tutor</code>.</p>
+</div>
+<div class="paragraph">
+<p>Thus, we have created shortcuts to help improving efficiency in filling the fields.
+We currently support shortcuts for <code>subject</code>, <code>level</code>, <code>status</code>, and <code>role</code>.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 59%;">
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 35%;">
+<col style="width: 35%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Applicable field</th>
+<th class="tableblock halign-left valign-top">Shortcut</th>
+<th class="tableblock halign-left valign-top">Equivalence in full</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">subject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/chem</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/chemistry</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">subject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/phy</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/physics</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">subject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/chi</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/chinese</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">subject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/eng</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/english</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/us</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/upper sec</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/ls</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/lower sec</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/up</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/upper pri</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/lp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/lower pri</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stat/nm</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stat/not matched</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stat/m</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stat/matched</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">role</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>r/t</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>r/tutor</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">role</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>r/s</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>r/student</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="model-implementation-2"><a class="link" href="#model-implementation-2">3.7.2. Model Implementation</a></h4>
+<div class="paragraph">
+<p>The shortcut is first validated, then the field information is converted to its full form.
+Below is the function that performs conversion in the Role class. Other classes follow similar implementation.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"> <span class="directive">public</span> <span class="predefined-type">String</span> convertToFullRole(<span class="predefined-type">String</span> original) {
+      <span class="predefined-type">String</span> cur = original.toLowerCase();
+       <span class="keyword">if</span> (cur == <span class="predefined-constant">null</span>) {
+           <span class="keyword">return</span> <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>;
+        } <span class="keyword">else</span> <span class="keyword">if</span> (cur.equals(<span class="string"><span class="delimiter">&quot;</span><span class="content">s</span><span class="delimiter">&quot;</span></span>)) {
+            cur = <span class="string"><span class="delimiter">&quot;</span><span class="content">student</span><span class="delimiter">&quot;</span></span>;
+        } <span class="keyword">else</span> <span class="keyword">if</span> (cur.equals(<span class="string"><span class="delimiter">&quot;</span><span class="content">t</span><span class="delimiter">&quot;</span></span>)) {
+            cur = <span class="string"><span class="delimiter">&quot;</span><span class="content">tutor</span><span class="delimiter">&quot;</span></span>;
+        }
+       <span class="keyword">return</span> cur;
+ }</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The user can input short-cut in case insensitive fashion.
+For instance, the user may input <code>add n/jOHN dOE p/98765432 e/johND@eXaMpLe.com a/NUS #04-02 $/50 sub/PHy lvl/uP stat/nM t/T</code>
+, the stored entry will be <code>John Doe Phone: 98765432 Email: <a href="mailto:johnd@example.com">johnd@example.com</a> Address: NUS #04-02 Tags: [Tutor][Upper Pri][50][Physics][Not Matched]</code>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -2785,7 +2947,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-20 12:27:14 UTC
+Last updated 2018-03-20 13:23:17 UTC
 </div>
 </div>
 </body>
