@@ -48,6 +48,7 @@
 <li><a href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></li>
 <li><a href="#logging">3.3. Logging</a></li>
 <li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
+<li><a href="#automatic-creation-of-tags-from-person-attributes">3.5. Automatic creation of tags from person attributes</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -916,6 +917,145 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="automatic-creation-of-tags-from-person-attributes"><a class="link" href="#automatic-creation-of-tags-from-person-attributes">3.5. Automatic creation of tags from person attributes</a></h3>
+<div class="sect3">
+<h4 id="creation-of-the-code-tag-code"><a class="link" href="#creation-of-the-code-tag-code">3.5.1. Creation of the <code>Tag</code></a></h4>
+<div class="paragraph">
+<p>We have made it such that the attributes <code>Price</code>, <code>Subject</code>, <code>Level</code> and <code>Status</code> of a person each have a tag with the value added to the person.
+This is done when user performs <code>add</code> or <code>edit</code> command.</p>
+</div>
+<div class="paragraph">
+<p>In the AddCommandParser, after successfully parsing the <code>Price</code>, <code>Subject</code>, <code>Level</code>, <code>Status</code> input, the code has been modified such that a new <code>Tag</code> containing the correct value and attribute is automatically created after.
+For the EditCommand, the <code>createEditedPerson</code> command will remove the previous attribute tags in the <code>Person</code> list of tags, then recreate the attribute tags using the new <code>Person</code> class attribute values.</p>
+</div>
+<div class="paragraph">
+<p>The idea for this is implemented this way:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">private</span> <span class="directive">static</span> Person createEditedPerson(...) {
+        <span class="comment">/* code to update the attributes here */</span>
+    <span class="predefined-type">Set</span>&lt;Tag&gt; attributeTags = <span class="keyword">new</span> <span class="predefined-type">HashSet</span>&lt;&gt;(updatedTags);
+        attributeTags.remove(<span class="keyword">new</span> Tag(personToEdit.getPrice().toString()));
+        <span class="comment">/* similar code to remove the other attribute tags... */</span>
+        attributeTags.add(<span class="keyword">new</span> Tag(updatedPrice.toString(), Tag.AllTagTypes.PRICE));
+        <span class="comment">/* similar code to add the new attribute tags... */</span>
+        <span class="keyword">return</span> <span class="keyword">new</span> Person(...)
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Since the <code>Price</code>, <code>Subject</code>, <code>Level</code> and <code>Status</code> attributes have been parsed and checked to conform to expected values, there is no need to reparse the values when creating them as a <code>Tag</code>.<br>
+The acceptable inputs for a <code>Tag</code> must necessarily allow all the acceptable inputs for <code>Price</code>, <code>Subject</code>, <code>Level</code> and <code>Status</code> to prevent errors.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="code-tag-code-class-attributes"><a class="link" href="#code-tag-code-class-attributes">3.5.2. <code>Tag</code> class attributes</a></h4>
+<div class="paragraph">
+<p>The <code>Tag</code> class can support the ability to classify which attribute the tag was created from. This is done by adding an enum <code>AllTagsType</code> to the <code>Tag</code> class.
+A tag can be created without being from an attribute, with just a tag name. In this case, creating a <code>Tag</code> with no provided <code>AllTagsType</code> will initialise the <code>tagType</code> to <code>DEFAULT</code>.</p>
+</div>
+<div class="paragraph">
+<p>This is the current <code>Tag</code> class in UML notation.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TagClassDiagram.png" alt="TagClassDiagram" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>This new attribute is used to implement the capability to standardize all tags created as a <code>Price</code> attribute to have the same color, all tags created as a <code>Subject</code> attribute to have the same color, and so on.
+This has been implemented as a new overloaded <code>getTagColorStyleFor</code> method, which takes in a Tag instead of a String.</p>
+</div>
+<div class="paragraph">
+<p>The method idea is implemented this way:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">private</span> <span class="predefined-type">String</span> getTagColorStyleFor(Tag tag) {
+        <span class="keyword">switch</span> (tag.tagType) {
+        <span class="keyword">case</span> SUBJECT:
+                <span class="comment">//return color</span>
+        <span class="keyword">case</span> LEVEL:
+                <span class="comment">//return color</span>
+        <span class="keyword">case</span> STATUS:
+                <span class="comment">//return color</span>
+        <span class="keyword">case</span> PRICE:
+                <span class="comment">//return color</span>
+        <span class="keyword">default</span>:
+                <span class="comment">//return color</span>
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+As shown from this code snippet, any tag that is not set to one of the 4 attributes will fall through to the default type, where they will have the same color. This is currently done as such to prevent accidental collisions of color with the 4 attribute tags.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="storage-implementation"><a class="link" href="#storage-implementation">3.5.3. Storage Implementation</a></h4>
+<div class="paragraph">
+<p>The method for storing tags has also been changed slightly. While previously just the <code>tagName</code> needed to be stored. Now both the <code>tagName</code> and <code>tagType</code> must be stored.
+This has been accomplished by having XML store the single field in the form "TAGNAME,TAGTYPE".
+The respective tagName and tagType can be obtained by splitting the read string representing the tag data from the file around the "," separator. Since tags can only be alphanumeric, this provides a safe character to split around.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.5.4. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-method-of-saving-tag-information-in-the-saved-xml-file"><a class="link" href="#aspect-method-of-saving-tag-information-in-the-saved-xml-file">Aspect: Method of saving tag information in the saved XML file</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Keep the <code>XmlAdaptedTag</code> stored in a single XML field.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: There is no need to change the format of the XML file.</p>
+</li>
+<li>
+<p>Cons: Need to ensure that the <code>tagName</code> and <code>tagType</code> can be clearly split when saved to the XML file, and retrieved back.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Change the format of <code>XmlAdaptedTag</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier for advanced users to edit without causing an error, easy to retrieve values from file.</p>
+</li>
+<li>
+<p>Cons: Risks causing issues with how <code>Tag</code> is saved as part of <code>XmlAdaptedPerson</code> and by itself as <code>XmlAdaptedTag</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -2645,7 +2785,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-20 11:06:38 UTC
+Last updated 2018-03-20 12:27:14 UTC
 </div>
 </div>
 </body>
