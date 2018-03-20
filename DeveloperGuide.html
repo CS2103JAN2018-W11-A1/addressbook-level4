@@ -49,8 +49,8 @@
 <li><a href="#logging">3.3. Logging</a></li>
 <li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
 <li><a href="#automatic-creation-of-tags-from-person-attributes">3.5. Automatic creation of tags from person attributes</a></li>
-<li><a href="#making-input-case-insensitive">3.6. Making input case-insensitive</a></li>
-<li><a href="#create-shortcuts-for-the-user-in-filling-fields">3.7. Create shortcuts for the user in filling fields</a></li>
+<li><a href="#case-insensitive-input">3.6. Case-insensitive input</a></li>
+<li><a href="#shortcuts-for-the-user-in-filling-fields">3.7. Shortcuts for the user in filling fields</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -1061,15 +1061,19 @@ The respective tagName and tagType can be obtained by splitting the read string 
 </div>
 </div>
 <div class="sect2">
-<h3 id="making-input-case-insensitive"><a class="link" href="#making-input-case-insensitive">3.6. Making input case-insensitive</a></h3>
+<h3 id="case-insensitive-input"><a class="link" href="#case-insensitive-input">3.6. Case-insensitive input</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.6.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>We made input of all fields case insensitive to reduce hassles for the user.</p>
+<p>We made input of fields case-insensitive to reduce hassles for the user.</p>
 </div>
 <div class="paragraph">
 <p>After parsing and validation, the field entered is converted to <a href="#proper-case">proper case</a> internally,
 so tags generated from the field information will be standardized and more readable for the user.</p>
+</div>
+<div class="paragraph">
+<p>The exceptions are <code>price</code> and <code>phone</code> as they consist only numbers and require no conversion.
+<code>email</code> is converted to all lower-case to follow the convention.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1077,7 +1081,7 @@ so tags generated from the field information will be standardized and more reada
 <div class="paragraph">
 <p>We utilise the <code>ProperCaseConverter</code> object to convert all parsed and valid input into proper case.
 See the example below for an actual implementation found in the <code>Role</code> class.
-All the fields utilise the <code>ProperCaseConverter</code> object in similar way.</p>
+All the fields utilise the <code>ProperCaseConverter</code> object in a similar way.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1095,7 +1099,7 @@ All the fields utilise the <code>ProperCaseConverter</code> object in similar wa
 </div>
 </div>
 <div class="sect2">
-<h3 id="create-shortcuts-for-the-user-in-filling-fields"><a class="link" href="#create-shortcuts-for-the-user-in-filling-fields">3.7. Create shortcuts for the user in filling fields</a></h3>
+<h3 id="shortcuts-for-the-user-in-filling-fields"><a class="link" href="#shortcuts-for-the-user-in-filling-fields">3.7. Shortcuts for the user in filling fields</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.7.1. Current Implementation</a></h4>
 <div class="paragraph">
@@ -1211,7 +1215,7 @@ Below is the function that performs conversion in the Role class. Other classes 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The user can input short-cut in case insensitive fashion.
+The user can input shortcuts in case-insensitive fashion.
 For instance, the user may input <code>add n/jOHN dOE p/98765432 e/johND@eXaMpLe.com a/NUS #04-02 $/50 sub/PHy lvl/uP stat/nM t/T</code>
 , the stored entry will be <code>John Doe Phone: 98765432 Email: <a href="mailto:johnd@example.com">johnd@example.com</a> Address: NUS #04-02 Tags: [Tutor][Upper Pri][50][Physics][Not Matched]</code>
 </td>
@@ -2947,7 +2951,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-20 13:23:17 UTC
+Last updated 2018-03-20 14:18:22 UTC
 </div>
 </div>
 </body>
