@@ -51,6 +51,7 @@
 <li><a href="#automatic-creation-of-tags-from-person-attributes">3.5. Automatic creation of tags from person attributes</a></li>
 <li><a href="#case-insensitive-input">3.6. Case-insensitive input</a></li>
 <li><a href="#shortcuts-for-the-user-in-filling-fields">3.7. Shortcuts for the user in filling fields</a></li>
+<li><a href="#ui-modifications">3.8. UI Modifications</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -1224,6 +1225,139 @@ For instance, the user may input <code>add n/jOHN dOE p/98765432 e/johND@eXaMpLe
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="ui-modifications"><a class="link" href="#ui-modifications">3.8. UI Modifications</a></h3>
+<div class="sect3">
+<h4 id="browser-panel"><a class="link" href="#browser-panel">3.8.1. Browser Panel</a></h4>
+<div class="paragraph">
+<p>The browser panel is modified to show the selected person’s details instead of opening up a URL.
+This allows better visualization of a person’s details as each person now has up 9 attributes: <code>Name</code>, <code>Phone</code>,
+<code>Address</code>, <code>Email</code>, <code>Role</code>, <code>Status</code>, <code>Subject</code>, <code>Level</code>, <code>Price</code> to be displayed.
+Below shows the modifications made:</p>
+</div>
+<div class="paragraph">
+<p><strong>Before</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/OldBrowserPanel.png" alt="OldBrowserPanel" width="500">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>After</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/NewBrowserPanel.png" alt="NewBrowserPanel" width="500">
+</div>
+</div>
+<div class="sect4">
+<h5 id="current-implementation-4"><a class="link" href="#current-implementation-4">Current Implementation</a></h5>
+<div class="paragraph">
+<p>The UI is modified using SceneBuilder and the layout is specified in <a href="https://github.com/CS2103JAN2018-W11-B1/main/blob/master/src/main/resources/view/BrowserPanel.fxml"><code>BrowserPanel.fxml</code></a>.
+<a href="https://github.com/CS2103JAN2018-W11-B1/main/blob/master/src/main/java/seedu/address/ui/BrowserPanel.java"><code>BrowserPanel.java</code></a> subscribes to <code>handlePersonPanelSelectionChangedEvent</code>, where this allows the browser panel to
+be updated whenever the user selects on a specific person.</p>
+</div>
+<div class="paragraph">
+<p>We choose to place the person&#8217;s name at the top of the browser panel for easy identification of a person while
+other details are organized in a table format for easy reference. Rows of the table are also alternately colored
+to increase readability.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In the case if the person attribute is null (except <code>Name</code> cannot be null), it will be displayed as " - "
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h5>
+<div class="sect5">
+<h6 id="aspect-layout-of-browser-panel"><a class="link" href="#aspect-layout-of-browser-panel">Aspect: Layout of Browser Panel</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use table to display person details with a column specifying the type of attribute
+and the other specifying the actual content.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to read and refer to.</p>
+</li>
+<li>
+<p>Cons: May not look visually appealing.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Centralized display of person details without usage of tables and reference to the type of attribute.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Visually appealing.</p>
+</li>
+<li>
+<p>Cons: Locating an attribute may not be easy due to lack of labelling.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="person-card"><a class="link" href="#person-card">3.8.2. Person Card</a></h4>
+<div class="paragraph">
+<p>Person card is improved to show the list of person’s details more concisely and clearly.
+Below shows the improvements made:</p>
+</div>
+<div class="paragraph">
+<p><strong>Before</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/OldPersonCard.png" alt="OldPersonCard" width="300">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>After</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/NewPersonCard.png" alt="NewPersonCard" width="300">
+</div>
+</div>
+<div class="sect4">
+<h5 id="removal-of-unncessary-information"><a class="link" href="#removal-of-unncessary-information">Removal of Unncessary Information</a></h5>
+<div class="paragraph">
+<p>Besides <code>Name</code>, all other details are removed from the person card. We choose to remove it as these details can
+be easily viewed by selecting on the person card since the browser panel now shows the full details of a person.</p>
+</div>
+<div class="paragraph">
+<p>As such, we decided to only leave the neccessary details that the user will frequently refer
+to in the person card. This helps to reduce cluttering on the side panel and allows the user to be able to view a
+longer list of people at one time.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="coloring-of-tags"><a class="link" href="#coloring-of-tags">Coloring of Tags</a></h5>
+<div class="paragraph">
+<p>To allow easy identification of the category that a tag belongs to, different colors are used for different attributes
+of a person. A standardized color is used for each attribute and its color is stored in <code>Tag</code> such that the color
+will be retained when the user reopens the application.</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -2258,7 +2392,7 @@ This allows the user to view information such as number of students/tutors/match
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">NG Xin Ler</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Change browser panel to view Person&#8217;s details and remove all attributes except name and tags in
-Person card. This helps to improve the readability of Person details and prevents cluttering on the side panel.</p></td>
+Person card. This helps to improve the readability of Person details and reduce cluttering on the side panel.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Create <code>unmatch</code> command. This allows the user to unmatch a pair of Tutor and Student in the event where the pair is
 wrongly matched or either the Tutor or Student wants to change a matching.</p></td>
 </tr>
@@ -2951,7 +3085,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-20 14:18:22 UTC
+Last updated 2018-03-20 14:54:09 UTC
 </div>
 </div>
 </body>
