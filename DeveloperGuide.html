@@ -51,7 +51,8 @@
 <li><a href="#automatic-creation-of-tags-from-person-attributes">3.5. Automatic creation of tags from person attributes</a></li>
 <li><a href="#case-insensitive-input">3.6. Case-insensitive input</a></li>
 <li><a href="#shortcuts-for-the-user-in-filling-fields">3.7. Shortcuts for the user in filling fields</a></li>
-<li><a href="#ui-modifications">3.8. UI Modifications</a></li>
+<li><a href="#filter-feature">3.8. Filter feature</a></li>
+<li><a href="#ui-modifications">3.9. UI Modifications</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -1226,9 +1227,39 @@ For instance, the user may input <code>add n/jOHN dOE p/98765432 e/johND@eXaMpLe
 </div>
 </div>
 <div class="sect2">
-<h3 id="ui-modifications"><a class="link" href="#ui-modifications">3.8. UI Modifications</a></h3>
+<h3 id="filter-feature"><a class="link" href="#filter-feature">3.8. Filter feature</a></h3>
 <div class="sect3">
-<h4 id="browser-panel"><a class="link" href="#browser-panel">3.8.1. Browser Panel</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.8.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>We have added the <code>filter</code> command which inherit from <code>Command</code>. The user can <code>filter</code> according to the attributes <code>Subject</code>, <code>Level</code> and <code>Status</code> of a person.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the filter command works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FilterCommandSequenceDiagram.png" alt="FilterCommandSequenceDiagram" width="800">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The user must input arguments in case sensitive and full fashion.
+For instance, the entry <code>filter maTH</code> will not work.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ui-modifications"><a class="link" href="#ui-modifications">3.9. UI Modifications</a></h3>
+<div class="sect3">
+<h4 id="browser-panel"><a class="link" href="#browser-panel">3.9.1. Browser Panel</a></h4>
 <div class="paragraph">
 <p>The browser panel is modified to show the selected person’s details instead of opening up a URL.
 This allows better visualization of a person’s details as each person now has up 9 attributes: <code>Name</code>, <code>Phone</code>,
@@ -1252,7 +1283,7 @@ Below shows the modifications made:</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="current-implementation-4"><a class="link" href="#current-implementation-4">Current Implementation</a></h5>
+<h5 id="current-implementation-5"><a class="link" href="#current-implementation-5">Current Implementation</a></h5>
 <div class="paragraph">
 <p>The UI is modified using SceneBuilder and the layout is specified in <a href="https://github.com/CS2103JAN2018-W11-B1/main/blob/master/src/main/resources/view/BrowserPanel.fxml"><code>BrowserPanel.fxml</code></a>.
 <a href="https://github.com/CS2103JAN2018-W11-B1/main/blob/master/src/main/java/seedu/address/ui/BrowserPanel.java"><code>BrowserPanel.java</code></a> subscribes to <code>handlePersonPanelSelectionChangedEvent</code>, where this allows the browser panel to
@@ -1315,7 +1346,7 @@ and the other specifying the actual content.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="person-card"><a class="link" href="#person-card">3.8.2. Person Card</a></h4>
+<h4 id="person-card"><a class="link" href="#person-card">3.9.2. Person Card</a></h4>
 <div class="paragraph">
 <p>Person card is improved to show the list of person’s details more concisely and clearly.
 Below shows the improvements made:</p>
@@ -3085,7 +3116,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-20 16:11:46 UTC
+Last updated 2018-03-20 16:20:50 UTC
 </div>
 </div>
 </body>
