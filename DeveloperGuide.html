@@ -1082,21 +1082,15 @@ so tags generated from the field information will be standardized and more reada
 <h4 id="model-implementation"><a class="link" href="#model-implementation">3.6.2. Model Implementation</a></h4>
 <div class="paragraph">
 <p>We utilise the <code>ProperCaseConverter</code> object to convert all parsed and valid input into proper case.
-See the example below for an actual implementation found in the <code>Role</code> class.
-All the fields utilise the <code>ProperCaseConverter</code> object in a similar way.</p>
+The sequence diagram below shows how this is achieved in the constructor of <code>Role</code> class.</p>
 </div>
-<div class="listingblock">
+<div class="imageblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">Role</span>{
- <span class="comment">//...other implementations...</span>
- <span class="directive">public</span> <span class="predefined-type">Role</span>(<span class="predefined-type">String</span> role) {
-         <span class="comment">//... Validating input...</span>
-         ProperCaseConverter pc = <span class="keyword">new</span> ProperCaseConverter();
-         <span class="local-variable">this</span>.value = pc.convertToProperCase(role);
-     }
- <span class="comment">//...other implementations...</span>
-}</code></pre>
+<img src="images/SDforCaseInsensitiveInput.png" alt="SDforCaseInsensitiveInput" width="800">
 </div>
+</div>
+<div class="paragraph">
+<p>The other classes utilise the <code>ProperCaseConverter</code> object in a similar way.</p>
 </div>
 </div>
 </div>
@@ -1134,7 +1128,7 @@ We currently support shortcuts for <code>subject</code>, <code>level</code>, <co
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">subject</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/phy</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/physics</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/physics</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">subject</p></td>
@@ -3116,7 +3110,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-21 15:43:25 UTC
+Last updated 2018-03-23 13:02:02 UTC
 </div>
 </div>
 </body>
