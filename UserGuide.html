@@ -39,21 +39,17 @@
 <li><a href="#locating-persons-by-name-code-find-code-or-code-f-code">3.2.6. Locating persons by name: <code>find</code> or <code>f</code></a></li>
 <li><a href="#deleting-a-person-code-delete-code-or-code-d-code">3.2.7. Deleting a person : <code>delete</code> or <code>d</code></a></li>
 <li><a href="#selecting-a-person-code-select-code-or-code-s-code">3.2.8. Selecting a person : <code>select</code> or <code>s</code></a></li>
+<li><a href="#listing-entered-commands-code-strong-history-strong-code-or-code-strong-h-strong-code">3.2.9. Listing entered commands : <code><strong>history</strong></code> or <code><strong>h</strong></code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code-or-code-u-code">3.2.10. Undoing previous command : <code>undo</code> or <code>u</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-strong-redo-strong-code-or-code-strong-r-strong-code">3.2.11. Redoing the previously undone command : <code><strong>redo</strong></code> or <code><strong>r</strong></code></a></li>
+<li><a href="#clearing-all-entries-code-strong-clear-strong-code-or-code-strong-c-strong-code">3.2.12. Clearing all entries : <code><strong>clear</strong></code> or <code><strong>c</strong></code></a></li>
+<li><a href="#exiting-the-program-code-strong-exit-strong-code">3.2.13. Exiting the program : <code><strong>exit</strong></code></a></li>
+<li><a href="#saving-the-data">3.2.14. Saving the data</a></li>
 </ul>
 </li>
-<li><a href="#listing-entered-commands-code-strong-history-strong-code-or-code-strong-h-strong-code">3.3. Listing entered commands : <code><strong>history</strong></code> or <code><strong>h</strong></code></a>
+<li><a href="#advanced-features">3.3. Advanced Features</a>
 <ul class="sectlevel3">
-<li><a href="#undoing-previous-command-code-undo-code-or-code-u-code">3.3.1. Undoing previous command : <code>undo</code> or <code>u</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-strong-redo-strong-code-or-code-strong-r-strong-code">3.3.2. Redoing the previously undone command : <code><strong>redo</strong></code> or <code><strong>r</strong></code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-strong-redo-strong-code-or-code-strong-r-strong-code-2">3.3.3. Redoing the previously undone command : <code><strong>redo</strong></code> or <code><strong>r</strong></code></a></li>
-<li><a href="#clearing-all-entries-code-strong-clear-strong-code-or-code-strong-c-strong-code">3.3.4. Clearing all entries : <code><strong>clear</strong></code> or <code><strong>c</strong></code></a></li>
-<li><a href="#exiting-the-program-code-strong-exit-strong-code">3.3.5. Exiting the program : <code><strong>exit</strong></code></a></li>
-<li><a href="#saving-the-data">3.3.6. Saving the data</a></li>
-</ul>
-</li>
-<li><a href="#advanced-features">3.4. Advanced Features</a>
-<ul class="sectlevel3">
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.4.1. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.3.1. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 </ul>
@@ -584,9 +580,8 @@ INDEX to be specified will be highlighted.</p>
 </table>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="listing-entered-commands-code-strong-history-strong-code-or-code-strong-h-strong-code"><a class="link" href="#listing-entered-commands-code-strong-history-strong-code-or-code-strong-h-strong-code">3.3. Listing entered commands : <code><strong>history</strong></code> or <code><strong>h</strong></code></a></h3>
+<div class="sect3">
+<h4 id="listing-entered-commands-code-strong-history-strong-code-or-code-strong-h-strong-code"><a class="link" href="#listing-entered-commands-code-strong-history-strong-code-or-code-strong-h-strong-code">3.2.9. Listing entered commands : <code><strong>history</strong></code> or <code><strong>h</strong></code></a></h4>
 <div class="paragraph">
 <p>Format: <code><strong>history</strong></code></p>
 </div>
@@ -607,8 +602,9 @@ INDEX to be specified will be highlighted.</p>
 </tr>
 </table>
 </div>
+</div>
 <div class="sect3">
-<h4 id="undoing-previous-command-code-undo-code-or-code-u-code"><a class="link" href="#undoing-previous-command-code-undo-code-or-code-u-code">3.3.1. Undoing previous command : <code>undo</code> or <code>u</code></a></h4>
+<h4 id="undoing-previous-command-code-undo-code-or-code-u-code"><a class="link" href="#undoing-previous-command-code-undo-code-or-code-u-code">3.2.10. Undoing previous command : <code>undo</code> or <code>u</code></a></h4>
 <div class="paragraph">
 <p>Format: <code><strong>undo</strong></code>
 You can easily restore STUtor to the state before the previous <em>undoable</em> command was executed.<br></p>
@@ -653,13 +649,7 @@ The <code><strong>undo</strong></code> command fails as there are no undoable co
 </div>
 </div>
 <div class="sect3">
-<h4 id="redoing-the-previously-undone-command-code-strong-redo-strong-code-or-code-strong-r-strong-code"><a class="link" href="#redoing-the-previously-undone-command-code-strong-redo-strong-code-or-code-strong-r-strong-code">3.3.2. Redoing the previously undone command : <code><strong>redo</strong></code> or <code><strong>r</strong></code></a></h4>
-<div class="paragraph">
-<p>Format: <code><strong>redo</strong></code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="redoing-the-previously-undone-command-code-strong-redo-strong-code-or-code-strong-r-strong-code-2"><a class="link" href="#redoing-the-previously-undone-command-code-strong-redo-strong-code-or-code-strong-r-strong-code-2">3.3.3. Redoing the previously undone command : <code><strong>redo</strong></code> or <code><strong>r</strong></code></a></h4>
+<h4 id="redoing-the-previously-undone-command-code-strong-redo-strong-code-or-code-strong-r-strong-code"><a class="link" href="#redoing-the-previously-undone-command-code-strong-redo-strong-code-or-code-strong-r-strong-code">3.2.11. Redoing the previously undone command : <code><strong>redo</strong></code> or <code><strong>r</strong></code></a></h4>
 <div class="paragraph">
 <p>Format: <code><strong>redo</strong></code></p>
 </div>
@@ -693,7 +683,7 @@ The <code><strong>redo</strong></code> command fails as there are no <code><stro
 </div>
 </div>
 <div class="sect3">
-<h4 id="clearing-all-entries-code-strong-clear-strong-code-or-code-strong-c-strong-code"><a class="link" href="#clearing-all-entries-code-strong-clear-strong-code-or-code-strong-c-strong-code">3.3.4. Clearing all entries : <code><strong>clear</strong></code> or <code><strong>c</strong></code></a></h4>
+<h4 id="clearing-all-entries-code-strong-clear-strong-code-or-code-strong-c-strong-code"><a class="link" href="#clearing-all-entries-code-strong-clear-strong-code-or-code-strong-c-strong-code">3.2.12. Clearing all entries : <code><strong>clear</strong></code> or <code><strong>c</strong></code></a></h4>
 <div class="paragraph">
 <p>Format: <code><strong>clear</strong></code></p>
 </div>
@@ -702,19 +692,16 @@ The <code><strong>redo</strong></code> command fails as there are no <code><stro
 </div>
 </div>
 <div class="sect3">
-<h4 id="exiting-the-program-code-strong-exit-strong-code"><a class="link" href="#exiting-the-program-code-strong-exit-strong-code">3.3.5. Exiting the program : <code><strong>exit</strong></code></a></h4>
+<h4 id="exiting-the-program-code-strong-exit-strong-code"><a class="link" href="#exiting-the-program-code-strong-exit-strong-code">3.2.13. Exiting the program : <code><strong>exit</strong></code></a></h4>
 <div class="paragraph">
 <p>Format: <code><strong>exit</strong></code></p>
 </div>
 <div class="paragraph">
 <p>Exits the program.<br></p>
 </div>
-<div class="paragraph">
-<p>Exits the program.<br></p>
-</div>
 </div>
 <div class="sect3">
-<h4 id="saving-the-data"><a class="link" href="#saving-the-data">3.3.6. Saving the data</a></h4>
+<h4 id="saving-the-data"><a class="link" href="#saving-the-data">3.2.14. Saving the data</a></h4>
 <div class="paragraph">
 <p>STUtor data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -722,9 +709,9 @@ There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="advanced-features"><a class="link" href="#advanced-features">3.4. Advanced Features</a></h3>
+<h3 id="advanced-features"><a class="link" href="#advanced-features">3.3. Advanced Features</a></h3>
 <div class="sect3">
-<h4 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.4.1. Encrypting data files <code>[coming in v2.0]</code></a></h4>
+<h4 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.3.1. Encrypting data files <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -933,7 +920,7 @@ You can the file under the same path of <strong>main/data</strong></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-25 11:24:57 UTC
+Last updated 2018-03-25 11:37:23 UTC
 </div>
 </div>
 </body>
