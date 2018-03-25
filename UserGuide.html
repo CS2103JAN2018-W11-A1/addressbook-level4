@@ -39,23 +39,28 @@
 <li><a href="#locating-persons-by-name-code-find-code-or-code-f-code">3.2.6. Locating persons by name: <code>find</code> or <code>f</code></a></li>
 <li><a href="#deleting-a-person-code-delete-code-or-code-d-code">3.2.7. Deleting a person : <code>delete</code> or <code>d</code></a></li>
 <li><a href="#selecting-a-person-code-select-code-or-code-s-code">3.2.8. Selecting a person : <code>select</code> or <code>s</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code-or-code-h-code">3.2.9. Listing entered commands : <code>history</code> or <code>h</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code-or-code-u-code">3.2.10. Undoing previous command : <code>undo</code> or <code>u</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code-or-code-r-code">3.2.11. Redoing the previously undone command : <code>redo</code> or <code>r</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code-or-code-c-code">3.2.12. Clearing all entries : <code>clear</code> or <code>c</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.2.13. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.2.14. Saving the data</a></li>
 </ul>
 </li>
-<li><a href="#advanced-features">3.3. Advanced Features</a>
+<li><a href="#listing-entered-commands-code-strong-history-strong-code-or-code-strong-h-strong-code">3.3. Listing entered commands : <code><strong>history</strong></code> or <code><strong>h</strong></code></a>
 <ul class="sectlevel3">
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.3.1. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code-or-code-u-code">3.3.1. Undoing previous command : <code>undo</code> or <code>u</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-strong-redo-strong-code-or-code-strong-r-strong-code">3.3.2. Redoing the previously undone command : <code><strong>redo</strong></code> or <code><strong>r</strong></code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-strong-redo-strong-code-or-code-strong-r-strong-code-2">3.3.3. Redoing the previously undone command : <code><strong>redo</strong></code> or <code><strong>r</strong></code></a></li>
+<li><a href="#clearing-all-entries-code-strong-clear-strong-code-or-code-strong-c-strong-code">3.3.4. Clearing all entries : <code><strong>clear</strong></code> or <code><strong>c</strong></code></a></li>
+<li><a href="#exiting-the-program-code-strong-exit-strong-code">3.3.5. Exiting the program : <code><strong>exit</strong></code></a></li>
+<li><a href="#saving-the-data">3.3.6. Saving the data</a></li>
+</ul>
+</li>
+<li><a href="#advanced-features">3.4. Advanced Features</a>
+<ul class="sectlevel3">
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.4.1. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
 <li><a href="#command-summary">5. Command Summary</a></li>
+<li><a href="#prefix-shortcut-summary">6. Prefix Shortcut Summary</a></li>
 </ul>
 </div>
 </div>
@@ -579,11 +584,14 @@ INDEX to be specified will be highlighted.</p>
 </table>
 </div>
 </div>
-<div class="sect3">
-<h4 id="listing-entered-commands-code-history-code-or-code-h-code"><a class="link" href="#listing-entered-commands-code-history-code-or-code-h-code">3.2.9. Listing entered commands : <code>history</code> or <code>h</code></a></h4>
+</div>
+<div class="sect2">
+<h3 id="listing-entered-commands-code-strong-history-strong-code-or-code-strong-h-strong-code"><a class="link" href="#listing-entered-commands-code-strong-history-strong-code-or-code-strong-h-strong-code">3.3. Listing entered commands : <code><strong>history</strong></code> or <code><strong>h</strong></code></a></h3>
 <div class="paragraph">
-<p>Lists all the commands that you have entered in reverse chronological order.<br>
-Format: <code>history</code></p>
+<p>Format: <code><strong>history</strong></code></p>
+</div>
+<div class="paragraph">
+<p>You can list all the commands that you have entered in reverse chronological order.<br></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -599,12 +607,11 @@ Format: <code>history</code></p>
 </tr>
 </table>
 </div>
-</div>
 <div class="sect3">
-<h4 id="undoing-previous-command-code-undo-code-or-code-u-code"><a class="link" href="#undoing-previous-command-code-undo-code-or-code-u-code">3.2.10. Undoing previous command : <code>undo</code> or <code>u</code></a></h4>
+<h4 id="undoing-previous-command-code-undo-code-or-code-u-code"><a class="link" href="#undoing-previous-command-code-undo-code-or-code-u-code">3.3.1. Undoing previous command : <code>undo</code> or <code>u</code></a></h4>
 <div class="paragraph">
-<p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
-Format: <code>undo</code></p>
+<p>Format: <code><strong>undo</strong></code>
+You can easily restore STUtor to the state before the previous <em>undoable</em> command was executed.<br></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -614,7 +621,7 @@ Format: <code>undo</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Undoable commands: those commands that modify the address book&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
+<p>Undoable commands: those commands that modify STUtor&#8217;s content (<code><strong>add</strong></code>, <code><strong>delete</strong></code>, <code><strong>edit</strong></code> and <code><strong>clear</strong></code>).</p>
 </div>
 </td>
 </tr>
@@ -626,30 +633,38 @@ Format: <code>undo</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete 1</code><br>
-<code>list</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
+<p><code><strong>delete</strong> 1</code><br>
+<code><strong>list</strong></code><br>
+<code><strong>undo</strong></code> (reverses the <code><strong>delete</strong> 1</code> command)<br></p>
 </li>
 <li>
-<p><code>select 1</code><br>
-<code>list</code><br>
-<code>undo</code><br>
-The <code>undo</code> command fails as there are no undoable commands executed previously.</p>
+<p><code><strong>select</strong> 1</code><br>
+<code><strong>list</strong></code><br>
+<code><strong>undo</strong></code><br>
+The <code><strong>undo</strong></code> command fails as there are no undoable commands executed previously.</p>
 </li>
 <li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
+<p><code><strong>delete</strong> 1</code><br>
+<code><strong>clear</strong></code><br>
+<code><strong>undo</strong></code> (reverses the <code><strong>clear</strong></code> command)<br>
+<code><strong>undo</strong></code> (reverses the <code><strong>delete</strong> 1</code> command)<br></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="redoing-the-previously-undone-command-code-redo-code-or-code-r-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code-or-code-r-code">3.2.11. Redoing the previously undone command : <code>redo</code> or <code>r</code></a></h4>
+<h4 id="redoing-the-previously-undone-command-code-strong-redo-strong-code-or-code-strong-r-strong-code"><a class="link" href="#redoing-the-previously-undone-command-code-strong-redo-strong-code-or-code-strong-r-strong-code">3.3.2. Redoing the previously undone command : <code><strong>redo</strong></code> or <code><strong>r</strong></code></a></h4>
 <div class="paragraph">
-<p>Reverses the most recent <code>undo</code> command.<br>
-Format: <code>redo</code></p>
+<p>Format: <code><strong>redo</strong></code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="redoing-the-previously-undone-command-code-strong-redo-strong-code-or-code-strong-r-strong-code-2"><a class="link" href="#redoing-the-previously-undone-command-code-strong-redo-strong-code-or-code-strong-r-strong-code-2">3.3.3. Redoing the previously undone command : <code><strong>redo</strong></code> or <code><strong>r</strong></code></a></h4>
+<div class="paragraph">
+<p>Format: <code><strong>redo</strong></code></p>
+</div>
+<div class="paragraph">
+<p>You can easily reverse the most recent <code><strong>undo</strong></code> command.<br></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -657,52 +672,59 @@ Format: <code>redo</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete 1</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br></p>
+<p><code><strong>delete</strong> 1</code><br>
+<code><strong>undo</strong></code> (reverses the <code><strong>delete</strong> 1</code> command)<br>
+<code><strong>redo</strong></code> (reapplies the <code><strong>delete</strong> 1</code> command)<br></p>
 </li>
 <li>
-<p><code>delete 1</code><br>
-<code>redo</code><br>
-The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
+<p><code><strong>delete</strong> 1</code><br>
+<code><strong>redo</strong></code><br>
+The <code><strong>redo</strong></code> command fails as there are no <code><strong>undo</strong></code> commands executed previously.</p>
 </li>
 <li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>clear</code> command)<br></p>
+<p><code><strong>delete</strong> 1</code><br>
+<code><strong>clear</strong></code><br>
+<code><strong>undo</strong></code> (reverses the <code><strong>clear</strong></code> command)<br>
+<code><strong>undo</strong></code> (reverses the <code><strong>delete</strong> 1</code> command)<br>
+<code><strong>redo</strong></code> (reapplies the <code><strong>delete</strong> 1</code> command)<br>
+<code><strong>redo</strong></code> (reapplies the <code><strong>clear</strong></code> command)<br></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="clearing-all-entries-code-clear-code-or-code-c-code"><a class="link" href="#clearing-all-entries-code-clear-code-or-code-c-code">3.2.12. Clearing all entries : <code>clear</code> or <code>c</code></a></h4>
+<h4 id="clearing-all-entries-code-strong-clear-strong-code-or-code-strong-c-strong-code"><a class="link" href="#clearing-all-entries-code-strong-clear-strong-code-or-code-strong-c-strong-code">3.3.4. Clearing all entries : <code><strong>clear</strong></code> or <code><strong>c</strong></code></a></h4>
 <div class="paragraph">
-<p>Clears all entries from the address book.<br>
-Format: <code>clear</code></p>
+<p>Format: <code><strong>clear</strong></code></p>
+</div>
+<div class="paragraph">
+<p>To clear all entries from your STUtor, use the <code><strong>clear</strong></code> command.<br></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.2.13. Exiting the program : <code>exit</code></a></h4>
+<h4 id="exiting-the-program-code-strong-exit-strong-code"><a class="link" href="#exiting-the-program-code-strong-exit-strong-code">3.3.5. Exiting the program : <code><strong>exit</strong></code></a></h4>
 <div class="paragraph">
-<p>Exits the program.<br>
-Format: <code>exit</code></p>
+<p>Format: <code><strong>exit</strong></code></p>
+</div>
+<div class="paragraph">
+<p>Exits the program.<br></p>
+</div>
+<div class="paragraph">
+<p>Exits the program.<br></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="saving-the-data"><a class="link" href="#saving-the-data">3.2.14. Saving the data</a></h4>
+<h4 id="saving-the-data"><a class="link" href="#saving-the-data">3.3.6. Saving the data</a></h4>
 <div class="paragraph">
-<p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
+<p>STUtor data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="advanced-features"><a class="link" href="#advanced-features">3.3. Advanced Features</a></h3>
+<h3 id="advanced-features"><a class="link" href="#advanced-features">3.4. Advanced Features</a></h3>
 <div class="sect3">
-<h4 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.3.1. Encrypting data files <code>[coming in v2.0]</code></a></h4>
+<h4 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.4.1. Encrypting data files <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -715,65 +737,203 @@ There is no need to save manually.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
+<strong>A</strong>:
+First, install STUtor in the other computer.
+Then, navigate to <strong>main/data</strong>, and overwrite the empty  <code>STUtor.xml</code> file
+with the file of the same name found on your previous computer.
+You can the file under the same path of <strong>main/data</strong></p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
-</li>
-<li>
-<p><strong>Clear</strong> : <code>clear</code></p>
-</li>
-<li>
-<p><strong>Delete</strong> : <code>delete INDEX</code><br>
-e.g. <code>delete 3</code></p>
-</li>
-<li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
-</li>
-<li>
-<p><strong>Filter</strong> : <code>filter KEYWORD</code><br>
-e.g. <code>filter Math</code></p>
-</li>
-<li>
-<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>find James Jake</code></p>
-</li>
-<li>
-<p><strong>List</strong> : <code>list</code></p>
-</li>
-<li>
-<p><strong>Help</strong> : <code>help</code></p>
-</li>
-<li>
-<p><strong>Select</strong> : <code>select INDEX</code><br>
-e.g.<code>select 2</code></p>
-</li>
-<li>
-<p><strong>History</strong> : <code>history</code></p>
-</li>
-<li>
-<p><strong>Undo</strong> : <code>undo</code></p>
-</li>
-<li>
-<p><strong>Redo</strong> : <code>redo</code></p>
-</li>
-</ul>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Shortcut</th>
+<th class="tableblock halign-left valign-top">Format</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete 3</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>e</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit 2 n/James Lee e/jameslee@example.com</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>f</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD [MORE_KEYWORDS]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find James Jake</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>s</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select 2</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter KEYWORD</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter Math</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>l</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>c</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>history</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>h</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>undo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>u</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>redo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>r</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exit</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
 </div>
+</div>
+<div class="sect1">
+<h2 id="prefix-shortcut-summary"><a class="link" href="#prefix-shortcut-summary">6. Prefix Shortcut Summary</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can use these shortcuts in adding a person, or editing a person&#8217;s details.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 59%;">
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 35%;">
+<col style="width: 35%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Applicable field</th>
+<th class="tableblock halign-left valign-top">Shortcut</th>
+<th class="tableblock halign-left valign-top">Equivalence in full</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">subject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/chem</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/chemistry</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">subject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/phy</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/physics</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">subject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/chi</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/chinese</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">subject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/eng</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/english</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/us</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/upper sec</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/ls</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/lower sec</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/up</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/upper pri</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/lp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/lower pri</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stat/nm</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stat/not matched</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stat/m</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stat/matched</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">role</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>r/t</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>r/tutor</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">role</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>r/s</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>r/student</code></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-25 10:44:22 UTC
+Last updated 2018-03-25 11:24:57 UTC
 </div>
 </div>
 </body>
