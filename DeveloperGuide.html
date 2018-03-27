@@ -53,6 +53,7 @@
 <li><a href="#shortcuts-for-the-user-in-filling-fields">4.6. Shortcuts for the user in filling fields</a></li>
 <li><a href="#filter-feature">4.7. Filter feature</a></li>
 <li><a href="#ui-modifications">4.8. UI Modifications</a></li>
+<li><a href="#optional-fields-for-add-command">4.9. Optional Fields for Add Command</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -945,7 +946,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <div class="sect2">
 <h3 id="automatic-creation-of-tags-from-person-attributes"><a class="link" href="#automatic-creation-of-tags-from-person-attributes">4.4. Automatic creation of tags from person attributes</a></h3>
 <div class="sect3">
-<h4 id="creation-of-the-code-tag-code"><a class="link" href="#creation-of-the-code-tag-code">4.4.1. Creation of the <code>Tag</code></a></h4>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.4.1. Current implementation</a></h4>
 <div class="paragraph">
 <p>Each of the attributes <code>Price</code>, <code>Subject</code>, <code>Level</code> and <code>Status</code> of a person each have a tag with the value added to the person.
 This is done when user performs <code>add</code> or <code>edit</code> command.</p>
@@ -969,7 +970,7 @@ The acceptable inputs for a <code>Tag</code> must necessarily allow all the acce
 </div>
 </div>
 <div class="sect3">
-<h4 id="code-tag-code-class-attributes"><a class="link" href="#code-tag-code-class-attributes">4.4.2. <code>Tag</code> class attributes</a></h4>
+<h4 id="model-implementation"><a class="link" href="#model-implementation">4.4.2. Model Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>Tag</code> class can support the ability to classify which attribute the tag was created from. This is done by adding an enum <code>AllTagsType</code> to the <code>Tag</code> class.
 A tag can be created without being from an attribute, with just a tag name. In this case, creating a <code>Tag</code> with no provided <code>AllTagsType</code> will initialise the <code>tagType</code> to <code>DEFAULT</code>.</p>
@@ -981,7 +982,7 @@ A tag can be created without being from an attribute, with just a tag name. In t
 <div class="content">
 <img src="images/TagClassDiagram.png" alt="TagClassDiagram" width="600">
 </div>
-<div class="title">Figure 18. Tag Class</div>
+<div class="title">Figure 18. <code>Tag</code> Class</div>
 </div>
 <div class="paragraph">
 <p>This new attribute is used to implement the capability to standardize all tags created as a <code>Price</code> attribute to have the same color, all tags created as a <code>Subject</code> attribute to have the same color, and so on.
@@ -1003,13 +1004,52 @@ Any tag that is not set to one of the 4 attributes will fall through to the defa
 <div class="sect3">
 <h4 id="storage-implementation"><a class="link" href="#storage-implementation">4.4.3. Storage Implementation</a></h4>
 <div class="paragraph">
-<p>The method for storing tags has also been changed slightly. Previously, just the <code>tagName</code> needed to be stored. Now both the <code>tagName</code> and <code>tagType</code> must be stored.
-This has been accomplished by having XML store the single field in the form "TAGNAME,TAGTYPE".
+<p>The method for storing tags has also been changed slightly. Previously, just the <code>tagName</code> needed to be stored. Now both the <code>tagName</code> and <code>tagType</code> must be stored.<br>
+This has been accomplished by having XML store the single field in the form "TAGNAME,TAGTYPE" (see figure 19).<br>
 The respective tagName and tagType can be obtained by splitting the read string representing the tag data from the file around the "," separator. Since tags can only be alphanumeric, this provides a safe character to split around.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/tagStorage.png" alt="tagStorage" width="400">
+</div>
+<div class="title">Figure 19. Storage of <code>Tag</code></div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.4.4. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-making-use-of-tags-to-display-the-information"><a class="link" href="#aspect-making-use-of-tags-to-display-the-information">Aspect: Making use of tags to display the information</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Create a <code>Tag</code> for each attribute we want to display</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Reuses the code used to display tags, so that there is no need to manually code each attribute to appear similar to a tag.</p>
+</li>
+<li>
+<p>Cons: Increased risk of violating Single Responsibility Principle if the <code>Tag</code> needs to change if attributes in <code>Person</code> change.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Update the UI to allow the information to be displayed as needed.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Makes the logic section more intuitive as the user enters data and that data is stored a single attribute.</p>
+</li>
+<li>
+<p>Cons: Increases repetition in the UI by having a design for each attribute, increases amount of work if the UI display is changed in the future.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 <div class="sect4">
 <h5 id="aspect-method-of-saving-tag-information-in-the-saved-xml-file"><a class="link" href="#aspect-method-of-saving-tag-information-in-the-saved-xml-file">Aspect: Method of saving tag information in the saved XML file</a></h5>
 <div class="ulist">
@@ -1043,12 +1083,45 @@ The respective tagName and tagType can be obtained by splitting the read string 
 </ul>
 </div>
 </div>
+<div class="sect4">
+<h5 id="aspect-method-to-represent-the-attribute-the-tag-was-created-from"><a class="link" href="#aspect-method-to-represent-the-attribute-the-tag-was-created-from">Aspect: Method to represent the attribute the tag was created from</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Create a new attribute in <code>Tag</code> to represent its type.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Since the type belongs to and describes a <code>Tag</code>, this improves the cohesion of <code>Tag</code> and is intuitive.</p>
+</li>
+<li>
+<p>Cons: Need to make sure there is a way to represent user input tags and it is handled properly each time tag type is used.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Check the value in the tag against a known set of values to determine its type.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Keeps the <code>Tag</code> class a simple as possible.</p>
+</li>
+<li>
+<p>Cons: Difficult to maintain, must ensure that there are no values that can possibly be in more than 1 person attribute.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="case-insensitive-input"><a class="link" href="#case-insensitive-input">4.5. Case-insensitive input</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.5.1. Current Implementation</a></h4>
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.5.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>We made input of fields case-insensitive to reduce user input error.</p>
 </div>
@@ -1060,7 +1133,7 @@ The respective tagName and tagType can be obtained by splitting the read string 
 </div>
 </div>
 <div class="sect3">
-<h4 id="model-implementation"><a class="link" href="#model-implementation">4.5.2. Model Implementation</a></h4>
+<h4 id="model-implementation-2"><a class="link" href="#model-implementation-2">4.5.2. Model Implementation</a></h4>
 <div class="paragraph">
 <p>We utilise the <code>ProperCaseConverter</code> object to convert all parsed and valid input into proper case.
 The sequence diagram below shows how this is achieved in the constructor of <code>Role</code> class.</p>
@@ -1069,7 +1142,7 @@ The sequence diagram below shows how this is achieved in the constructor of <cod
 <div class="content">
 <img src="images/SDforCaseInsensitiveInput.png" alt="SDforCaseInsensitiveInput" width="800">
 </div>
-<div class="title">Figure 19. Sequence Diagram for achieveing case insensitive input</div>
+<div class="title">Figure 20. Sequence Diagram for achieveing case insensitive input</div>
 </div>
 <div class="paragraph">
 <p>The other classes utilise the <code>ProperCaseConverter</code> object in a similar way.</p>
@@ -1079,7 +1152,7 @@ The sequence diagram below shows how this is achieved in the constructor of <cod
 <div class="sect2">
 <h3 id="shortcuts-for-the-user-in-filling-fields"><a class="link" href="#shortcuts-for-the-user-in-filling-fields">4.6. Shortcuts for the user in filling fields</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.6.1. Current Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.6.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Due to the nature of the application, the user will input certain information repetitively.
 For example, <code>Role</code> can only be one of <code>student</code> or <code>tutor</code>.</p>
@@ -1166,7 +1239,7 @@ We currently support shortcuts for <code>Subject</code>, <code>Level</code>, <co
 </table>
 </div>
 <div class="sect3">
-<h4 id="model-implementation-2"><a class="link" href="#model-implementation-2">4.6.2. Model Implementation</a></h4>
+<h4 id="model-implementation-3"><a class="link" href="#model-implementation-3">4.6.2. Model Implementation</a></h4>
 <div class="paragraph">
 <div class="title">Input shortcuts</div>
 <p>The shortcut is first validated, then the field information is converted to its full form.
@@ -1206,7 +1279,7 @@ For instance, the user may input <code>add n/jOHN dOE p/98765432 e/johND@eXaMpLe
 <div class="sect2">
 <h3 id="filter-feature"><a class="link" href="#filter-feature">4.7. Filter feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.7.1. Current Implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.7.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>We have added the <code>filter</code> command which inherit from <code>Command</code>. The user can <code>filter</code> according to the attributes <code>Subject</code>, <code>Level</code> and <code>Status</code> of a person.</p>
 </div>
@@ -1217,7 +1290,7 @@ For instance, the user may input <code>add n/jOHN dOE p/98765432 e/johND@eXaMpLe
 <div class="content">
 <img src="images/FilterCommandSequenceDiagram.png" alt="FilterCommandSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 20. Sequence Diagram for <code>filter</code></div>
+<div class="title">Figure 21. Sequence Diagram for <code>filter</code></div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1261,7 +1334,7 @@ Below shows the modifications made:</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="current-implementation-5"><a class="link" href="#current-implementation-5">Current Implementation</a></h5>
+<h5 id="current-implementation-6"><a class="link" href="#current-implementation-6">Current Implementation</a></h5>
 <div class="paragraph">
 <p>The UI is modified using <code>SceneBuilder</code> and the layout is specified in <a href="https://github.com/CS2103JAN2018-W11-B1/main/blob/master/src/main/resources/view/BrowserPanel.fxml"><code>BrowserPanel.fxml</code></a>.
 <a href="https://github.com/CS2103JAN2018-W11-B1/main/blob/master/src/main/java/seedu/address/ui/BrowserPanel.java"><code>BrowserPanel.java</code></a> subscribes to <code>handlePersonPanelSelectionChangedEvent</code>, where this allows the browser panel to
@@ -1367,6 +1440,56 @@ will be retained when the user reopens the application.</p>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="optional-fields-for-add-command"><a class="link" href="#optional-fields-for-add-command">4.9. Optional Fields for Add Command</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.9.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>Add</code> command is extremely long and unwieldly if the user has to type all the information in at once.<br>
+To make it easier for the user to enter new people or a person they lack all the data to enter at once, the <code>Add</code> command allows the user to specify only the name command and leave out all other fields as optional.
+The <code>AddCommandParser</code> now will only check that the <code>Name</code> field has been submitted by the user before proceeding to add the new entry into STUtor.
+For all fields that the user did not enter a value for, an empty string <code>""</code> will be assigned to that field.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.9.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-method-to-store-unentered-fields"><a class="link" href="#aspect-method-to-store-unentered-fields">Aspect: Method to store unentered fields</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Store it as an empty string <code>""</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Does not affect most of the other functionality as they will still successfully read an empty string and ignore it.</p>
+</li>
+<li>
+<p>Cons: Need to ensure that empty string is an accepted input when making a new attribute class.<br>
+User can enter prefix with only spaces as a valid input, which will be in as an unentered field, which may be unintuitive.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Store it as a <code>null</code> value</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More intuitive to store a missing value as <code>null</code>.</p>
+</li>
+<li>
+<p>Cons: When an attribute value needs to be obtained or used, must check for <code>null</code> value and handle accordingly.<br>
+Must create a special constructor for the attribute class to accept a <code>null</code> for its internal <code>String</code> value.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1428,7 +1551,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 21. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 22. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 </div>
@@ -3094,7 +3217,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-27 11:40:58 UTC
+Last updated 2018-03-27 16:20:01 UTC
 </div>
 </div>
 </body>
