@@ -985,28 +985,7 @@ A tag can be created without being from an attribute, with just a tag name. In t
 </div>
 <div class="paragraph">
 <p>This new attribute is used to implement the capability to standardize all tags created as a <code>Price</code> attribute to have the same color, all tags created as a <code>Subject</code> attribute to have the same color, and so on.
-This has been implemented as a new overloaded <code>getTagColorStyleFor</code> method, which takes in a <code>Tag</code> instead of a <code>String</code>.</p>
-</div>
-<div class="paragraph">
-<p>The method idea is implemented this way:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">private</span> <span class="predefined-type">String</span> getTagColorStyleFor(Tag tag) {
-        <span class="keyword">switch</span> (tag.tagType) {
-        <span class="keyword">case</span> SUBJECT:
-                <span class="comment">//return color</span>
-        <span class="keyword">case</span> LEVEL:
-                <span class="comment">//return color</span>
-        <span class="keyword">case</span> STATUS:
-                <span class="comment">//return color</span>
-        <span class="keyword">case</span> PRICE:
-                <span class="comment">//return color</span>
-        <span class="keyword">default</span>:
-                <span class="comment">//return color</span>
-        }
-    }</code></pre>
-</div>
+This has been implemented as a new overloaded <code>getTagColorStyleFor</code> method, which takes in a Tag instead of a String. Depending on the tagType value, the correct colour will be assigned to the tag.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1015,7 +994,7 @@ This has been implemented as a new overloaded <code>getTagColorStyleFor</code> m
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-As shown from this code snippet, any tag that is not set to one of the 4 attributes will fall through to the default type, where they will have the same color. This is done to prevent accidental collisions of color with the 4 attribute tags.
+Any tag that is not set to one of the 4 attributes will fall through to the default type, where they will have the same color. This is currently done as such to prevent accidental collisions of color with the 4 attribute tags.
 </td>
 </tr>
 </table>
@@ -3113,7 +3092,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-26 15:24:40 UTC
+Last updated 2018-03-27 04:44:25 UTC
 </div>
 </div>
 </body>

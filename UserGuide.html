@@ -32,31 +32,16 @@
 <li><a href="#basic-features">3.2. Basic Features</a>
 <ul class="sectlevel3">
 <li><a href="#viewing-help-code-strong-help-strong-code">3.2.1. Viewing help : <code><strong>help</strong></code></a></li>
-<li><a href="#adding-a-person-code-strong-add-strong-code-or-code-strong-a-strong-code">3.2.2. Adding a person: <code><strong>add</strong></code> or <code><strong>a</strong></code></a></li>
+<li><a href="#adding-a-person-code-add-code-or-code-a-code">3.2.2. Adding a person: <code>add</code> or <code>a</code></a></li>
 <li><a href="#listing-all-persons-code-strong-list-strong-code-or-code-strong-l-strong-code">3.2.3. Listing all persons : <code><strong>list</strong></code> or <code><strong>l</strong></code></a></li>
 <li><a href="#editing-a-person-code-strong-edit-strong-code-or-code-strong-e-strong-code">3.2.4. Editing a person : <code><strong>edit</strong></code> or <code><strong>e</strong></code></a></li>
 <li><a href="#filtering-all-persons-list-by-subject-level-role-or-status-code-strong-filter-strong-code">3.2.5. Filtering all persons list by subject, level, role or status: <code><strong>filter</strong></code></a></li>
 <li><a href="#locating-persons-by-name-code-strong-find-strong-code-or-code-strong-f-strong-code">3.2.6. Locating persons by name: <code><strong>find</strong></code> or <code><strong>f</strong></code></a></li>
-<li><a href="#deleting-a-person-code-strong-delete-strong-code-or-code-strong-d-strong-code">3.2.7. Deleting a person : <code><strong>delete</strong></code> or <code><strong>d</strong></code></a></li>
-<li><a href="#selecting-a-person-code-strong-select-strong-code-or-code-strong-s-strong-code">3.2.8. Selecting a person : <code><strong>select</strong></code> or <code><strong>s</strong></code></a></li>
-<li><a href="#listing-entered-commands-code-strong-history-strong-code-or-code-strong-h-strong-code">3.2.9. Listing entered commands : <code><strong>history</strong></code> or <code><strong>h</strong></code></a></li>
-<li><a href="#undoing-previous-command-code-strong-undo-strong-code-or-code-strong-u-strong-code">3.2.10. Undoing previous command : <code><strong>undo</strong></code> or <code><strong>u</strong></code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-strong-redo-strong-code-or-code-strong-r-strong-code">3.2.11. Redoing the previously undone command : <code><strong>redo</strong></code> or <code><strong>r</strong></code></a></li>
-<li><a href="#clearing-all-entries-code-strong-clear-strong-code-or-code-strong-c-strong-code">3.2.12. Clearing all entries : <code><strong>clear</strong></code> or <code><strong>c</strong></code></a></li>
-<li><a href="#exiting-the-program-code-strong-exit-strong-code">3.2.13. Exiting the program : <code><strong>exit</strong></code></a></li>
-<li><a href="#saving-the-data">3.2.14. Saving the data</a></li>
-</ul>
-</li>
-<li><a href="#advanced-features">3.3. Advanced Features</a>
-<ul class="sectlevel3">
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.3.1. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#finding-people-with-missing-fields-code-findmissing-code-or-code-fm-code-coming-in-v1-4">3.2.7. Finding people with missing fields: <code>findmissing</code> or <code>fm</code> (Coming in V1.4)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#faq">4. FAQ</a></li>
-<li><a href="#command-summary">5. Command Summary</a></li>
-<li><a href="#prefix-shortcut-summary">6. Prefix Shortcut Summary</a></li>
 </ul>
 </div>
 </div>
@@ -222,9 +207,9 @@ e.g. typing <code><strong>help</strong></code> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect3">
-<h4 id="adding-a-person-code-strong-add-strong-code-or-code-strong-a-strong-code"><a class="link" href="#adding-a-person-code-strong-add-strong-code-or-code-strong-a-strong-code">3.2.2. Adding a person: <code><strong>add</strong></code> or <code><strong>a</strong></code></a></h4>
+<h4 id="adding-a-person-code-add-code-or-code-a-code"><a class="link" href="#adding-a-person-code-add-code-or-code-a-code">3.2.2. Adding a person: <code>add</code> or <code>a</code></a></h4>
 <div class="paragraph">
-<p>Format: <code><strong>add</strong> n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS $/PRICE sub/SUBJECT lvl/EDUCATION_LEVEL stat/STATUS r/ROLE [t/TAG]&#8230;&#8203;</code></p>
+<p>Format: <code><strong>add</strong> n/NAME [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [$/PRICE] [sub/SUBJECT] [lvl/EDUCATION_LEVEL] [stat/STATUS] [r/ROLE] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="paragraph">
 <p>Adds a new person to STUtor.<br></p>
@@ -250,6 +235,21 @@ e.g. typing <code><strong>help</strong></code> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Only the NAME field is required for the command to be accepted, all other fields are optional.<br>
+To fill in the other fields later, you can use the edit command to edit the person with the new information.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -260,6 +260,9 @@ e.g. typing <code><strong>help</strong></code> and pressing <kbd>Enter</kbd> wil
 </li>
 <li>
 <p><code><strong>add</strong> n/Betsy Crowe p/91562389 e/betsycrowe@example.com a/Pasir Ris Drive 10, #06-02 $/30 sub/Chinese lvl/Upper Pri stat/Not Matched r/Tutor</code></p>
+</li>
+<li>
+<p>`<strong>add</strong> n/Carl Kurz</p>
 </li>
 </ul>
 </div>
@@ -465,15 +468,51 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-person-code-strong-delete-strong-code-or-code-strong-d-strong-code"><a class="link" href="#deleting-a-person-code-strong-delete-strong-code-or-code-strong-d-strong-code">3.2.7. Deleting a person : <code><strong>delete</strong></code> or <code><strong>d</strong></code></a></h4>
+<h4 id="finding-people-with-missing-fields-code-findmissing-code-or-code-fm-code-coming-in-v1-4"><a class="link" href="#finding-people-with-missing-fields-code-findmissing-code-or-code-fm-code-coming-in-v1-4">3.2.7. Finding people with missing fields: <code>findmissing</code> or <code>fm</code> (Coming in V1.4)</a></h4>
 <div class="paragraph">
-<p>Format: <code><strong>delete</strong> INDEX</code></p>
+<p>Format `<strong>findmissing</strong> [FIELD]&#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>If no arguments for FIELD is entered, lists all people with at least one field with an empty value.<br>
+Otherwise, finds all people with an empty value in at least one entered FIELD.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The field name is case insensitive</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><strong>findmissing</strong> role</code><br>
+Returns any person who has no entered role.</p>
+</li>
+<li>
+<p><code><strong>findmissing</strong> phone email</code><br>
+Returns any person who has no entered phone or email.</p>
+</li>
+<li>
+<p><code><strong>findmissing</strong></code><br>
+Returns any person who has no entered value for at least 1 field.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>==== Deleting a person : <code><strong>delete</strong></code> or <code><strong>d</strong></code>
+Format: <code><strong>delete</strong> INDEX</code></p>
 </div>
 <div class="paragraph">
 <p>Deletes the specified person from STUtor.<br></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
+</div>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -487,8 +526,8 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 </li>
 </ul>
 </div>
-</div>
-</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -521,17 +560,15 @@ INDEX to be specified will be highlighted.</p>
 </tr>
 </table>
 </div>
-</div>
-<div class="sect3">
-<h4 id="selecting-a-person-code-strong-select-strong-code-or-code-strong-s-strong-code"><a class="link" href="#selecting-a-person-code-strong-select-strong-code-or-code-strong-s-strong-code">3.2.8. Selecting a person : <code><strong>select</strong></code> or <code><strong>s</strong></code></a></h4>
 <div class="paragraph">
-<p>Format: <code><strong>select</strong> INDEX</code></p>
+<p>==== Selecting a person : <code><strong>select</strong></code> or <code><strong>s</strong></code>
+Format: <code><strong>select</strong> INDEX</code></p>
 </div>
 <div class="paragraph">
 <p>Selects the person identified by the index number used in the <strong>last person listing</strong>.<br></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
+</div>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -545,8 +582,8 @@ INDEX to be specified will be highlighted.</p>
 </li>
 </ul>
 </div>
-</div>
-</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -579,11 +616,9 @@ INDEX to be specified will be highlighted.</p>
 </tr>
 </table>
 </div>
-</div>
-<div class="sect3">
-<h4 id="listing-entered-commands-code-strong-history-strong-code-or-code-strong-h-strong-code"><a class="link" href="#listing-entered-commands-code-strong-history-strong-code-or-code-strong-h-strong-code">3.2.9. Listing entered commands : <code><strong>history</strong></code> or <code><strong>h</strong></code></a></h4>
 <div class="paragraph">
-<p>Format: <code><strong>history</strong></code></p>
+<p>==== Listing entered commands : <code><strong>history</strong></code> or <code><strong>h</strong></code>
+Format: <code><strong>history</strong></code></p>
 </div>
 <div class="paragraph">
 <p>You can list all the commands that you have entered in reverse chronological order.<br></p>
@@ -602,11 +637,9 @@ INDEX to be specified will be highlighted.</p>
 </tr>
 </table>
 </div>
-</div>
-<div class="sect3">
-<h4 id="undoing-previous-command-code-strong-undo-strong-code-or-code-strong-u-strong-code"><a class="link" href="#undoing-previous-command-code-strong-undo-strong-code-or-code-strong-u-strong-code">3.2.10. Undoing previous command : <code><strong>undo</strong></code> or <code><strong>u</strong></code></a></h4>
 <div class="paragraph">
-<p>Format: <code><strong>undo</strong></code>
+<p>==== Undoing previous command : <code><strong>undo</strong></code> or <code><strong>u</strong></code>
+Format: <code><strong>undo</strong></code>
 You can easily restore STUtor to the state before the previous <em>undoable</em> command was executed.<br></p>
 </div>
 <div class="admonitionblock note">
@@ -647,11 +680,9 @@ The <code><strong>undo</strong></code> command fails as there are no undoable co
 </li>
 </ul>
 </div>
-</div>
-<div class="sect3">
-<h4 id="redoing-the-previously-undone-command-code-strong-redo-strong-code-or-code-strong-r-strong-code"><a class="link" href="#redoing-the-previously-undone-command-code-strong-redo-strong-code-or-code-strong-r-strong-code">3.2.11. Redoing the previously undone command : <code><strong>redo</strong></code> or <code><strong>r</strong></code></a></h4>
 <div class="paragraph">
-<p>Format: <code><strong>redo</strong></code></p>
+<p>==== Redoing the previously undone command : <code><strong>redo</strong></code> or <code><strong>r</strong></code>
+Format: <code><strong>redo</strong></code></p>
 </div>
 <div class="paragraph">
 <p>You can easily reverse the most recent <code><strong>undo</strong></code> command.<br></p>
@@ -681,47 +712,39 @@ The <code><strong>redo</strong></code> command fails as there are no <code><stro
 </li>
 </ul>
 </div>
-</div>
-<div class="sect3">
-<h4 id="clearing-all-entries-code-strong-clear-strong-code-or-code-strong-c-strong-code"><a class="link" href="#clearing-all-entries-code-strong-clear-strong-code-or-code-strong-c-strong-code">3.2.12. Clearing all entries : <code><strong>clear</strong></code> or <code><strong>c</strong></code></a></h4>
 <div class="paragraph">
-<p>Format: <code><strong>clear</strong></code></p>
+<p>==== Clearing all entries : <code><strong>clear</strong></code> or <code><strong>c</strong></code>
+Format: <code><strong>clear</strong></code></p>
 </div>
 <div class="paragraph">
 <p>To clear all entries from your STUtor, use the <code><strong>clear</strong></code> command.<br></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="exiting-the-program-code-strong-exit-strong-code"><a class="link" href="#exiting-the-program-code-strong-exit-strong-code">3.2.13. Exiting the program : <code><strong>exit</strong></code></a></h4>
 <div class="paragraph">
-<p>Format: <code><strong>exit</strong></code></p>
+<p>==== Exiting the program : <code><strong>exit</strong></code>
+Format: <code><strong>exit</strong></code></p>
 </div>
 <div class="paragraph">
 <p>Exits the program.<br></p>
 </div>
+<div class="paragraph">
+<p>==== Saving the data</p>
 </div>
-<div class="sect3">
-<h4 id="saving-the-data"><a class="link" href="#saving-the-data">3.2.14. Saving the data</a></h4>
 <div class="paragraph">
 <p>STUtor data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
+<div class="paragraph">
+<p>=== Advanced Features</p>
 </div>
+<div class="paragraph">
+<p>==== Encrypting data files <code>[coming in v2.0]</code></p>
 </div>
-<div class="sect2">
-<h3 id="advanced-features"><a class="link" href="#advanced-features">3.3. Advanced Features</a></h3>
-<div class="sect3">
-<h4 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.3.1. Encrypting data files <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
+<div class="paragraph">
+<p>== FAQ</p>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
 <strong>A</strong>:
@@ -730,11 +753,9 @@ Then, navigate to <strong>main/data</strong>, and overwrite the empty  <code>STU
 with the file of the same name found on your previous computer.
 You can the file under the same path of <strong>main/data</strong></p>
 </div>
+<div class="paragraph">
+<p>== Command Summary</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
-<div class="sectionbody">
 <table class="tableblock frame-all grid-all" style="width: 80%;">
 <colgroup>
 <col style="width: 25%;">
@@ -831,13 +852,9 @@ You can the file under the same path of <strong>main/data</strong></p>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="prefix-shortcut-summary"><a class="link" href="#prefix-shortcut-summary">6. Prefix Shortcut Summary</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>You can use these shortcuts in adding a person, or editing a person&#8217;s details.</p>
+<p>== Prefix Shortcut Summary
+You can use these shortcuts in adding a person, or editing a person&#8217;s details.</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 59%;">
 <colgroup>
@@ -918,9 +935,13 @@ You can the file under the same path of <strong>main/data</strong></p>
 </div>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-26 15:24:40 UTC
+Last updated 2018-03-27 04:44:25 UTC
 </div>
 </div>
 </body>
