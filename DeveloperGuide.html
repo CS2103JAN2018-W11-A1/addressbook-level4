@@ -54,6 +54,7 @@
 <li><a href="#filter-feature">4.7. Filter feature</a></li>
 <li><a href="#ui-modifications">4.8. UI Modifications</a></li>
 <li><a href="#optional-fields-for-add-command">4.9. Optional Fields for Add Command</a></li>
+<li><a href="#autofill">4.10. Autofill</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -1352,7 +1353,7 @@ to increase readability.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-In the case if the person attribute is null (except <code>Name</code> cannot be null), it will be displayed as " - "
+In the case if the person attribute is null (except <code>Name</code> cannot be null), it will be displayed as an empty string.
 </td>
 </tr>
 </table>
@@ -1373,7 +1374,7 @@ and the other specifying the actual content.</p>
 <p>Pros: Easy to read and refer to.</p>
 </li>
 <li>
-<p>Cons: May not look visually appealing.</p>
+<p>Cons: May not look visually appealing due to grids and lines.</p>
 </li>
 </ul>
 </div>
@@ -1383,7 +1384,7 @@ and the other specifying the actual content.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Visually appealing.</p>
+<p>Pros: More visually appealing as formatting is less rigid and squarish.</p>
 </li>
 <li>
 <p>Cons: Locating an attribute may not be easy due to lack of labelling.</p>
@@ -1490,6 +1491,91 @@ Must create a special constructor for the attribute class to accept a <code>null
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="autofill"><a class="link" href="#autofill">4.10. Autofill</a></h3>
+<div class="paragraph">
+<p>Due to the significant amount of attributes to type in, especially when adding or editing a person, we decided to create
+autofill feature to reduce the time taken to enter a person&#8217;s details. Besides <code>add</code> and <code>edit</code>, commands with
+definite format (i.e. <code>delete</code> and <code>select</code>) have this feature implemented as well.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.10.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>Autofill feature is implemented in <a href="https://github.com/CS2103JAN2018-W11-B1/main/blob/master/src/main/java/seedu/address/ui/CommandBox.java"><code>CommandBox.java</code></a>.
+When keyboard <code>Delete</code> or <code>Tab</code> is pressed, depending on the user input in the command box, the caret position
+will be shifted accordingly. Below shows the workflow when <code>Delete</code> or <code>Tab</code> is pressed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AutofillActivityDiagram.png" alt="AutofillActivityDiagram" width="700">
+</div>
+<div class="title">Figure 22. Activity Diagram for Autofill</div>
+</div>
+<div class="sect4">
+<h5 id="find-next-field"><a class="link" href="#find-next-field">Find Next Field</a></h5>
+<div class="paragraph">
+<p>To find the next field to shift the caret to, manipulation of <code>String</code> is used to locate the next instance of <code>/</code> in the
+command box. By searching the position of the next <code>/</code>, it indicates where the next field should be entered.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AutofillAdd_Tab2.png" alt="AutofillAdd Tab2" width="700">
+</div>
+<div class="title">Figure 23. Visualization for find next field</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="delete-previous-prefix"><a class="link" href="#delete-previous-prefix">Delete Previous Prefix</a></h5>
+<div class="paragraph">
+<p>To delete the previous prefix, the last instance of <code>&#160;&#160;</code> from the current caret position is located. Any text
+between this position and the caret position is deleted to remove the desired prefix and user input (if any). The caret
+then procedes to find next field to be shifted to. Below shows what happens when <code>Delete</code> is pressed when caret position is at <code>n/</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AutofillAdd_Delete.png" alt="AutofillAdd Delete" width="700">
+</div>
+<div class="title">Figure 24. Visualization for delete previous prefix</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.10.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-keyboard-key-for-code-delete-code"><a class="link" href="#aspect-keyboard-key-for-code-delete-code">Aspect: Keyboard key for <code>Delete</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use <code>Delete</code> button.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Intuitive to user.</p>
+</li>
+<li>
+<p>Cons: May lead to confusion since the orignal functionality of the <code>DELETE</code> button does not work now.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use other keyboard keys that users typically do not use, for example <code>F2</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Will not lead to confusion of expected keyboard functionalities.</p>
+</li>
+<li>
+<p>Cons: Not intuitive for users to use as they would not expect it to be a key for delete function.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1551,7 +1637,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 22. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 25. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 </div>
@@ -3217,7 +3303,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-27 16:20:01 UTC
+Last updated 2018-03-27 17:03:12 UTC
 </div>
 </div>
 </body>

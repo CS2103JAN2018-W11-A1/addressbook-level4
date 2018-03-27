@@ -32,20 +32,21 @@
 <li><a href="#basic-features">3.2. Basic Features</a>
 <ul class="sectlevel3">
 <li><a href="#viewing-help-code-strong-help-strong-code">3.2.1. Viewing help : <code><strong>help</strong></code></a></li>
-<li><a href="#adding-a-person-code-add-code-or-code-a-code">3.2.2. Adding a person: <code>add</code> or <code>a</code></a></li>
+<li><a href="#adding-a-person-code-strong-add-strong-code-or-code-strong-a-strong-code">3.2.2. Adding a person: <code><strong>add</strong></code> or <code><strong>a</strong></code></a></li>
 <li><a href="#listing-all-persons-code-strong-list-strong-code-or-code-strong-l-strong-code">3.2.3. Listing all persons : <code><strong>list</strong></code> or <code><strong>l</strong></code></a></li>
 <li><a href="#editing-a-person-code-strong-edit-strong-code-or-code-strong-e-strong-code">3.2.4. Editing a person : <code><strong>edit</strong></code> or <code><strong>e</strong></code></a></li>
 <li><a href="#filtering-all-persons-list-by-subject-level-role-or-status-code-strong-filter-strong-code">3.2.5. Filtering all persons list by subject, level, role or status: <code><strong>filter</strong></code></a></li>
 <li><a href="#locating-persons-by-name-code-strong-find-strong-code-or-code-strong-f-strong-code">3.2.6. Locating persons by name: <code><strong>find</strong></code> or <code><strong>f</strong></code></a></li>
-<li><a href="#finding-people-with-missing-fields-code-findmissing-code-or-code-fm-code-coming-in-v1-4">3.2.7. Finding people with missing fields: <code>findmissing</code> or <code>fm</code> (Coming in V1.4)</a></li>
+<li><a href="#finding-people-with-missing-fields-code-strong-findmissing-strong-code-or-code-strong-fm-strong-code-coming-in-v1-4">3.2.7. Finding people with missing fields: <code><strong>findmissing</strong></code> or <code><strong>fm</strong></code> (Coming in V1.4)</a></li>
 <li><a href="#deleting-a-person-code-strong-delete-strong-code-or-code-strong-d-strong-code">3.2.8. Deleting a person : <code><strong>delete</strong></code> or <code><strong>d</strong></code></a></li>
 <li><a href="#selecting-a-person-code-strong-select-strong-code-or-code-strong-s-strong-code">3.2.9. Selecting a person : <code><strong>select</strong></code> or <code><strong>s</strong></code></a></li>
 <li><a href="#listing-entered-commands-code-strong-history-strong-code-or-code-strong-h-strong-code">3.2.10. Listing entered commands : <code><strong>history</strong></code> or <code><strong>h</strong></code></a></li>
 <li><a href="#undoing-previous-command-code-strong-undo-strong-code-or-code-strong-u-strong-code">3.2.11. Undoing previous command : <code><strong>undo</strong></code> or <code><strong>u</strong></code></a></li>
 <li><a href="#redoing-the-previously-undone-command-code-strong-redo-strong-code-or-code-strong-r-strong-code">3.2.12. Redoing the previously undone command : <code><strong>redo</strong></code> or <code><strong>r</strong></code></a></li>
 <li><a href="#clearing-all-entries-code-strong-clear-strong-code-or-code-strong-c-strong-code">3.2.13. Clearing all entries : <code><strong>clear</strong></code> or <code><strong>c</strong></code></a></li>
-<li><a href="#exiting-the-program-code-strong-exit-strong-code">3.2.14. Exiting the program : <code><strong>exit</strong></code></a></li>
-<li><a href="#saving-the-data">3.2.15. Saving the data</a></li>
+<li><a href="#creating-a-remark-for-a-person-code-strong-remark-strong-code-or-code-strong-rm-strong-code">3.2.14. Creating a remark for a person : <code><strong>remark</strong></code> or <code><strong>rm</strong></code></a></li>
+<li><a href="#exiting-the-program-code-strong-exit-strong-code">3.2.15. Exiting the program : <code><strong>exit</strong></code></a></li>
+<li><a href="#saving-the-data">3.2.16. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#advanced-features">3.3. Advanced Features</a>
@@ -223,7 +224,7 @@ e.g. typing <code><strong>help</strong></code> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect3">
-<h4 id="adding-a-person-code-add-code-or-code-a-code"><a class="link" href="#adding-a-person-code-add-code-or-code-a-code">3.2.2. Adding a person: <code>add</code> or <code>a</code></a></h4>
+<h4 id="adding-a-person-code-strong-add-strong-code-or-code-strong-a-strong-code"><a class="link" href="#adding-a-person-code-strong-add-strong-code-or-code-strong-a-strong-code">3.2.2. Adding a person: <code><strong>add</strong></code> or <code><strong>a</strong></code></a></h4>
 <div class="paragraph">
 <p>Format: <code><strong>add</strong> n/NAME [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [$/PRICE] [sub/SUBJECT] [lvl/EDUCATION_LEVEL] [stat/STATUS] [r/ROLE] [t/TAG]&#8230;&#8203;</code></p>
 </div>
@@ -297,6 +298,16 @@ Press <kbd>Delete</kbd> key to delete a field (and its prefix).</p>
 </td>
 </tr>
 </table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AutofillAdd_Tab.png" alt="AutofillAdd Tab" width="700">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AutofillAdd_Delete.png" alt="AutofillAdd Delete" width="700">
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -376,6 +387,11 @@ Press <kbd>Delete</kbd> key to delete a field (and its prefix).</p>
 </td>
 </tr>
 </table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AutofillEdit.png" alt="AutofillEdit" width="800">
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -484,7 +500,7 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 </div>
 </div>
 <div class="sect3">
-<h4 id="finding-people-with-missing-fields-code-findmissing-code-or-code-fm-code-coming-in-v1-4"><a class="link" href="#finding-people-with-missing-fields-code-findmissing-code-or-code-fm-code-coming-in-v1-4">3.2.7. Finding people with missing fields: <code>findmissing</code> or <code>fm</code> (Coming in V1.4)</a></h4>
+<h4 id="finding-people-with-missing-fields-code-strong-findmissing-strong-code-or-code-strong-fm-strong-code-coming-in-v1-4"><a class="link" href="#finding-people-with-missing-fields-code-strong-findmissing-strong-code-or-code-strong-fm-strong-code-coming-in-v1-4">3.2.7. Finding people with missing fields: <code><strong>findmissing</strong></code> or <code><strong>fm</strong></code> (Coming in V1.4)</a></h4>
 <div class="paragraph">
 <p>Format <code><strong>findmissing</strong> [FIELD]&#8230;&#8203;</code></p>
 </div>
@@ -580,6 +596,11 @@ INDEX to be specified will be highlighted.</p>
 </tr>
 </table>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AutofillDelete.png" alt="AutofillDelete" width="500">
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="selecting-a-person-code-strong-select-strong-code-or-code-strong-s-strong-code"><a class="link" href="#selecting-a-person-code-strong-select-strong-code-or-code-strong-s-strong-code">3.2.9. Selecting a person : <code><strong>select</strong></code> or <code><strong>s</strong></code></a></h4>
@@ -637,6 +658,11 @@ INDEX to be specified will be highlighted.</p>
 </td>
 </tr>
 </table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AutofillSelect.png" alt="AutofillSelect" width="500">
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -751,7 +777,50 @@ The <code><strong>redo</strong></code> command fails as there are no <code><stro
 </div>
 </div>
 <div class="sect3">
-<h4 id="exiting-the-program-code-strong-exit-strong-code"><a class="link" href="#exiting-the-program-code-strong-exit-strong-code">3.2.14. Exiting the program : <code><strong>exit</strong></code></a></h4>
+<h4 id="creating-a-remark-for-a-person-code-strong-remark-strong-code-or-code-strong-rm-strong-code"><a class="link" href="#creating-a-remark-for-a-person-code-strong-remark-strong-code-or-code-strong-rm-strong-code">3.2.14. Creating a remark for a person : <code><strong>remark</strong></code> or <code><strong>rm</strong></code></a></h4>
+<div class="paragraph">
+<p>Format: <code><strong>remark</strong> INDEX r/</code></p>
+</div>
+<div class="paragraph">
+<p>Creates a remark for the person identified by the index number used in the <strong>last person listing</strong>.<br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
+</li>
+<li>
+<p>You can remove a remark by typing <code>r/</code> without specifying any remark after it.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><strong>list</strong></code><br>
+<code><strong>remark</strong> 2 r/Fast learner.</code><br>
+Creates a remark 'Fast learner.' for the 2nd person in STUtor.</p>
+</li>
+<li>
+<p><code><strong>find</strong> Betsy</code><br>
+<code><strong>remark</strong> 1 r/</code><br>
+Removes the remark for the 1st person in the results of the <code><strong>find</strong></code> command.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="exiting-the-program-code-strong-exit-strong-code"><a class="link" href="#exiting-the-program-code-strong-exit-strong-code">3.2.15. Exiting the program : <code><strong>exit</strong></code></a></h4>
 <div class="paragraph">
 <p>Format: <code><strong>exit</strong></code></p>
 </div>
@@ -760,7 +829,7 @@ The <code><strong>redo</strong></code> command fails as there are no <code><stro
 </div>
 </div>
 <div class="sect3">
-<h4 id="saving-the-data"><a class="link" href="#saving-the-data">3.2.15. Saving the data</a></h4>
+<h4 id="saving-the-data"><a class="link" href="#saving-the-data">3.2.16. Saving the data</a></h4>
 <div class="paragraph">
 <p>STUtor data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -845,6 +914,12 @@ You can the file under the same path of <strong>main/data</strong></p>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter KEYWORD</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter Math</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>remark</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rm</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>remark INDEX r/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>remark 2 r/Fast learner.</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
@@ -979,7 +1054,7 @@ You can the file under the same path of <strong>main/data</strong></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-27 16:20:01 UTC
+Last updated 2018-03-27 17:03:12 UTC
 </div>
 </div>
 </body>
