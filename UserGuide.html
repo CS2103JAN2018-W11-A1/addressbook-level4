@@ -37,7 +37,7 @@
 <li><a href="#editing-a-person-code-strong-edit-strong-code-or-code-strong-e-strong-code">3.2.4. Editing a person : <code><strong>edit</strong></code> or <code><strong>e</strong></code></a></li>
 <li><a href="#filtering-all-persons-list-by-subject-level-role-or-status-code-strong-filter-strong-code">3.2.5. Filtering all persons list by subject, level, role or status: <code><strong>filter</strong></code></a></li>
 <li><a href="#locating-persons-by-name-code-strong-find-strong-code-or-code-strong-f-strong-code">3.2.6. Locating persons by name: <code><strong>find</strong></code> or <code><strong>f</strong></code></a></li>
-<li><a href="#finding-people-with-missing-fields-code-strong-findmissing-strong-code-or-code-strong-fm-strong-code-coming-in-v1-4">3.2.7. Finding people with missing fields: <code><strong>findmissing</strong></code> or <code><strong>fm</strong></code> (Coming in V1.4)</a></li>
+<li><a href="#finding-people-with-missing-fields-code-strong-findmissing-strong-code-or-code-strong-fm-strong-code-in-v1-4">3.2.7. Finding people with missing fields: <code><strong>findmissing</strong></code> or <code><strong>fm</strong></code> (In V1.4)</a></li>
 <li><a href="#deleting-a-person-code-strong-delete-strong-code-or-code-strong-d-strong-code">3.2.8. Deleting a person : <code><strong>delete</strong></code> or <code><strong>d</strong></code></a></li>
 <li><a href="#selecting-a-person-code-strong-select-strong-code-or-code-strong-s-strong-code">3.2.9. Selecting a person : <code><strong>select</strong></code> or <code><strong>s</strong></code></a></li>
 <li><a href="#listing-entered-commands-code-strong-history-strong-code-or-code-strong-h-strong-code">3.2.10. Listing entered commands : <code><strong>history</strong></code> or <code><strong>h</strong></code></a></li>
@@ -500,9 +500,9 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 </div>
 </div>
 <div class="sect3">
-<h4 id="finding-people-with-missing-fields-code-strong-findmissing-strong-code-or-code-strong-fm-strong-code-coming-in-v1-4"><a class="link" href="#finding-people-with-missing-fields-code-strong-findmissing-strong-code-or-code-strong-fm-strong-code-coming-in-v1-4">3.2.7. Finding people with missing fields: <code><strong>findmissing</strong></code> or <code><strong>fm</strong></code> (Coming in V1.4)</a></h4>
+<h4 id="finding-people-with-missing-fields-code-strong-findmissing-strong-code-or-code-strong-fm-strong-code-in-v1-4"><a class="link" href="#finding-people-with-missing-fields-code-strong-findmissing-strong-code-or-code-strong-fm-strong-code-in-v1-4">3.2.7. Finding people with missing fields: <code><strong>findmissing</strong></code> or <code><strong>fm</strong></code> (In V1.4)</a></h4>
 <div class="paragraph">
-<p>Format <code><strong>findmissing</strong> [FIELD]&#8230;&#8203;</code></p>
+<p>Format: <code><strong>findmissing</strong> [FIELD]&#8230;&#8203;</code></p>
 </div>
 <div class="paragraph">
 <p>If no arguments for FIELD is entered, lists all people with at least one field with an empty value.<br>
@@ -514,6 +514,37 @@ Otherwise, finds all people with an empty value in at least one entered FIELD.</
 <ul>
 <li>
 <p>The field name is case insensitive</p>
+</li>
+<li>
+<p>List of all possible attributes:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>address</p>
+</li>
+<li>
+<p>email</p>
+</li>
+<li>
+<p>level</p>
+</li>
+<li>
+<p>phone</p>
+</li>
+<li>
+<p>price</p>
+</li>
+<li>
+<p>role</p>
+</li>
+<li>
+<p>status</p>
+</li>
+<li>
+<p>subject</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -1054,7 +1085,7 @@ You can the file under the same path of <strong>main/data</strong></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-02 03:23:20 UTC
+Last updated 2018-04-02 15:45:56 UTC
 </div>
 </div>
 </body>
