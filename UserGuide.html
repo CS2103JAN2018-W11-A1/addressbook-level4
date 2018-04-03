@@ -46,9 +46,10 @@
 <li><a href="#redoing-the-previously-undone-command-code-strong-redo-strong-code-or-code-strong-r-strong-code">3.2.13. Redoing the previously undone command : <code><strong>redo</strong></code> or <code><strong>r</strong></code></a></li>
 <li><a href="#clearing-all-entries-code-strong-clear-strong-code-or-code-strong-c-strong-code">3.2.14. Clearing all entries : <code><strong>clear</strong></code> or <code><strong>c</strong></code></a></li>
 <li><a href="#creating-a-remark-for-a-person-code-strong-remark-strong-code-or-code-strong-rm-strong-code-code-in-v1-3-code">3.2.15. Creating a remark for a person : <code><strong>remark</strong></code> or <code><strong>rm</strong></code> <code>[In V1.3]</code></a></li>
-<li><a href="#viewing-the-statistic-code-strong-viewstats-strong-code-code-in-v1-4-code">3.2.16. Viewing the statistic : <code><strong>viewStats</strong></code> <code>[In V1.4]</code></a></li>
-<li><a href="#exiting-the-program-code-strong-exit-strong-code">3.2.17. Exiting the program : <code><strong>exit</strong></code></a></li>
-<li><a href="#saving-the-data">3.2.18. Saving the data</a></li>
+<li><a href="#giving-a-rating-to-a-person-code-strong-rate-strong-code-or-code-strong-rt-strong-code-code-in-v1-4-code">3.2.16. Giving a rating to a person : <code><strong>rate</strong></code> or <code><strong>rt</strong></code> <code>[In V1.4]</code></a></li>
+<li><a href="#viewing-the-statistic-code-strong-viewstats-strong-code-code-in-v1-4-code">3.2.17. Viewing the statistic : <code><strong>viewStats</strong></code> <code>[In V1.4]</code></a></li>
+<li><a href="#exiting-the-program-code-strong-exit-strong-code">3.2.18. Exiting the program : <code><strong>exit</strong></code></a></li>
+<li><a href="#saving-the-data">3.2.19. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#advanced-features">3.3. Advanced Features</a>
@@ -930,7 +931,68 @@ Removes the remark for the 1st person in the results of the <code><strong>find</
 </div>
 </div>
 <div class="sect3">
-<h4 id="viewing-the-statistic-code-strong-viewstats-strong-code-code-in-v1-4-code"><a class="link" href="#viewing-the-statistic-code-strong-viewstats-strong-code-code-in-v1-4-code">3.2.16. Viewing the statistic : <code><strong>viewStats</strong></code> <code>[In V1.4]</code></a></h4>
+<h4 id="giving-a-rating-to-a-person-code-strong-rate-strong-code-or-code-strong-rt-strong-code-code-in-v1-4-code"><a class="link" href="#giving-a-rating-to-a-person-code-strong-rate-strong-code-or-code-strong-rt-strong-code-code-in-v1-4-code">3.2.16. Giving a rating to a person : <code><strong>rate</strong></code> or <code><strong>rt</strong></code> <code>[In V1.4]</code></a></h4>
+<div class="paragraph">
+<p>Format: <code><strong>rate</strong> INDEX r/</code></p>
+</div>
+<div class="paragraph">
+<p>Gives a rating to the person identified by the index number used in the <strong>last person listing</strong>.<br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
+</li>
+<li>
+<p>Rating must be a number <strong>between 0 and 5 (inclusive)</strong> with <strong>at most 1 decimal place</strong>.</p>
+</li>
+<li>
+<p>Placing a <code>-</code> after the rating gives an <strong>absolute rating</strong> to the person specified.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>&#160;&#160;&#160;&#160; e.g <code>rate 1 r/2.0-</code> will set rating of the 1st person in the results
+to 2.0 and number of people who rated the person will be reset to 1.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Without placing <code>-</code> after the rating gives an <strong>accumulative rating</strong> to the person specified.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>&#160;&#160;&#160;&#160; e.g <code>rate 1 r/2.0</code> will add on to the current rating of the 1st person
+and average of the ratings will be displayed. Number of people who rated the person will also increase by 1.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><strong>list</strong></code><br>
+<code><strong>rate</strong> 2 r/2.0-</code><br>
+Gives an absolute rating of 2.0 to the 2nd person in STUtor.</p>
+</li>
+<li>
+<p><code><strong>find</strong> Betsy</code><br>
+<code><strong>rate</strong> 1 r/4.2</code><br>
+Gives an accumulated rating for the 1st person in the results of the <code><strong>find</strong></code> command.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-the-statistic-code-strong-viewstats-strong-code-code-in-v1-4-code"><a class="link" href="#viewing-the-statistic-code-strong-viewstats-strong-code-code-in-v1-4-code">3.2.17. Viewing the statistic : <code><strong>viewStats</strong></code> <code>[In V1.4]</code></a></h4>
 <div class="paragraph">
 <p>Format: <code><strong>viewStats</strong></code></p>
 </div>
@@ -956,7 +1018,7 @@ Removes the remark for the 1st person in the results of the <code><strong>find</
 </div>
 </div>
 <div class="sect3">
-<h4 id="exiting-the-program-code-strong-exit-strong-code"><a class="link" href="#exiting-the-program-code-strong-exit-strong-code">3.2.17. Exiting the program : <code><strong>exit</strong></code></a></h4>
+<h4 id="exiting-the-program-code-strong-exit-strong-code"><a class="link" href="#exiting-the-program-code-strong-exit-strong-code">3.2.18. Exiting the program : <code><strong>exit</strong></code></a></h4>
 <div class="paragraph">
 <p>Format: <code><strong>exit</strong></code></p>
 </div>
@@ -965,7 +1027,7 @@ Removes the remark for the 1st person in the results of the <code><strong>find</
 </div>
 </div>
 <div class="sect3">
-<h4 id="saving-the-data"><a class="link" href="#saving-the-data">3.2.18. Saving the data</a></h4>
+<h4 id="saving-the-data"><a class="link" href="#saving-the-data">3.2.19. Saving the data</a></h4>
 <div class="paragraph">
 <p>STUtor data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -1190,7 +1252,7 @@ You can the file under the same path of <strong>main/data</strong></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-03 17:47:43 UTC
+Last updated 2018-04-03 17:52:51 UTC
 </div>
 </div>
 </body>
