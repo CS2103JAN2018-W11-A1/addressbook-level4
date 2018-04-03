@@ -41,15 +41,16 @@
 <li><a href="#deleting-a-person-code-strong-delete-strong-code-or-code-strong-d-strong-code">3.2.8. Deleting a person : <code><strong>delete</strong></code> or <code><strong>d</strong></code></a></li>
 <li><a href="#selecting-a-person-code-strong-select-strong-code-or-code-strong-s-strong-code">3.2.9. Selecting a person : <code><strong>select</strong></code> or <code><strong>s</strong></code></a></li>
 <li><a href="#match-a-student-and-a-tutor-code-strong-match-strong-code-or-code-strong-m-strong-code-code-in-v1-4-code">3.2.10. Match a student and a tutor : <code><strong>match</strong></code> or <code><strong>m</strong></code> <code>[In V1.4]</code></a></li>
-<li><a href="#listing-entered-commands-code-strong-history-strong-code-or-code-strong-h-strong-code">3.2.11. Listing entered commands : <code><strong>history</strong></code> or <code><strong>h</strong></code></a></li>
-<li><a href="#undoing-previous-command-code-strong-undo-strong-code-or-code-strong-u-strong-code">3.2.12. Undoing previous command : <code><strong>undo</strong></code> or <code><strong>u</strong></code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-strong-redo-strong-code-or-code-strong-r-strong-code">3.2.13. Redoing the previously undone command : <code><strong>redo</strong></code> or <code><strong>r</strong></code></a></li>
-<li><a href="#clearing-all-entries-code-strong-clear-strong-code-or-code-strong-c-strong-code">3.2.14. Clearing all entries : <code><strong>clear</strong></code> or <code><strong>c</strong></code></a></li>
-<li><a href="#creating-a-remark-for-a-person-code-strong-remark-strong-code-or-code-strong-rm-strong-code-code-in-v1-3-code">3.2.15. Creating a remark for a person : <code><strong>remark</strong></code> or <code><strong>rm</strong></code> <code>[In V1.3]</code></a></li>
-<li><a href="#giving-a-rating-to-a-person-code-strong-rate-strong-code-or-code-strong-rt-strong-code-code-in-v1-4-code">3.2.16. Giving a rating to a person : <code><strong>rate</strong></code> or <code><strong>rt</strong></code> <code>[In V1.4]</code></a></li>
-<li><a href="#viewing-the-statistic-code-strong-viewstats-strong-code-code-in-v1-4-code">3.2.17. Viewing the statistic : <code><strong>viewStats</strong></code> <code>[In V1.4]</code></a></li>
-<li><a href="#exiting-the-program-code-strong-exit-strong-code">3.2.18. Exiting the program : <code><strong>exit</strong></code></a></li>
-<li><a href="#saving-the-data">3.2.19. Saving the data</a></li>
+<li><a href="#unmatch-a-student-and-a-tutor-code-strong-ummatch-strong-code-or-code-strong-um-strong-code-code-in-v1-4-code">3.2.11. Unmatch a student and a tutor : <code><strong>ummatch</strong></code> or <code><strong>um</strong></code> <code>[In V1.4]</code></a></li>
+<li><a href="#listing-entered-commands-code-strong-history-strong-code-or-code-strong-h-strong-code">3.2.12. Listing entered commands : <code><strong>history</strong></code> or <code><strong>h</strong></code></a></li>
+<li><a href="#undoing-previous-command-code-strong-undo-strong-code-or-code-strong-u-strong-code">3.2.13. Undoing previous command : <code><strong>undo</strong></code> or <code><strong>u</strong></code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-strong-redo-strong-code-or-code-strong-r-strong-code">3.2.14. Redoing the previously undone command : <code><strong>redo</strong></code> or <code><strong>r</strong></code></a></li>
+<li><a href="#clearing-all-entries-code-strong-clear-strong-code-or-code-strong-c-strong-code">3.2.15. Clearing all entries : <code><strong>clear</strong></code> or <code><strong>c</strong></code></a></li>
+<li><a href="#creating-a-remark-for-a-person-code-strong-remark-strong-code-or-code-strong-rm-strong-code-code-in-v1-3-code">3.2.16. Creating a remark for a person : <code><strong>remark</strong></code> or <code><strong>rm</strong></code> <code>[In V1.3]</code></a></li>
+<li><a href="#giving-a-rating-to-a-person-code-strong-rate-strong-code-or-code-strong-rt-strong-code-code-in-v1-4-code">3.2.17. Giving a rating to a person : <code><strong>rate</strong></code> or <code><strong>rt</strong></code> <code>[In V1.4]</code></a></li>
+<li><a href="#viewing-the-statistic-code-strong-viewstats-strong-code-code-in-v1-4-code">3.2.18. Viewing the statistic : <code><strong>viewStats</strong></code> <code>[In V1.4]</code></a></li>
+<li><a href="#exiting-the-program-code-strong-exit-strong-code">3.2.19. Exiting the program : <code><strong>exit</strong></code></a></li>
+<li><a href="#saving-the-data">3.2.20. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#advanced-features">3.3. Advanced Features</a>
@@ -702,7 +703,7 @@ INDEX to be specified will be highlighted.</p>
 <div class="sect3">
 <h4 id="match-a-student-and-a-tutor-code-strong-match-strong-code-or-code-strong-m-strong-code-code-in-v1-4-code"><a class="link" href="#match-a-student-and-a-tutor-code-strong-match-strong-code-or-code-strong-m-strong-code-code-in-v1-4-code">3.2.10. Match a student and a tutor : <code><strong>match</strong></code> or <code><strong>m</strong></code> <code>[In V1.4]</code></a></h4>
 <div class="paragraph">
-<p>Format: <code><strong>match</strong> INDEX_A INDEX_B</code></p>
+<p>Format: <code><strong>match</strong> INDEX_A INDEX_B</code> or <code><strong>m</strong> INDEX_A INDEX_B</code></p>
 </div>
 <div class="paragraph">
 <p>Selects the persons identified by the index numbers used in the <strong>last person listing</strong>.<br></p>
@@ -777,7 +778,39 @@ or the other way round.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="listing-entered-commands-code-strong-history-strong-code-or-code-strong-h-strong-code"><a class="link" href="#listing-entered-commands-code-strong-history-strong-code-or-code-strong-h-strong-code">3.2.11. Listing entered commands : <code><strong>history</strong></code> or <code><strong>h</strong></code></a></h4>
+<h4 id="unmatch-a-student-and-a-tutor-code-strong-ummatch-strong-code-or-code-strong-um-strong-code-code-in-v1-4-code"><a class="link" href="#unmatch-a-student-and-a-tutor-code-strong-ummatch-strong-code-or-code-strong-um-strong-code-code-in-v1-4-code">3.2.11. Unmatch a student and a tutor : <code><strong>ummatch</strong></code> or <code><strong>um</strong></code> <code>[In V1.4]</code></a></h4>
+<div class="paragraph">
+<p>Format: <code><strong>unmatch</strong> INDEX_A INDEX_B</code> or <code><strong>um</strong> INDEX_A INDEX_B</code></p>
+</div>
+<div class="paragraph">
+<p>Selects the pair identified by the index numbers used in the pair listing.<br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The index refers to the index number shown in the most recent listing,
+and <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><strong>unmatch</strong> 1</code><br>
+Match the pair at index 1.<br></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-entered-commands-code-strong-history-strong-code-or-code-strong-h-strong-code"><a class="link" href="#listing-entered-commands-code-strong-history-strong-code-or-code-strong-h-strong-code">3.2.12. Listing entered commands : <code><strong>history</strong></code> or <code><strong>h</strong></code></a></h4>
 <div class="paragraph">
 <p>Format: <code><strong>history</strong></code></p>
 </div>
@@ -800,7 +833,7 @@ or the other way round.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="undoing-previous-command-code-strong-undo-strong-code-or-code-strong-u-strong-code"><a class="link" href="#undoing-previous-command-code-strong-undo-strong-code-or-code-strong-u-strong-code">3.2.12. Undoing previous command : <code><strong>undo</strong></code> or <code><strong>u</strong></code></a></h4>
+<h4 id="undoing-previous-command-code-strong-undo-strong-code-or-code-strong-u-strong-code"><a class="link" href="#undoing-previous-command-code-strong-undo-strong-code-or-code-strong-u-strong-code">3.2.13. Undoing previous command : <code><strong>undo</strong></code> or <code><strong>u</strong></code></a></h4>
 <div class="paragraph">
 <p>Format: <code><strong>undo</strong></code>
 You can easily restore STUtor to the state before the previous <em>undoable</em> command was executed.<br></p>
@@ -845,7 +878,7 @@ The <code><strong>undo</strong></code> command fails as there are no undoable co
 </div>
 </div>
 <div class="sect3">
-<h4 id="redoing-the-previously-undone-command-code-strong-redo-strong-code-or-code-strong-r-strong-code"><a class="link" href="#redoing-the-previously-undone-command-code-strong-redo-strong-code-or-code-strong-r-strong-code">3.2.13. Redoing the previously undone command : <code><strong>redo</strong></code> or <code><strong>r</strong></code></a></h4>
+<h4 id="redoing-the-previously-undone-command-code-strong-redo-strong-code-or-code-strong-r-strong-code"><a class="link" href="#redoing-the-previously-undone-command-code-strong-redo-strong-code-or-code-strong-r-strong-code">3.2.14. Redoing the previously undone command : <code><strong>redo</strong></code> or <code><strong>r</strong></code></a></h4>
 <div class="paragraph">
 <p>Format: <code><strong>redo</strong></code></p>
 </div>
@@ -879,7 +912,7 @@ The <code><strong>redo</strong></code> command fails as there are no <code><stro
 </div>
 </div>
 <div class="sect3">
-<h4 id="clearing-all-entries-code-strong-clear-strong-code-or-code-strong-c-strong-code"><a class="link" href="#clearing-all-entries-code-strong-clear-strong-code-or-code-strong-c-strong-code">3.2.14. Clearing all entries : <code><strong>clear</strong></code> or <code><strong>c</strong></code></a></h4>
+<h4 id="clearing-all-entries-code-strong-clear-strong-code-or-code-strong-c-strong-code"><a class="link" href="#clearing-all-entries-code-strong-clear-strong-code-or-code-strong-c-strong-code">3.2.15. Clearing all entries : <code><strong>clear</strong></code> or <code><strong>c</strong></code></a></h4>
 <div class="paragraph">
 <p>Format: <code><strong>clear</strong></code></p>
 </div>
@@ -888,7 +921,7 @@ The <code><strong>redo</strong></code> command fails as there are no <code><stro
 </div>
 </div>
 <div class="sect3">
-<h4 id="creating-a-remark-for-a-person-code-strong-remark-strong-code-or-code-strong-rm-strong-code-code-in-v1-3-code"><a class="link" href="#creating-a-remark-for-a-person-code-strong-remark-strong-code-or-code-strong-rm-strong-code-code-in-v1-3-code">3.2.15. Creating a remark for a person : <code><strong>remark</strong></code> or <code><strong>rm</strong></code> <code>[In V1.3]</code></a></h4>
+<h4 id="creating-a-remark-for-a-person-code-strong-remark-strong-code-or-code-strong-rm-strong-code-code-in-v1-3-code"><a class="link" href="#creating-a-remark-for-a-person-code-strong-remark-strong-code-or-code-strong-rm-strong-code-code-in-v1-3-code">3.2.16. Creating a remark for a person : <code><strong>remark</strong></code> or <code><strong>rm</strong></code> <code>[In V1.3]</code></a></h4>
 <div class="paragraph">
 <p>Format: <code><strong>remark</strong> INDEX r/</code></p>
 </div>
@@ -931,7 +964,7 @@ Removes the remark for the 1st person in the results of the <code><strong>find</
 </div>
 </div>
 <div class="sect3">
-<h4 id="giving-a-rating-to-a-person-code-strong-rate-strong-code-or-code-strong-rt-strong-code-code-in-v1-4-code"><a class="link" href="#giving-a-rating-to-a-person-code-strong-rate-strong-code-or-code-strong-rt-strong-code-code-in-v1-4-code">3.2.16. Giving a rating to a person : <code><strong>rate</strong></code> or <code><strong>rt</strong></code> <code>[In V1.4]</code></a></h4>
+<h4 id="giving-a-rating-to-a-person-code-strong-rate-strong-code-or-code-strong-rt-strong-code-code-in-v1-4-code"><a class="link" href="#giving-a-rating-to-a-person-code-strong-rate-strong-code-or-code-strong-rt-strong-code-code-in-v1-4-code">3.2.17. Giving a rating to a person : <code><strong>rate</strong></code> or <code><strong>rt</strong></code> <code>[In V1.4]</code></a></h4>
 <div class="paragraph">
 <p>Format: <code><strong>rate</strong> INDEX r/</code></p>
 </div>
@@ -992,7 +1025,7 @@ Gives an accumulated rating for the 1st person in the results of the <code><stro
 </div>
 </div>
 <div class="sect3">
-<h4 id="viewing-the-statistic-code-strong-viewstats-strong-code-code-in-v1-4-code"><a class="link" href="#viewing-the-statistic-code-strong-viewstats-strong-code-code-in-v1-4-code">3.2.17. Viewing the statistic : <code><strong>viewStats</strong></code> <code>[In V1.4]</code></a></h4>
+<h4 id="viewing-the-statistic-code-strong-viewstats-strong-code-code-in-v1-4-code"><a class="link" href="#viewing-the-statistic-code-strong-viewstats-strong-code-code-in-v1-4-code">3.2.18. Viewing the statistic : <code><strong>viewStats</strong></code> <code>[In V1.4]</code></a></h4>
 <div class="paragraph">
 <p>Format: <code><strong>viewStats</strong></code></p>
 </div>
@@ -1018,7 +1051,7 @@ Gives an accumulated rating for the 1st person in the results of the <code><stro
 </div>
 </div>
 <div class="sect3">
-<h4 id="exiting-the-program-code-strong-exit-strong-code"><a class="link" href="#exiting-the-program-code-strong-exit-strong-code">3.2.18. Exiting the program : <code><strong>exit</strong></code></a></h4>
+<h4 id="exiting-the-program-code-strong-exit-strong-code"><a class="link" href="#exiting-the-program-code-strong-exit-strong-code">3.2.19. Exiting the program : <code><strong>exit</strong></code></a></h4>
 <div class="paragraph">
 <p>Format: <code><strong>exit</strong></code></p>
 </div>
@@ -1027,7 +1060,7 @@ Gives an accumulated rating for the 1st person in the results of the <code><stro
 </div>
 </div>
 <div class="sect3">
-<h4 id="saving-the-data"><a class="link" href="#saving-the-data">3.2.19. Saving the data</a></h4>
+<h4 id="saving-the-data"><a class="link" href="#saving-the-data">3.2.20. Saving the data</a></h4>
 <div class="paragraph">
 <p>STUtor data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -1252,7 +1285,7 @@ You can the file under the same path of <strong>main/data</strong></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-03 17:52:51 UTC
+Last updated 2018-04-03 18:24:46 UTC
 </div>
 </div>
 </body>
