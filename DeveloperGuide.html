@@ -56,6 +56,7 @@
 <li><a href="#optional-fields-for-add-command">4.9. Optional Fields for Add Command</a></li>
 <li><a href="#find-missing-command">4.10. Find Missing Command</a></li>
 <li><a href="#autofill">4.11. Autofill</a></li>
+<li><a href="#view-stats-command">4.12. View Stats Command</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -1283,7 +1284,8 @@ For instance, the user may input <code>add n/jOHN dOE p/98765432 e/johND@eXaMpLe
 <div class="sect3">
 <h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.7.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>We have added the <code>filter</code> command which inherit from <code>Command</code>. The user can <code>filter</code> according to the attributes <code>Subject</code>, <code>Level</code> and <code>Status</code> of a person.</p>
+<p>We have added the <code>filter</code> command which inherit from <code>Command</code>. The user can <code>filter</code> according to the attributes <code>Subject</code>, <code>Level</code> and <code>Status</code> of a person.
+However, the current implementation can only filter for 1 argument.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the filter command works:</p>
@@ -1300,11 +1302,48 @@ For instance, the user may input <code>add n/jOHN dOE p/98765432 e/johND@eXaMpLe
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The user must input arguments in case sensitive and full fashion.
-For instance, the entry <code>filter maTH</code> will not work.
+The user must input arguments in case full fashion and it is case insensitive.
+For instance, the entry <code>filter maTH</code> will work.
 </td>
 </tr>
 </table>
+</div>
+<div class="sect4">
+<h5 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h5>
+<div class="sect5">
+<h6 id="aspect-argument-for-filter-command"><a class="link" href="#aspect-argument-for-filter-command">Aspect: Argument for Filter Command</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Argument to be filtered must be typed in full fashion and it is case
+insensitive.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Incorrect case of the argument typed will still produce the intended result.</p>
+</li>
+<li>
+<p>Cons: User have to type the complete word.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Argument to be filtered can be incomplete and it is case insensitive.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: User can type less.</p>
+</li>
+<li>
+<p>Cons: Arguments such as <code>Not Matched</code> and <code>Matched</code> cannot be differentiated.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1360,7 +1399,7 @@ In the case if the person attribute is null (except <code>Name</code> cannot be 
 </div>
 </div>
 <div class="sect4">
-<h5 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h5>
+<h5 id="design-considerations-4"><a class="link" href="#design-considerations-4">Design Considerations</a></h5>
 <div class="sect5">
 <h6 id="aspect-layout-of-browser-panel"><a class="link" href="#aspect-layout-of-browser-panel">Aspect: Layout of Browser Panel</a></h6>
 <div class="ulist">
@@ -1453,7 +1492,7 @@ For all fields that the user did not enter a value for, an empty string <code>""
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.9.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.9.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-method-to-store-unentered-fields"><a class="link" href="#aspect-method-to-store-unentered-fields">Aspect: Method to store unentered fields</a></h5>
 <div class="ulist">
@@ -1506,7 +1545,7 @@ Therefore, it is better design to create a new command for this feature.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.10.2. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.10.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-design-of-predicate-used"><a class="link" href="#aspect-design-of-predicate-used">Aspect: Design of predicate used</a></h5>
 <div class="ulist">
@@ -1632,7 +1671,7 @@ then procedes to find next field to be shifted to. Below shows what happens when
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.11.2. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.11.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-keyboard-key-for-code-delete-code"><a class="link" href="#aspect-keyboard-key-for-code-delete-code">Aspect: Keyboard key for <code>Delete</code></a></h5>
 <div class="ulist">
@@ -1645,7 +1684,7 @@ then procedes to find next field to be shifted to. Below shows what happens when
 <p>Pros: Intuitive to user.</p>
 </li>
 <li>
-<p>Cons: May lead to confusion since the orignal functionality of the <code>DELETE</code> button does not work now.</p>
+<p>Cons: May lead to confusion since the original functionality of the <code>DELETE</code> button does not work now.</p>
 </li>
 </ul>
 </div>
@@ -1659,6 +1698,60 @@ then procedes to find next field to be shifted to. Below shows what happens when
 </li>
 <li>
 <p>Cons: Not intuitive for users to use as they would not expect it to be a key for delete function.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="view-stats-command"><a class="link" href="#view-stats-command">4.12. View Stats Command</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-10"><a class="link" href="#current-implementation-10">4.12.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The intention behind creating this command is to consolidate statistical data about the people in the app.
+With these data, user will be able to foresee issues such as insufficient tutor for a particular subject with ease.
+Without this command, user will have to do manual consolidation which is inefficient.<br>
+Currently, the statistical data are presented in the form of pie chart which improves readability. A snapshot showing
+the role distribution between students and tutors is shown below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/PieChartSnap.png" alt="PieChartSnap" width="500">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.12.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-displaying-of-statistical-data"><a class="link" href="#aspect-displaying-of-statistical-data">Aspect: Displaying of statistical data</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Replace the details in browser panel with graph.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Do not have to deviate from the use of command line input.</p>
+</li>
+<li>
+<p>Cons: Cannot view person detail and statistical data simultaneously.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Open a new window to show graph.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Can use the app and view the statistical data simultaneously.</p>
+</li>
+<li>
+<p>Cons: Create inconvenience as user need to take additional steps to close the window.</p>
 </li>
 </ul>
 </div>
@@ -3395,7 +3488,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-04 16:19:40 UTC
+Last updated 2018-04-04 17:02:11 UTC
 </div>
 </div>
 </body>
