@@ -54,7 +54,8 @@
 <li><a href="#filter-feature">4.7. Filter feature</a></li>
 <li><a href="#ui-modifications">4.8. UI Modifications</a></li>
 <li><a href="#optional-fields-for-add-command">4.9. Optional Fields for Add Command</a></li>
-<li><a href="#autofill">4.10. Autofill</a></li>
+<li><a href="#find-missing-command">4.10. Find Missing Command</a></li>
+<li><a href="#autofill">4.11. Autofill</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -1466,7 +1467,7 @@ For all fields that the user did not enter a value for, an empty string <code>""
 </li>
 <li>
 <p>Cons: Need to ensure that empty string is an accepted input when making a new attribute class.<br>
-User can enter prefix with only spaces as a valid input, which will be in as an unentered field, which may be unintuitive.</p>
+User can enter prefix with only spaces as a valid input, which will be read as an unentered field, which may be unintuitive.</p>
 </li>
 </ul>
 </div>
@@ -1491,14 +1492,106 @@ Must create a special constructor for the attribute class to accept a <code>null
 </div>
 </div>
 <div class="sect2">
-<h3 id="autofill"><a class="link" href="#autofill">4.10. Autofill</a></h3>
+<h3 id="find-missing-command"><a class="link" href="#find-missing-command">4.10. Find Missing Command</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.10.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The intention and design behind this command is to pair with the allowing of users to leave fields for a person&#8217;s values unentered.
+As the design of the command, parser and sequence when a user enters a find missing command to be very similar to the filter command, the documentation
+here will focus more on the design considerations and rationale instead of repeating sequence diagrams that are almost the same as given previously.<br>
+Currently, the command makes use of a new predicate, <code>FindMissingPredicate</code>, to perform the check.
+Rationale for having a new command and predicate is that reusing the <code>Filter</code> command or predicate would violate Single Responsibility Principle and the idea of Separation of Concerns.<br>
+The <code>Filter</code> command and classes associated closely to it should have the single concern of listing people according to a search term.<br>
+Therefore, it is better design to create a new command for this feature.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.10.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-design-of-predicate-used"><a class="link" href="#aspect-design-of-predicate-used">Aspect: Design of predicate used</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> One single predicate, containing a <code>List</code> of entered user arguments.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Ensures the predicate used in the <code>FindMissingCommand</code> remains of type <code>FindMissingPredicate</code>, ensuring better controlled</p>
+</li>
+<li>
+<p>Cons: Increased complexity of ensuring the predicate test will correctly give a true or false value.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Create one predicate for each user argument, then make use of <code>Predicate</code> method to perform a logical OR.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Predicate simply needs to check for the field that was given as its keyword.</p>
+</li>
+<li>
+<p>Cons: Due to the <code>Predicate.or</code> method being provided by Java, it is difficult to debug and ensure an intended <code>.equals</code> check is performed.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-method-of-taking-in-user-input"><a class="link" href="#aspect-method-of-taking-in-user-input">Aspect: Method of taking in user input</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Have user arguments be combined in an OR manner.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Makes it easier for the user to find a person they may not be too sure which field was left empty for, since they can specify multiple ones to search.<br>
+Current option used since it fits best with the user need of simply finding those with missing fields to refresh their memory on which people they need to fill out the attributes for.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Have user arguments be combined in an AND manner.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Allows the user to narrow down a search, especially if the size of the stored contacts is large.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3:</strong> Allow user to enter only 1 argument</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Simplifies the command significantly with only 1 field to search for.</p>
+</li>
+<li>
+<p>Cons: Artificially limits the command heavily for users, where those who want to search for multiple missing fields will not be able to.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="autofill"><a class="link" href="#autofill">4.11. Autofill</a></h3>
 <div class="paragraph">
 <p>Due to the significant amount of attributes to type in, especially when adding or editing a person, we decided to create
 autofill feature to reduce the time taken to enter a person&#8217;s details. Besides <code>add</code> and <code>edit</code>, commands with
 definite format (i.e. <code>delete</code> and <code>select</code>) have this feature implemented as well.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.10.1. Current Implementation</a></h4>
+<h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">4.11.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Autofill feature is implemented in <a href="https://github.com/CS2103JAN2018-W11-B1/main/blob/master/src/main/java/seedu/address/ui/CommandBox.java"><code>CommandBox.java</code></a>.
 When keyboard <code>Delete</code> or <code>Tab</code> is pressed, depending on the user input in the command box, the caret position
@@ -1539,7 +1632,7 @@ then procedes to find next field to be shifted to. Below shows what happens when
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.10.2. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.11.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-keyboard-key-for-code-delete-code"><a class="link" href="#aspect-keyboard-key-for-code-delete-code">Aspect: Keyboard key for <code>Delete</code></a></h5>
 <div class="ulist">
@@ -3302,7 +3395,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-04 02:52:16 UTC
+Last updated 2018-04-04 10:45:27 UTC
 </div>
 </div>
 </body>
