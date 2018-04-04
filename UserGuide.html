@@ -46,7 +46,7 @@
 <li><a href="#undoing-previous-command-code-strong-undo-strong-code-or-code-strong-u-strong-code">3.2.13. Undoing previous command : <code><strong>undo</strong></code> or <code><strong>u</strong></code></a></li>
 <li><a href="#redoing-the-previously-undone-command-code-strong-redo-strong-code-or-code-strong-r-strong-code">3.2.14. Redoing the previously undone command : <code><strong>redo</strong></code> or <code><strong>r</strong></code></a></li>
 <li><a href="#clearing-all-entries-code-strong-clear-strong-code-or-code-strong-c-strong-code">3.2.15. Clearing all entries : <code><strong>clear</strong></code> or <code><strong>c</strong></code></a></li>
-<li><a href="#creating-a-remark-for-a-person-code-strong-remark-strong-code-or-code-strong-rm-strong-code-code-in-v1-3-code">3.2.16. Creating a remark for a person : <code><strong>remark</strong></code> or <code><strong>rm</strong></code> <code>[In V1.3]</code></a></li>
+<li><a href="#creating-a-remark-for-a-person-code-strong-remark-strong-code-or-code-strong-rk-strong-code-code-in-v1-3-code">3.2.16. Creating a remark for a person : <code><strong>remark</strong></code> or <code><strong>rk</strong></code> <code>[In V1.3]</code></a></li>
 <li><a href="#giving-a-rating-to-a-person-code-strong-rate-strong-code-or-code-strong-rt-strong-code-code-in-v1-4-code">3.2.17. Giving a rating to a person : <code><strong>rate</strong></code> or <code><strong>rt</strong></code> <code>[In V1.4]</code></a></li>
 <li><a href="#viewing-the-statistic-code-strong-viewstats-strong-code-code-in-v1-4-code">3.2.18. Viewing the statistic : <code><strong>viewStats</strong></code> <code>[In V1.4]</code></a></li>
 <li><a href="#exiting-the-program-code-strong-exit-strong-code">3.2.19. Exiting the program : <code><strong>exit</strong></code></a></li>
@@ -921,7 +921,7 @@ The <code><strong>redo</strong></code> command fails as there are no <code><stro
 </div>
 </div>
 <div class="sect3">
-<h4 id="creating-a-remark-for-a-person-code-strong-remark-strong-code-or-code-strong-rm-strong-code-code-in-v1-3-code"><a class="link" href="#creating-a-remark-for-a-person-code-strong-remark-strong-code-or-code-strong-rm-strong-code-code-in-v1-3-code">3.2.16. Creating a remark for a person : <code><strong>remark</strong></code> or <code><strong>rm</strong></code> <code>[In V1.3]</code></a></h4>
+<h4 id="creating-a-remark-for-a-person-code-strong-remark-strong-code-or-code-strong-rk-strong-code-code-in-v1-3-code"><a class="link" href="#creating-a-remark-for-a-person-code-strong-remark-strong-code-or-code-strong-rk-strong-code-code-in-v1-3-code">3.2.16. Creating a remark for a person : <code><strong>remark</strong></code> or <code><strong>rk</strong></code> <code>[In V1.3]</code></a></h4>
 <div class="paragraph">
 <p>Format: <code><strong>remark</strong> INDEX r/</code></p>
 </div>
@@ -1135,10 +1135,28 @@ You can the file under the same path of <strong>main/data</strong></p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>find James Jake</code></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>findmissing</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fm</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>findmissing [FIELD]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>findmissing phone</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>select</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>s</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>select INDEX</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>select 2</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>match</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>m</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>match INDEX_A INDEX_B</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>match 1 2</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>unmatch</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>um</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>unmatch INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>unmatch 2</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter</code></p></td>
@@ -1148,9 +1166,15 @@ You can the file under the same path of <strong>main/data</strong></p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>remark</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rm</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rk</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>remark INDEX r/</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>remark 2 r/Fast learner.</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rate INDEX r/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rate INDEX r/</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
@@ -1285,7 +1309,7 @@ You can the file under the same path of <strong>main/data</strong></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-03 18:24:46 UTC
+Last updated 2018-04-04 02:52:16 UTC
 </div>
 </div>
 </body>
