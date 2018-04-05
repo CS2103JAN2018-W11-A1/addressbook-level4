@@ -98,7 +98,7 @@
 <h2 id="getting-started"><a class="link" href="#getting-started">2. Getting Started</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This section helps you set up your STUtor on your computer.</p>
+<p>This section helps you set up your STUtor app on your computer.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -143,7 +143,7 @@ This app will not work with earlier versions of Java 8.
 <p>Section 1: <strong>Command Box</strong> to type your commands</p>
 </li>
 <li>
-<p>Section 2: <strong>Result Display</strong> to show the results of your command</p>
+<p>Section 2: <strong>Result Box</strong> to show the results of your command</p>
 </li>
 <li>
 <p>Section 3: <strong>Pair List</strong> to list all pairs currently matched</p>
@@ -152,7 +152,7 @@ This app will not work with earlier versions of Java 8.
 <p>Section 4: <strong>Person List</strong> to list all persons in the entire database</p>
 </li>
 <li>
-<p>Section 5: <strong>Person Details</strong> to show all details of a person</p>
+<p>Section 5: <strong>Information Panel</strong> to show all details of a person</p>
 </li>
 </ul>
 </div>
@@ -257,17 +257,14 @@ e.g. typing <code><strong>help</strong></code> and pressing <kbd>Enter</kbd> wil
 <div class="sect3">
 <h4 id="viewing-help-code-strong-help-strong-code"><a class="link" href="#viewing-help-code-strong-help-strong-code">3.2.1. Viewing help : <code><strong>help</strong></code></a></h4>
 <div class="paragraph">
-<p>Format: <code><strong>help</strong></code></p>
+<p>At any time if you are unsure of how to use STUtor, this command will bring you to the help page.</p>
 </div>
 <div class="paragraph">
-<p>At any time if you are unsure of how to use STUtor, this command will bring you to the help page.</p>
+<p>Format: <code><strong>help</strong></code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="adding-a-person-code-strong-add-strong-code-or-code-strong-a-strong-code"><a class="link" href="#adding-a-person-code-strong-add-strong-code-or-code-strong-a-strong-code">3.2.2. Adding a person: <code><strong>add</strong></code> or <code><strong>a</strong></code></a></h4>
-<div class="paragraph">
-<p>Format: <code><strong>add</strong> n/NAME [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [$/PRICE] [sub/SUBJECT] [lvl/EDUCATION_LEVEL] [stat/STATUS] [r/ROLE] [t/TAG]&#8230;&#8203;</code></p>
-</div>
 <div class="paragraph">
 <p>Adds a new person to STUtor.<br></p>
 </div>
@@ -306,6 +303,9 @@ To fill in the other fields later, you can use the edit command to edit the pers
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>Format: <code><strong>add</strong> n/NAME [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [$/PRICE] [sub/SUBJECT] [lvl/EDUCATION_LEVEL] [stat/STATUS] [r/ROLE] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -354,17 +354,14 @@ You can view the diagram below for a clearer visualization on how it works.</p>
 <div class="sect3">
 <h4 id="listing-all-persons-code-strong-list-strong-code-or-code-strong-l-strong-code"><a class="link" href="#listing-all-persons-code-strong-list-strong-code-or-code-strong-l-strong-code">3.2.3. Listing all persons : <code><strong>list</strong></code> or <code><strong>l</strong></code></a></h4>
 <div class="paragraph">
-<p>Format: <code><strong>list</strong></code></p>
+<p>Shows a list of all persons in STUtor.<br></p>
 </div>
 <div class="paragraph">
-<p>Shows a list of all persons in STUtor.<br></p>
+<p>Format: <code><strong>list</strong></code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="editing-a-person-code-strong-edit-strong-code-or-code-strong-e-strong-code"><a class="link" href="#editing-a-person-code-strong-edit-strong-code-or-code-strong-e-strong-code">3.2.4. Editing a person : <code><strong>edit</strong></code> or <code><strong>e</strong></code></a></h4>
-<div class="paragraph">
-<p>Format: <code><strong>edit</strong> INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [$/PRICE] [sub/SUBJECT] [lvl/EDUCATION_LEVEL] [stat/STATUS] [r/ROLE] [t/TAG]&#8230;&#8203;</code></p>
-</div>
 <div class="paragraph">
 <p>Edits an existing person in STUtor.<br></p>
 </div>
@@ -396,6 +393,9 @@ You can view the diagram below for a clearer visualization on how it works.</p>
 </ul>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>Format: <code><strong>edit</strong> INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [$/PRICE] [sub/SUBJECT] [lvl/EDUCATION_LEVEL] [stat/STATUS] [r/ROLE] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -439,9 +439,6 @@ You can view the diagram below for a clearer visualization on how it works.</p>
 <div class="sect3">
 <h4 id="filtering-all-persons-list-by-subject-level-role-or-status-code-strong-filter-strong-code-code-in-v1-3-code"><a class="link" href="#filtering-all-persons-list-by-subject-level-role-or-status-code-strong-filter-strong-code-code-in-v1-3-code">3.2.5. Filtering all persons list by subject, level, role or status: <code><strong>filter</strong></code> <code>[In V1.3]</code></a></h4>
 <div class="paragraph">
-<p>Format: <code><strong>filter</strong> KEYWORD</code></p>
-</div>
-<div class="paragraph">
 <p>Filters all persons list whose SUBJECT, EDUCATION_LEVEL, STATUS, or ROLE contain any of the given keywords.<br></p>
 </div>
 <div class="sidebarblock">
@@ -469,6 +466,9 @@ You can view the diagram below for a clearer visualization on how it works.</p>
 </div>
 </div>
 <div class="paragraph">
+<p>Format: <code><strong>filter</strong> KEYWORD</code></p>
+</div>
+<div class="paragraph">
 <p>Examples:</p>
 </div>
 <div class="ulist">
@@ -486,9 +486,6 @@ Returns persons with <code>Student</code> role</p>
 </div>
 <div class="sect3">
 <h4 id="locating-persons-by-name-code-strong-find-strong-code-or-code-strong-f-strong-code"><a class="link" href="#locating-persons-by-name-code-strong-find-strong-code-or-code-strong-f-strong-code">3.2.6. Locating persons by name: <code><strong>find</strong></code> or <code><strong>f</strong></code></a></h4>
-<div class="paragraph">
-<p>Format: <code><strong>find</strong> KEYWORD [MORE_KEYWORDS]</code></p>
-</div>
 <div class="paragraph">
 <p>Finds persons whose NAME contain any of the given keywords.<br></p>
 </div>
@@ -526,6 +523,9 @@ Returns persons with <code>Student</code> role</p>
 </div>
 </div>
 <div class="paragraph">
+<p>Format: <code><strong>find</strong> KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+<div class="paragraph">
 <p>Examples:</p>
 </div>
 <div class="ulist">
@@ -543,9 +543,6 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 </div>
 <div class="sect3">
 <h4 id="finding-people-with-missing-fields-code-strong-findmissing-strong-code-or-code-strong-fm-strong-code-code-in-v1-4-code"><a class="link" href="#finding-people-with-missing-fields-code-strong-findmissing-strong-code-or-code-strong-fm-strong-code-code-in-v1-4-code">3.2.7. Finding people with missing fields: <code><strong>findmissing</strong></code> or <code><strong>fm</strong></code> <code>[In V1.4]</code></a></h4>
-<div class="paragraph">
-<p>Format: <code><strong>findmissing</strong> [FIELD]&#8230;&#8203;</code></p>
-</div>
 <div class="paragraph">
 <p>If no arguments for FIELD is entered, lists all people with at least one field with an empty value.<br>
 Otherwise, finds all people with an empty value in at least one entered FIELD.</p>
@@ -593,6 +590,9 @@ Otherwise, finds all people with an empty value in at least one entered FIELD.</
 </div>
 </div>
 <div class="paragraph">
+<p>Format: <code><strong>findmissing</strong> [FIELD]&#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
 <p>Examples:</p>
 </div>
 <div class="ulist">
@@ -615,9 +615,6 @@ Returns any person who has no entered value for at least 1 field.</p>
 <div class="sect3">
 <h4 id="deleting-a-person-code-strong-delete-strong-code-or-code-strong-d-strong-code"><a class="link" href="#deleting-a-person-code-strong-delete-strong-code-or-code-strong-d-strong-code">3.2.8. Deleting a person : <code><strong>delete</strong></code> or <code><strong>d</strong></code></a></h4>
 <div class="paragraph">
-<p>Format: <code><strong>delete</strong> INDEX</code></p>
-</div>
-<div class="paragraph">
 <p>Deletes the specified person from STUtor.<br></p>
 </div>
 <div class="sidebarblock">
@@ -636,6 +633,9 @@ Returns any person who has no entered value for at least 1 field.</p>
 </ul>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>Format: <code><strong>delete</strong> INDEX</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -679,9 +679,6 @@ You can view the diagram below for a clearer visualization on how it works.</p>
 <div class="sect3">
 <h4 id="selecting-a-person-code-strong-select-strong-code-or-code-strong-s-strong-code"><a class="link" href="#selecting-a-person-code-strong-select-strong-code-or-code-strong-s-strong-code">3.2.9. Selecting a person : <code><strong>select</strong></code> or <code><strong>s</strong></code></a></h4>
 <div class="paragraph">
-<p>Format: <code><strong>select</strong> INDEX</code></p>
-</div>
-<div class="paragraph">
 <p>Selects the person identified by the index number used in the <strong>last person listing</strong>.<br></p>
 </div>
 <div class="sidebarblock">
@@ -700,6 +697,9 @@ You can view the diagram below for a clearer visualization on how it works.</p>
 </ul>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>Format: <code><strong>select</strong> INDEX</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -742,9 +742,6 @@ You can view the diagram below for a clearer visualization on how it works.</p>
 </div>
 <div class="sect3">
 <h4 id="matching-a-student-and-a-tutor-code-strong-match-strong-code-or-code-strong-m-strong-code-code-in-v1-4-code"><a class="link" href="#matching-a-student-and-a-tutor-code-strong-match-strong-code-or-code-strong-m-strong-code-code-in-v1-4-code">3.2.10. Matching a student and a tutor : <code><strong>match</strong></code> or <code><strong>m</strong></code> <code>[In V1.4]</code></a></h4>
-<div class="paragraph">
-<p>Format: <code><strong>match</strong> INDEX_A INDEX_B</code> or <code><strong>m</strong> INDEX_A INDEX_B</code></p>
-</div>
 <div class="paragraph">
 <p>Selects the persons identified by the index numbers used in the <strong>last person listing</strong>.<br></p>
 </div>
@@ -790,6 +787,9 @@ For example:<br></p>
 </div>
 </div>
 <div class="paragraph">
+<p>Format: <code><strong>match</strong> INDEX_A INDEX_B</code> or <code><strong>m</strong> INDEX_A INDEX_B</code></p>
+</div>
+<div class="paragraph">
 <p>Examples:</p>
 </div>
 <div class="ulist">
@@ -820,9 +820,6 @@ or the other way round.</p>
 <div class="sect3">
 <h4 id="unmatching-a-student-and-a-tutor-code-strong-ummatch-strong-code-or-code-strong-um-strong-code-code-in-v1-4-code"><a class="link" href="#unmatching-a-student-and-a-tutor-code-strong-ummatch-strong-code-or-code-strong-um-strong-code-code-in-v1-4-code">3.2.11. Unmatching a student and a tutor : <code><strong>ummatch</strong></code> or <code><strong>um</strong></code> <code>[In V1.4]</code></a></h4>
 <div class="paragraph">
-<p>Format: <code><strong>unmatch</strong> INDEX_A INDEX_B</code> or <code><strong>um</strong> INDEX_A INDEX_B</code></p>
-</div>
-<div class="paragraph">
 <p>Selects the pair identified by the index numbers used in the pair listing.<br></p>
 </div>
 <div class="sidebarblock">
@@ -838,6 +835,9 @@ and <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</c
 </div>
 </div>
 <div class="paragraph">
+<p>Format: <code><strong>unmatch</strong> INDEX_A INDEX_B</code> or <code><strong>um</strong> INDEX_A INDEX_B</code></p>
+</div>
+<div class="paragraph">
 <p>Examples:</p>
 </div>
 <div class="ulist">
@@ -851,9 +851,6 @@ Match the pair at index 1.<br></p>
 </div>
 <div class="sect3">
 <h4 id="listing-entered-commands-code-strong-history-strong-code-or-code-strong-h-strong-code"><a class="link" href="#listing-entered-commands-code-strong-history-strong-code-or-code-strong-h-strong-code">3.2.12. Listing entered commands : <code><strong>history</strong></code> or <code><strong>h</strong></code></a></h4>
-<div class="paragraph">
-<p>Format: <code><strong>history</strong></code></p>
-</div>
 <div class="paragraph">
 <p>You can list all the commands that you have entered in reverse chronological order.<br></p>
 </div>
@@ -871,12 +868,14 @@ Match the pair at index 1.<br></p>
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>Format: <code><strong>history</strong></code></p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="undoing-previous-command-code-strong-undo-strong-code-or-code-strong-u-strong-code"><a class="link" href="#undoing-previous-command-code-strong-undo-strong-code-or-code-strong-u-strong-code">3.2.13. Undoing previous command : <code><strong>undo</strong></code> or <code><strong>u</strong></code></a></h4>
 <div class="paragraph">
-<p>Format: <code><strong>undo</strong></code>
-You can easily restore STUtor to the state before the previous <em>undoable</em> command was executed.<br></p>
+<p>You can easily restore STUtor to the state before the previous <em>undoable</em> command was executed.<br></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -891,6 +890,9 @@ You can easily restore STUtor to the state before the previous <em>undoable</em>
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>Format: <code><strong>undo</strong></code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -920,10 +922,10 @@ The <code><strong>undo</strong></code> command fails as there are no undoable co
 <div class="sect3">
 <h4 id="redoing-the-previously-undone-command-code-strong-redo-strong-code-or-code-strong-r-strong-code"><a class="link" href="#redoing-the-previously-undone-command-code-strong-redo-strong-code-or-code-strong-r-strong-code">3.2.14. Redoing the previously undone command : <code><strong>redo</strong></code> or <code><strong>r</strong></code></a></h4>
 <div class="paragraph">
-<p>Format: <code><strong>redo</strong></code></p>
+<p>You can easily reverse the most recent <code><strong>undo</strong></code> command.<br></p>
 </div>
 <div class="paragraph">
-<p>You can easily reverse the most recent <code><strong>undo</strong></code> command.<br></p>
+<p>Format: <code><strong>redo</strong></code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -954,17 +956,14 @@ The <code><strong>redo</strong></code> command fails as there are no <code><stro
 <div class="sect3">
 <h4 id="clearing-all-entries-code-strong-clear-strong-code-or-code-strong-c-strong-code"><a class="link" href="#clearing-all-entries-code-strong-clear-strong-code-or-code-strong-c-strong-code">3.2.15. Clearing all entries : <code><strong>clear</strong></code> or <code><strong>c</strong></code></a></h4>
 <div class="paragraph">
-<p>Format: <code><strong>clear</strong></code></p>
+<p>To clear all entries from your STUtor, use the <code><strong>clear</strong></code> command.<br></p>
 </div>
 <div class="paragraph">
-<p>To clear all entries from your STUtor, use the <code><strong>clear</strong></code> command.<br></p>
+<p>Format: <code><strong>clear</strong></code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="creating-a-remark-for-a-person-code-strong-remark-strong-code-or-code-strong-rk-strong-code-code-in-v1-3-code"><a class="link" href="#creating-a-remark-for-a-person-code-strong-remark-strong-code-or-code-strong-rk-strong-code-code-in-v1-3-code">3.2.16. Creating a remark for a person : <code><strong>remark</strong></code> or <code><strong>rk</strong></code> <code>[In V1.3]</code></a></h4>
-<div class="paragraph">
-<p>Format: <code><strong>remark</strong> INDEX r/REMARK</code></p>
-</div>
 <div class="paragraph">
 <p>Creates a remark for the person identified by the index number used in the <strong>last person listing</strong>.<br></p>
 </div>
@@ -986,6 +985,9 @@ The <code><strong>redo</strong></code> command fails as there are no <code><stro
 </div>
 </div>
 <div class="paragraph">
+<p>Format: <code><strong>remark</strong> INDEX r/REMARK</code></p>
+</div>
+<div class="paragraph">
 <p>Examples:</p>
 </div>
 <div class="ulist">
@@ -1005,9 +1007,6 @@ Removes the remark for the 1st person in the results of the <code><strong>find</
 </div>
 <div class="sect3">
 <h4 id="giving-a-rating-to-a-person-code-strong-rate-strong-code-or-code-strong-rt-strong-code-code-in-v1-4-code"><a class="link" href="#giving-a-rating-to-a-person-code-strong-rate-strong-code-or-code-strong-rt-strong-code-code-in-v1-4-code">3.2.17. Giving a rating to a person : <code><strong>rate</strong></code> or <code><strong>rt</strong></code> <code>[In V1.4]</code></a></h4>
-<div class="paragraph">
-<p>Format: <code><strong>rate</strong> INDEX r/RATE</code></p>
-</div>
 <div class="paragraph">
 <p>Gives a rating to the person identified by the index number used in the <strong>last person listing</strong>.<br></p>
 </div>
@@ -1062,6 +1061,9 @@ Rating values are also rounded down.</p>
 </div>
 </div>
 <div class="paragraph">
+<p>Format: <code><strong>rate</strong> INDEX r/RATE</code></p>
+</div>
+<div class="paragraph">
 <p>Examples:</p>
 </div>
 <div class="ulist">
@@ -1082,9 +1084,6 @@ Gives an accumulated rating for the 1st person in the results of the <code><stro
 <div class="sect3">
 <h4 id="viewing-the-statistic-code-strong-viewstats-strong-code-code-in-v1-4-code"><a class="link" href="#viewing-the-statistic-code-strong-viewstats-strong-code-code-in-v1-4-code">3.2.18. Viewing the statistic : <code><strong>viewStats</strong></code> <code>[In V1.4]</code></a></h4>
 <div class="paragraph">
-<p>Format: <code><strong>viewStats</strong></code></p>
-</div>
-<div class="paragraph">
 <p>Shows statistical information such as role distribution(Student/Tutor ratio) in the form of a pie chart.<br></p>
 </div>
 <div class="sidebarblock">
@@ -1104,14 +1103,17 @@ Gives an accumulated rating for the 1st person in the results of the <code><stro
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>Format: <code><strong>viewStats</strong></code></p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="exiting-the-program-code-strong-exit-strong-code"><a class="link" href="#exiting-the-program-code-strong-exit-strong-code">3.2.19. Exiting the program : <code><strong>exit</strong></code></a></h4>
 <div class="paragraph">
-<p>Format: <code><strong>exit</strong></code></p>
+<p>Exits the program.<br></p>
 </div>
 <div class="paragraph">
-<p>Exits the program.<br></p>
+<p>Format: <code><strong>exit</strong></code></p>
 </div>
 </div>
 <div class="sect3">
@@ -1365,7 +1367,7 @@ You can the file under the same path of <strong>main/data</strong></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-05 08:02:33 UTC
+Last updated 2018-04-05 15:30:15 UTC
 </div>
 </div>
 </body>
