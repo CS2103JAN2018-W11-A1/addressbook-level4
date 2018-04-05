@@ -97,6 +97,9 @@
 <div class="sect1">
 <h2 id="getting-started"><a class="link" href="#getting-started">2. Getting Started</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This section helps you set up your STUtor on your computer.</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -119,14 +122,39 @@ This app will not work with earlier versions of Java 8.
 <p>Download the latest <em>STUtor.jar</em> <a href="https://github.com/CS2103JAN2018-W11-B1/main/releases">here</a>.</p>
 </li>
 <li>
-<p>Copy the file to the folder you want to use as the home folder for your STUtor.</p>
+<p>Copy the file to the folder you want to use for storing your STUtor.</p>
 </li>
 <li>
-<p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
+<p>Double-click the file to start the app. You will see the interface in a few seconds.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/Ui.png" alt="Ui" width="790">
+<img src="images/Ui_withLabels.png" alt="Ui withLabels" width="790">
 </div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Sections of STUtor:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Section 1: <strong>Command Box</strong> to type your commands</p>
+</li>
+<li>
+<p>Section 2: <strong>Result Display</strong> to show the results of your command</p>
+</li>
+<li>
+<p>Section 3: <strong>Pair List</strong> to list all pairs currently matched</p>
+</li>
+<li>
+<p>Section 4: <strong>Person List</strong> to list all persons in the entire database</p>
+</li>
+<li>
+<p>Section 5: <strong>Person Details</strong> to show all details of a person</p>
+</li>
+</ul>
 </div>
 </li>
 <li>
@@ -138,22 +166,27 @@ e.g. typing <code><strong>help</strong></code> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p><code><strong>list</strong></code> : lists all contacts</p>
+<p>To list all contacts: <code><strong>list</strong></code></p>
 </li>
 <li>
-<p><code><strong>add</strong> n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 $/50 sub/Math lvl/Lower Sec stat/Not Matched r/Student</code> : adds a contact named <code>John Doe</code> to STUtor.</p>
+<p>To add a contact named <code>John Doe</code> and his particulars to STUtor: <code><strong>add</strong> n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 $/50 sub/Math lvl/Lower Sec stat/Not Matched r/Student</code></p>
 </li>
 <li>
-<p><code><strong>delete</strong> 3</code> : deletes the 3rd contact shown in the current list</p>
+<p>To delete the 3rd contact shown in the current list: <code><strong>delete</strong> 3</code></p>
 </li>
 <li>
-<p><code><strong>exit</strong></code> : exits the app</p>
+<p>To exit the app: <code><strong>exit</strong></code></p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Refer to <a href="#Features">Section 3, &#8220;Features&#8221;</a> for details of each command.</p>
+<p>For more details for each command, you can view <a href="#basic-features">Section 3.2, &#8220;Basic Features&#8221;</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </li>
 </ol>
 </div>
@@ -162,6 +195,9 @@ e.g. typing <code><strong>help</strong></code> and pressing <kbd>Enter</kbd> wil
 <div class="sect1">
 <h2 id="Features"><a class="link" href="#Features">3. Features</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>To use the features, you need to key in the commands in the <strong>Command Box</strong>.</p>
+</div>
 <div class="sect2">
 <h3 id="command-format"><a class="link" href="#command-format">3.1. Command Format</a></h3>
 <div class="sidebarblock">
@@ -244,7 +280,7 @@ e.g. typing <code><strong>help</strong></code> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>Alias can be used to reduce typing. Refer to <a href="#Prefix Shortcut Summary ">[Prefix Shortcut Summary ]</a> for more details.</p>
+<p>Alias can be used to reduce typing. Refer to <a href="#prefix-shortcut-summary">Section 6, &#8220;Prefix Shortcut Summary&#8221;</a> for more details.</p>
 </li>
 <li>
 <p>These information is displayed as tags for easy reference.</p>
@@ -283,7 +319,7 @@ To fill in the other fields later, you can use the edit command to edit the pers
 <p><code><strong>add</strong> n/Betsy Crowe p/91562389 e/betsycrowe@example.com a/Pasir Ris Drive 10, #06-02 $/30 sub/Chinese lvl/Upper Pri stat/Not Matched r/Tutor</code></p>
 </li>
 <li>
-<p>`<strong>add</strong> n/Carl Kurz</p>
+<p><code><strong>add</strong> n/Carl Kurz</code></p>
 </li>
 </ul>
 </div>
@@ -295,9 +331,10 @@ To fill in the other fields later, you can use the edit command to edit the pers
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Press <kbd>Tab</kbd> key once after typing <code><strong>add</strong></code> or <code><strong>a</strong></code> will autofill the command.
+<p>You can press <kbd>Tab</kbd> key once after typing <code><strong>add</strong></code> or <code><strong>a</strong></code> and it will autofill the command.
 Further pressing of <kbd>Tab</kbd> key will jump to the next field to be filled in.
-Press <kbd>Delete</kbd> key to delete a field (and its prefix).</p>
+You can press <kbd>Delete</kbd> key to delete a field (and its prefix).
+You can view the diagram below for a clearer visualization on how it works.</p>
 </div>
 </td>
 </tr>
@@ -383,10 +420,11 @@ Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all 
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Press <kbd>Tab</kbd> key once after typing <code><strong>edit</strong></code> or <code><strong>e</strong></code> will autofill the command.
+<p>You can press <kbd>Tab</kbd> key once after typing <code><strong>edit</strong></code> or <code><strong>e</strong></code> and it will autofill the command.
 INDEX to be specified will be highlighted.
 Further pressing of <kbd>Tab</kbd> key will jump to the next field to be filled in.
-Press <kbd>Delete</kbd> key to delete a field (and its prefix).</p>
+You can press <kbd>Delete</kbd> key to delete a field (and its prefix).
+You can view the diagram below for a clearer visualization on how it works.</p>
 </div>
 </td>
 </tr>
@@ -624,8 +662,9 @@ Deletes the 1st person in the results of the <code><strong>find</strong></code> 
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Press <kbd>Tab</kbd> key once after typing <code><strong>delete</strong></code> or <code><strong>d</strong></code> will autofill the command.
-INDEX to be specified will be highlighted.</p>
+<p>You can press <kbd>Tab</kbd> key once after typing <code><strong>delete</strong></code> or <code><strong>d</strong></code> and it will autofill the command.
+INDEX to be specified will be highlighted.
+You can view the diagram below for a clearer visualization on how it works.</p>
 </div>
 </td>
 </tr>
@@ -687,8 +726,9 @@ Selects the 1st person in the results of the <code><strong>find</strong></code> 
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Press <kbd>Tab</kbd> key once after typing <code><strong>select</strong></code> or <code><strong>s</strong></code> will autofill the command.
-INDEX to be specified will be highlighted.</p>
+<p>You can press <kbd>Tab</kbd> key once after typing <code><strong>select</strong></code> or <code><strong>s</strong></code> and it will autofill the command.
+INDEX to be specified will be highlighted.
+You can view the diagram below for a clearer visualization on how it works.</p>
 </div>
 </td>
 </tr>
@@ -1092,6 +1132,9 @@ You can the file under the same path of <strong>main/data</strong></p>
 <div class="sect1">
 <h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>You can use these shortcuts when typing the commands.</p>
+</div>
 <table class="tableblock frame-all grid-all" style="width: 80%;">
 <colgroup>
 <col style="width: 25%;">
@@ -1307,7 +1350,7 @@ You can the file under the same path of <strong>main/data</strong></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-05 04:55:16 UTC
+Last updated 2018-04-05 07:30:15 UTC
 </div>
 </div>
 </body>
