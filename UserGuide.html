@@ -298,7 +298,7 @@ e.g. typing <code><strong>help</strong></code> and pressing <kbd>Enter</kbd> wil
 <td class="content">
 <div class="paragraph">
 <p>Only the NAME field is required for the command to be accepted, all other fields are optional.<br>
-To fill in the other fields later, you can use the edit command to edit the person with the new information.</p>
+To fill in the other fields later, you can use the edit command to edit the person with the new information.<br></p>
 </div>
 </td>
 </tr>
@@ -334,7 +334,8 @@ To fill in the other fields later, you can use the edit command to edit the pers
 <p>You can press <kbd>Tab</kbd> key once after typing <code><strong>add</strong></code> or <code><strong>a</strong></code> and it will autofill the command.
 Further pressing of <kbd>Tab</kbd> key will jump to the next field to be filled in.
 You can press <kbd>Delete</kbd> key to delete a field (and its prefix).
-You can view the diagram below for a clearer visualization on how it works.</p>
+You can view the diagram below for a clearer visualization on how it works.
+<strong>Important!</strong> If you enter only empty spaces after a prefix, it will be read as no value entered into the optional field. You will not need to delete prefixes for unentered fields to enter the command.</p>
 </div>
 </td>
 </tr>
@@ -544,7 +545,8 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 <div class="sect3">
 <h4 id="finding-people-with-missing-fields-code-strong-findmissing-strong-code-or-code-strong-fm-strong-code-code-in-v1-4-code"><a class="link" href="#finding-people-with-missing-fields-code-strong-findmissing-strong-code-or-code-strong-fm-strong-code-code-in-v1-4-code">3.2.7. Finding people with missing fields: <code><strong>findmissing</strong></code> or <code><strong>fm</strong></code> <code>[In V1.4]</code></a></h4>
 <div class="paragraph">
-<p>If no arguments for FIELD is entered, lists all people with at least one field with an empty value.<br>
+<p>Lists only people who have fields that you have not yet entered, making it easy for you to search for that person you want to edit in data.<br>
+If no arguments for FIELD is entered, lists all people with at least one field with an empty value.<br>
 Otherwise, finds all people with an empty value in at least one entered FIELD.</p>
 </div>
 <div class="sidebarblock">
@@ -1367,7 +1369,7 @@ You can the file under the same path of <strong>main/data</strong></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-06 00:00:58 UTC
+Last updated 2018-04-06 04:25:31 UTC
 </div>
 </div>
 </body>
