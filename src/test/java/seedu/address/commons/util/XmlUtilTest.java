@@ -52,7 +52,7 @@ public class XmlUtilTest {
 
 
     private static final List<XmlAdaptedTag> VALID_TAGS = Collections.singletonList(
-            new XmlAdaptedTag("friends"));
+            new XmlAdaptedTag("friends", "DEFAULT"));
 
     private static final List<XmlAdaptedPairHash> VALID_PAIRHASH = Collections.singletonList(
             new XmlAdaptedPairHash(PairHash.DEFAULT_PAIR_HASH));

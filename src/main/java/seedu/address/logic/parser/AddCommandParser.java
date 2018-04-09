@@ -55,6 +55,8 @@ public class AddCommandParser implements Parser<AddCommand> {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT + MESSAGE_USAGE, MESSAGE_USAGE));
         }
 
+        //@@author aussiroth
+        //Change here from original code is that I create a class with empty string if user did not enter a value.
         try {
             Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME)).get();
             Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE)).orElse(new Phone(""));
@@ -68,7 +70,8 @@ public class AddCommandParser implements Parser<AddCommand> {
             Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
             Set<PairHash> pairHashList = ParserUtil.parsePairHashes(argMultimap.getAllValues(PREFIX_PAIRHASH));
 
-            //@@author aussiroth
+            //make sure name is not accidentally set to empty string as it is the only compulsory field.
+            assert(!name.equals(""));
             //Add required attributes to the tag list as in documentation
             //make tags only if the attribute has been entered by user
             if (!price.toString().equals("")) {

@@ -2,7 +2,9 @@ package seedu.address.model.person;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -106,11 +108,15 @@ public class Person {
     }
 
     /**
-     * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
+     * Returns an immutable tag list, which throws {@code UnsupportedOperationException}
      * if modification is attempted.
+     * The tag list is sorted according to their tag type, and order is as defined in the enum.
      */
-    public Set<Tag> getTags() {
-        return Collections.unmodifiableSet(tags.toSet());
+    public List<Tag> getTags() {
+        Set<Tag> setTags = tags.toSet();
+        List<Tag> tagsAsList = new ArrayList<>(setTags);
+        Collections.sort(tagsAsList);
+        return Collections.unmodifiableList(tagsAsList);
     }
 
     public Set<PairHash> getPairHashes() {
@@ -139,8 +145,6 @@ public class Person {
                 && otherPerson.getStatus().equals(this.getStatus())
                 && otherPerson.getPrice().equals(this.getPrice())
                 && otherPerson.getRole().equals(this.getRole());
-                //&& otherPerson.getRemark().equals(this.getRemark())
-                //&& otherPerson.getRate().equals(this.getRate());
     }
 
     @Override
@@ -159,7 +163,13 @@ public class Person {
                 .append(" Email: ")
                 .append(getEmail())
                 .append(" Address: ")
-                .append(getAddress());
+                .append(getAddress())
+                .append(" Tags: ");
+        List<Tag> tagAsList = getTags();
+        for (Tag tag : tagAsList) {
+            builder.append(tag);
+        }
+        System.out.println("stringbuilder " + builder.toString());
         return builder.toString();
     }
 
