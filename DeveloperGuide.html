@@ -49,14 +49,15 @@
 <li><a href="#logging">4.2. Logging</a></li>
 <li><a href="#Implementation-Configuration">4.3. Configuration</a></li>
 <li><a href="#automatic-creation-of-tags-from-person-attributes">4.4. Automatic creation of tags from person attributes</a></li>
-<li><a href="#case-insensitive-input">4.5. Case-insensitive input</a></li>
-<li><a href="#shortcuts-for-the-user-in-filling-fields">4.6. Shortcuts for the user in filling fields</a></li>
+<li><a href="#shortcuts-for-the-user-in-filling-fields">4.5. Shortcuts for the user in filling fields</a></li>
+<li><a href="#case-insensitive-input">4.6. Case-insensitive input</a></li>
 <li><a href="#filter-feature">4.7. Filter feature</a></li>
 <li><a href="#ui-modifications">4.8. UI Modifications</a></li>
 <li><a href="#optional-fields-for-add-command">4.9. Optional Fields for Add Command</a></li>
 <li><a href="#find-missing-command">4.10. Find Missing Command</a></li>
 <li><a href="#autofill">4.11. Autofill</a></li>
 <li><a href="#view-stats-command">4.12. View Stats Command</a></li>
+<li><a href="#match-command-unmatch-command">4.13. Match Command &amp; Unmatch Command</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -1122,43 +1123,12 @@ The respective tagName and tagType can be obtained by splitting the read string 
 </div>
 </div>
 <div class="sect2">
-<h3 id="case-insensitive-input"><a class="link" href="#case-insensitive-input">4.5. Case-insensitive input</a></h3>
+<h3 id="shortcuts-for-the-user-in-filling-fields"><a class="link" href="#shortcuts-for-the-user-in-filling-fields">4.5. Shortcuts for the user in filling fields</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.5.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>We made input of fields case-insensitive to reduce user input error.</p>
-</div>
-<div class="paragraph">
-<p>After parsing and validation, the field entered is converted to <a href="#proper-case">proper case</a> internally, so tags generated from the field information will be standardized and more readable for the user.</p>
-</div>
-<div class="paragraph">
-<p>The exceptions are <code>Price</code> and <code>Phone</code> as they consist only of numbers and require no conversion. <code>Email</code> is converted to all lower-case to follow the convention.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="model-implementation-2"><a class="link" href="#model-implementation-2">4.5.2. Model Implementation</a></h4>
-<div class="paragraph">
-<p>We utilise the <code>ProperCaseConverter</code> object to convert all parsed and valid input into proper case.
-The sequence diagram below shows how this is achieved in the constructor of <code>Role</code> class.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/SDforCaseInsensitiveInput.png" alt="SDforCaseInsensitiveInput" width="800">
-</div>
-<div class="title">Figure 20. Sequence Diagram for achieveing case insensitive input</div>
-</div>
-<div class="paragraph">
-<p>The other classes utilise the <code>ProperCaseConverter</code> object in a similar way.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="shortcuts-for-the-user-in-filling-fields"><a class="link" href="#shortcuts-for-the-user-in-filling-fields">4.6. Shortcuts for the user in filling fields</a></h3>
-<div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.6.1. Current Implementation</a></h4>
-<div class="paragraph">
 <p>Due to the nature of the application, the user will input certain information repetitively.
-For example, <code>Role</code> can only be one of <code>student</code> or <code>tutor</code>.</p>
+For example, <code>Role</code> can only be one of <code>Student</code> or <code>Tutor</code>.</p>
 </div>
 <div class="paragraph">
 <p>Thus, we have created shortcuts to improve efficiency in filling the fields.
@@ -1242,9 +1212,8 @@ We currently support shortcuts for <code>Subject</code>, <code>Level</code>, <co
 </table>
 </div>
 <div class="sect3">
-<h4 id="model-implementation-3"><a class="link" href="#model-implementation-3">4.6.2. Model Implementation</a></h4>
+<h4 id="model-implementation-2"><a class="link" href="#model-implementation-2">4.5.2. Model Implementation</a></h4>
 <div class="paragraph">
-<div class="title">Input shortcuts</div>
 <p>The shortcut is first validated, then the field information is converted to its full form.
 Below is the function that performs conversion in the Role class. Other classes follow similar implementation.</p>
 </div>
@@ -1255,13 +1224,44 @@ Below is the function that performs conversion in the Role class. Other classes 
        <span class="keyword">if</span> (cur == <span class="predefined-constant">null</span>) {
            <span class="keyword">return</span> <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>;
         } <span class="keyword">else</span> <span class="keyword">if</span> (cur.equals(<span class="string"><span class="delimiter">&quot;</span><span class="content">s</span><span class="delimiter">&quot;</span></span>)) {
-            cur = <span class="string"><span class="delimiter">&quot;</span><span class="content">student</span><span class="delimiter">&quot;</span></span>;
+            cur = <span class="string"><span class="delimiter">&quot;</span><span class="content">Student</span><span class="delimiter">&quot;</span></span>;
         } <span class="keyword">else</span> <span class="keyword">if</span> (cur.equals(<span class="string"><span class="delimiter">&quot;</span><span class="content">t</span><span class="delimiter">&quot;</span></span>)) {
-            cur = <span class="string"><span class="delimiter">&quot;</span><span class="content">tutor</span><span class="delimiter">&quot;</span></span>;
+            cur = <span class="string"><span class="delimiter">&quot;</span><span class="content">Tutor</span><span class="delimiter">&quot;</span></span>;
         }
        <span class="keyword">return</span> cur;
  }</code></pre>
 </div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="case-insensitive-input"><a class="link" href="#case-insensitive-input">4.6. Case-insensitive input</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.6.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>We made input of fields case-insensitive to reduce user input error.</p>
+</div>
+<div class="paragraph">
+<p>After parsing and validation, the field entered is converted to <a href="#proper-case">proper case</a> internally, so tags generated from the field information will be standardized and more readable for the user.</p>
+</div>
+<div class="paragraph">
+<p>The exceptions are <code>Price</code> and <code>Phone</code> as they consist only of numbers and require no conversion. <code>Email</code> is converted to all lower-case to follow the convention.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="model-implementation-3"><a class="link" href="#model-implementation-3">4.6.2. Model Implementation</a></h4>
+<div class="paragraph">
+<p>We utilise the <code>ProperCaseConverter</code> object to convert all parsed and valid input into proper case.
+The sequence diagram below shows how this is achieved in the constructor of <code>Role</code> class.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SDforCaseInsensitiveInput.png" alt="SDforCaseInsensitiveInput" width="800">
+</div>
+<div class="title">Figure 20. Sequence Diagram for achieveing case insensitive input</div>
+</div>
+<div class="paragraph">
+<p>The other classes utilise the <code>ProperCaseConverter</code> object in a similar way.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1761,6 +1761,85 @@ the role distribution between students and tutors is shown below.</p>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="match-command-unmatch-command"><a class="link" href="#match-command-unmatch-command">4.13. Match Command &amp; Unmatch Command</a></h3>
+<div class="paragraph">
+<p>A tuition coordinator needs to record which students are receiving tuition from which tutors.
+Intuitively, the <code>match</code> command allows the user to pair a student with a tutor,
+while the <code>unmatch</code> command removes the pair.<br>
+The matched pairs will be stored in STUtor.xml, and displayed on the pair list panel (the leftmost vertical panel).</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-11"><a class="link" href="#current-implementation-11">4.13.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>A matched pair is stored as a <code>Pair</code> object.
+To uniquely identify each pair, we utilise a <code>PairHash</code> class.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/PairClassDiagram.png" alt="PairClassDiagram" width="700">
+</div>
+<div class="title">Figure 24. Class diagram to show associations between Person, Pair and PairHash class.</div>
+</div>
+<div class="paragraph">
+<p>As seen above, a <code>Pair</code> is constructed using one <code>Student</code> and one <code>Tutor</code>.
+The association between a <code>PairHash</code> object and a <code>Pair</code> object is one-to-one.
+A <code>Person</code> (<code>Student</code> or <code>Tutor</code>) can have any number of unique <code>PairHash</code>, that is,
+a student can be paired to multiple tutors and vice versa.<br></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">4.13.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="acceptance-of-many-to-many-matches"><a class="link" href="#acceptance-of-many-to-many-matches">Acceptance of Many-to-Many matches</a></h5>
+<div class="paragraph">
+<p>We allow a student to be paired to multiple tutors and vice versa,
+because one student may take tuition for several subjects, and a tutor
+is likely to take a few students.<br>
+On top of that, we also allow a student to be paired to multiple tutors
+for the same subject. To justify, consider a student who wants to receive English
+tuition and would like to have specialized tutors to train him on Comprehension and
+Composition separately.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="the-pairhash-class"><a class="link" href="#the-pairhash-class">The PairHash Class</a></h5>
+<div class="paragraph">
+<p>Due to the one-to-one association between <code>Pair</code> and <code>PairHash</code>, <code>PairHash</code> is used to
+facilitate matching and unmatching, as well as updating the status of a person.
+It helps to reduce coupling between <code>Pair</code> and <code>Person</code> objects.<br></p>
+</div>
+<div class="paragraph">
+<p>When a <code>Pair</code> is created through the <code>match</code> command, a`PairHash` is generated and automatically stored in the
+<code>Pair</code> itself, as well as the <code>Student</code> and <code>Tutor</code> objects involved (see below).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/MatchActivityDiagram.png" alt="MatchActivityDiagram" width="700">
+</div>
+<div class="title">Figure 25. Activity diagram for Match Command</div>
+</div>
+<div class="paragraph">
+<p>Similarly, when a <code>Pair</code> is removed through the <code>unmatch</code> command, its <code>PairHash</code> is retrieved and removed from the
+<code>Student</code> and <code>Tutor</code> involved.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>PairHash</code> objects associated with a particular <code>Person</code> object is stored inside that <code>Person</code> as a list.<br>
+Whenever a <code>PairHash</code> is add to/ removed from the list (a <code>match</code>/ <code>unmatch</code> command is executed), a check is done to makes sure the status
+of the person remains correct. If the list is empty, that <code>Person</code> 's status will be <code>Not Matched</code>, else it will be <code>Matched</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1822,7 +1901,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 24. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 26. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 </div>
@@ -3488,7 +3567,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-09 11:19:31 UTC
+Last updated 2018-04-09 11:55:01 UTC
 </div>
 </div>
 </body>

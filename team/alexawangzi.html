@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.6.1">
+<title>Wang Zi - Project Portfolio</title>
+<link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>Wang Zi - Project Portfolio</h1>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="project-stutor-v1-5"><a class="link" href="#project-stutor-v1-5">PROJECT: STUtor - v1.5</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>STUtor -v1.5 is a desktop address book targeting tutor coordinators
+to help them <em>matching</em> and <em>managing</em> a large database of tutors and students.<br>
+The user interacts with it using a CLI, and it has a GUI created with JavaFX.
+It is written in Java, and has about 25 kLoC.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>:
+added <strong>the ability to match/unmatch a student and a tutor</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does:
+allows the user to choose a student and a tutor to match, or to choose a currently matched pair and unmatch it.</p>
+</li>
+<li>
+<p>Justification:
+This feature makes the accounting process of matching easier.
+Matching/Unmatching is done automatically after the target student and tutor is provided by the user,
+therefore saving time in marking individual tutor or student and updating their status.</p>
+</li>
+<li>
+<p>Highlights:
+The new Pair class interact heavily with the existing Person and Tag class,
+and careful thinking is required to ensure full exploitation of the existing classes
+without increasing the coupling.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>:
+Added the ability to accept case-insensitive input, as well as shortcuts,
+for filling in subject, level, status and role.
+On top of that, standardize storage format and display to follow <a href="#proper-case">proper case</a>.</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103JAN2018-W11-B1/main/blob/master/collated/functional/alexawangzi.md">Functional code</a>] [<a href="https://github.com/CS2103JAN2018-W11-B1/main/blob/master/collated/test/alexawangzi.md">Test code</a>]</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+</li>
+<li>
+<p>Documentation:</p>
+</li>
+<li>
+<p>Community:</p>
+</li>
+<li>
+<p>Tools:</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="matching-a-student-and-a-tutor-code-strong-match-strong-code-or-code-strong-m-strong-code-code-in-v1-4-code"><a class="link" href="#matching-a-student-and-a-tutor-code-strong-match-strong-code-or-code-strong-m-strong-code-code-in-v1-4-code">Matching a student and a tutor : <code><strong>match</strong></code> or <code><strong>m</strong></code> <code>[In V1.4]</code></a></h4>
+<div class="paragraph">
+<p>Selects the persons identified by the index numbers used in the <strong>last person listing</strong>.<br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The indices supplied must correspond to one <strong>student</strong> and one <strong>tutor</strong>.
+They must have <strong>the same subject, level and price</strong>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the most recent listing,
+and <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
+</li>
+<li>
+<p>If the match is valid (The two persons are compatible),
+you will see a message like this:
+<code>Created new match &lt;student name&gt; and &lt;tutor name&gt;.</code><br></p>
+</li>
+<li>
+<p>If the match is not valid, you will see a error message saying
+<code>Matching failed.</code>
+You will also see detailed information on what went wrong.
+For example:<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Please provide indices of one student and one tutor.</code></p>
+</li>
+<li>
+<p><code>Not the same subject.</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Format: <code><strong>match</strong> INDEX_A INDEX_B</code> or <code><strong>m</strong> INDEX_A INDEX_B</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><strong>match</strong> 1 2</code><br>
+Match the person at index 1 to the person at index 2.<br></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The order of entering indices does not matter.
+That is, you can enter the student&#8217;s index first followed by the tutor&#8217;s index,
+or the other way round.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="unmatching-a-student-and-a-tutor-code-strong-ummatch-strong-code-or-code-strong-um-strong-code-code-in-v1-4-code"><a class="link" href="#unmatching-a-student-and-a-tutor-code-strong-ummatch-strong-code-or-code-strong-um-strong-code-code-in-v1-4-code">Unmatching a student and a tutor : <code><strong>ummatch</strong></code> or <code><strong>um</strong></code> <code>[In V1.4]</code></a></h4>
+<div class="paragraph">
+<p>Selects the pair identified by the index numbers used in the pair listing.<br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The index refers to the index number shown in the most recent listing,
+and <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Format: <code><strong>unmatch</strong> INDEX_A INDEX_B</code> or <code><strong>um</strong> INDEX_A INDEX_B</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><strong>unmatch</strong> 1</code><br>
+Unmatch the pair at index 1.<br></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can use these shortcuts when typing the commands.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Shortcut</th>
+<th class="tableblock halign-left valign-top">Format</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS $/PRICE sub/SUBJECT lvl/EDUCATION_LEVEL stat/STATUS r/ROLE [t/TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 $/50 sub/Math lvl/Lower Sec stat/Not Matched r/Student</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete 3</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>e</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [$/PRICE] [sub/SUBJECT] [lvl/EDUCATION_LEVEL] [stat/STATUS] [r/ROLE] [t/TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit 2 n/James Lee e/jameslee@example.com</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>f</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD [MORE_KEYWORDS]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find James Jake</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>findmissing</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fm</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>findmissing [FIELD]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>findmissing phone</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>s</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select 2</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>match</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>m</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>match INDEX_A INDEX_B</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>match 1 2</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>unmatch</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>um</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>unmatch INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>unmatch 2</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter KEYWORD</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter Math</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>remark</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rk</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>remark INDEX r/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>remark 2 r/Fast learner.</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rate INDEX r/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rate INDEX r/3.5</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>l</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>c</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>history</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>h</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>undo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>u</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>redo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>r</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exit</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="link" href="#faq">FAQ</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
+<strong>A</strong>:<br>
+1) Please install STUtor in the other computer.<br>
+2) Navigate to <strong>main/data</strong>, and overwrite the empty <code>STUtor.xml</code> file
+with the file of the same name found on your previous computer.
+You can the file under the same path of <strong>main/data</strong></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="match-command-unmatch-command"><a class="link" href="#match-command-unmatch-command">Match Command &amp; Unmatch Command</a></h3>
+<div class="paragraph">
+<p>A tuition coordinator needs to record which students are receiving tuition from which tutors.
+Intuitively, the <code>match</code> command allows the user to pair a student with a tutor,
+while the <code>unmatch</code> command removes the pair.<br>
+The matched pairs will be stored in STUtor.xml, and displayed on the pair list panel (the leftmost vertical panel).</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>A matched pair is stored as a <code>Pair</code> object.
+To uniquely identify each pair, we utilise a <code>PairHash</code> class.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/PairClassDiagram.png" alt="PairClassDiagram" width="700">
+</div>
+<div class="title">Figure 1. Class diagram to show associations between Person, Pair and PairHash class.</div>
+</div>
+<div class="paragraph">
+<p>As seen above, a <code>Pair</code> is constructed using one <code>Student</code> and one <code>Tutor</code>.
+The association between a <code>PairHash</code> object and a <code>Pair</code> object is one-to-one.
+A <code>Person</code> (<code>Student</code> or <code>Tutor</code>) can have any number of unique <code>PairHash</code>, that is,
+a student can be paired to multiple tutors and vice versa.<br></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="acceptance-of-many-to-many-matches"><a class="link" href="#acceptance-of-many-to-many-matches">Acceptance of Many-to-Many matches</a></h5>
+<div class="paragraph">
+<p>We allow a student to be paired to multiple tutors and vice versa,
+because one student may take tuition for several subjects, and a tutor
+is likely to take a few students.<br>
+On top of that, we also allow a student to be paired to multiple tutors
+for the same subject. To justify, consider a student who wants to receive English
+tuition and would like to have specialized tutors to train him on Comprehension and
+Composition separately.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="the-pairhash-class"><a class="link" href="#the-pairhash-class">The PairHash Class</a></h5>
+<div class="paragraph">
+<p>Due to the one-to-one association between <code>Pair</code> and <code>PairHash</code>, <code>PairHash</code> is used to
+facilitate matching and unmatching, as well as updating the status of a person.
+It helps to reduce coupling between <code>Pair</code> and <code>Person</code> objects.<br></p>
+</div>
+<div class="paragraph">
+<p>When a <code>Pair</code> is created through the <code>match</code> command, a`PairHash` is generated and automatically stored in the
+<code>Pair</code> itself, as well as the <code>Student</code> and <code>Tutor</code> objects involved (see below).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/MatchActivityDiagram.png" alt="MatchActivityDiagram" width="700">
+</div>
+<div class="title">Figure 2. Activity diagram for Match Command</div>
+</div>
+<div class="paragraph">
+<p>Similarly, when a <code>Pair</code> is removed through the <code>unmatch</code> command, its <code>PairHash</code> is retrieved and removed from the
+<code>Student</code> and <code>Tutor</code> involved.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>PairHash</code> objects associated with a particular <code>Person</code> object is stored inside that <code>Person</code> as a list.<br>
+Whenever a <code>PairHash</code> is add to/ removed from the list (a <code>match</code>/ <code>unmatch</code> command is executed), a check is done to makes sure the status
+of the person remains correct. If the list is empty, that <code>Person</code> 's status will be <code>Not Matched</code>, else it will be <code>Matched</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="shortcuts-for-the-user-in-filling-fields"><a class="link" href="#shortcuts-for-the-user-in-filling-fields">Shortcuts for the user in filling fields</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
+<div class="paragraph">
+<p>Due to the nature of the application, the user will input certain information repetitively.
+For example, <code>Role</code> can only be one of <code>Student</code> or <code>Tutor</code>.</p>
+</div>
+<div class="paragraph">
+<p>Thus, we have created shortcuts to improve efficiency in filling the fields.
+We currently support shortcuts for <code>Subject</code>, <code>Level</code>, <code>Status</code>, and <code>Role</code>.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 59%;">
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 35%;">
+<col style="width: 35%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Applicable field</th>
+<th class="tableblock halign-left valign-top">Shortcut</th>
+<th class="tableblock halign-left valign-top">Equivalence in full</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">subject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/chem</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/chemistry</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">subject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/phy</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/physics</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">subject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/chi</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/chinese</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">subject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/eng</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/english</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/us</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/upper sec</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/ls</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/lower sec</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/up</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/upper pri</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/lp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/lower pri</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stat/nm</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stat/not matched</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stat/m</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stat/matched</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">role</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>r/t</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>r/tutor</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">role</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>r/s</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>r/student</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="model-implementation"><a class="link" href="#model-implementation">Model Implementation</a></h4>
+<div class="paragraph">
+<p>The shortcut is first validated, then the field information is converted to its full form.
+Below is the function that performs conversion in the Role class. Other classes follow similar implementation.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"> <span class="directive">public</span> <span class="predefined-type">String</span> convertToFullRole(<span class="predefined-type">String</span> original) {
+      <span class="predefined-type">String</span> cur = original.toLowerCase();
+       <span class="keyword">if</span> (cur == <span class="predefined-constant">null</span>) {
+           <span class="keyword">return</span> <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>;
+        } <span class="keyword">else</span> <span class="keyword">if</span> (cur.equals(<span class="string"><span class="delimiter">&quot;</span><span class="content">s</span><span class="delimiter">&quot;</span></span>)) {
+            cur = <span class="string"><span class="delimiter">&quot;</span><span class="content">Student</span><span class="delimiter">&quot;</span></span>;
+        } <span class="keyword">else</span> <span class="keyword">if</span> (cur.equals(<span class="string"><span class="delimiter">&quot;</span><span class="content">t</span><span class="delimiter">&quot;</span></span>)) {
+            cur = <span class="string"><span class="delimiter">&quot;</span><span class="content">Tutor</span><span class="delimiter">&quot;</span></span>;
+        }
+       <span class="keyword">return</span> cur;
+ }</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="case-insensitive-input"><a class="link" href="#case-insensitive-input">Case-insensitive input</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">Current Implementation</a></h4>
+<div class="paragraph">
+<p>We made input of fields case-insensitive to reduce user input error.</p>
+</div>
+<div class="paragraph">
+<p>After parsing and validation, the field entered is converted to <a href="#proper-case">proper case</a> internally, so tags generated from the field information will be standardized and more readable for the user.</p>
+</div>
+<div class="paragraph">
+<p>The exceptions are <code>Price</code> and <code>Phone</code> as they consist only of numbers and require no conversion. <code>Email</code> is converted to all lower-case to follow the convention.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="model-implementation-2"><a class="link" href="#model-implementation-2">Model Implementation</a></h4>
+<div class="paragraph">
+<p>We utilise the <code>ProperCaseConverter</code> object to convert all parsed and valid input into proper case.
+The sequence diagram below shows how this is achieved in the constructor of <code>Role</code> class.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SDforCaseInsensitiveInput.png" alt="SDforCaseInsensitiveInput" width="800">
+</div>
+<div class="title">Figure 3. Sequence Diagram for achieveing case insensitive input</div>
+</div>
+<div class="paragraph">
+<p>The other classes utilise the <code>ProperCaseConverter</code> object in a similar way.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The user can input shortcuts in case-insensitive fashion.
+For instance, the user may input <code>add n/jOHN dOE p/98765432 e/johND@eXaMpLe.com a/NUS #04-02 $/50 sub/PHy lvl/uP stat/nM t/T</code>
+, the stored entry will be <code>John Doe Phone: 98765432 Email: <a href="mailto:johnd@example.com">johnd@example.com</a> Address: NUS #04-02 Tags: [Tutor][Upper Pri][50][Physics][Not Matched]</code>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="glossary"><a class="link" href="#glossary">Appendix A: Glossary</a></h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><a id="proper-case"></a> Proper case</dt>
+<dd>
+<p>Proper case is any text that is written with each of the first letters of every word being capitalized.
+For example, "This Is An Example Of Proper Case."</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2018-04-09 11:55:01 UTC
+</div>
+</div>
+</body>
+</html>
