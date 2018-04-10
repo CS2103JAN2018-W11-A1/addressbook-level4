@@ -239,14 +239,18 @@ Gives an accumulated rating for the 1st person in the results of the <code><stro
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="auofill-feature"><a class="link" href="#auofill-feature">Auofill Feature</a></h3>
 <div class="paragraph">
-<p>A sample command is shown below:</p>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
 </div>
-<div class="sect3">
-<h4 id="edit-command"><a class="link" href="#edit-command">Edit Command</a></h4>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>=== Auofill Feature
+A sample command is shown below:</p>
+</div>
+<div class="paragraph">
+<p>==== Edit Command</p>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -270,13 +274,9 @@ You can view the diagram below for a clearer visualization on how it works.</p>
 <img src="../images/AutofillEdit.png" alt="AutofillEdit" width="800">
 </div>
 </div>
+<div class="paragraph">
+<p>== Contributions to the Developer Guide</p>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
-<div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 100%;">
@@ -287,18 +287,15 @@ You can view the diagram below for a clearer visualization on how it works.</p>
 </tr>
 </tbody>
 </table>
-<div class="sect2">
-<h3 id="review-feature"><a class="link" href="#review-feature">Review Feature</a></h3>
 <div class="paragraph">
-<p>As a tuition coordinator may receive feedback from students or tutors regarding their lessons, this feature helps the tuition coordinator
+<p>=== Review Feature
+As a tuition coordinator may receive feedback from students or tutors regarding their lessons, this feature helps the tuition coordinator
 to manage these information easily. Review feature in STUtor includes both adding a remark and rating for a student or tutor.</p>
 </div>
-<div class="sect3">
-<h4 id="remark-command"><a class="link" href="#remark-command">Remark Command</a></h4>
-<div class="sect4">
-<h5 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h5>
 <div class="paragraph">
-<p>There are two ways users can interact with the Remark Command:</p>
+<p>==== Remark Command
+===== Current Implementation
+There are two ways users can interact with the Remark Command:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -351,12 +348,10 @@ appropriate modifications.</p>
 </div>
 <div class="title">Figure 1. Sequence Diagram for <code>remark</code></div>
 </div>
+<div class="paragraph">
+<p>==== Design Considerations
+===== Aspect: Constructor for Remark Command</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-constructor-for-remark-command"><a class="link" href="#aspect-constructor-for-remark-command">Aspect: Constructor for Remark Command</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -388,12 +383,10 @@ be used since create remark command is implemented before edit remark.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>==== Rate Command
+===== Current Implementation</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="rate-command"><a class="link" href="#rate-command">Rate Command</a></h4>
-<div class="sect4">
-<h5 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h5>
 <div class="paragraph">
 <p>Rating is from 0.0 (worst performing) to 5.0 (best performing) and is stored as a <code>double</code> inside <code>Rate</code> class.
 Regex is used to limit user input to a maximum of 1 decimal place and any number below 0.0 or 5.0 is rejected.</p>
@@ -435,12 +428,10 @@ in the user input. When setting an absolute rating, the app resets <code>count</
 </div>
 <div class="title">Figure 2. Sequence Diagram for <code>rate</code></div>
 </div>
+<div class="paragraph">
+<p>==== Design Considerations
+===== Aspect: Indication for Absolute Rating</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-indication-for-absolute-rating"><a class="link" href="#aspect-indication-for-absolute-rating">Aspect: Indication for Absolute Rating</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -471,9 +462,9 @@ in the user input. When setting an absolute rating, the app resets <code>count</
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>===== Aspect: Calculation for Cumulative Rating</p>
 </div>
-<div class="sect4">
-<h5 id="aspect-calculation-for-cumulative-rating"><a class="link" href="#aspect-calculation-for-cumulative-rating">Aspect: Calculation for Cumulative Rating</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -504,18 +495,17 @@ in the user input. When setting an absolute rating, the app resets <code>count</
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Autofill</p>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="autofill"><a class="link" href="#autofill">Autofill</a></h3>
 <div class="paragraph">
 <p>Due to the significant amount of attributes to type in, especially when adding or editing a person, we decided to create
 autofill feature to reduce the time taken to enter a person&#8217;s details. Besides <code>add</code> and <code>edit</code>, commands with
 definite format (i.e. <code>remark</code>, <code>rate</code>, <code>delete</code>, <code>select</code>, <code>unmatch</code>, <code>match</code>) have this feature implemented as well.</p>
 </div>
-<div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">Current Implementation</a></h4>
+<div class="paragraph">
+<p>==== Current Implementation</p>
+</div>
 <div class="paragraph">
 <p>Autofill feature is implemented in <a href="{repoURL}/blob/master/src/main/java/seedu/address/ui/CommandBox.java"><code>CommandBox.java</code></a>.
 When keyboard <code>Delete</code> or <code>Tab</code> is pressed, depending on the user input in the command box, the caret position
@@ -527,10 +517,9 @@ will be shifted accordingly. Below shows the workflow when <code>Delete</code> o
 </div>
 <div class="title">Figure 3. Activity Diagram for Autofill</div>
 </div>
-<div class="sect4">
-<h5 id="find-next-field"><a class="link" href="#find-next-field">Find Next Field</a></h5>
 <div class="paragraph">
-<p>To find the next field to shift the caret to, manipulation of <code>String</code> is used to locate the next instance of <code>/</code> in the
+<p>===== Find Next Field
+To find the next field to shift the caret to, manipulation of <code>String</code> is used to locate the next instance of <code>/</code> in the
 command box. By searching the position of the next <code>/</code>, it indicates where the next field should be entered.</p>
 </div>
 <div class="imageblock">
@@ -539,11 +528,9 @@ command box. By searching the position of the next <code>/</code>, it indicates 
 </div>
 <div class="title">Figure 4. Visualization for find next field</div>
 </div>
-</div>
-<div class="sect4">
-<h5 id="delete-previous-prefix"><a class="link" href="#delete-previous-prefix">Delete Previous Prefix</a></h5>
 <div class="paragraph">
-<p>To delete the previous prefix, the last instance of <code>&#160;&#160;</code> from the current caret position is located. Any text
+<p>===== Delete Previous Prefix
+To delete the previous prefix, the last instance of <code>&#160;&#160;</code> from the current caret position is located. Any text
 between this position and the caret position is deleted to remove the desired prefix and user input (if any). The caret
 then procedes to find next field to be shifted to. Below shows what happens when <code>Delete</code> is pressed when caret position is at <code>n/</code>.</p>
 </div>
@@ -553,12 +540,9 @@ then procedes to find next field to be shifted to. Below shows what happens when
 </div>
 <div class="title">Figure 5. Visualization for delete previous prefix</div>
 </div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="select-index-to-edit"><a class="link" href="#select-index-to-edit">Select index to edit</a></h4>
 <div class="paragraph">
-<p>To select/highlight the index to edit, the first instance of a digit is searched from the current caret position. The index
+<p>==== Select index to edit
+To select/highlight the index to edit, the first instance of a digit is searched from the current caret position. The index
 is then highlighted by selecting the caret forward.</p>
 </div>
 <div class="imageblock">
@@ -572,11 +556,12 @@ is then highlighted by selecting the caret forward.</p>
 command easier for our user. By highlighting the index to edit, user can simply type the index they want to edit without
 manually having to shift the caret to change the index.</p>
 </div>
+<div class="paragraph">
+<p>==== Design Considerations</p>
 </div>
-<div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-keyboard-key-for-code-delete-code"><a class="link" href="#aspect-keyboard-key-for-code-delete-code">Aspect: Keyboard key for <code>Delete</code></a></h5>
+<div class="paragraph">
+<p>===== Aspect: Keyboard key for <code>Delete</code></p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -606,6 +591,10 @@ manually having to shift the caret to change the index.</p>
 </div>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+</div>
 </div>
 </div>
 <div class="sect4">
@@ -647,10 +636,9 @@ less typing from the user.</p>
 </div>
 </div>
 </div>
-</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-10 13:25:14 UTC
+Last updated 2018-04-10 14:09:20 UTC
 </div>
 </div>
 </body>
