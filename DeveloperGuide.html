@@ -1834,8 +1834,8 @@ It helps to reduce coupling between <code>Pair</code> and <code>Person</code> ob
 <div class="title">Figure 26. Activity diagram for Match Command</div>
 </div>
 <div class="paragraph">
-<p>Similarly, when a <code>Pair</code> is removed through the <code>unmatch</code> command, its <code>PairHash</code> is retrieved and removed from the
-<code>Student</code> and <code>Tutor</code> involved.</p>
+<p>Similarly, when a <code>Pair</code> is removed through the <code>unmatch</code> command, its <code>PairHash</code> is extracted
+and used to retrieve the <code>Student</code> and <code>Tutor</code> involved. This <code>PairHash</code> is then deleted from the persons.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -3581,7 +3581,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-10 09:58:58 UTC
+Last updated 2018-04-10 10:58:01 UTC
 </div>
 </div>
 </body>

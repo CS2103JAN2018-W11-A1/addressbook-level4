@@ -25,9 +25,11 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>STUtor -v1.5 is a desktop address book targeting tutor coordinators
-to help them <em>matching</em> and <em>managing</em> a large database of tutors and students.<br>
-The user interacts with it using a CLI, and it has a GUI created with JavaFX.
+<p>STUtor -v1.5 is a desktop application targeting tutor coordinators
+to help them <em>match</em> and <em>manage</em> a large database of tutors and students.<br>
+The user can perform actions such as adding/ removing a person, editing and view
+personal information, match a student with a tutor, and so on.<br>
+The user interacts with the application using a CLI, and it has a GUI created with JavaFX.
 It is written in Java, and has about 25 kLoC.</p>
 </div>
 </div>
@@ -35,64 +37,114 @@ It is written in Java, and has about 25 kLoC.</p>
 <div class="sect1">
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="major-enhancement"><a class="link" href="#major-enhancement">Major Enhancement</a></h3>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>:
-added <strong>the ability to match/unmatch a student and a tutor</strong></p>
+<p>Added the ability to <strong>match/unmatch a student and a tutor</strong></p>
 <div class="ulist">
 <ul>
 <li>
 <p>What it does:
-allows the user to choose a student and a tutor to match, or to choose a currently matched pair and unmatch it.</p>
+allows the user to choose a student and a tutor to match.
+Compatibilty checking will be done to ensure validity of the pair(must be one student and one tutor,
+must be of the same subject, etc).
+Similarly, the user can choose a currently matched pair and unmatch it.</p>
 </li>
 <li>
 <p>Justification:
-This feature makes the accounting process of matching easier.
-Matching/Unmatching is done automatically after the target student and tutor is provided by the user,
-therefore saving time in marking individual tutor or student and updating their status.</p>
+This feature makes the accounting process of matching and unmatching easier,
+saving time in marking individual tutor or student and updating their status.
+All the user has to provide is the indices of the target student and tutor.</p>
 </li>
 <li>
 <p>Highlights:
-The new Pair class interact heavily with the existing Person and Tag class,
-and careful thinking is required to ensure full exploitation of the existing classes
-without increasing the coupling.</p>
+The new Pair class interact heavily with the existing <a href="#person">Person</a> and <a href="#tag">Tag</a> class,
+and careful thinking is required to ensure good usage of the existing classes
+without increasing the coupling.
+Please refer to my writings in the <strong>"Contribution to the Developer Guide"</strong> section for detailed explanations on implementation.</p>
 </li>
 </ul>
 </div>
 </li>
-<li>
-<p><strong>Minor enhancement</strong>:
-Added the ability to accept case-insensitive input, as well as shortcuts,
-for filling in subject, level, status and role.
-On top of that, standardize storage format and display to follow <a href="#proper-case">proper case</a>.</p>
-</li>
-<li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103JAN2018-W11-B1/main/blob/master/collated/functional/alexawangzi.md">Functional code</a>] [<a href="https://github.com/CS2103JAN2018-W11-B1/main/blob/master/collated/test/alexawangzi.md">Test code</a>]</p>
-</li>
-<li>
-<p><strong>Other contributions</strong>:</p>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="minor-enhancement"><a class="link" href="#minor-enhancement">Minor Enhancement</a></h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Project management:</p>
+<p>Added the ability to accept <strong>case-insensitive input</strong> and <strong>shortcuts</strong> for filling in personal information.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does:
+When the user is editing information of a person, the</p>
 </li>
 <li>
-<p>Enhancements to existing features:</p>
+<p>Justification:
+Since the application is CLI-based and the user has a large database to manage, a lot of typing is required.
+Having shortcuts saves time for typing, and acceptance of case-insensitive input means even if the user type
+in the wrong case, the input will not be rejected and the user does not need to enter the information all over
+again.</p>
 </li>
 <li>
-<p>Documentation:</p>
-</li>
-<li>
-<p>Community:</p>
-</li>
-<li>
-<p>Tools:</p>
+<p>Highlights:
+On top of accepting the input as it is, storage format and display are made to follow <a href="#proper-case">proper case</a>.
+This means information are displayed in a more readable and standardized format, despite it might have been entered
+in various cases.</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="code-contributed"><a class="link" href="#code-contributed">Code Contributed</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>[<a href="https://github.com/CS2103JAN2018-W11-B1/main/blob/master/collated/functional/alexawangzi.md">Functional code</a>]</p>
+</li>
+<li>
+<p>[<a href="https://github.com/CS2103JAN2018-W11-B1/main/blob/master/collated/test/alexawangzi.md">Test code</a>]</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="other-contributions"><a class="link" href="#other-contributions">Other Contributions</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Enhancements to existing features:
+Added a remove tag function to remove a certain tag from all persons in the database.</p>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com/CS2103JAN2018-W11-B1/main/pull/98/files">#98</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com/CS2103JAN2018-T15-B1/main/issues/62">1</a>, <a href="https://github.com/CS2103JAN2018-T15-B1/main/issues/58">2</a>, <a href="https://github.com/CS2103JAN2018-T15-B1/main/issues/71">3</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -105,14 +157,17 @@ On top of that, standardize storage format and display to follow <a href="#prope
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide.
+They showcase my ability to write documentation targeting end-users.</em></p></td>
 </tr>
 </tbody>
 </table>
 <div class="sect3">
 <h4 id="matching-a-student-and-a-tutor-code-strong-match-strong-code-or-code-strong-m-strong-code-code-in-v1-4-code"><a class="link" href="#matching-a-student-and-a-tutor-code-strong-match-strong-code-or-code-strong-m-strong-code-code-in-v1-4-code">Matching a student and a tutor : <code><strong>match</strong></code> or <code><strong>m</strong></code> <code>[In V1.4]</code></a></h4>
 <div class="paragraph">
-<p>Selects the persons identified by the index numbers used in the <strong>last person listing</strong>.<br></p>
+<p>You can easily match a student and a tutor as an indication that they are
+having lessons together.
+To indicate who do you want to match, simply provide two index numbers used in the <strong>last person listing</strong>.<br></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -123,17 +178,72 @@ On top of that, standardize storage format and display to follow <a href="#prope
 They must have <strong>the same subject, level and price</strong>.</p>
 </li>
 <li>
-<p>The index refers to the index number shown in the most recent listing,
-and <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
+<p>The order of entering indices does not matter.
+That is, you can enter the student&#8217;s index first followed by the tutor&#8217;s index,
+or the other way round.</p>
 </li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Format: <code><strong>match</strong> PERSON_A_INDEX PERSON_B_INDEX</code> or <code><strong>m</strong> PERSON_A_INDEX PERSON_B_INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><strong>match</strong> 1 3</code><br>
+Match the person at index 1 to the person at index 3.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
 <li>
 <p>If the match is valid (The two persons are compatible),
-you will see a message like this:
-<code>Created new match &lt;student name&gt; and &lt;tutor name&gt;.</code><br></p>
+you will see a success message.<br>
+See the figure below for an illustration.</p>
 </li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/matchIllustration1.jpg" alt="matchIllustration1" width="500">
+</div>
+<div class="title">Figure 1. UI before <code><strong>match</strong> 1 3</code> is executed.</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/matchIllustration2.jpg" alt="matchIllustration2" width="500">
+</div>
+<div class="title">Figure 2. UI after <code><strong>match</strong> 1 3</code> is executed. New pair is dispalyed on the leftmost panel.</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
 <li>
 <p>If the match is not valid, you will see a error message saying
-<code>Matching failed.</code>
+<code>Matching failed.</code><br>
 You will also see detailed information on what went wrong.
 For example:<br></p>
 <div class="ulist">
@@ -149,34 +259,6 @@ For example:<br></p>
 </li>
 </ul>
 </div>
-</div>
-</div>
-<div class="paragraph">
-<p>Format: <code><strong>match</strong> INDEX_A INDEX_B</code> or <code><strong>m</strong> INDEX_A INDEX_B</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code><strong>match</strong> 1 2</code><br>
-Match the person at index 1 to the person at index 2.<br></p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The order of entering indices does not matter.
-That is, you can enter the student&#8217;s index first followed by the tutor&#8217;s index,
-or the other way round.</p>
-</div>
 </td>
 </tr>
 </table>
@@ -185,22 +267,11 @@ or the other way round.</p>
 <div class="sect3">
 <h4 id="unmatching-a-student-and-a-tutor-code-strong-ummatch-strong-code-or-code-strong-um-strong-code-code-in-v1-4-code"><a class="link" href="#unmatching-a-student-and-a-tutor-code-strong-ummatch-strong-code-or-code-strong-um-strong-code-code-in-v1-4-code">Unmatching a student and a tutor : <code><strong>ummatch</strong></code> or <code><strong>um</strong></code> <code>[In V1.4]</code></a></h4>
 <div class="paragraph">
-<p>Selects the pair identified by the index numbers used in the pair listing.<br></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The index refers to the index number shown in the most recent listing,
-and <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
-</li>
-</ul>
-</div>
-</div>
+<p>Once a pair finishes the course, you can unmatch them.
+Simply select the pair identified by the index numbers used in the <strong>pair listing</strong>.<br></p>
 </div>
 <div class="paragraph">
-<p>Format: <code><strong>unmatch</strong> INDEX_A INDEX_B</code> or <code><strong>um</strong> INDEX_A INDEX_B</code></p>
+<p>Format: <code><strong>unmatch</strong> INDEX</code> or <code><strong>um</strong> INDEX</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -220,7 +291,8 @@ Unmatch the pair at index 1.<br></p>
 <h2 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can use these shortcuts when typing the commands.</p>
+<p>You can use the following shortcuts when typing the commands.
+Note that there is no shortcuts for <code>help</code> and <code>exit</code> commands.</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 80%;">
 <colgroup>
@@ -354,7 +426,7 @@ Unmatch the pair at index 1.<br></p>
 <h2 id="prefix-shortcut-summary"><a class="link" href="#prefix-shortcut-summary">Prefix Shortcut Summary</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can use these shortcuts in adding a person, or editing a person&#8217;s details.</p>
+<p>To save time in adding a person, or editing a person&#8217;s details, use the following shortcuts.</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 59%;">
 <colgroup>
@@ -478,7 +550,7 @@ To uniquely identify each pair, we utilise a <code>PairHash</code> class.<br></p
 <div class="content">
 <img src="../images/PairClassDiagram.png" alt="PairClassDiagram" width="700">
 </div>
-<div class="title">Figure 1. Class diagram to show associations between Person, Pair and PairHash class.</div>
+<div class="title">Figure 3. Class diagram to show associations between Person, Pair and PairHash class.</div>
 </div>
 <div class="paragraph">
 <p>As seen above, a <code>Pair</code> is constructed using one <code>Student</code> and one <code>Tutor</code>.
@@ -516,11 +588,11 @@ It helps to reduce coupling between <code>Pair</code> and <code>Person</code> ob
 <div class="content">
 <img src="../images/MatchActivityDiagram.png" alt="MatchActivityDiagram" width="700">
 </div>
-<div class="title">Figure 2. Activity diagram for Match Command</div>
+<div class="title">Figure 4. Activity diagram for Match Command</div>
 </div>
 <div class="paragraph">
-<p>Similarly, when a <code>Pair</code> is removed through the <code>unmatch</code> command, its <code>PairHash</code> is retrieved and removed from the
-<code>Student</code> and <code>Tutor</code> involved.</p>
+<p>Similarly, when a <code>Pair</code> is removed through the <code>unmatch</code> command, its <code>PairHash</code> is extracted
+and used to retrieve the <code>Student</code> and <code>Tutor</code> involved. This <code>PairHash</code> is then deleted from the persons.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -675,7 +747,7 @@ The sequence diagram below shows how this is achieved in the constructor of <cod
 <div class="content">
 <img src="../images/SDforCaseInsensitiveInput.png" alt="SDforCaseInsensitiveInput" width="800">
 </div>
-<div class="title">Figure 3. Sequence Diagram for achieveing case insensitive input</div>
+<div class="title">Figure 5. Sequence Diagram for achieveing case insensitive input</div>
 </div>
 <div class="paragraph">
 <p>The other classes utilise the <code>ProperCaseConverter</code> object in a similar way.</p>
@@ -708,14 +780,40 @@ For instance, the user may input <code>add n/jOHN dOE p/98765432 e/johND@eXaMpLe
 <p>Proper case is any text that is written with each of the first letters of every word being capitalized.
 For example, "This Is An Example Of Proper Case."</p>
 </dd>
+<dt class="hdlist1"><a id="person"></a> Person</dt>
+<dd>
+<p>The class used to store information about a person.</p>
+</dd>
 </dl>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/personClassDiagram.png" alt="personClassDiagram" width="400">
+</div>
+<div class="title">Figure 6. Person class diagram with methods omitted</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><a id="tag"></a> Tag</dt>
+<dd>
+<p>Tags are used to displayed personal information for easy referencing.
+In STUtor, a person will have his/her role, subject, level, price, status displayed as tags.
+A pair will have the level, price and subject displayed as tags.</p>
+</dd>
+</dl>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/tagExampleForWangZiPPP.jpg" alt="tagExampleForWangZiPPP" width="800">
+</div>
+<div class="title">Figure 7. Illustration of usage of tags. Tags appear below the person/pair name.</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-10 09:58:59 UTC
+Last updated 2018-04-10 10:58:01 UTC
 </div>
 </div>
 </body>
