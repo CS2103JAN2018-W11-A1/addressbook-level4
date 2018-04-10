@@ -956,8 +956,15 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 This is done when user performs <code>add</code> or <code>edit</code> command.</p>
 </div>
 <div class="paragraph">
-<p>In the AddCommandParser, after successfully parsing the <code>Price</code>, <code>Subject</code>, <code>Level</code>, <code>Status</code> input, the code has been modified such that a new <code>Tag</code> containing the correct value and attribute is automatically created after.
-For the EditCommand, the <code>createEditedPerson</code> command will remove the previous attribute tags in the <code>Person</code> list of tags, then recreate the attribute tags using the new <code>Person</code> class attribute values.</p>
+<p>The creation of these tags from attributes is facilitated by static methods from a class in logic, called <code>AttributeTagSetter</code>. This class contains methods to remove existing attribute tags from a person, which can be used when needing to edit or find non-attribute tags of the person.
+Another method is to create the new attribute tags from provided input and return the new set of tags. This class is currently invoked from a static context, as its use currently is solely for managing the tags of a given <code>Person</code>.<br>
+The sequence diagram below (figure 18) shows where the creation of these tags in the sequence of parsing an <code>Add</code> command.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AttributeTagsSequenceDiagram.png" alt="AttributeTagsSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 18. Sequence diagram for creating attribute tags</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -967,7 +974,7 @@ For the EditCommand, the <code>createEditedPerson</code> command will remove the
 </td>
 <td class="content">
 Since the <code>Price</code>, <code>Subject</code>, <code>Level</code> and <code>Status</code> attributes have been parsed and checked to conform to expected values, there is no need to reparse the values when creating them as a <code>Tag</code>.<br>
-The acceptable inputs for a <code>Tag</code> must necessarily allow all the acceptable inputs for <code>Price</code>, <code>Subject</code>, <code>Level</code> and <code>Status</code> to prevent errors.
+The acceptable inputs for a <code>Tag</code> must necessarily allow all the acceptable inputs for <code>Price</code>, <code>Subject</code>, <code>Level</code>, <code>Status</code> and <code>Role</code> to prevent errors.
 </td>
 </tr>
 </table>
@@ -984,9 +991,9 @@ A tag can be created without being from an attribute, with just a tag name. In t
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/TagClassDiagram.png" alt="TagClassDiagram" width="600">
+<img src="images/TagClassDiagram.png" alt="TagClassDiagram" width="800">
 </div>
-<div class="title">Figure 18. <code>Tag</code> Class</div>
+<div class="title">Figure 19. <code>Tag</code> Class</div>
 </div>
 <div class="paragraph">
 <p>This new attribute is used to implement the capability to standardize all tags created as a <code>Price</code> attribute to have the same color, all tags created as a <code>Subject</code> attribute to have the same color, and so on.
@@ -1016,7 +1023,7 @@ The respective tagName and tagType can be obtained by splitting the read string 
 <div class="content">
 <img src="images/tagStorage.png" alt="tagStorage" width="400">
 </div>
-<div class="title">Figure 19. Storage of <code>Tag</code></div>
+<div class="title">Figure 20. Storage of <code>Tag</code></div>
 </div>
 </div>
 <div class="sect3">
@@ -1258,7 +1265,7 @@ The sequence diagram below shows how this is achieved in the constructor of <cod
 <div class="content">
 <img src="images/SDforCaseInsensitiveInput.png" alt="SDforCaseInsensitiveInput" width="800">
 </div>
-<div class="title">Figure 20. Sequence Diagram for achieveing case insensitive input</div>
+<div class="title">Figure 21. Sequence Diagram for achieveing case insensitive input</div>
 </div>
 <div class="paragraph">
 <p>The other classes utilise the <code>ProperCaseConverter</code> object in a similar way.</p>
@@ -1474,8 +1481,8 @@ longer list of people at one time.</p>
 <h5 id="coloring-of-tags"><a class="link" href="#coloring-of-tags">Coloring of Tags</a></h5>
 <div class="paragraph">
 <p>To allow easy identification of the category that a tag belongs to, different colors are used for different attributes
-of a person. A standardized color is used for each attribute and its color is stored in <code>Tag</code> such that the color
-will be retained when the user reopens the application.</p>
+of a person. A standardized color is used for each attribute this colour is determined from the <code>tagType</code> attribute of the <code>Tag</code>.
+This ensures the color will be consistent for each person and the color will be retained when the user reopens the application.</p>
 </div>
 </div>
 </div>
@@ -1537,9 +1544,16 @@ Must create a special constructor for the attribute class to accept a <code>null
 <div class="paragraph">
 <p>The intention and design behind this command is to pair with the allowing of users to leave fields for a person&#8217;s values unentered.
 As the design of the command, parser and sequence when a user enters a find missing command to be very similar to the filter command, the documentation
-here will focus more on the design considerations and rationale instead of repeating sequence diagrams that are almost the same as given previously.<br>
-Currently, the command makes use of a new predicate, <code>FindMissingPredicate</code>, to perform the check.
-Rationale for having a new command and predicate is that reusing the <code>Filter</code> command or predicate would violate Single Responsibility Principle and the idea of Separation of Concerns.<br>
+here will focus more on the design considerations and rationale instead of repeating sequence diagrams that are almost the same as given previously.<br></p>
+</div>
+<div class="paragraph">
+<p>Currently, the command makes use of a new predicate, <code>FindMissingPredicate</code>, to perform the check.<br>
+The implementation of the OR search in the <code>FindMissingPredicate</code> is as follows:<br>
+For each entered field by the user, if that field is unentered by the user, then the predicate will immediately return <code>true</code> as the person fits the criteria.<br>
+If at the end of checking all values at the list, then the person has all fields specified by the user filled. Therefore, the predicate will return <code>false</code> in this case.<br></p>
+</div>
+<div class="paragraph">
+<p>Rationale for having a new command and predicate is that reusing the <code>Filter</code> command or predicate would violate Single Responsibility Principle and the idea of Separation of Concerns.<br>
 The <code>Filter</code> command and classes associated closely to it should have the single concern of listing people according to a search term.<br>
 Therefore, it is better design to create a new command for this feature.</p>
 </div>
@@ -1640,7 +1654,7 @@ will be shifted accordingly. Below shows the workflow when <code>Delete</code> o
 <div class="content">
 <img src="images/AutofillActivityDiagram.png" alt="AutofillActivityDiagram" width="700">
 </div>
-<div class="title">Figure 21. Activity Diagram for Autofill</div>
+<div class="title">Figure 22. Activity Diagram for Autofill</div>
 </div>
 <div class="sect4">
 <h5 id="find-next-field"><a class="link" href="#find-next-field">Find Next Field</a></h5>
@@ -1652,7 +1666,7 @@ command box. By searching the position of the next <code>/</code>, it indicates 
 <div class="content">
 <img src="images/AutofillAdd_Tab2.png" alt="AutofillAdd Tab2" width="700">
 </div>
-<div class="title">Figure 22. Visualization for find next field</div>
+<div class="title">Figure 23. Visualization for find next field</div>
 </div>
 </div>
 <div class="sect4">
@@ -1666,7 +1680,7 @@ then procedes to find next field to be shifted to. Below shows what happens when
 <div class="content">
 <img src="images/AutofillAdd_Delete.png" alt="AutofillAdd Delete" width="700">
 </div>
-<div class="title">Figure 23. Visualization for delete previous prefix</div>
+<div class="title">Figure 24. Visualization for delete previous prefix</div>
 </div>
 </div>
 </div>
@@ -1779,7 +1793,7 @@ To uniquely identify each pair, we utilise a <code>PairHash</code> class.<br></p
 <div class="content">
 <img src="images/PairClassDiagram.png" alt="PairClassDiagram" width="700">
 </div>
-<div class="title">Figure 24. Class diagram to show associations between Person, Pair and PairHash class.</div>
+<div class="title">Figure 25. Class diagram to show associations between Person, Pair and PairHash class.</div>
 </div>
 <div class="paragraph">
 <p>As seen above, a <code>Pair</code> is constructed using one <code>Student</code> and one <code>Tutor</code>.
@@ -1817,7 +1831,7 @@ It helps to reduce coupling between <code>Pair</code> and <code>Person</code> ob
 <div class="content">
 <img src="images/MatchActivityDiagram.png" alt="MatchActivityDiagram" width="700">
 </div>
-<div class="title">Figure 25. Activity diagram for Match Command</div>
+<div class="title">Figure 26. Activity diagram for Match Command</div>
 </div>
 <div class="paragraph">
 <p>Similarly, when a <code>Pair</code> is removed through the <code>unmatch</code> command, its <code>PairHash</code> is retrieved and removed from the
@@ -1901,7 +1915,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 26. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 27. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 </div>
@@ -3567,7 +3581,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-10 03:59:29 UTC
+Last updated 2018-04-10 09:58:58 UTC
 </div>
 </div>
 </body>

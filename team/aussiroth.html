@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.6.1">
+<title>Yan Hong Yao Alvin - Project Portfolio</title>
+<link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>Yan Hong Yao Alvin - Project Portfolio</h1>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="project-stutor-v1-5"><a class="link" href="#project-stutor-v1-5">PROJECT: STUtor - v1.5</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>STUtor -v1.5 is a desktop address book targeting tutor coordinators
+to help them <em>matching</em> and <em>managing</em> a large database of tutors and students.<br>
+The user interacts with it using a CLI, and it has a GUI created with JavaFX.
+It is written in Java, and has about 25 kLoC.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>:
+Changed the functionality of add command to reduce number of compulsory fields.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does:
+Allows the user to add a new person with only their name, without entering any of the other fields.</p>
+</li>
+<li>
+<p>Justification:
+This feature makes management and including new people much easier. When adding new tutors or students to the application, the coordinator might not always get all the required fields and may need to clarify further.<br>
+This setup allows them to go ahead and add the person first, while being able to find and edit in the details later.<br>
+Furthermore, if the user wants to add all the details at once, the command becomes extremely long - therefore users will feel less burdened if they have a choice to not add in all the details in one-shot.</p>
+</li>
+<li>
+<p>Highlights:
+As much of the app makes use of the different values such as the subject and education level, it was important to make sure that the design used to allow optional fields would not lead to significant bugs or errors when handling these fields.<br>
+Furthermore, the documentation had to be clear to make sure that future developers when making use of these fields would be able to expect the possibility of optional fields, and be able to correctly handle them.<br>
+Finally, as a complement to this feature, I created an additional command that allows users to search for people whose fields are missing, to be able to list out those they need to request information from, or to find the correct person to edit.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>:
+Added the creation of special tags based off 5 attributes of the person.
+These tags would make use of the method of displaying tags to show important information about the tutor and student, such as the subject they are looking for a tutor/student for.<br>
+Each attribute has a special color associated with it to make visual recognition easy, as well as ordering them in a single, specific order.</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103JAN2018-W11-B1/main/blob/master/collated/functional/aussiroth.md">Functional code</a>] [<a href="https://github.com/CS2103JAN2018-W11-B1/main/blob/master/collated/test/aussiroth.md">Test code</a>]</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed releases <code>v1.2</code> - <code>v1.5rc</code> (4 releases) on GitHub</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wrote additional tests for existing features and tests across the work of all team members to improve coverage significantly. (Pull requests <a href="https://github.com/CS2103JAN2018-W11-B1/main/pull/40">#40</a>, <a href="https://github.com/CS2103JAN2018-W11-B1/main/pull/64">#64</a>, <a href="https://github.com/CS2103JAN2018-W11-B1/main/pull/155">#155</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Did some changes to the developer guide to improve reader-friendliness of existing content: <a href="https://github.com/CS2103JAN2018-W11-B1/main/pull/96">#96</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com/CS2103JAN2018-W15-B4/main/issues/183">1</a>, <a href="https://github.com/CS2103JAN2018-W15-B4/main/issues/203">2</a>, <a href="https://github.com/CS2103JAN2018-W15-B4/main/issues/190">3</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Part of extract for Add and Edit in the user guide was done by me - About the optional fields and how the attribute tags work.
+==== Adding a person: <code><strong>add</strong></code> or <code><strong>a</strong></code>
+Adds a new person to STUtor.<br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>For PRICE, SUBJECT, EDUCATION_LEVEL, STATUS, ROLE:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Alias can be used to reduce typing. Refer to <a href="#Prefix Shortcut Summary">[Prefix Shortcut Summary]</a> for more details.</p>
+</li>
+<li>
+<p>These information is displayed as tags for easy reference.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Only the NAME field is required for the command to be accepted, all other fields are optional.<br>
+To fill in the other fields later, you can use the edit command to edit the person with the new information.<br></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code><strong>add</strong> n/NAME [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [$/PRICE] [sub/SUBJECT] [lvl/EDUCATION_LEVEL] [stat/STATUS] [r/ROLE] [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><strong>add</strong> n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 $/50 sub/Math lvl/Lower Sec stat/Not Matched r/Student</code></p>
+</li>
+<li>
+<p><code><strong>add</strong> n/Betsy Crowe p/91562389 e/betsycrowe@example.com a/Pasir Ris Drive 10, #06-02 $/30 sub/Chinese lvl/Upper Pri stat/Not Matched r/Tutor</code></p>
+</li>
+<li>
+<p><code><strong>add</strong> n/Carl Kurz</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can press <kbd>Tab</kbd> key once after typing <code><strong>add</strong></code> or <code><strong>a</strong></code> and it will autofill the command.
+Further pressing of <kbd>Tab</kbd> key will jump to the next field to be filled in.<br>
+You can press <kbd>Delete</kbd> key to delete a field (and its prefix).<br>
+You can view the diagram below for a clearer visualization on how it works.<br>
+<strong>Important!</strong> If you enter only empty spaces after a prefix, it will be read as no value entered into the optional field. You do not need to delete prefixes for unentered fields to enter the command.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AutofillAdd_Tab.png" alt="AutofillAdd Tab" width="700">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AutofillAdd_Delete.png" alt="AutofillAdd Delete" width="700">
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-person-code-strong-edit-strong-code-or-code-strong-e-strong-code"><a class="link" href="#editing-a-person-code-strong-edit-strong-code-or-code-strong-e-strong-code">Editing a person : <code><strong>edit</strong></code> or <code><strong>e</strong></code></a></h4>
+<div class="paragraph">
+<p>Edits an existing person in STUtor.<br>
+This also allows you to fill in unentered attributes by simply editing that attribute.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the last person listing. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+<li>
+<p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
+</li>
+<li>
+<p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
+</li>
+<li>
+<p>Attribute tags will still remain after any changes to the other tags.</p>
+</li>
+<li>
+<p>Attribute tags will automatically update to reflect any changes to the actual attributes.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Format: <code><strong>edit</strong> INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [$/PRICE] [sub/SUBJECT] [lvl/EDUCATION_LEVEL] [stat/STATUS] [r/ROLE] [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><strong>edit</strong> 1 p/91234567 e/johndoe@example.com</code><br>
+Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
+</li>
+<li>
+<p><code><strong>edit</strong> 2 n/Betsy Crower t/</code><br>
+Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can press <kbd>Tab</kbd> key once after typing <code><strong>edit</strong></code> or <code><strong>e</strong></code> and it will autofill the command.
+INDEX to be specified will be highlighted.
+Further pressing of <kbd>Tab</kbd> key will jump to the next field to be filled in.
+You can press <kbd>Delete</kbd> key to delete a field (and its prefix).
+You can view the diagram below for a clearer visualization on how it works.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AutofillEdit.png" alt="AutofillEdit" width="800">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finding-people-with-missing-fields-code-strong-findmissing-strong-code-or-code-strong-fm-strong-code-code-in-v1-4-code"><a class="link" href="#finding-people-with-missing-fields-code-strong-findmissing-strong-code-or-code-strong-fm-strong-code-code-in-v1-4-code">Finding people with missing fields: <code><strong>findmissing</strong></code> or <code><strong>fm</strong></code> <code>[In V1.4]</code></a></h4>
+<div class="paragraph">
+<p>Lists only people who have fields that you have not yet entered, making it easy for you to search for that person you want to edit in data.<br>
+If no arguments for FIELD is entered, lists all people with at least one field with an empty value.<br>
+Otherwise, finds all people with an empty value in at least one entered FIELD.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The field name is case insensitive</p>
+</li>
+<li>
+<p>List of all possible attributes:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>address</p>
+</li>
+<li>
+<p>email</p>
+</li>
+<li>
+<p>level</p>
+</li>
+<li>
+<p>phone</p>
+</li>
+<li>
+<p>price</p>
+</li>
+<li>
+<p>role</p>
+</li>
+<li>
+<p>status</p>
+</li>
+<li>
+<p>subject</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Format: <code><strong>findmissing</strong> [FIELD]&#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><strong>findmissing</strong> role</code><br>
+Returns any person who has no entered role.</p>
+</li>
+<li>
+<p><code><strong>findmissing</strong> phone email</code><br>
+Returns any person who has no entered phone or email.</p>
+</li>
+<li>
+<p><code><strong>findmissing</strong></code><br>
+Returns any person who has no entered value for at least 1 field.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-person-code-strong-delete-strong-code-or-code-strong-d-strong-code"><a class="link" href="#deleting-a-person-code-strong-delete-strong-code-or-code-strong-d-strong-code">Deleting a person : <code><strong>delete</strong></code> or <code><strong>d</strong></code></a></h4>
+<div class="paragraph">
+<p>Deletes the specified person from STUtor.<br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the person at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the <strong>most recent listing</strong>.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="automatic-creation-of-tags-from-person-attributes"><a class="link" href="#automatic-creation-of-tags-from-person-attributes">Automatic creation of tags from person attributes</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current implementation</a></h4>
+<div class="paragraph">
+<p>Each of the attributes <code>Price</code>, <code>Subject</code>, <code>Level</code> and <code>Status</code> of a person each have a tag with the value added to the person.
+This is done when user performs <code>add</code> or <code>edit</code> command.</p>
+</div>
+<div class="paragraph">
+<p>The creation of these tags from attributes is facilitated by static methods from a class in logic, called <code>AttributeTagSetter</code>. This class contains methods to remove existing attribute tags from a person, which can be used when needing to edit or find non-attribute tags of the person.
+Another method is to create the new attribute tags from provided input and return the new set of tags. This class is currently invoked from a static context, as its use currently is solely for managing the tags of a given <code>Person</code>.<br>
+The sequence diagram below (figure 18) shows where the creation of these tags in the sequence of parsing an <code>Add</code> command.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AttributeTagsSequenceDiagram.png" alt="AttributeTagsSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 1. Sequence diagram for creating attribute tags</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Since the <code>Price</code>, <code>Subject</code>, <code>Level</code> and <code>Status</code> attributes have been parsed and checked to conform to expected values, there is no need to reparse the values when creating them as a <code>Tag</code>.<br>
+The acceptable inputs for a <code>Tag</code> must necessarily allow all the acceptable inputs for <code>Price</code>, <code>Subject</code>, <code>Level</code>, <code>Status</code> and <code>Role</code> to prevent errors.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="model-implementation"><a class="link" href="#model-implementation">Model Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>Tag</code> class can support the ability to classify which attribute the tag was created from. This is done by adding an enum <code>AllTagsType</code> to the <code>Tag</code> class.
+A tag can be created without being from an attribute, with just a tag name. In this case, creating a <code>Tag</code> with no provided <code>AllTagsType</code> will initialise the <code>tagType</code> to <code>DEFAULT</code>.</p>
+</div>
+<div class="paragraph">
+<p>This is the current <code>Tag</code> class in UML notation</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TagClassDiagram.png" alt="TagClassDiagram" width="800">
+</div>
+<div class="title">Figure 2. <code>Tag</code> Class</div>
+</div>
+<div class="paragraph">
+<p>This new attribute is used to implement the capability to standardize all tags created as a <code>Price</code> attribute to have the same color, all tags created as a <code>Subject</code> attribute to have the same color, and so on.
+This has been implemented as a new overloaded <code>getTagColorStyleFor</code> method, which takes in a Tag instead of a String. Depending on the tagType value, the correct colour will be assigned to the tag.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Any tag that is not set to one of the 4 attributes will fall through to the default type, where they will have the same color. This is currently done as such to prevent accidental collisions of color with the 4 attribute tags.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="storage-implementation"><a class="link" href="#storage-implementation">Storage Implementation</a></h4>
+<div class="paragraph">
+<p>The method for storing tags has also been changed slightly. Previously, just the <code>tagName</code> needed to be stored. Now both the <code>tagName</code> and <code>tagType</code> must be stored.<br>
+This has been accomplished by having XML store the single field in the form "TAGNAME,TAGTYPE" (see figure 19).<br>
+The respective tagName and tagType can be obtained by splitting the read string representing the tag data from the file around the "," separator. Since tags can only be alphanumeric, this provides a safe character to split around.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/tagStorage.png" alt="tagStorage" width="400">
+</div>
+<div class="title">Figure 3. Storage of <code>Tag</code></div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-making-use-of-tags-to-display-the-information"><a class="link" href="#aspect-making-use-of-tags-to-display-the-information">Aspect: Making use of tags to display the information</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Create a <code>Tag</code> for each attribute we want to display</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Reuses the code used to display tags, so that there is no need to manually code each attribute to appear similar to a tag.</p>
+</li>
+<li>
+<p>Cons: Increased risk of violating Single Responsibility Principle if the <code>Tag</code> needs to change if attributes in <code>Person</code> change.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Update the UI to allow the information to be displayed as needed.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Makes the logic section more intuitive as the user enters data and that data is stored a single attribute.</p>
+</li>
+<li>
+<p>Cons: Increases repetition in the UI by having a design for each attribute, increases amount of work if the UI display is changed in the future.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-method-of-saving-tag-information-in-the-saved-xml-file"><a class="link" href="#aspect-method-of-saving-tag-information-in-the-saved-xml-file">Aspect: Method of saving tag information in the saved XML file</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Keep the <code>XmlAdaptedTag</code> stored in a single XML field.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: There is no need to change the format of the XML file.</p>
+</li>
+<li>
+<p>Cons: Need to ensure that the <code>tagName</code> and <code>tagType</code> can be clearly split when saved to the XML file, and retrieved back.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Change the format of <code>XmlAdaptedTag</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier for advanced users to edit without causing an error, easy to retrieve values from file.</p>
+</li>
+<li>
+<p>Cons: Risks causing issues with how <code>Tag</code> is saved as part of <code>XmlAdaptedPerson</code> and by itself as <code>XmlAdaptedTag</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-method-to-represent-the-attribute-the-tag-was-created-from"><a class="link" href="#aspect-method-to-represent-the-attribute-the-tag-was-created-from">Aspect: Method to represent the attribute the tag was created from</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Create a new attribute in <code>Tag</code> to represent its type.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Since the type belongs to and describes a <code>Tag</code>, this improves the cohesion of <code>Tag</code> and is intuitive.</p>
+</li>
+<li>
+<p>Cons: Need to make sure there is a way to represent user input tags and it is handled properly each time tag type is used.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Check the value in the tag against a known set of values to determine its type.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Keeps the <code>Tag</code> class a simple as possible.</p>
+</li>
+<li>
+<p>Cons: Difficult to maintain, must ensure that there are no values that can possibly be in more than 1 person attribute.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="optional-fields-for-add-command"><a class="link" href="#optional-fields-for-add-command">Optional Fields for Add Command</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>Add</code> command is extremely long and unwieldly if the user has to type all the information in at once.<br>
+To make it easier for the user to enter new people or a person they lack all the data to enter at once, the <code>Add</code> command allows the user to specify only the name command and leave out all other fields as optional.
+The <code>AddCommandParser</code> now will only check that the <code>Name</code> field has been submitted by the user before proceeding to add the new entry into STUtor.
+For all fields that the user did not enter a value for, an empty string <code>""</code> will be assigned to that field.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-method-to-store-unentered-fields"><a class="link" href="#aspect-method-to-store-unentered-fields">Aspect: Method to store unentered fields</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Store it as an empty string <code>""</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Does not affect most of the other functionality as they will still successfully read an empty string and ignore it.</p>
+</li>
+<li>
+<p>Cons: Need to ensure that empty string is an accepted input when making a new attribute class.<br>
+User can enter prefix with only spaces as a valid input, which will be read as an unentered field, which may be unintuitive.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Store it as a <code>null</code> value</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More intuitive to store a missing value as <code>null</code>.</p>
+</li>
+<li>
+<p>Cons: When an attribute value needs to be obtained or used, must check for <code>null</code> value and handle accordingly.<br>
+Must create a special constructor for the attribute class to accept a <code>null</code> for its internal <code>String</code> value.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="find-missing-command"><a class="link" href="#find-missing-command">Find Missing Command</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The intention and design behind this command is to pair with the allowing of users to leave fields for a person&#8217;s values unentered.
+As the design of the command, parser and sequence when a user enters a find missing command to be very similar to the filter command, the documentation
+here will focus more on the design considerations and rationale instead of repeating sequence diagrams that are almost the same as given previously.<br></p>
+</div>
+<div class="paragraph">
+<p>Currently, the command makes use of a new predicate, <code>FindMissingPredicate</code>, to perform the check.<br>
+The implementation of the OR search in the <code>FindMissingPredicate</code> is as follows:<br>
+For each entered field by the user, if that field is unentered by the user, then the predicate will immediately return <code>true</code> as the person fits the criteria.<br>
+If at the end of checking all values at the list, then the person has all fields specified by the user filled. Therefore, the predicate will return <code>false</code> in this case.<br></p>
+</div>
+<div class="paragraph">
+<p>Rationale for having a new command and predicate is that reusing the <code>Filter</code> command or predicate would violate Single Responsibility Principle and the idea of Separation of Concerns.<br>
+The <code>Filter</code> command and classes associated closely to it should have the single concern of listing people according to a search term.<br>
+Therefore, it is better design to create a new command for this feature.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-design-of-predicate-used"><a class="link" href="#aspect-design-of-predicate-used">Aspect: Design of predicate used</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> One single predicate, containing a <code>List</code> of entered user arguments.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Ensures the predicate used in the <code>FindMissingCommand</code> remains of type <code>FindMissingPredicate</code>, ensuring better controlled</p>
+</li>
+<li>
+<p>Cons: Increased complexity of ensuring the predicate test will correctly give a true or false value.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Create one predicate for each user argument, then make use of <code>Predicate</code> method to perform a logical OR.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Predicate simply needs to check for the field that was given as its keyword.</p>
+</li>
+<li>
+<p>Cons: Due to the <code>Predicate.or</code> method being provided by Java, it is difficult to debug and ensure an intended <code>.equals</code> check is performed.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-method-of-taking-in-user-input"><a class="link" href="#aspect-method-of-taking-in-user-input">Aspect: Method of taking in user input</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Have user arguments be combined in an OR manner.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Makes it easier for the user to find a person they may not be too sure which field was left empty for, since they can specify multiple ones to search.<br>
+Current option used since it fits best with the user need of simply finding those with missing fields to refresh their memory on which people they need to fill out the attributes for.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Have user arguments be combined in an AND manner.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Allows the user to narrow down a search, especially if the size of the stored contacts is large.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3:</strong> Allow user to enter only 1 argument</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Simplifies the command significantly with only 1 field to search for.</p>
+</li>
+<li>
+<p>Cons: Artificially limits the command heavily for users, where those who want to search for multiple missing fields will not be able to.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2018-04-10 09:58:59 UTC
+</div>
+</div>
+</body>
+</html>
