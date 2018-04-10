@@ -53,7 +53,8 @@
 <li><a href="#case-insensitive-input">4.6. Case-insensitive input</a></li>
 <li><a href="#filter-feature">4.7. Filter feature</a></li>
 <li><a href="#review-feature">4.8. Review Feature</a></li>
-<li><a href="#match-command-unmatch-command">4.9. Match Command &amp; Unmatch Command</a></li>
+<li><a href="#view-stats-command">4.9. View Stats Command</a></li>
+<li><a href="#match-command-unmatch-command">4.10. Match Command &amp; Unmatch Command</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -1944,11 +1945,15 @@ in the user input. When setting an absolute rating, the app resets <code>count</
 </li>
 </ul>
 </div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="view-stats-command"><a class="link" href="#view-stats-command">4.9. View Stats Command</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.9.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 1e61c88e63ce26e8a0aee408055f0190f64b5628
-=== View Stats Command
-==== Current Implementation
-The intention behind creating this command is to consolidate statistical data about the people in the app.
+<p>The intention behind creating this command is to consolidate statistical data about the people in the app.
 With these data, user will be able to foresee issues such as insufficient tutor for a particular subject with ease.
 Without this command, user will have to do manual consolidation which is inefficient.<br>
 Currently, the statistical data are presented in the form of pie chart which improves readability. A snapshot showing
@@ -1960,9 +1965,8 @@ the role distribution between students and tutors is shown below.</p>
 </div>
 </div>
 </div>
-</div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.8.5. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.9.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-displaying-of-statistical-data"><a class="link" href="#aspect-displaying-of-statistical-data">Aspect: Displaying of statistical data</a></h5>
 <div class="ulist">
@@ -1999,7 +2003,7 @@ the role distribution between students and tutors is shown below.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="match-command-unmatch-command"><a class="link" href="#match-command-unmatch-command">4.9. Match Command &amp; Unmatch Command</a></h3>
+<h3 id="match-command-unmatch-command"><a class="link" href="#match-command-unmatch-command">4.10. Match Command &amp; Unmatch Command</a></h3>
 <div class="paragraph">
 <p>A tuition coordinator needs to record which students are receiving tuition from which tutors.
 Intuitively, the <code>match</code> command allows the user to pair a student with a tutor,
@@ -2007,7 +2011,7 @@ while the <code>unmatch</code> command removes the pair.<br>
 The matched pairs will be stored in STUtor.xml, and displayed on the pair list panel (the leftmost vertical panel).</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.9.1. Current Implementation</a></h4>
+<h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">4.10.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>A matched pair is stored as a <code>Pair</code> object.
 To uniquely identify each pair, we utilise a <code>PairHash</code> class.<br></p>
@@ -2026,7 +2030,7 @@ a student can be paired to multiple tutors and vice versa.<br></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.9.2. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.10.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="acceptance-of-many-to-many-matches"><a class="link" href="#acceptance-of-many-to-many-matches">Acceptance of Many-to-Many matches</a></h5>
 <div class="paragraph">
@@ -3804,7 +3808,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-10 14:42:20 UTC
+Last updated 2018-04-10 14:57:10 UTC
 </div>
 </div>
 </body>
