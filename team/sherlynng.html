@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.6.1">
+<title>Ng Xin Ler - Project Portfolio</title>
+<link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>Ng Xin Ler - Project Portfolio</h1>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="project-stutor-v1-5"><a class="link" href="#project-stutor-v1-5">PROJECT: STUtor - V1.5</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>STUtor -V1.5 is a desktop address book targeting tuition coordinators
+to help them <em>matching</em> and <em>managing</em> a large database of tutors and students.<br>
+The user interacts with it using a CLI, and it has a GUI created with JavaFX.
+It is written in Java, and has about 25 kLoC.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>:
+added <strong>the ability to review a person</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does:
+allows the user to <em>write a remark</em> or <em>give a rating</em> to a tutor/student based on their performance.</p>
+</li>
+<li>
+<p>Justification:
+This feature allows the tuition coordinator to keep track on the performance of tutors and students.
+This helps future matching as tutors/students strengths and weaknesses can be taken into consideration.
+Rating allows the tuition coordinator to take note of the better performing and underperforming tutors/students.</p>
+</li>
+<li>
+<p>Highlights:
+<code>Remark</code> and <code>Rate</code> require vastly different handling of inputs: <code>Remark</code> accepting any format (including null) while <code>Rate</code>
+requires a fixed format between 0.0 to 5.0 (decimal can be omitted). For editing a remark, as it requires interaction with
+<code>CommandBox</code> from UI, observer pattern is used to reduce coupling.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>:
+Added the ability to autofill commands using <code>TAB</code> key and delete prefixes using <code>DELETE</code> key.
+This facilitates the user when typing in commands, especially for long commands such as <code>add</code> and <code>edit</code>.</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103JAN2018-W11-B1/main/blob/master/collated/functional/sherlynng.md">Functional code</a>] [<a href="https://github.com/CS2103JAN2018-W11-B1/main/blob/master/collated/test/sherlynng.md">Test code</a>]</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Update BrowserPanel to reflect all attributes of a person (Pull requests <a href="https://github.com/CS2103JAN2018-W11-B1/main/pull/45">#45</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Creaate UI mock up for initial planning of UI (Pull requests <a href="https://github.com/CS2103JAN2018-W11-B1/main/pull/26">#26</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="creating-a-remark-for-a-person-code-strong-remark-strong-code-or-code-strong-rk-strong-code-code-in-v1-3-code"><a class="link" href="#creating-a-remark-for-a-person-code-strong-remark-strong-code-or-code-strong-rk-strong-code-code-in-v1-3-code">Creating a remark for a person : <code><strong>remark</strong></code> or <code><strong>rk</strong></code> <code>[In V1.3]</code></a></h4>
+<div class="paragraph">
+<p>Creates a remark for the person identified by the index number used in the <strong>last person listing</strong>.<br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
+</li>
+<li>
+<p>You can remove a remark by typing <code>r/</code> without specifying any remark after it.</p>
+</li>
+<li>
+<p>You can edit a remark by typing <code>edit</code> after indicating the index you want to edit.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Format: <code><strong>remark</strong> INDEX r/REMARK</code> or <code><strong>remark</strong> INDEX edit</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><strong>list</strong></code><br>
+<code><strong>remark</strong> 2 r/Fast learner.</code><br>
+Creates a remark 'Fast learner.' for the 2nd person in STUtor.</p>
+</li>
+<li>
+<p><code><strong>find</strong> Betsy</code><br>
+<code><strong>remark</strong> 1 r/</code><br>
+Removes the remark for the 1st person in the results of the <code><strong>find</strong></code> command.</p>
+</li>
+<li>
+<p><code><strong>list</strong></code><br>
+<code><strong>remark</strong> 1 edit</code><br>
+Edits the remark of the 1st person in STUtor.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="giving-a-rating-to-a-person-code-strong-rate-strong-code-or-code-strong-rt-strong-code-code-in-v1-4-code"><a class="link" href="#giving-a-rating-to-a-person-code-strong-rate-strong-code-or-code-strong-rt-strong-code-code-in-v1-4-code">Giving a rating to a person : <code><strong>rate</strong></code> or <code><strong>rt</strong></code> <code>[In V1.4]</code></a></h4>
+<div class="paragraph">
+<p>Gives a rating to the person identified by the index number used in the <strong>last person listing</strong>.<br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
+</li>
+<li>
+<p>Rating must be a number <strong>between 0 and 5 (inclusive)</strong> with <strong>at most 1 decimal place</strong>.</p>
+</li>
+<li>
+<p>Placing a <code>-</code> after the rating gives an <strong>absolute rating</strong> to the person specified.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>&#160;&#160;&#160;&#160; e.g <code>rate 1 r/2.0-</code> will set rating of the 1st person in the results
+to 2.0 and number of people who rated the person will be resetted to 1.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Without placing <code>-</code> after the rating gives an <strong>accumulative rating</strong> to the person specified.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>&#160;&#160;&#160;&#160; e.g <code>rate 1 r/2.0</code> will add on to the current rating of the 1st person
+and the person&#8217;s average ratings will be displayed. Number of people who rated the person will also increase by 1.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>STUtor does not keept track of all ratings of each person, hence accumulated rating value may be off by 0.2.
+Rating values are also rounded down.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Format: <code><strong>rate</strong> INDEX r/RATE</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><strong>list</strong></code><br>
+<code><strong>rate</strong> 2 r/2.0-</code><br>
+Gives an absolute rating of 2.0 to the 2nd person in STUtor.</p>
+</li>
+<li>
+<p><code><strong>find</strong> Betsy</code><br>
+<code><strong>rate</strong> 1 r/4.2</code><br>
+Gives an accumulated rating for the 1st person in the results of the <code><strong>find</strong></code> command.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="auofill-feature"><a class="link" href="#auofill-feature">Auofill Feature</a></h3>
+<div class="paragraph">
+<p>A sample command is shown below:</p>
+</div>
+<div class="sect3">
+<h4 id="edit-command"><a class="link" href="#edit-command">Edit Command</a></h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can press <kbd>Tab</kbd> key once after typing <code><strong>edit</strong></code> or <code><strong>e</strong></code> and it will autofill the command.
+INDEX to be specified will be highlighted.
+Further pressing of <kbd>Tab</kbd> key will jump to the next field to be filled in.
+You can press <kbd>Delete</kbd> key to delete a field (and its prefix).
+You can view the diagram below for a clearer visualization on how it works.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AutofillEdit.png" alt="AutofillEdit" width="800">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="review-feature"><a class="link" href="#review-feature">Review Feature</a></h3>
+<div class="paragraph">
+<p>As a tuition coordinator may receive feedback from students or tutors regarding their lessons, this feature helps the tuition coordinator
+to manage these information easily. Review feature in STUtor includes both adding a remark and rating for a student or tutor.</p>
+</div>
+<div class="sect3">
+<h4 id="remark-command"><a class="link" href="#remark-command">Remark Command</a></h4>
+<div class="sect4">
+<h5 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h5>
+<div class="paragraph">
+<p>There are two ways users can interact with the Remark Command:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a new remark</p>
+</li>
+<li>
+<p>Edit a current remark</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>By default, when a person is added into STUtor, we create an empty remark (i.e. empty string) as usually at the start, there will
+be no available feedback for a particular student or tutor yet.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><code>RemarkCommandParser</code> is implemented such that when creating a new remark, there is no restriction to the content of a
+remark. Any input indicated after the prefix <code>r/</code> will be taken to be the new remark created for the person indicated at
+the specified <code>INDEX</code>. If there is no remark indicated after <code>r/</code>, it is assumed that the user wants to remove the current remark.</p>
+</div>
+<div class="paragraph">
+<p>For editing a remark, prefix <code>r/</code> is not used to differentiate having the word 'edit' in the remark or executing edit remark command
+by getting the preamble in <code>RemarkCommandParser</code>. If it is an edit remark command, overloaded constructor for <code>RemarkCommand</code>
+with extra <code>isEditRemark</code> parameter is used instead of the constructor used when creating a new remark (without the extra parameter).
+As editing a remark requires making changes to the command box, <code>EditRemarkEvent</code> is used to signal <code>CommandBox</code> to make the
+appropriate modifications.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagrams shows how the remark operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/RemarkCommandSequenceDiagram.png" alt="RemarkCommandSequenceDiagram" width="550">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/RemarkCommandSequenceDiagram1.png" alt="RemarkCommandSequenceDiagram1" width="550">
+</div>
+<div class="title">Figure 1. Sequence Diagram for <code>remark</code></div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-constructor-for-remark-command"><a class="link" href="#aspect-constructor-for-remark-command">Aspect: Constructor for Remark Command</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Overloading constructor with extra parameter <code>isEditRemark</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Allows forward/backward compatibility such that methods that used the original constructor with two parameters can still
+be used since create remark command is implemented before edit remark.</p>
+</li>
+<li>
+<p>Cons: May not be easy for new developers to understand at first glance when to use which constructor.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Modify current constructor to take in new parameter.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy for new developers to understand at first glance as there is only one constructor.</p>
+</li>
+<li>
+<p>Cons: May cause some methods and tests that uses the old constructor to break.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="rate-command"><a class="link" href="#rate-command">Rate Command</a></h4>
+<div class="sect4">
+<h5 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h5>
+<div class="paragraph">
+<p>Rating is from 0.0 (worst performing) to 5.0 (best performing) and is stored as a <code>double</code> inside <code>Rate</code> class.
+Regex is used to limit user input to a maximum of 1 decimal place and any number below 0.0 or 5.0 is rejected.</p>
+</div>
+<div class="paragraph">
+<p>We have decided to allow two types of ratings:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Cumulative rating</p>
+</li>
+<li>
+<p>Absolute rating</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Default will be cumulative rating as it is more natural and useful to combine all ratings given to a specific person to gauge his/her
+abilities. In this app, cumulative rating is calculated using the current rate <code>value</code> and <code>count</code> inside <code>accumulatedValue</code> method in <code>Rate</code> class.
+Every time a new rate is added, <code>count</code> increases incrementally and only the latest rate <code>value</code> is stored.</p>
+</div>
+<div class="paragraph">
+<p>Absolute rating is also implemented for users that wants to clear all old data or wants to shortlist/blacklist a student or tutor.
+<code>checkRateIsAbsolute</code> method in <code>ParserUtil</code> class is used to find out if the user requires an absolute rating by checking the last character
+in the user input. When setting an absolute rating, the app resets <code>count</code> back to 1 and rate <code>value</code> is set to the value indicated by the user.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagrams shows how the rate operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/RateCommandSequenceDiagram.png" alt="RateCommandSequenceDiagram" width="550">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/RateCommandSequenceDiagram1.png" alt="RateCommandSequenceDiagram1" width="550">
+</div>
+<div class="title">Figure 2. Sequence Diagram for <code>rate</code></div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-indication-for-absolute-rating"><a class="link" href="#aspect-indication-for-absolute-rating">Aspect: Indication for Absolute Rating</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Indicate using keyboard input <code>-</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy and quick to access <code>-</code>.</p>
+</li>
+<li>
+<p>Cons: Not intuitive for new users that absolute rating is represented by <code>-</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Indicate using different prefix for absolute and cumulative rating</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More intuitive for users to handle the different types of rating.</p>
+</li>
+<li>
+<p>Cons: Implementation requires more complex handling (e.g. prefix can be omitted, presence of both prefixes).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-calculation-for-cumulative-rating"><a class="link" href="#aspect-calculation-for-cumulative-rating">Aspect: Calculation for Cumulative Rating</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Make use of only current rating and rate count</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Takes up minimal storage space and simple to calculate.</p>
+</li>
+<li>
+<p>Cons: May not be very accurate.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Store all past ratings of a person and take the average</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Produces accurate rating.</p>
+</li>
+<li>
+<p>Cons: Can potentially take up lots of storage space as there is no limit to the number of times a person can be rated.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="autofill"><a class="link" href="#autofill">Autofill</a></h3>
+<div class="paragraph">
+<p>Due to the significant amount of attributes to type in, especially when adding or editing a person, we decided to create
+autofill feature to reduce the time taken to enter a person&#8217;s details. Besides <code>add</code> and <code>edit</code>, commands with
+definite format (i.e. <code>remark</code>, <code>rate</code>, <code>delete</code>, <code>select</code>, <code>unmatch</code>, <code>match</code>) have this feature implemented as well.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">Current Implementation</a></h4>
+<div class="paragraph">
+<p>Autofill feature is implemented in <a href="{repoURL}/blob/master/src/main/java/seedu/address/ui/CommandBox.java"><code>CommandBox.java</code></a>.
+When keyboard <code>Delete</code> or <code>Tab</code> is pressed, depending on the user input in the command box, the caret position
+will be shifted accordingly. Below shows the workflow when <code>Delete</code> or <code>Tab</code> is pressed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AutofillActivityDiagram.png" alt="AutofillActivityDiagram" width="500">
+</div>
+<div class="title">Figure 3. Activity Diagram for Autofill</div>
+</div>
+<div class="sect4">
+<h5 id="find-next-field"><a class="link" href="#find-next-field">Find Next Field</a></h5>
+<div class="paragraph">
+<p>To find the next field to shift the caret to, manipulation of <code>String</code> is used to locate the next instance of <code>/</code> in the
+command box. By searching the position of the next <code>/</code>, it indicates where the next field should be entered.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AutofillAdd_Tab2.png" alt="AutofillAdd Tab2" width="700">
+</div>
+<div class="title">Figure 4. Visualization for find next field</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="delete-previous-prefix"><a class="link" href="#delete-previous-prefix">Delete Previous Prefix</a></h5>
+<div class="paragraph">
+<p>To delete the previous prefix, the last instance of <code>&#160;&#160;</code> from the current caret position is located. Any text
+between this position and the caret position is deleted to remove the desired prefix and user input (if any). The caret
+then procedes to find next field to be shifted to. Below shows what happens when <code>Delete</code> is pressed when caret position is at <code>n/</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AutofillAdd_Delete.png" alt="AutofillAdd Delete" width="700">
+</div>
+<div class="title">Figure 5. Visualization for delete previous prefix</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="select-index-to-edit"><a class="link" href="#select-index-to-edit">Select index to edit</a></h4>
+<div class="paragraph">
+<p>To select/highlight the index to edit, the first instance of a digit is searched from the current caret position. The index
+is then highlighted by selecting the caret forward.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AutofillMatch.png" alt="AutofillMatch" width="700">
+</div>
+<div class="title">Figure 6. Visualization for select index to edit</div>
+</div>
+<div class="paragraph">
+<p>We decide to create shortcuts for even for commands that do not have lengthy inputs (e.g. <code>add</code> and <code>edit</code>) as it makes typing
+command easier for our user. By highlighting the index to edit, user can simply type the index they want to edit without
+manually having to shift the caret to change the index.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-keyboard-key-for-code-delete-code"><a class="link" href="#aspect-keyboard-key-for-code-delete-code">Aspect: Keyboard key for <code>Delete</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use <code>Delete</code> button.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Intuitive to user.</p>
+</li>
+<li>
+<p>Cons: May lead to confusion since the original functionality of the <code>DELETE</code> button does not work now.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use other keyboard keys that users typically do not use, for example <code>F2</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Will not lead to confusion of expected keyboard functionalities.</p>
+</li>
+<li>
+<p>Cons: Not intuitive for users to use as they would not expect it to be a key for delete function.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-commands-that-can-be-autofilled"><a class="link" href="#aspect-commands-that-can-be-autofilled">Aspect: Commands that can be autofilled</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Commands that have a fixed fomat can be autofilled.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to use for the user as expected behavior of the autofill feature can be predicted.</p>
+</li>
+<li>
+<p>Cons: May lead to some confusion as only selected commands can be autofilled.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> All commands can be autofilled.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Will not lead to confusion as to which commands can be autofilled.</p>
+</li>
+<li>
+<p>Cons: For commands that do not have a definite format (e.g. <code>find KEYWORD [MORE_KEYWORDS]</code>), it can be confusing for the user if the app
+only autofills <code>find</code> and expects the user to remember the command format. Furthermore, using command alias (e.g. <code>f</code>) requires
+less typing from the user.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2018-04-10 13:25:14 UTC
+</div>
+</div>
+</body>
+</html>
