@@ -1871,11 +1871,17 @@ be used since create remark command is implemented before edit remark.</p>
 <div class="sect4">
 <h5 id="current-implementation-11"><a class="link" href="#current-implementation-11">Current Implementation</a></h5>
 <div class="paragraph">
-<p>Rating is from 0.0 (worst performing) to 5.0 (best performing) and is stored as a <code>double</code> inside <code>Rate</code> class.
-Regex is used to limit user input to a maximum of 1 decimal place and any number below 0.0 or 5.0 is rejected.</p>
+<p>Rating is from 0.0 (worst performing) to 5.0 (best performing).
+Regex is used to limit user input to a maximum of 1 decimal place and any number below 0.0 or above 5.0 is rejected.
+Sum of all ratings is stored as a <code>double</code> inside <code>Rate</code> class and the displayed value is calculated by taking the sum
+and divide it by the number of people who rated the person.</p>
 </div>
 <div class="paragraph">
-<p>We have decided to allow two types of ratings:</p>
+<p>When a person is first added to STUtor, both total rate <code>value</code> and <code>count</code> is initialized to 0.
+Since the person has yet been rated, rating will be displayed as <code>-</code> in the <code>BrowserPanel</code>.</p>
+</div>
+<div class="paragraph">
+<p>We have decided to allow two types of ratings in STUtor:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1889,8 +1895,10 @@ Regex is used to limit user input to a maximum of 1 decimal place and any number
 </div>
 <div class="paragraph">
 <p>Default will be cumulative rating as it is more natural and useful to combine all ratings given to a specific person to gauge his/her
-abilities. In this app, cumulative rating is calculated using the current rate <code>value</code> and <code>count</code> inside <code>accumulatedValue</code> method in <code>Rate</code> class.
-Every time a new rate is added, <code>count</code> increases incrementally and only the latest rate <code>value</code> is stored.</p>
+abilities. In this app, <code>value</code> in <code>Rate</code> class stores the total sum of all ratings given to the person.
+To display the cumulated rating, <code>BrowserPanel</code> calls <code>getDisplayedValue</code> method in <code>Rate</code> class and
+cumulated rating is calculated using the total <code>value</code> and divide it by <code>count</code>.
+Every time a new rate is added, <code>count</code> increases incrementally as well.</p>
 </div>
 <div class="paragraph">
 <p>Absolute rating is also implemented for users that wants to clear all old data or wants to shortlist/blacklist a student or tutor.
@@ -1941,39 +1949,6 @@ in the user input. When setting an absolute rating, the app resets <code>count</
 </li>
 <li>
 <p>Cons: Implementation requires more complex handling (e.g. prefix can be omitted, presence of both prefixes).</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-calculation-for-cumulative-rating"><a class="link" href="#aspect-calculation-for-cumulative-rating">Aspect: Calculation for Cumulative Rating</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Make use of only current rating and rate count</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Takes up minimal storage space and simple to calculate.</p>
-</li>
-<li>
-<p>Cons: May not be very accurate.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Store all past ratings of a person and take the average</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Produces accurate rating.</p>
-</li>
-<li>
-<p>Cons: Can potentially take up lots of storage space as there is no limit to the number of times a person can be rated.</p>
 </li>
 </ul>
 </div>
@@ -3843,7 +3818,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-10 15:47:13 UTC
+Last updated 2018-04-11 09:19:10 UTC
 </div>
 </div>
 </body>

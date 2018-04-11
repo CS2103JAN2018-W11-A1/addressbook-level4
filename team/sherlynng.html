@@ -138,6 +138,24 @@ This facilitates the user when typing in commands, especially for long commands 
 </div>
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The new remark created will not be shown automatically. You will have to select the person again to
+'refresh' the page.</p>
+</div>
+<div class="paragraph">
+<p>Auto-refreshing of person details will be done is V2.0.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Format: <code><strong>remark</strong> INDEX r/REMARK</code> or <code><strong>remark</strong> INDEX edit</code></p>
 </div>
@@ -162,6 +180,27 @@ Removes the remark for the 1st person in the results of the <code><strong>find</
 Edits the remark of the 1st person in STUtor.</p>
 </li>
 </ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can press <kbd>Tab</kbd> key once after typing <code><strong>remark</strong></code> or <code><strong>rk</strong></code> and it will autofill the command.
+INDEX to be specified will be highlighted. Press <kbd>Tab</kbd> key again will jump to the position for you to input your remark.
+You can view the diagram below for a clearer visualization on how it works.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AutofillRemark.png" alt="AutofillRemark" width="700">
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -210,14 +249,31 @@ and the person&#8217;s average ratings will be displayed. Number of people who r
 </td>
 <td class="content">
 <div class="paragraph">
-<p>STUtor does not keept track of all ratings of each person, hence accumulated rating value may be off by 0.2.
-Rating values are also rounded down.</p>
+<p>Rating value is rounded off to nearest 1 decimal place.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The new rating created will not be shown automatically. You will have to select the person again to
+'refresh' the page.</p>
+</div>
+<div class="paragraph">
+<p>Auto-refreshing of person details will be done is V2.0.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Format: <code><strong>rate</strong> INDEX r/RATE</code></p>
@@ -238,6 +294,27 @@ Gives an absolute rating of 2.0 to the 2nd person in STUtor.</p>
 Gives an accumulated rating for the 1st person in the results of the <code><strong>find</strong></code> command.</p>
 </li>
 </ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can press <kbd>Tab</kbd> key once after typing <code><strong>rate</strong></code> or <code><strong>rt</strong></code> and it will autofill the command.
+INDEX to be specified will be highlighted. Press <kbd>Tab</kbd> key again will jump to the position for you to input your rating.
+You can view the diagram below for a clearer visualization on how it works.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AutofillRate.png" alt="AutofillRate" width="700">
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -395,11 +472,17 @@ be used since create remark command is implemented before edit remark.</p>
 <div class="sect4">
 <h5 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h5>
 <div class="paragraph">
-<p>Rating is from 0.0 (worst performing) to 5.0 (best performing) and is stored as a <code>double</code> inside <code>Rate</code> class.
-Regex is used to limit user input to a maximum of 1 decimal place and any number below 0.0 or 5.0 is rejected.</p>
+<p>Rating is from 0.0 (worst performing) to 5.0 (best performing).
+Regex is used to limit user input to a maximum of 1 decimal place and any number below 0.0 or above 5.0 is rejected.
+Sum of all ratings is stored as a <code>double</code> inside <code>Rate</code> class and the displayed value is calculated by taking the sum
+and divide it by the number of people who rated the person.</p>
 </div>
 <div class="paragraph">
-<p>We have decided to allow two types of ratings:</p>
+<p>When a person is first added to STUtor, both total rate <code>value</code> and <code>count</code> is initialized to 0.
+Since the person has yet been rated, rating will be displayed as <code>-</code> in the <code>BrowserPanel</code>.</p>
+</div>
+<div class="paragraph">
+<p>We have decided to allow two types of ratings in STUtor:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -413,8 +496,10 @@ Regex is used to limit user input to a maximum of 1 decimal place and any number
 </div>
 <div class="paragraph">
 <p>Default will be cumulative rating as it is more natural and useful to combine all ratings given to a specific person to gauge his/her
-abilities. In this app, cumulative rating is calculated using the current rate <code>value</code> and <code>count</code> inside <code>accumulatedValue</code> method in <code>Rate</code> class.
-Every time a new rate is added, <code>count</code> increases incrementally and only the latest rate <code>value</code> is stored.</p>
+abilities. In this app, <code>value</code> in <code>Rate</code> class stores the total sum of all ratings given to the person.
+To display the cumulated rating, <code>BrowserPanel</code> calls <code>getDisplayedValue</code> method in <code>Rate</code> class and
+cumulated rating is calculated using the total <code>value</code> and divide it by <code>count</code>.
+Every time a new rate is added, <code>count</code> increases incrementally as well.</p>
 </div>
 <div class="paragraph">
 <p>Absolute rating is also implemented for users that wants to clear all old data or wants to shortlist/blacklist a student or tutor.
@@ -465,39 +550,6 @@ in the user input. When setting an absolute rating, the app resets <code>count</
 </li>
 <li>
 <p>Cons: Implementation requires more complex handling (e.g. prefix can be omitted, presence of both prefixes).</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-calculation-for-cumulative-rating"><a class="link" href="#aspect-calculation-for-cumulative-rating">Aspect: Calculation for Cumulative Rating</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Make use of only current rating and rate count</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Takes up minimal storage space and simple to calculate.</p>
-</li>
-<li>
-<p>Cons: May not be very accurate.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Store all past ratings of a person and take the average</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Produces accurate rating.</p>
-</li>
-<li>
-<p>Cons: Can potentially take up lots of storage space as there is no limit to the number of times a person can be rated.</p>
 </li>
 </ul>
 </div>
@@ -650,7 +702,7 @@ less typing from the user.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-10 15:47:13 UTC
+Last updated 2018-04-11 09:19:10 UTC
 </div>
 </div>
 </body>
