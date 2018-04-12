@@ -1960,10 +1960,9 @@ in the user input. When setting an absolute rating, the app resets <code>count</
 </div>
 <div class="sect2">
 <h3 id="view-stats-command"><a class="link" href="#view-stats-command">4.13. View Stats Command</a></h3>
-<div class="sect3">
-<h4 id="current-implementation-12"><a class="link" href="#current-implementation-12">4.13.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The intention behind creating this command is to consolidate statistical data about the people in the app.
+<p>As a tutor coordinator, it is important to have data of the people in the app at your fingertip.
+This can be achieved by the <code>viewStats</code> command as consolidate statistical data regarding the people in the app.
 With these data, user will be able to foresee issues such as insufficient tutor for a particular subject with ease.
 Without this command, user will have to do manual consolidation which is inefficient.<br>
 Currently, the statistical data are presented in the form of pie chart which improves readability. A snapshot showing
@@ -1973,6 +1972,14 @@ the role distribution between students and tutors is shown below.</p>
 <div class="content">
 <img src="images/CompleteChartSnap.png" alt="CompleteChartSnap" width="500">
 </div>
+<div class="title">Figure 28. Snapshot of <code>viewStats</code></div>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-12"><a class="link" href="#current-implementation-12">4.13.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>Whenever <code>viewStats</code> command is executed, a ShowChartEvent will be generated and posted to the EventCenter.
+Subsequently, the handleShowChartEvent from ChartPanel will be notified as it is subscribed to the EventCenter.
+ChartPanel will then generate the graph from the ObservableList&lt;Person&gt; and it will be displayed on the UI.</p>
 </div>
 </div>
 <div class="sect3">
@@ -2030,7 +2037,7 @@ To uniquely identify each pair, we utilise a <code>PairHash</code> class.<br></p
 <div class="content">
 <img src="images/PairClassDiagram.png" alt="PairClassDiagram" width="700">
 </div>
-<div class="title">Figure 28. Class diagram to show associations between Person, Pair and PairHash class.</div>
+<div class="title">Figure 29. Class diagram to show associations between Person, Pair and PairHash class.</div>
 </div>
 <div class="paragraph">
 <p>As seen above, a <code>Pair</code> is constructed using one <code>Student</code> and one <code>Tutor</code>.
@@ -2068,7 +2075,7 @@ It helps to reduce coupling between <code>Pair</code> and <code>Person</code> ob
 <div class="content">
 <img src="images/MatchActivityDiagram.png" alt="MatchActivityDiagram" width="700">
 </div>
-<div class="title">Figure 29. Activity diagram for Match Command</div>
+<div class="title">Figure 30. Activity diagram for Match Command</div>
 </div>
 <div class="paragraph">
 <p>Similarly, when a <code>Pair</code> is removed through the <code>unmatch</code> command, its <code>PairHash</code> is extracted
@@ -2152,7 +2159,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 30. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 31. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 </div>
@@ -3818,7 +3825,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-11 12:38:44 UTC
+Last updated 2018-04-12 14:49:06 UTC
 </div>
 </div>
 </body>

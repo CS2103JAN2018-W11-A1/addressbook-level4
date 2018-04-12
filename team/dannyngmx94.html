@@ -273,10 +273,9 @@ insensitive.</p>
 </div>
 <div class="sect2">
 <h3 id="view-stats-command"><a class="link" href="#view-stats-command">View Stats Command</a></h3>
-<div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
 <div class="paragraph">
-<p>The intention behind creating this command is to consolidate statistical data about the people in the app.
+<p>As a tutor coordinator, it is important to have data of the people in the app at your fingertip.
+This can be achieved by the <code>viewStats</code> command as consolidate statistical data regarding the people in the app.
 With these data, user will be able to foresee issues such as insufficient tutor for a particular subject with ease.
 Without this command, user will have to do manual consolidation which is inefficient.<br>
 Currently, the statistical data are presented in the form of pie chart which improves readability. A snapshot showing
@@ -286,6 +285,14 @@ the role distribution between students and tutors is shown below.</p>
 <div class="content">
 <img src="../images/CompleteChartSnap.png" alt="CompleteChartSnap" width="500">
 </div>
+<div class="title">Figure 1. Snapshot of <code>viewStats</code></div>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
+<div class="paragraph">
+<p>Whenever <code>viewStats</code> command is executed, a ShowChartEvent will be generated and posted to the EventCenter.
+Subsequently, the handleShowChartEvent from ChartPanel will be notified as it is subscribed to the EventCenter.
+ChartPanel will then generate the graph from the ObservableList&lt;Person&gt; and it will be displayed on the UI.</p>
 </div>
 </div>
 <div class="sect3">
@@ -330,7 +337,7 @@ the role distribution between students and tutors is shown below.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-11 12:38:44 UTC
+Last updated 2018-04-12 14:49:06 UTC
 </div>
 </div>
 </body>
