@@ -301,7 +301,20 @@ the role distribution between students and tutors is shown below.</p>
 <div class="paragraph">
 <p>Whenever <code>viewStats</code> command is executed, a ShowChartEvent will be generated and posted to the EventCenter.
 Subsequently, the handleShowChartEvent from ChartPanel will be notified as it is subscribed to the EventCenter.
-ChartPanel will then generate the graph from the ObservableList&lt;Person&gt; and it will be displayed on the UI.</p>
+ChartPanel will then generate the graph from the ObservableList and it will be displayed on the UI.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Whenever any command which alters the information of people in the app is executed, execute the <code>viewStats</code> command to get the latest update.
+Why does this work? Executing the <code>viewStats</code> command will generate new graphs obtained from the updated ObservableList.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
@@ -339,6 +352,39 @@ ChartPanel will then generate the graph from the ObservableList&lt;Person&gt; an
 </ul>
 </div>
 </div>
+<div class="sect4">
+<h5 id="aspect-displaying-subjects-data"><a class="link" href="#aspect-displaying-subjects-data">Aspect: Displaying subjects data</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Represent subjects taught by tutor and subjects student wants to learn in bar chart.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: A subject with 0 tutor teaching or 0 student wanting to learn is well represented.</p>
+</li>
+<li>
+<p>Cons: If the difference between 2 subjects is too large, it might be hard to read the number from y-axis.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Represent subjects taught by tutor and subjects student wants to learn in pie chart.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Even if the difference between 2 subject is large, data will still be easy to read.</p>
+</li>
+<li>
+<p>Cons: When there are multiple subjects with 0 tutor teaching or 0 student wanting to learn, the label of the subjects might overlap and it is hard to resolve.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -346,7 +392,7 @@ ChartPanel will then generate the graph from the ObservableList&lt;Person&gt; an
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-12 15:26:48 UTC
+Last updated 2018-04-12 16:54:50 UTC
 </div>
 </div>
 </body>
