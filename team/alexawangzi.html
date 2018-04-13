@@ -47,7 +47,7 @@ It is written in Java, and has about 25 kLoC.</p>
 <ul>
 <li>
 <p>What it does:
-allows the user to choose a student and a tutor to match.
+allows the user to choose a student and a tutor and match them.
 Compatibilty checking will be done to ensure validity of the pair(must be one student and one tutor,
 must be of the same subject, etc).
 Similarly, the user can choose a currently matched pair and unmatch it.</p>
@@ -81,20 +81,15 @@ Please refer to my writings in the <strong>"Contribution to the Developer Guide"
 <ul>
 <li>
 <p>What it does:
-When the user is editing information of a person, the</p>
+When the user is editing information of a person, he/she can type in mixed case.
+Automatic conversion to <a href="#proper-case">proper case</a> will be done.
+Similarly, he/she can use shortcuts, and the input will be converted to full form.</p>
 </li>
 <li>
 <p>Justification:
 Since the application is CLI-based and the user has a large database to manage, a lot of typing is required.
-Having shortcuts saves time for typing, and acceptance of case-insensitive input means even if the user type
-in the wrong case, the input will not be rejected and the user does not need to enter the information all over
-again.</p>
-</li>
-<li>
-<p>Highlights:
-On top of accepting the input as it is, storage format and display are made to follow <a href="#proper-case">proper case</a>.
-This means information are displayed in a more readable and standardized format, despite it might have been entered
-in various cases.</p>
+Having shortcuts saves time for typing, and acceptance of case-insensitive input means data will be stored
+and displayed in an uniform format.</p>
 </li>
 </ul>
 </div>
@@ -128,7 +123,7 @@ Added a remove tag function to remove a certain tag from all persons in the data
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com/CS2103JAN2018-W11-B1/main/pull/98/files">#98</a></p>
+<p>Did cosmetic tweaks to existing contents of the User Guide to make is more end-user friendly: <a href="https://github.com/CS2103JAN2018-W11-B1/main/pull/98/files">#98</a></p>
 </li>
 </ul>
 </div>
@@ -138,7 +133,7 @@ Added a remove tag function to remove a certain tag from all persons in the data
 <div class="ulist">
 <ul>
 <li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com/CS2103JAN2018-T15-B1/main/issues/62">1</a>, <a href="https://github.com/CS2103JAN2018-T15-B1/main/issues/58">2</a>, <a href="https://github.com/CS2103JAN2018-T15-B1/main/issues/71">3</a>)</p>
+<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com/CS2103JAN2018-T15-B1/main/issues/58">1</a>, <a href="https://github.com/CS2103JAN2018-T15-B1/main/issues/71">2</a>)</p>
 </li>
 </ul>
 </div>
@@ -191,7 +186,7 @@ or the other way round.</p>
 </div>
 <div class="paragraph">
 <p>Examples:
-* <code><strong>match</strong> 1 3</code><br>
+<code><strong>match</strong> 1 3</code><br>
 Match the person at index 1 to the person at index 3.</p>
 </div>
 <div class="admonitionblock note">
@@ -216,13 +211,13 @@ See the figure below for an illustration.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/matchIllustration1.png" alt="matchIllustration1" width="500">
+<img src="../images/matchIllustration1.png" alt="matchIllustration1" width="800">
 </div>
 <div class="title">Figure 1. UI before <code><strong>match</strong> 1 3</code> is executed.</div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/matchIllustration2.png" alt="matchIllustration2" width="500">
+<img src="../images/matchIllustration2.png" alt="matchIllustration2" width="800">
 </div>
 <div class="title">Figure 2. UI after <code><strong>match</strong> 1 3</code> is executed. New pair is dispalyed on the leftmost panel.</div>
 </div>
@@ -279,243 +274,40 @@ Unmatch the pair at index 1.<br></p>
 </ul>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h2>
-<div class="sectionbody">
+<div class="sect3">
+<h4 id="enterprise-version-of-stutor-code-coming-in-v2-0-code"><a class="link" href="#enterprise-version-of-stutor-code-coming-in-v2-0-code">Enterprise Version of STUtor <code>[Coming in V2.0]</code></a></h4>
 <div class="paragraph">
-<p>You can use the following shortcuts when typing the commands.
-Note that there is no shortcuts for <code>help</code> and <code>exit</code> commands.</p>
+<p>With added functionalities, the Enterprise Version of STUtor will serve tuition centers and agencies.</p>
 </div>
-<table class="tableblock frame-all grid-all" style="width: 80%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Command</th>
-<th class="tableblock halign-left valign-top">Shortcut</th>
-<th class="tableblock halign-left valign-top">Format</th>
-<th class="tableblock halign-left valign-top">Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS $/PRICE sub/SUBJECT lvl/EDUCATION_LEVEL stat/STATUS r/ROLE [t/TAG]&#8230;&#8203;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 $/50 sub/Math lvl/Lower Sec stat/Not Matched r/Student</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete INDEX</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete 3</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>e</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [$/PRICE] [sub/SUBJECT] [lvl/EDUCATION_LEVEL] [stat/STATUS] [r/ROLE] [t/TAG]&#8230;&#8203;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit 2 n/James Lee e/jameslee@example.com</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>f</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD [MORE_KEYWORDS]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find James Jake</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>findmissing</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fm</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>findmissing [FIELD]&#8230;&#8203;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>findmissing phone</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>s</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select INDEX</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select 2</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>match</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>m</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>match INDEX_A INDEX_B</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>match 1 2</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>unmatch</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>um</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>unmatch INDEX</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>unmatch 2</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter KEYWORD</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter Math</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>remark</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rk</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>remark INDEX r/</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>remark 2 r/Fast learner.</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rate</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rt</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rate INDEX r/</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rate INDEX r/3.5</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>l</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>viewStats</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>c</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>history</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>h</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>undo</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>u</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>redo</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>r</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exit</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-</tbody>
-</table>
+<div class="ulist">
+<ul>
+<li>
+<p>Remote centralised database</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Real-time syncing will allow multiple coordinators will be able to work on the same database.</p>
+</li>
+<li>
+<p>Information about the students, tutors and pairs will be stored securely, making backup and recovering
+of data easy.</p>
+</li>
+</ul>
 </div>
+</li>
+<li>
+<p>Data Encryption</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The coordinator will need a password issued by the tuition center to access the application,
+therefore ensuring the confidentiality of the data.</p>
+</li>
+</ul>
 </div>
-<div class="sect1">
-<h2 id="prefix-shortcut-summary"><a class="link" href="#prefix-shortcut-summary">Prefix Shortcut Summary</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>To save time in adding a person, or editing a person&#8217;s details, use the following shortcuts.</p>
+</li>
+</ul>
 </div>
-<table class="tableblock frame-all grid-all" style="width: 59%;">
-<colgroup>
-<col style="width: 30%;">
-<col style="width: 35%;">
-<col style="width: 35%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Applicable field</th>
-<th class="tableblock halign-left valign-top">Shortcut</th>
-<th class="tableblock halign-left valign-top">Equivalence in full</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">subject</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/chem</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/chemistry</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">subject</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/phy</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/physics</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">subject</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/chi</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/chinese</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">subject</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/eng</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/english</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">level</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/us</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/upper sec</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">level</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/ls</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/lower sec</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">level</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/up</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/upper pri</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">level</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/lp</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/lower pri</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stat/nm</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stat/not matched</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stat/m</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stat/matched</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">role</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>r/t</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>r/tutor</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">role</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>r/s</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>r/student</code></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">FAQ</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>:<br>
-1) Please install STUtor in the other computer.<br>
-2) Navigate to <strong>main/data</strong>, and overwrite the empty <code>STUtor.xml</code> file
-with the file of the same name found on your previous computer.
-You can the file under the same path of <strong>main/data</strong></p>
 </div>
 </div>
 </div>
@@ -544,55 +336,39 @@ The matched pairs will be stored in STUtor.xml, and displayed on the pair list p
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
 <p>A matched pair is stored as a <code>Pair</code> object.
-To uniquely identify each pair, we utilise a <code>PairHash</code> class.<br></p>
+To uniquely identify each pair and 'mark' the persons in the pair, we use a <code>PairHash</code> class.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/PairPairHashClassDiagram.png" alt="PairPairHashClassDiagram" width="700">
+</div>
+<div class="title">Figure 3. Class diagram of Pair and PairHash class.</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/PairClassDiagram.png" alt="PairClassDiagram" width="700">
 </div>
-<div class="title">Figure 3. Class diagram to show associations between Person, Pair and PairHash class.</div>
+<div class="title">Figure 4. Diagram showing associations between Person, Pair and PairHash class.</div>
 </div>
 <div class="paragraph">
-<p>As seen above, a <code>Pair</code> is constructed using one <code>Student</code> and one <code>Tutor</code>.
-The association between a <code>PairHash</code> object and a <code>Pair</code> object is one-to-one.
-A <code>Person</code> (<code>Student</code> or <code>Tutor</code>) can have any number of unique <code>PairHash</code>, that is,
+<p>Note that a person (<code>Student</code> or <code>Tutor</code>) can have any number of unique <code>PairHash</code>, that is,
 a student can be paired to multiple tutors and vice versa.<br></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="acceptance-of-many-to-many-matches"><a class="link" href="#acceptance-of-many-to-many-matches">Acceptance of Many-to-Many matches</a></h5>
 <div class="paragraph">
-<p>We allow a student to be paired to multiple tutors and vice versa,
-because one student may take tuition for several subjects, and a tutor
-is likely to take a few students.<br>
-On top of that, we also allow a student to be paired to multiple tutors
-for the same subject. To justify, consider a student who wants to receive English
-tuition and would like to have specialized tutors to train him on Comprehension and
-Composition separately.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="the-pairhash-class"><a class="link" href="#the-pairhash-class">The PairHash Class</a></h5>
-<div class="paragraph">
-<p>Due to the one-to-one association between <code>Pair</code> and <code>PairHash</code>, <code>PairHash</code> is used to
-facilitate matching and unmatching, as well as updating the status of a person.
-It helps to reduce coupling between <code>Pair</code> and <code>Person</code> objects.<br></p>
+<p>The current implementation of <code>match</code> and <code>unmatch</code> relies on the one-to-one association between <code>Pair</code> and <code>PairHash</code>.
+<code>PairHash</code> is used to facilitate matching and unmatching, as well as updating the status of a person.<br></p>
 </div>
 <div class="paragraph">
-<p>When a <code>Pair</code> is created through the <code>match</code> command, a`PairHash` is generated and automatically stored in the
-<code>Pair</code> itself, as well as the <code>Student</code> and <code>Tutor</code> objects involved (see below).</p>
+<p>When a <code>Pair</code> is created through the <code>match</code> command, a <code>PairHash</code> is generated and automatically stored in the
+<code>Pair</code> itself, as well as in the <code>Student</code> and <code>Tutor</code> objects involved (see below).
+Similarly, when a <code>Pair</code> is removed through the <code>unmatch</code> command, its <code>PairHash</code> is extracted
+and used to retrieve the <code>Student</code> and <code>Tutor</code> marked by it. This <code>PairHash</code> is then deleted from the persons.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/MatchActivityDiagram.png" alt="MatchActivityDiagram" width="700">
+<img src="../images/MatchActivityDiagram.png" alt="MatchActivityDiagram" width="800">
 </div>
-<div class="title">Figure 4. Activity diagram for Match Command</div>
-</div>
-<div class="paragraph">
-<p>Similarly, when a <code>Pair</code> is removed through the <code>unmatch</code> command, its <code>PairHash</code> is extracted
-and used to retrieve the <code>Student</code> and <code>Tutor</code> involved. This <code>PairHash</code> is then deleted from the persons.</p>
+<div class="title">Figure 5. Activity diagram for Match Command</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -602,11 +378,82 @@ and used to retrieve the <code>Student</code> and <code>Tutor</code> involved. T
 </td>
 <td class="content">
 <code>PairHash</code> objects associated with a particular <code>Person</code> object is stored inside that <code>Person</code> as a list.<br>
-Whenever a <code>PairHash</code> is add to/ removed from the list (a <code>match</code>/ <code>unmatch</code> command is executed), a check is done to makes sure the status
+Whenever a <code>PairHash</code> is add to/ removed from the list, a check is done to makes sure the status
 of the person remains correct. If the list is empty, that <code>Person</code> 's status will be <code>Not Matched</code>, else it will be <code>Matched</code>.
 </td>
 </tr>
 </table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-acceptance-of-many-to-many-matches"><a class="link" href="#aspect-acceptance-of-many-to-many-matches">Aspect: Acceptance of Many-to-Many matches</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Only allow one-to-one matches.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The <code>Person</code> class only need to store one <code>PairHash</code>.</p>
+</li>
+<li>
+<p>Cons: Not realistic as one student may take tuition for several subjects, and a tutor is likely to take a few students.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (current choice):</strong> Allow a student to be paired to multiple tutors and vice versa.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More realistic.</p>
+</li>
+<li>
+<p>Cons: Requires the <code>Person</code> class to store multiple <code>PairHash</code> instead of one.
+Updating of status requires extra checkings to ensure correctness.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-creating-deleting-and-identifying-a-pair"><a class="link" href="#aspect-creating-deleting-and-identifying-a-pair">Aspect: Creating, deleting and identifying a pair</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Store the <code>Pair</code> directly in <code>Person</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to code.</p>
+</li>
+<li>
+<p>Cons: High degree of coupling between <code>Pair</code> and <code>Person</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (current choice):</strong> Use <code>PairHash</code> to to identify the <code>Pair</code> itself, and mark <code>Person</code> in the Pair.
+Saving the <code>PairHash</code> to the <code>Person</code> when <code>Pair</code> is created, delete the same <code>PairHash</code> from <code>Person</code>
+when this <code>Pair</code> is unmatched.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Reduce coupling between <code>Pair</code> and <code>Person</code>.</p>
+</li>
+<li>
+<p>Cons: <code>PairHash</code> has a slight chance of having collisions, which might result in errors in data.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -621,7 +468,7 @@ For example, <code>Role</code> can only be one of <code>Student</code> or <code>
 </div>
 <div class="paragraph">
 <p>Thus, we have created shortcuts to improve efficiency in filling the fields.
-We currently support shortcuts for <code>Subject</code>, <code>Level</code>, <code>Status</code>, and <code>Role</code>.</p>
+We currently support shortcuts for <code>Subject</code>, <code>Level</code>, and <code>Role</code>.</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 59%;">
 <colgroup>
@@ -676,16 +523,6 @@ We currently support shortcuts for <code>Subject</code>, <code>Level</code>, <co
 <td class="tableblock halign-left valign-top"><p class="tableblock">level</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/lp</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/lower pri</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stat/nm</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stat/not matched</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stat/m</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stat/matched</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">role</p></td>
@@ -747,7 +584,7 @@ The sequence diagram below shows how this is achieved in the constructor of <cod
 <div class="content">
 <img src="../images/SDforCaseInsensitiveInput.png" alt="SDforCaseInsensitiveInput" width="800">
 </div>
-<div class="title">Figure 5. Sequence Diagram for achieveing case insensitive input</div>
+<div class="title">Figure 6. Sequence Diagram for achieveing case insensitive input</div>
 </div>
 <div class="paragraph">
 <p>The other classes utilise the <code>ProperCaseConverter</code> object in a similar way.</p>
@@ -760,7 +597,7 @@ The sequence diagram below shows how this is achieved in the constructor of <cod
 </td>
 <td class="content">
 The user can input shortcuts in case-insensitive fashion.
-For instance, the user may input <code>add n/jOHN dOE p/98765432 e/johND@eXaMpLe.com a/NUS #04-02 $/50 sub/PHy lvl/uP stat/nM t/T</code>
+For instance, the user may input <code>add n/jOHN dOE p/98765432 e/johND@eXaMpLe.com a/NUS #04-02 $/50 sub/PHy lvl/uP t/T</code>
 , the stored entry will be <code>John Doe Phone: 98765432 Email: <a href="mailto:johnd@example.com">johnd@example.com</a> Address: NUS #04-02 Tags: [Tutor][Upper Pri][50][Physics][Not Matched]</code>
 </td>
 </tr>
@@ -788,9 +625,9 @@ For example, "This Is An Example Of Proper Case."</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/personClassDiagram.png" alt="personClassDiagram" width="400">
+<img src="../images/personClassDiagram.png" alt="personClassDiagram" width="300">
 </div>
-<div class="title">Figure 6. Person class diagram with methods omitted</div>
+<div class="title">Figure 7. Person class diagram with methods omitted</div>
 </div>
 <div class="dlist">
 <dl>
@@ -804,16 +641,16 @@ A pair will have the level, price and subject displayed as tags.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/tagExampleForWangZiPPP.png" alt="tagExampleForWangZiPPP" width="800">
+<img src="../images/tagExampleForWangZiPPP.png" alt="tagExampleForWangZiPPP" width="700">
 </div>
-<div class="title">Figure 7. Illustration of usage of tags. Tags appear below the person/pair name.</div>
+<div class="title">Figure 8. Illustration of usage of tags. Tags appear below the person/pair name.</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-13 15:34:48 UTC
+Last updated 2018-04-13 15:37:39 UTC
 </div>
 </div>
 </body>

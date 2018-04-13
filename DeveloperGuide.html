@@ -1140,7 +1140,7 @@ For example, <code>Role</code> can only be one of <code>Student</code> or <code>
 </div>
 <div class="paragraph">
 <p>Thus, we have created shortcuts to improve efficiency in filling the fields.
-We currently support shortcuts for <code>Subject</code>, <code>Level</code>, <code>Status</code>, and <code>Role</code>.</p>
+We currently support shortcuts for <code>Subject</code>, <code>Level</code>, and <code>Role</code>.</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 59%;">
 <colgroup>
@@ -1195,16 +1195,6 @@ We currently support shortcuts for <code>Subject</code>, <code>Level</code>, <co
 <td class="tableblock halign-left valign-top"><p class="tableblock">level</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/lp</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/lower pri</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stat/nm</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stat/not matched</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stat/m</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stat/matched</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">role</p></td>
@@ -1279,7 +1269,7 @@ The sequence diagram below shows how this is achieved in the constructor of <cod
 </td>
 <td class="content">
 The user can input shortcuts in case-insensitive fashion.
-For instance, the user may input <code>add n/jOHN dOE p/98765432 e/johND@eXaMpLe.com a/NUS #04-02 $/50 sub/PHy lvl/uP stat/nM t/T</code>
+For instance, the user may input <code>add n/jOHN dOE p/98765432 e/johND@eXaMpLe.com a/NUS #04-02 $/50 sub/PHy lvl/uP t/T</code>
 , the stored entry will be <code>John Doe Phone: 98765432 Email: <a href="mailto:johnd@example.com">johnd@example.com</a> Address: NUS #04-02 Tags: [Tutor][Upper Pri][50][Physics][Not Matched]</code>
 </td>
 </tr>
@@ -2077,55 +2067,39 @@ The matched pairs will be stored in STUtor.xml, and displayed on the pair list p
 <h4 id="current-implementation-13"><a class="link" href="#current-implementation-13">4.14.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>A matched pair is stored as a <code>Pair</code> object.
-To uniquely identify each pair, we utilise a <code>PairHash</code> class.<br></p>
+To uniquely identify each pair and 'mark' the persons in the pair, we use a <code>PairHash</code> class.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/PairPairHashClassDiagram.png" alt="PairPairHashClassDiagram" width="700">
+</div>
+<div class="title">Figure 29. Class diagram of Pair and PairHash class.</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/PairClassDiagram.png" alt="PairClassDiagram" width="700">
 </div>
-<div class="title">Figure 29. Class diagram to show associations between Person, Pair and PairHash class.</div>
+<div class="title">Figure 30. Diagram showing associations between Person, Pair and PairHash class.</div>
 </div>
 <div class="paragraph">
-<p>As seen above, a <code>Pair</code> is constructed using one <code>Student</code> and one <code>Tutor</code>.
-The association between a <code>PairHash</code> object and a <code>Pair</code> object is one-to-one.
-A <code>Person</code> (<code>Student</code> or <code>Tutor</code>) can have any number of unique <code>PairHash</code>, that is,
+<p>Note that a person (<code>Student</code> or <code>Tutor</code>) can have any number of unique <code>PairHash</code>, that is,
 a student can be paired to multiple tutors and vice versa.<br></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-11"><a class="link" href="#design-considerations-11">4.14.2. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="acceptance-of-many-to-many-matches"><a class="link" href="#acceptance-of-many-to-many-matches">Acceptance of Many-to-Many matches</a></h5>
 <div class="paragraph">
-<p>We allow a student to be paired to multiple tutors and vice versa,
-because one student may take tuition for several subjects, and a tutor
-is likely to take a few students.<br>
-On top of that, we also allow a student to be paired to multiple tutors
-for the same subject. To justify, consider a student who wants to receive English
-tuition and would like to have specialized tutors to train him on Comprehension and
-Composition separately.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="the-pairhash-class"><a class="link" href="#the-pairhash-class">The PairHash Class</a></h5>
-<div class="paragraph">
-<p>Due to the one-to-one association between <code>Pair</code> and <code>PairHash</code>, <code>PairHash</code> is used to
-facilitate matching and unmatching, as well as updating the status of a person.
-It helps to reduce coupling between <code>Pair</code> and <code>Person</code> objects.<br></p>
+<p>The current implementation of <code>match</code> and <code>unmatch</code> relies on the one-to-one association between <code>Pair</code> and <code>PairHash</code>.
+<code>PairHash</code> is used to facilitate matching and unmatching, as well as updating the status of a person.<br></p>
 </div>
 <div class="paragraph">
-<p>When a <code>Pair</code> is created through the <code>match</code> command, a`PairHash` is generated and automatically stored in the
-<code>Pair</code> itself, as well as the <code>Student</code> and <code>Tutor</code> objects involved (see below).</p>
+<p>When a <code>Pair</code> is created through the <code>match</code> command, a <code>PairHash</code> is generated and automatically stored in the
+<code>Pair</code> itself, as well as in the <code>Student</code> and <code>Tutor</code> objects involved (see below).
+Similarly, when a <code>Pair</code> is removed through the <code>unmatch</code> command, its <code>PairHash</code> is extracted
+and used to retrieve the <code>Student</code> and <code>Tutor</code> marked by it. This <code>PairHash</code> is then deleted from the persons.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/MatchActivityDiagram.png" alt="MatchActivityDiagram" width="700">
+<img src="images/MatchActivityDiagram.png" alt="MatchActivityDiagram" width="800">
 </div>
-<div class="title">Figure 30. Activity diagram for Match Command</div>
-</div>
-<div class="paragraph">
-<p>Similarly, when a <code>Pair</code> is removed through the <code>unmatch</code> command, its <code>PairHash</code> is extracted
-and used to retrieve the <code>Student</code> and <code>Tutor</code> involved. This <code>PairHash</code> is then deleted from the persons.</p>
+<div class="title">Figure 31. Activity diagram for Match Command</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2135,11 +2109,82 @@ and used to retrieve the <code>Student</code> and <code>Tutor</code> involved. T
 </td>
 <td class="content">
 <code>PairHash</code> objects associated with a particular <code>Person</code> object is stored inside that <code>Person</code> as a list.<br>
-Whenever a <code>PairHash</code> is add to/ removed from the list (a <code>match</code>/ <code>unmatch</code> command is executed), a check is done to makes sure the status
+Whenever a <code>PairHash</code> is add to/ removed from the list, a check is done to makes sure the status
 of the person remains correct. If the list is empty, that <code>Person</code> 's status will be <code>Not Matched</code>, else it will be <code>Matched</code>.
 </td>
 </tr>
 </table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-11"><a class="link" href="#design-considerations-11">4.14.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-acceptance-of-many-to-many-matches"><a class="link" href="#aspect-acceptance-of-many-to-many-matches">Aspect: Acceptance of Many-to-Many matches</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Only allow one-to-one matches.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The <code>Person</code> class only need to store one <code>PairHash</code>.</p>
+</li>
+<li>
+<p>Cons: Not realistic as one student may take tuition for several subjects, and a tutor is likely to take a few students.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (current choice):</strong> Allow a student to be paired to multiple tutors and vice versa.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More realistic.</p>
+</li>
+<li>
+<p>Cons: Requires the <code>Person</code> class to store multiple <code>PairHash</code> instead of one.
+Updating of status requires extra checkings to ensure correctness.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-creating-deleting-and-identifying-a-pair"><a class="link" href="#aspect-creating-deleting-and-identifying-a-pair">Aspect: Creating, deleting and identifying a pair</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Store the <code>Pair</code> directly in <code>Person</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to code.</p>
+</li>
+<li>
+<p>Cons: High degree of coupling between <code>Pair</code> and <code>Person</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (current choice):</strong> Use <code>PairHash</code> to to identify the <code>Pair</code> itself, and mark <code>Person</code> in the Pair.
+Saving the <code>PairHash</code> to the <code>Person</code> when <code>Pair</code> is created, delete the same <code>PairHash</code> from <code>Person</code>
+when this <code>Pair</code> is unmatched.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Reduce coupling between <code>Pair</code> and <code>Person</code>.</p>
+</li>
+<li>
+<p>Cons: <code>PairHash</code> has a slight chance of having collisions, which might result in errors in data.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -2205,7 +2250,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 31. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 32. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 </div>
@@ -3871,7 +3916,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-13 15:34:48 UTC
+Last updated 2018-04-13 15:37:39 UTC
 </div>
 </div>
 </body>

@@ -144,7 +144,7 @@ Adds a new person to STUtor.<br></p>
 <div class="ulist">
 <ul>
 <li>
-<p>For PRICE, SUBJECT, EDUCATION_LEVEL, STATUS, ROLE:</p>
+<p>For PRICE, SUBJECT, EDUCATION_LEVEL, ROLE:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -152,6 +152,16 @@ Adds a new person to STUtor.<br></p>
 </li>
 <li>
 <p>These information is displayed as tags for easy reference.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>For STATUS:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Upon adding to STUtor, all persons will have a default status of "Not Matched".</p>
 </li>
 </ul>
 </div>
@@ -176,7 +186,7 @@ To fill in the other fields later, you can use the edit command to edit the pers
 </table>
 </div>
 <div class="paragraph">
-<p>Format: <code><strong>add</strong> n/NAME [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [$/PRICE] [sub/SUBJECT] [lvl/EDUCATION_LEVEL] [stat/STATUS] [r/ROLE] [t/TAG]&#8230;&#8203;</code></p>
+<p>Format: <code><strong>add</strong> n/NAME [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [$/PRICE] [sub/SUBJECT] [lvl/EDUCATION_LEVEL][r/ROLE] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -184,10 +194,10 @@ To fill in the other fields later, you can use the edit command to edit the pers
 <div class="ulist">
 <ul>
 <li>
-<p><code><strong>add</strong> n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 $/50 sub/Math lvl/Lower Sec stat/Not Matched r/Student</code></p>
+<p><code><strong>add</strong> n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 $/50 sub/Math lvl/Lower Sec  r/Student</code></p>
 </li>
 <li>
-<p><code><strong>add</strong> n/Betsy Crowe p/91562389 e/betsycrowe@example.com a/Pasir Ris Drive 10, #06-02 $/30 sub/Chinese lvl/Upper Pri stat/Not Matched r/Tutor</code></p>
+<p><code><strong>add</strong> n/Betsy Crowe p/91562389 e/betsycrowe@example.com a/Pasir Ris Drive 10, #06-02 $/30 sub/Chinese lvl/Upper Pri  r/Tutor</code></p>
 </li>
 <li>
 <p><code><strong>add</strong> n/Carl Kurz</code></p>
@@ -242,6 +252,9 @@ This also allows you to fill in unentered attributes by simply editing that attr
 <p>Existing values will be updated to the input values.</p>
 </li>
 <li>
+<p>A person&#8217;s STATUS is not ediatble by you. It will automatically update after <a href="#Matching a student and a tutor">[Matching a student and a tutor]</a></p>
+</li>
+<li>
 <p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
 </li>
 <li>
@@ -258,7 +271,7 @@ This also allows you to fill in unentered attributes by simply editing that attr
 </div>
 </div>
 <div class="paragraph">
-<p>Format: <code><strong>edit</strong> INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [$/PRICE] [sub/SUBJECT] [lvl/EDUCATION_LEVEL] [stat/STATUS] [r/ROLE] [t/TAG]&#8230;&#8203;</code></p>
+<p>Format: <code><strong>edit</strong> INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [$/PRICE] [sub/SUBJECT] [lvl/EDUCATION_LEVEL] [r/ROLE] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -334,9 +347,6 @@ Otherwise, finds all people with an empty value in at least one entered FIELD.</
 </li>
 <li>
 <p>role</p>
-</li>
-<li>
-<p>status</p>
 </li>
 <li>
 <p>subject</p>
@@ -745,7 +755,7 @@ Current option used since it fits best with the user need of simply finding thos
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-13 15:34:48 UTC
+Last updated 2018-04-13 15:37:39 UTC
 </div>
 </div>
 </body>
