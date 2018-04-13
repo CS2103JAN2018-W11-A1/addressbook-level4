@@ -459,7 +459,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <p><strong>API</strong> : <a href="https://github.com/CS2103JAN2018-W11-B1/main/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code>, <code>BrowserPanel</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code>, <code>InfoPanel</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/CS2103JAN2018-W11-B1/main/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/CS2103JAN2018-W11-B1/main/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
@@ -1348,7 +1348,7 @@ insensitive.</p>
 <div class="sect2">
 <h3 id="ui-modifications"><a class="link" href="#ui-modifications">4.8. UI Modifications</a></h3>
 <div class="sect3">
-<h4 id="browser-panel"><a class="link" href="#browser-panel">4.8.1. Browser Panel</a></h4>
+<h4 id="details-panel"><a class="link" href="#details-panel">4.8.1. Details Panel</a></h4>
 <div class="paragraph">
 <p>The browser panel is modified to show the selected person’s details instead of opening up a URL.
 This allows better visualization of a person’s details as each person now has up 11 attributes: <code>Name</code>, <code>Phone</code>,
@@ -1368,14 +1368,14 @@ Below shows the modifications made:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/NewBrowserPanel.png" alt="NewBrowserPanel" width="500">
+<img src="images/NewDetailsPanel.png" alt="NewDetailsPanel" width="500">
 </div>
 </div>
 <div class="sect4">
 <h5 id="current-implementation-6"><a class="link" href="#current-implementation-6">Current Implementation</a></h5>
 <div class="paragraph">
-<p>The UI is modified using <code>SceneBuilder</code> and the layout is specified in <a href="https://github.com/CS2103JAN2018-W11-B1/main/blob/master/src/main/resources/view/BrowserPanel.fxml"><code>BrowserPanel.fxml</code></a>.
-<a href="https://github.com/CS2103JAN2018-W11-B1/main/blob/master/src/main/java/seedu/address/ui/BrowserPanel.java"><code>BrowserPanel.java</code></a> subscribes to <code>handlePersonPanelSelectionChangedEvent</code>, where this allows the browser panel to
+<p>The UI is modified using <code>SceneBuilder</code> and the layout is specified in <a href="https://github.com/CS2103JAN2018-W11-B1/main/blob/master/src/main/resources/view/DetailsPanel.fxml"><code>DetailsPanel.fxml</code></a>.
+<a href="https://github.com/CS2103JAN2018-W11-B1/main/blob/master/src/main/java/seedu/address/ui/DetailsPanel.java"><code>DetailsPanel.java</code></a> subscribes to <code>handlePersonPanelSelectionChangedEvent</code>, where this allows the browser panel to
 be updated whenever the user selects on a specific person.</p>
 </div>
 <div class="paragraph">
@@ -1387,7 +1387,7 @@ to increase readability.</p>
 <div class="sect4">
 <h5 id="design-considerations-4"><a class="link" href="#design-considerations-4">Design Considerations</a></h5>
 <div class="sect5">
-<h6 id="aspect-layout-of-browser-panel"><a class="link" href="#aspect-layout-of-browser-panel">Aspect: Layout of Browser Panel</a></h6>
+<h6 id="aspect-layout-of-details-panel"><a class="link" href="#aspect-layout-of-details-panel">Aspect: Layout of Details Panel</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1868,7 +1868,7 @@ and divide it by the number of people who rated the person.</p>
 </div>
 <div class="paragraph">
 <p>When a person is first added to STUtor, both total rate <code>value</code> and <code>count</code> is initialized to 0.
-Since the person has yet been rated, rating will be displayed as <code>-</code> in the <code>BrowserPanel</code>.</p>
+Since the person has yet been rated, rating will be displayed as <code>-</code> in the <code>DetailsPanel</code>.</p>
 </div>
 <div class="paragraph">
 <p>We have decided to allow two types of ratings in STUtor:</p>
@@ -1885,8 +1885,8 @@ Since the person has yet been rated, rating will be displayed as <code>-</code> 
 </div>
 <div class="paragraph">
 <p>Default will be cumulative rating as it is more natural and useful to combine all ratings given to a specific person to gauge his/her
-abilities. In this app, <code>value</code> in <code>Rate</code> class stores the total sum of all ratings given to the person.
-To display the cumulated rating, <code>BrowserPanel</code> calls <code>getDisplayedValue</code> method in <code>Rate</code> class and
+abilities. In STUtor, <code>value</code> in <code>Rate</code> class stores the total sum of all ratings given to the person.
+To display the cumulated rating, <code>DetailsPanel</code> calls <code>getDisplayedValue</code> method in <code>Rate</code> class and
 cumulated rating is calculated using the total <code>value</code> and divide it by <code>count</code>.
 Every time a new rate is added, <code>count</code> increases incrementally as well.</p>
 </div>
@@ -3916,7 +3916,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-13 15:47:31 UTC
+Last updated 2018-04-13 18:15:38 UTC
 </div>
 </div>
 </body>
