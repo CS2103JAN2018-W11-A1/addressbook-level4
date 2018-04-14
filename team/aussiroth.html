@@ -79,7 +79,7 @@ Each attribute has a special color associated with it to make visual recognition
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.2</code> - <code>v1.5rc</code> (4 releases) on GitHub</p>
+<p>Managed releases <code>v1.2</code> - <code>v1.5</code> (6 releases) on GitHub</p>
 </li>
 </ul>
 </div>
@@ -89,7 +89,8 @@ Each attribute has a special color associated with it to make visual recognition
 <div class="ulist">
 <ul>
 <li>
-<p>Wrote additional tests for existing features and tests across the work of all team members to improve coverage significantly. (Pull requests <a href="https://github.com/CS2103JAN2018-W11-B1/main/pull/40">#40</a>, <a href="https://github.com/CS2103JAN2018-W11-B1/main/pull/64">#64</a>, <a href="https://github.com/CS2103JAN2018-W11-B1/main/pull/155">#155</a>)</p>
+<p>Wrote additional tests for existing features and tests across the work of all team members to improve coverage significantly. These tests are located across many different parts of the code base.
+(Pull requests <a href="https://github.com/CS2103JAN2018-W11-B1/main/pull/40">#40</a>, <a href="https://github.com/CS2103JAN2018-W11-B1/main/pull/64">#64</a>, <a href="https://github.com/CS2103JAN2018-W11-B1/main/pull/155">#155</a>, <a href="https://github.com/CS2103JAN2018-W11-B1/main/pull/179">#179</a>)</p>
 </li>
 </ul>
 </div>
@@ -247,7 +248,7 @@ To fill in the other fields later, you can use the edit command to edit the pers
 </td>
 <td class="content">
 <div class="paragraph">
-<p>You can press <kbd>Tab</kbd> key once after typing <code><strong>add</strong></code> or <code><strong>a</strong></code> and it will autofill the command.
+<p>You can press <kbd>Tab</kbd> key once after typing <code><strong>add</strong></code> or <code><strong>a</strong></code> and it will autofill the command.<br>
 Further pressing of <kbd>Tab</kbd> key will jump to the next field to be filled in.<br>
 You can press <kbd>Delete</kbd> key to delete a field (and its prefix).<br>
 You can view the diagram below for a clearer visualization on how it works.<br>
@@ -331,11 +332,12 @@ Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all 
 </td>
 <td class="content">
 <div class="paragraph">
-<p>You can press <kbd>Tab</kbd> key once after typing <code><strong>edit</strong></code> or <code><strong>e</strong></code> and it will autofill the command.
-INDEX to be specified will be highlighted.
-Further pressing of <kbd>Tab</kbd> key will jump to the next field to be filled in.
-You can press <kbd>Delete</kbd> key to delete a field (and its prefix).
-You can view the diagram below for a clearer visualization on how it works.</p>
+<p>You can press <kbd>Tab</kbd> key once after typing <code><strong>edit</strong></code> or <code><strong>e</strong></code> and it will autofill the command.<br>
+INDEX to be specified will be highlighted.<br>
+Further pressing of <kbd>Tab</kbd> key will jump to the next field to be filled in.<br>
+You can press <kbd>Delete</kbd> key to delete a field (and its prefix).<br>
+You can view the diagram below for a clearer visualization on how it works.<br>
+<strong>Important!</strong> You will need to delete the prefixes for fields you are not intending to change.</p>
 </div>
 </td>
 </tr>
@@ -764,6 +766,10 @@ Current option used since it fits best with the user need of simply finding thos
 <li>
 <p>Pros: Allows the user to narrow down a search, especially if the size of the stored contacts is large.</p>
 </li>
+<li>
+<p>Cons: Might be too specific for the user, if they forget exactly which fields were left empty they will not be able to find the user.<br>
+This is the opposite of the OR choice, therefore the implementation depends on the user need.</p>
+</li>
 </ul>
 </div>
 </li>
@@ -790,7 +796,7 @@ Current option used since it fits best with the user need of simply finding thos
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 07:08:24 UTC
+Last updated 2018-04-14 10:00:47 UTC
 </div>
 </div>
 </body>
