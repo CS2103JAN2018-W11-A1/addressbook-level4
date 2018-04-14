@@ -139,53 +139,36 @@ Each attribute has a special color associated with it to make visual recognition
 <p>Part of extract for Add and Edit in the user guide was done by me - About the optional fields and how the attribute tags work.
 ==== Adding a person: <code><strong>add</strong></code> or <code><strong>a</strong></code>
 Adds a new person to STUtor.<br>
-A person can have the following fields: SUBJECT, EDUCATION_LEVEL, PRICE, ROLE, and STATUS.</p>
+You can add a person with the following fields: NAME, PHONE, EMAIL, ADDRESS, SUBJECT, LEVEL, PRICE and ROLE.
+Take note that some fields are restricted to the following options:</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 80%;">
 <colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
+<col style="width: 37.5%;">
+<col style="width: 62.5%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Field</th>
 <th class="tableblock halign-left valign-top">Options</th>
-<th class="tableblock halign-left valign-top">Field Editable by User</th>
-<th class="tableblock halign-left valign-top">Comment</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">subject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SUBJECT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">English, Chinese,  Math, Chemistry, Physics</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LEVEL</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Lower Primary, Upper Primary, Lower Secondary, Upper Secondary</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">price</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PRICE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Must be a positive number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">role</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ROLE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Student, Tutor</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Matched, Not Matched</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Upon adding to STUtor, all persons will have a default status of "Not Matched"</p></td>
 </tr>
 </tbody>
 </table>
@@ -194,13 +177,13 @@ A person can have the following fields: SUBJECT, EDUCATION_LEVEL, PRICE, ROLE, a
 <div class="ulist">
 <ul>
 <li>
-<p>Alias can be used to reduce typing. Refer to <a href="#Prefix Shortcut Summary">[Prefix Shortcut Summary]</a> for more details.</p>
+<p>Alias can be used to reduce typing. Refer to <a href="#Field Shortcut Summary">[Field Shortcut Summary]</a> for more details.</p>
 </li>
 <li>
 <p>These information is displayed as tags for easy reference.</p>
 </li>
 <li>
-<p>Upon adding to STUtor, all persons will have a default status of "Not Matched".</p>
+<p>Upon adding to STUtor, all persons will have a default STATUS of "Not Matched".</p>
 </li>
 </ul>
 </div>
@@ -222,7 +205,7 @@ To fill in the other fields later, you can use the edit command to edit the pers
 </table>
 </div>
 <div class="paragraph">
-<p>Format: <code><strong>add</strong> n/NAME [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [$/PRICE] [sub/SUBJECT] [lvl/EDUCATION_LEVEL][r/ROLE] [t/TAG]&#8230;&#8203;</code></p>
+<p>Format: <code><strong>add</strong> n/NAME [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [$/PRICE] [sub/SUBJECT] [lvl/LEVEL] [r/ROLE] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -272,7 +255,7 @@ You can view the diagram below for a clearer visualization on how it works.<br>
 <h4 id="editing-a-person-code-strong-edit-strong-code-or-code-strong-e-strong-code"><a class="link" href="#editing-a-person-code-strong-edit-strong-code-or-code-strong-e-strong-code">Editing a person : <code><strong>edit</strong></code> or <code><strong>e</strong></code></a></h4>
 <div class="paragraph">
 <p>Edits an existing person in STUtor.<br>
-This also allows you to fill in unentered attributes by simply editing that attribute.</p>
+This also allows you to fill in unentered fields by simply editing that field.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -288,7 +271,7 @@ This also allows you to fill in unentered attributes by simply editing that attr
 <p>Existing values will be updated to the input values.</p>
 </li>
 <li>
-<p>A person&#8217;s STATUS is not ediatble by you. It will automatically update after <a href="#Matching a student and a tutor">[Matching a student and a tutor]</a></p>
+<p>A person&#8217;s STATUS is not editable by you. It will automatically update after <a href="#Matching a student and a tutor">[Matching a student and a tutor]</a></p>
 </li>
 <li>
 <p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
@@ -296,18 +279,12 @@ This also allows you to fill in unentered attributes by simply editing that attr
 <li>
 <p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
 </li>
-<li>
-<p>Attribute tags will still remain after any changes to the other tags.</p>
-</li>
-<li>
-<p>Attribute tags will automatically update to reflect any changes to the actual attributes.</p>
-</li>
 </ul>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>Format: <code><strong>edit</strong> INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [$/PRICE] [sub/SUBJECT] [lvl/EDUCATION_LEVEL] [r/ROLE] [t/TAG]&#8230;&#8203;</code></p>
+<p>Format: <code><strong>edit</strong> INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [$/PRICE] [sub/SUBJECT] [lvl/LEVEL] [r/ROLE] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -361,10 +338,10 @@ Otherwise, finds all people with an empty value in at least one entered FIELD.</
 <div class="ulist">
 <ul>
 <li>
-<p>The field name is case insensitive</p>
+<p>The field name is case insensitive.</p>
 </li>
 <li>
-<p>List of all possible attributes:</p>
+<p>List of all possible fields:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -695,7 +672,7 @@ Must create a special constructor for the attribute class to accept a <code>null
 <div class="sect3">
 <h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">Current Implementation</a></h4>
 <div class="paragraph">
-<p>The intention and design behind this command is to pair with the allowing of users to leave fields for a person&#8217;s values unentered.
+<p>The intention and design behind this command is to complement the allowing of users to leave fields for a person&#8217;s values unentered.
 As the design of the command, parser and sequence when a user enters a find missing command to be very similar to the filter command, the documentation
 here will focus more on the design considerations and rationale instead of repeating sequence diagrams that are almost the same as given previously.<br></p>
 </div>
@@ -798,7 +775,7 @@ This is the opposite of the OR choice, therefore the implementation depends on t
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 11:15:40 UTC
+Last updated 2018-04-14 14:29:44 UTC
 </div>
 </div>
 </body>

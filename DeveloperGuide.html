@@ -48,14 +48,14 @@
 <li><a href="#undo-redo-feature">4.1. Undo/Redo feature</a></li>
 <li><a href="#logging">4.2. Logging</a></li>
 <li><a href="#Implementation-Configuration">4.3. Configuration</a></li>
-<li><a href="#automatic-creation-of-tags-from-person-attributes">4.4. Automatic creation of tags from person attributes</a></li>
-<li><a href="#shortcuts-for-the-user-in-filling-fields">4.5. Shortcuts for the user in filling fields</a></li>
-<li><a href="#case-insensitive-input">4.6. Case-insensitive input</a></li>
-<li><a href="#filter-feature">4.7. Filter feature</a></li>
-<li><a href="#ui-modifications">4.8. UI Modifications</a></li>
-<li><a href="#optional-fields-for-add-command">4.9. Optional Fields for Add Command</a></li>
-<li><a href="#find-missing-command">4.10. Find Missing Command</a></li>
-<li><a href="#autofill">4.11. Autofill</a></li>
+<li><a href="#ui-modifications">4.4. UI Modifications</a></li>
+<li><a href="#autofill">4.5. Autofill</a></li>
+<li><a href="#automatic-creation-of-tags-from-person-attributes">4.6. Automatic creation of tags from person attributes</a></li>
+<li><a href="#shortcuts-for-the-user-in-filling-fields">4.7. Shortcuts for the user in filling fields</a></li>
+<li><a href="#case-insensitive-input">4.8. Case-insensitive input</a></li>
+<li><a href="#filter-feature">4.9. Filter feature</a></li>
+<li><a href="#optional-fields-for-add-command">4.10. Optional Fields for Add Command</a></li>
+<li><a href="#find-missing-command">4.11. Find Missing Command</a></li>
 <li><a href="#review-feature">4.12. Review Feature</a></li>
 <li><a href="#view-stats-command">4.13. View Stats Command</a></li>
 <li><a href="#match-command-unmatch-command">4.14. Match Command &amp; Unmatch Command</a></li>
@@ -90,16 +90,14 @@
 <li><a href="#use-cases">Appendix C: Use Cases</a></li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix E: Glossary</a></li>
-<li><a href="#product-survey">Appendix F: Product Survey</a></li>
-<li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
+<li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#opening-the-help-menu">G.2. Opening the help menu</a></li>
-<li><a href="#adding-a-person">G.3. Adding a person</a></li>
-<li><a href="#selecting-a-person">G.4. Selecting a person</a></li>
-<li><a href="#deleting-a-person">G.5. Deleting a person</a></li>
-<li><a href="#clearing-all-data">G.6. Clearing all data</a></li>
-<li><a href="#saving-data">G.7. Saving data</a></li>
+<li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
+<li><a href="#opening-the-help-menu">F.2. Opening the help menu</a></li>
+<li><a href="#adding-a-person">F.3. Adding a person</a></li>
+<li><a href="#selecting-a-person">F.4. Selecting a person</a></li>
+<li><a href="#deleting-a-person">F.5. Deleting a person</a></li>
+<li><a href="#clearing-all-data">F.6. Clearing all data</a></li>
 </ul>
 </li>
 </ul>
@@ -247,7 +245,7 @@ This will generate all resources required by the application and tests.</p>
 <div class="sect3">
 <h4 id="updating-documentation-to-match-your-fork"><a class="link" href="#updating-documentation-to-match-your-fork">2.4.2. Updating documentation to match your fork</a></h4>
 <div class="paragraph">
-<p>After forking the repo, links in the documentation will still point to the <code>se-edu/addressbook-level4</code> repo. If you plan to develop this as a separate product (i.e. instead of contributing to the <code>se-edu/addressbook-level4</code>) , you should replace the URL in the variable <code>repoURL</code> in <code>DeveloperGuide.adoc</code> and <code>UserGuide.adoc</code> with the URL of your fork.</p>
+<p>After forking the repo, links in the documentation will still point to the <code>CS2103JAN2018-W11-B1/main</code> repo. If you plan to develop this as a separate product (i.e. instead of contributing to the <code>CS2103JAN2018-W11-B1/main</code>) , you should replace the URL in the variable <code>repoURL</code> in <code>DeveloperGuide.adoc</code> and <code>UserGuide.adoc</code> with the URL of your fork.</p>
 </div>
 </div>
 <div class="sect3">
@@ -947,9 +945,268 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="automatic-creation-of-tags-from-person-attributes"><a class="link" href="#automatic-creation-of-tags-from-person-attributes">4.4. Automatic creation of tags from person attributes</a></h3>
+<h3 id="ui-modifications"><a class="link" href="#ui-modifications">4.4. UI Modifications</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.4.1. Current implementation</a></h4>
+<h4 id="details-panel"><a class="link" href="#details-panel">4.4.1. Details Panel</a></h4>
+<div class="paragraph">
+<p>The details panel is modified to show the selected person’s details instead of opening up a URL.
+This allows better visualization of a person’s details as each person now has up to 11 attributes: <code>Name</code>, <code>Phone</code>,
+<code>Address</code>, <code>Email</code>, <code>Role</code>, <code>Status</code>, <code>Subject</code>, <code>Level</code>, <code>Price</code>, <code>Remark</code>, <code>Rate</code> to be displayed.
+Below shows the modifications made:</p>
+</div>
+<div class="paragraph">
+<p><strong>Before</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/OlddetailsPanel.png" alt="OlddetailsPanel" width="500">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>After</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/NewDetailsPanel.png" alt="NewDetailsPanel" width="500">
+</div>
+</div>
+<div class="sect4">
+<h5 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h5>
+<div class="paragraph">
+<p>The UI is modified using <code>SceneBuilder</code> and the layout is specified in <a href="https://github.com/CS2103JAN2018-W11-B1/main/blob/master/src/main/resources/view/DetailsPanel.fxml"><code>DetailsPanel.fxml</code></a>.
+<a href="https://github.com/CS2103JAN2018-W11-B1/main/blob/master/src/main/java/seedu/address/ui/DetailsPanel.java"><code>DetailsPanel.java</code></a> subscribes to <code>handlePersonPanelSelectionChangedEvent</code>, where this allows the details panel to
+be updated whenever the user selects on a specific person.</p>
+</div>
+<div class="paragraph">
+<p>We choose to place the person&#8217;s name at the top of the details panel for easy identification of a person while
+other details are organized in a table format for easy reference. Rows of the table are also alternately colored
+to increase readability.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h5>
+<div class="sect5">
+<h6 id="aspect-layout-of-details-panel"><a class="link" href="#aspect-layout-of-details-panel">Aspect: Layout of Details Panel</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use table to display person details with a column specifying the type of attribute
+and the other specifying the actual content.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to read and refer to.</p>
+</li>
+<li>
+<p>Cons: May not look visually appealing due to grids and lines.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Centralized display of person details without usage of tables and reference to the type of attribute.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More visually appealing as formatting is less rigid and squarish.</p>
+</li>
+<li>
+<p>Cons: Locating an attribute may not be easy due to lack of labelling.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="person-card"><a class="link" href="#person-card">4.4.2. Person Card</a></h4>
+<div class="paragraph">
+<p>Person card is improved to show the list of person’s details more concisely and clearly.
+Below shows the improvements made:</p>
+</div>
+<div class="paragraph">
+<p><strong>Before</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/OldPersonCard.png" alt="OldPersonCard" width="300">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>After</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/NewPersonCard.png" alt="NewPersonCard" width="300">
+</div>
+</div>
+<div class="sect4">
+<h5 id="removal-of-unnecessary-information"><a class="link" href="#removal-of-unnecessary-information">Removal of Unnecessary Information</a></h5>
+<div class="paragraph">
+<p>Besides <code>Name</code>, all other details are removed from the person card. We choose to remove it as these details can
+be easily viewed by selecting on the person card since the details panel now shows the full details of a person.</p>
+</div>
+<div class="paragraph">
+<p>As such, we decided to only leave the necessary details that the user will frequently refer
+to in the person card. This helps to reduce cluttering on the side panel and allows the user to be able to view a
+longer list of people at one time.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="coloring-of-tags"><a class="link" href="#coloring-of-tags">Coloring of Tags</a></h5>
+<div class="paragraph">
+<p>To allow easy identification of the category that a tag belongs to, different colors are used for different attributes
+of a person. A standardized color is used for each attribute this colour is determined from the <code>tagType</code> attribute of the <code>Tag</code>.
+This ensures the color will be consistent for each person and the color will be retained when the user reopens the application.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="autofill"><a class="link" href="#autofill">4.5. Autofill</a></h3>
+<div class="paragraph">
+<p>Due to the significant amount of attributes to type in, especially when adding or editing a person, we decided to create
+autofill feature to reduce the time taken to enter a person&#8217;s details. Besides <code>add</code> and <code>edit</code>, commands with
+definite format (i.e. <code>remark</code>, <code>rate</code>, <code>delete</code>, <code>select</code>, <code>unmatch</code>, <code>match</code>) have this feature implemented as well.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.5.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>Autofill feature is implemented in <a href="https://github.com/CS2103JAN2018-W11-B1/main/blob/master/src/main/java/seedu/address/ui/CommandBox.java"><code>CommandBox.java</code></a>.
+When keyboard <code>Delete</code> or <code>Tab</code> is pressed, depending on the user input in the command box, the caret position
+will be shifted accordingly. Below shows the workflow when <code>Delete</code> or <code>Tab</code> is pressed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AutofillActivityDiagram.png" alt="AutofillActivityDiagram" width="400">
+</div>
+<div class="title">Figure 18. Activity Diagram for Autofill</div>
+</div>
+<div class="sect4">
+<h5 id="find-next-field"><a class="link" href="#find-next-field">Find Next Field</a></h5>
+<div class="paragraph">
+<p>To find the next field to shift the caret to, manipulation of <code>String</code> is used to locate the next instance of <code>/</code> in the
+command box. By searching the position of the next <code>/</code>, it indicates where the next field should be entered.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AutofillAdd_Tab2.png" alt="AutofillAdd Tab2" width="700">
+</div>
+<div class="title">Figure 19. Visualization for find next field</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="delete-previous-prefix"><a class="link" href="#delete-previous-prefix">Delete Previous Prefix</a></h5>
+<div class="paragraph">
+<p>To delete the previous prefix, the last instance of <code>&#160;&#160;</code> from the current caret position is located. Any text
+between this position and the caret position is deleted to remove the desired prefix and user input (if any). The caret
+then procedes to find next field to be shifted to. Below shows what happens when <code>Delete</code> is pressed when caret position is at <code>n/</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AutofillAdd_Delete.png" alt="AutofillAdd Delete" width="700">
+</div>
+<div class="title">Figure 20. Visualization for delete previous prefix</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="select-index-to-edit"><a class="link" href="#select-index-to-edit">4.5.2. Select index to edit</a></h4>
+<div class="paragraph">
+<p>To select/highlight the index to edit, the first instance of a digit is searched from the current caret position. The index
+is then highlighted by selecting the caret forward.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AutofillMatch.png" alt="AutofillMatch" width="700">
+</div>
+<div class="title">Figure 21. Visualization for select index to edit</div>
+</div>
+<div class="paragraph">
+<p>We decide to create shortcuts for even for commands that do not have lengthy inputs (e.g. <code>add</code> and <code>edit</code>) as it makes typing
+command easier for our user. By highlighting the index to edit, user can simply type the index they want to edit without
+manually having to shift the caret to change the index.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.5.3. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-keyboard-key-for-code-delete-code"><a class="link" href="#aspect-keyboard-key-for-code-delete-code">Aspect: Keyboard key for <code>Delete</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use <code>Delete</code> button.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Intuitive to user.</p>
+</li>
+<li>
+<p>Cons: May lead to confusion since the original functionality of the <code>DELETE</code> button does not work now.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use other keyboard keys that users typically do not use, for example <code>F2</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Will not lead to confusion of expected keyboard functionalities.</p>
+</li>
+<li>
+<p>Cons: Not intuitive for users to use as they would not expect it to be a key for delete function.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-commands-that-can-be-autofilled"><a class="link" href="#aspect-commands-that-can-be-autofilled">Aspect: Commands that can be autofilled</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Commands that have a fixed fomat can be autofilled.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to use for the user as expected behavior of the autofill feature can be predicted.</p>
+</li>
+<li>
+<p>Cons: May lead to some confusion as only selected commands can be autofilled.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> All commands can be autofilled.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Will not lead to confusion as to which commands can be autofilled.</p>
+</li>
+<li>
+<p>Cons: For commands that do not have a definite format (e.g. <code>find KEYWORD [MORE_KEYWORDS]</code>), it can be confusing for the user if the app
+only autofills <code>find</code> and expects the user to remember the command format. Furthermore, using command alias (e.g. <code>f</code>) requires
+less typing from the user.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="automatic-creation-of-tags-from-person-attributes"><a class="link" href="#automatic-creation-of-tags-from-person-attributes">4.6. Automatic creation of tags from person attributes</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.6.1. Current implementation</a></h4>
 <div class="paragraph">
 <p>Each of the attributes <code>Price</code>, <code>Subject</code>, <code>Level</code> and <code>Status</code> of a person each have a tag with the value added to the person.
 This is done when user performs <code>add</code> or <code>edit</code> command.</p>
@@ -964,7 +1221,7 @@ The sequence diagram below (figure 18) shows where the creation of these tags in
 <div class="content">
 <img src="images/AttributeTagsSequenceDiagram.png" alt="AttributeTagsSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 18. Sequence diagram for creating attribute tags</div>
+<div class="title">Figure 22. Sequence diagram for creating attribute tags</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -981,7 +1238,7 @@ The acceptable inputs for a <code>Tag</code> must necessarily allow all the acce
 </div>
 </div>
 <div class="sect3">
-<h4 id="model-implementation"><a class="link" href="#model-implementation">4.4.2. Model Implementation</a></h4>
+<h4 id="model-implementation"><a class="link" href="#model-implementation">4.6.2. Model Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>Tag</code> class can support the ability to classify which attribute the tag was created from. This is done by adding an enum <code>AllTagsType</code> to the <code>Tag</code> class.
 A tag can be created without being from an attribute, with just a tag name. In this case, creating a <code>Tag</code> with no provided <code>AllTagsType</code> will initialise the <code>tagType</code> to <code>DEFAULT</code>.
@@ -994,7 +1251,7 @@ Otherwise, creation of the tag will require the tagType to be passed in.</p>
 <div class="content">
 <img src="images/TagClassDiagram.png" alt="TagClassDiagram" width="800">
 </div>
-<div class="title">Figure 19. <code>Tag</code> Class</div>
+<div class="title">Figure 23. <code>Tag</code> Class</div>
 </div>
 <div class="paragraph">
 <p>This new attribute is used to implement the capability to standardize all tags created as a <code>Price</code> attribute to have the same color, all tags created as a <code>Subject</code> attribute to have the same color, and so on.
@@ -1014,7 +1271,7 @@ Any tag that is not set to one of the 4 attributes will fall through to the defa
 </div>
 </div>
 <div class="sect3">
-<h4 id="storage-implementation"><a class="link" href="#storage-implementation">4.4.3. Storage Implementation</a></h4>
+<h4 id="storage-implementation"><a class="link" href="#storage-implementation">4.6.3. Storage Implementation</a></h4>
 <div class="paragraph">
 <p>The method for storing tags has also been changed slightly. Previously, just the <code>tagName</code> needed to be stored. Now both the <code>tagName</code> and <code>tagType</code> must be stored.<br>
 This has been accomplished by having XML store the single field in the form "TAGNAME,TAGTYPE" (see figure 19).<br>
@@ -1024,11 +1281,11 @@ The respective tagName and tagType can be obtained by splitting the read string 
 <div class="content">
 <img src="images/tagStorage.png" alt="tagStorage" width="400">
 </div>
-<div class="title">Figure 20. Storage of <code>Tag</code></div>
+<div class="title">Figure 24. Storage of <code>Tag</code></div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.4.4. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.6.4. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-making-use-of-tags-to-display-the-information"><a class="link" href="#aspect-making-use-of-tags-to-display-the-information">Aspect: Making use of tags to display the information</a></h5>
 <div class="ulist">
@@ -1131,9 +1388,9 @@ The respective tagName and tagType can be obtained by splitting the read string 
 </div>
 </div>
 <div class="sect2">
-<h3 id="shortcuts-for-the-user-in-filling-fields"><a class="link" href="#shortcuts-for-the-user-in-filling-fields">4.5. Shortcuts for the user in filling fields</a></h3>
+<h3 id="shortcuts-for-the-user-in-filling-fields"><a class="link" href="#shortcuts-for-the-user-in-filling-fields">4.7. Shortcuts for the user in filling fields</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.5.1. Current Implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.7.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Due to the nature of the application, the user will input certain information repetitively.
 For example, <code>Role</code> can only be one of <code>Student</code> or <code>Tutor</code>.</p>
@@ -1210,7 +1467,7 @@ We currently support shortcuts for <code>Subject</code>, <code>Level</code>, and
 </table>
 </div>
 <div class="sect3">
-<h4 id="model-implementation-2"><a class="link" href="#model-implementation-2">4.5.2. Model Implementation</a></h4>
+<h4 id="model-implementation-2"><a class="link" href="#model-implementation-2">4.7.2. Model Implementation</a></h4>
 <div class="paragraph">
 <p>The shortcut is first validated, then the field information is converted to its full form.
 Below is the function that performs conversion in the Role class. Other classes follow similar implementation.</p>
@@ -1233,9 +1490,9 @@ Below is the function that performs conversion in the Role class. Other classes 
 </div>
 </div>
 <div class="sect2">
-<h3 id="case-insensitive-input"><a class="link" href="#case-insensitive-input">4.6. Case-insensitive input</a></h3>
+<h3 id="case-insensitive-input"><a class="link" href="#case-insensitive-input">4.8. Case-insensitive input</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.6.1. Current Implementation</a></h4>
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.8.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>We made input of fields case-insensitive.</p>
 </div>
@@ -1246,7 +1503,7 @@ The exceptions are <code>Price</code> and <code>Phone</code> as they consist onl
 </div>
 </div>
 <div class="sect3">
-<h4 id="model-implementation-3"><a class="link" href="#model-implementation-3">4.6.2. Model Implementation</a></h4>
+<h4 id="model-implementation-3"><a class="link" href="#model-implementation-3">4.8.2. Model Implementation</a></h4>
 <div class="paragraph">
 <p>We utilise the <code>ProperCaseConverter</code> object to convert all parsed and valid input into proper case.
 The sequence diagram below shows how this is achieved in the constructor of <code>Role</code> class.</p>
@@ -1255,7 +1512,7 @@ The sequence diagram below shows how this is achieved in the constructor of <cod
 <div class="content">
 <img src="images/SDforCaseInsensitiveInput.png" alt="SDforCaseInsensitiveInput" width="800">
 </div>
-<div class="title">Figure 21. Sequence Diagram for achieveing case insensitive input</div>
+<div class="title">Figure 25. Sequence Diagram for achieveing case insensitive input</div>
 </div>
 <div class="paragraph">
 <p>The other classes utilise the <code>ProperCaseConverter</code> object in a similar way.</p>
@@ -1269,7 +1526,7 @@ The sequence diagram below shows how this is achieved in the constructor of <cod
 <td class="content">
 The user can input shortcuts in case-insensitive fashion.<br>
 For instance, the user may input <code>add n/jOHN dOE p/98765432 e/johND@eXaMpLe.com a/NUS #04-02 $/50 sub/PHy lvl/uP t/T</code>
-, the stored entry will be <code>John Doe Phone: 98765432 Email: <a href="mailto:johnd@example.com">johnd@example.com</a> Address: NUS #04-02 Tags: [Tutor][Upper Pri][50][Physics][Not Matched]</code>
+, the stored entry will be <code>jOHN dOE Phone: 98765432 Email: <a href="mailto:johND@eXaMpLe.com">johND@eXaMpLe.com</a> Address: NUS #04-02 Tags: [Tutor][Upper Pri][50][Physics][Not Matched]</code>
 </td>
 </tr>
 </table>
@@ -1277,9 +1534,9 @@ For instance, the user may input <code>add n/jOHN dOE p/98765432 e/johND@eXaMpLe
 </div>
 </div>
 <div class="sect2">
-<h3 id="filter-feature"><a class="link" href="#filter-feature">4.7. Filter feature</a></h3>
+<h3 id="filter-feature"><a class="link" href="#filter-feature">4.9. Filter feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.7.1. Current Implementation</a></h4>
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.9.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>We have added the <code>filter</code> command which inherit from <code>Command</code>. The user can <code>filter</code> according to the attributes <code>Subject</code>, <code>Level</code> and <code>Status</code> of a person.
 However, the current implementation can only filter for 1 argument.</p>
@@ -1306,7 +1563,7 @@ For instance, the entry <code>filter maTH</code> will work.
 </table>
 </div>
 <div class="sect4">
-<h5 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h5>
+<h5 id="design-considerations-5"><a class="link" href="#design-considerations-5">Design Considerations</a></h5>
 <div class="sect5">
 <h6 id="aspect-argument-for-filter-command"><a class="link" href="#aspect-argument-for-filter-command">Aspect: Argument for Filter Command</a></h6>
 <div class="ulist">
@@ -1345,130 +1602,9 @@ insensitive.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="ui-modifications"><a class="link" href="#ui-modifications">4.8. UI Modifications</a></h3>
+<h3 id="optional-fields-for-add-command"><a class="link" href="#optional-fields-for-add-command">4.10. Optional Fields for Add Command</a></h3>
 <div class="sect3">
-<h4 id="details-panel"><a class="link" href="#details-panel">4.8.1. Details Panel</a></h4>
-<div class="paragraph">
-<p>The browser panel is modified to show the selected person’s details instead of opening up a URL.
-This allows better visualization of a person’s details as each person now has up 11 attributes: <code>Name</code>, <code>Phone</code>,
-<code>Address</code>, <code>Email</code>, <code>Role</code>, <code>Status</code>, <code>Subject</code>, <code>Level</code>, <code>Price</code>, <code>Remark</code>, <code>Rate</code> to be displayed.
-Below shows the modifications made:</p>
-</div>
-<div class="paragraph">
-<p><strong>Before</strong></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/OldBrowserPanel.png" alt="OldBrowserPanel" width="500">
-</div>
-</div>
-<div class="paragraph">
-<p><strong>After</strong></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/NewDetailsPanel.png" alt="NewDetailsPanel" width="500">
-</div>
-</div>
-<div class="sect4">
-<h5 id="current-implementation-6"><a class="link" href="#current-implementation-6">Current Implementation</a></h5>
-<div class="paragraph">
-<p>The UI is modified using <code>SceneBuilder</code> and the layout is specified in <a href="https://github.com/CS2103JAN2018-W11-B1/main/blob/master/src/main/resources/view/DetailsPanel.fxml"><code>DetailsPanel.fxml</code></a>.
-<a href="https://github.com/CS2103JAN2018-W11-B1/main/blob/master/src/main/java/seedu/address/ui/DetailsPanel.java"><code>DetailsPanel.java</code></a> subscribes to <code>handlePersonPanelSelectionChangedEvent</code>, where this allows the browser panel to
-be updated whenever the user selects on a specific person.</p>
-</div>
-<div class="paragraph">
-<p>We choose to place the person&#8217;s name at the top of the browser panel for easy identification of a person while
-other details are organized in a table format for easy reference. Rows of the table are also alternately colored
-to increase readability.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="design-considerations-4"><a class="link" href="#design-considerations-4">Design Considerations</a></h5>
-<div class="sect5">
-<h6 id="aspect-layout-of-details-panel"><a class="link" href="#aspect-layout-of-details-panel">Aspect: Layout of Details Panel</a></h6>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Use table to display person details with a column specifying the type of attribute
-and the other specifying the actual content.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to read and refer to.</p>
-</li>
-<li>
-<p>Cons: May not look visually appealing due to grids and lines.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Centralized display of person details without usage of tables and reference to the type of attribute.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: More visually appealing as formatting is less rigid and squarish.</p>
-</li>
-<li>
-<p>Cons: Locating an attribute may not be easy due to lack of labelling.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="person-card"><a class="link" href="#person-card">4.8.2. Person Card</a></h4>
-<div class="paragraph">
-<p>Person card is improved to show the list of person’s details more concisely and clearly.
-Below shows the improvements made:</p>
-</div>
-<div class="paragraph">
-<p><strong>Before</strong></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/OldPersonCard.png" alt="OldPersonCard" width="300">
-</div>
-</div>
-<div class="paragraph">
-<p><strong>After</strong></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/NewPersonCard.png" alt="NewPersonCard" width="300">
-</div>
-</div>
-<div class="sect4">
-<h5 id="removal-of-unnecessary-information"><a class="link" href="#removal-of-unnecessary-information">Removal of Unnecessary Information</a></h5>
-<div class="paragraph">
-<p>Besides <code>Name</code>, all other details are removed from the person card. We choose to remove it as these details can
-be easily viewed by selecting on the person card since the browser panel now shows the full details of a person.</p>
-</div>
-<div class="paragraph">
-<p>As such, we decided to only leave the necessary details that the user will frequently refer
-to in the person card. This helps to reduce cluttering on the side panel and allows the user to be able to view a
-longer list of people at one time.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="coloring-of-tags"><a class="link" href="#coloring-of-tags">Coloring of Tags</a></h5>
-<div class="paragraph">
-<p>To allow easy identification of the category that a tag belongs to, different colors are used for different attributes
-of a person. A standardized color is used for each attribute this colour is determined from the <code>tagType</code> attribute of the <code>Tag</code>.
-This ensures the color will be consistent for each person and the color will be retained when the user reopens the application.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="optional-fields-for-add-command"><a class="link" href="#optional-fields-for-add-command">4.9. Optional Fields for Add Command</a></h3>
-<div class="sect3">
-<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.9.1. Current Implementation</a></h4>
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.10.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>Add</code> command is extremely long and unwieldly if the user has to type all the information in at once.<br>
 To make it easier for the user to enter new people or a person they lack all the data to enter at once, the <code>Add</code> command allows the user to specify only the name command and leave out all other fields as optional.
@@ -1477,7 +1613,7 @@ For all fields that the user did not enter a value for, an empty string <code>""
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.9.2. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.10.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-method-to-store-unentered-fields"><a class="link" href="#aspect-method-to-store-unentered-fields">Aspect: Method to store unentered fields</a></h5>
 <div class="ulist">
@@ -1516,11 +1652,11 @@ Must create a special constructor for the attribute class to accept a <code>null
 </div>
 </div>
 <div class="sect2">
-<h3 id="find-missing-command"><a class="link" href="#find-missing-command">4.10. Find Missing Command</a></h3>
+<h3 id="find-missing-command"><a class="link" href="#find-missing-command">4.11. Find Missing Command</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.10.1. Current Implementation</a></h4>
+<h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">4.11.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The intention and design behind this command is to pair with the allowing of users to leave fields for a person&#8217;s values unentered.
+<p>The intention and design behind this command is to complement the allowing of users to leave fields for a person&#8217;s values unentered.
 As the design of the command, parser and sequence when a user enters a find missing command to be very similar to the filter command, the documentation
 here will focus more on the design considerations and rationale instead of repeating sequence diagrams that are almost the same as given previously.<br></p>
 </div>
@@ -1537,7 +1673,7 @@ Therefore, it is better design to create a new command for this feature.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.10.2. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.11.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-design-of-predicate-used"><a class="link" href="#aspect-design-of-predicate-used">Aspect: Design of predicate used</a></h5>
 <div class="ulist">
@@ -1609,144 +1745,6 @@ This is the opposite of the OR choice, therefore the implementation depends on t
 </li>
 <li>
 <p>Cons: Artificially limits the command heavily for users, where those who want to search for multiple missing fields will not be able to.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="autofill"><a class="link" href="#autofill">4.11. Autofill</a></h3>
-<div class="paragraph">
-<p>Due to the significant amount of attributes to type in, especially when adding or editing a person, we decided to create
-autofill feature to reduce the time taken to enter a person&#8217;s details. Besides <code>add</code> and <code>edit</code>, commands with
-definite format (i.e. <code>remark</code>, <code>rate</code>, <code>delete</code>, <code>select</code>, <code>unmatch</code>, <code>match</code>) have this feature implemented as well.</p>
-</div>
-<div class="sect3">
-<h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">4.11.1. Current Implementation</a></h4>
-<div class="paragraph">
-<p>Autofill feature is implemented in <a href="https://github.com/CS2103JAN2018-W11-B1/main/blob/master/src/main/java/seedu/address/ui/CommandBox.java"><code>CommandBox.java</code></a>.
-When keyboard <code>Delete</code> or <code>Tab</code> is pressed, depending on the user input in the command box, the caret position
-will be shifted accordingly. Below shows the workflow when <code>Delete</code> or <code>Tab</code> is pressed.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/AutofillActivityDiagram.png" alt="AutofillActivityDiagram" width="400">
-</div>
-<div class="title">Figure 22. Activity Diagram for Autofill</div>
-</div>
-<div class="sect4">
-<h5 id="find-next-field"><a class="link" href="#find-next-field">Find Next Field</a></h5>
-<div class="paragraph">
-<p>To find the next field to shift the caret to, manipulation of <code>String</code> is used to locate the next instance of <code>/</code> in the
-command box. By searching the position of the next <code>/</code>, it indicates where the next field should be entered.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/AutofillAdd_Tab2.png" alt="AutofillAdd Tab2" width="700">
-</div>
-<div class="title">Figure 23. Visualization for find next field</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="delete-previous-prefix"><a class="link" href="#delete-previous-prefix">Delete Previous Prefix</a></h5>
-<div class="paragraph">
-<p>To delete the previous prefix, the last instance of <code>&#160;&#160;</code> from the current caret position is located. Any text
-between this position and the caret position is deleted to remove the desired prefix and user input (if any). The caret
-then procedes to find next field to be shifted to. Below shows what happens when <code>Delete</code> is pressed when caret position is at <code>n/</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/AutofillAdd_Delete.png" alt="AutofillAdd Delete" width="700">
-</div>
-<div class="title">Figure 24. Visualization for delete previous prefix</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="select-index-to-edit"><a class="link" href="#select-index-to-edit">4.11.2. Select index to edit</a></h4>
-<div class="paragraph">
-<p>To select/highlight the index to edit, the first instance of a digit is searched from the current caret position. The index
-is then highlighted by selecting the caret forward.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/AutofillMatch.png" alt="AutofillMatch" width="700">
-</div>
-<div class="title">Figure 25. Visualization for select index to edit</div>
-</div>
-<div class="paragraph">
-<p>We decide to create shortcuts for even for commands that do not have lengthy inputs (e.g. <code>add</code> and <code>edit</code>) as it makes typing
-command easier for our user. By highlighting the index to edit, user can simply type the index they want to edit without
-manually having to shift the caret to change the index.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.11.3. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-keyboard-key-for-code-delete-code"><a class="link" href="#aspect-keyboard-key-for-code-delete-code">Aspect: Keyboard key for <code>Delete</code></a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Use <code>Delete</code> button.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Intuitive to user.</p>
-</li>
-<li>
-<p>Cons: May lead to confusion since the original functionality of the <code>DELETE</code> button does not work now.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Use other keyboard keys that users typically do not use, for example <code>F2</code>.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Will not lead to confusion of expected keyboard functionalities.</p>
-</li>
-<li>
-<p>Cons: Not intuitive for users to use as they would not expect it to be a key for delete function.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-commands-that-can-be-autofilled"><a class="link" href="#aspect-commands-that-can-be-autofilled">Aspect: Commands that can be autofilled</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Commands that have a fixed fomat can be autofilled.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to use for the user as expected behavior of the autofill feature can be predicted.</p>
-</li>
-<li>
-<p>Cons: May lead to some confusion as only selected commands can be autofilled.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> All commands can be autofilled.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Will not lead to confusion as to which commands can be autofilled.</p>
-</li>
-<li>
-<p>Cons: For commands that do not have a definite format (e.g. <code>find KEYWORD [MORE_KEYWORDS]</code>), it can be confusing for the user if the app
-only autofills <code>find</code> and expects the user to remember the command format. Furthermore, using command alias (e.g. <code>f</code>) requires
-less typing from the user.</p>
 </li>
 </ul>
 </div>
@@ -1864,34 +1862,34 @@ be used since create remark command is implemented before edit remark.</p>
 <div class="sect4">
 <h5 id="current-implementation-11"><a class="link" href="#current-implementation-11">Current Implementation</a></h5>
 <div class="paragraph">
-<p>Rating is from 0.0 (worst performing) to 5.0 (best performing).
+<p>Rating is from 0.0 (low rating) to 5.0 (high rating).
 Regex is used to limit user input to a maximum of 1 decimal place and any number below 0.0 or above 5.0 is rejected.
 Sum of all ratings is stored as a <code>double</code> inside <code>Rate</code> class and the displayed value is calculated by taking the sum
 and divide it by the number of people who rated the person.</p>
 </div>
 <div class="paragraph">
 <p>When a person is first added to STUtor, both total rate <code>value</code> and <code>count</code> is initialized to 0.
-Since the person has yet been rated, rating will be displayed as <code>-</code> in the <code>DetailsPanel</code>.</p>
+Since the person has yet to be rated, rating will be displayed as <code>-</code> in the <code>DetailsPanel</code>.</p>
 </div>
 <div class="paragraph">
 <p>We have decided to allow two types of ratings in STUtor:</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
 <p>Cumulative rating</p>
 </li>
 <li>
 <p>Absolute rating</p>
 </li>
-</ol>
+</ul>
 </div>
 <div class="paragraph">
 <p>Default will be cumulative rating as it is more natural and useful to combine all ratings given to a specific person to gauge his/her
 abilities. In STUtor, <code>value</code> in <code>Rate</code> class stores the total sum of all ratings given to the person.
 To display the cumulated rating, <code>DetailsPanel</code> calls <code>getDisplayedValue</code> method in <code>Rate</code> class and
 cumulated rating is calculated using the total <code>value</code> and divide it by <code>count</code>.
-Every time a new rate is added, <code>count</code> increases incrementally as well.</p>
+Every time a new rate is added, <code>count</code> increases as well.</p>
 </div>
 <div class="paragraph">
 <p>Absolute rating is also implemented for users that wants to clear all old data or wants to shortlist/blacklist a student or tutor.
@@ -1970,9 +1968,9 @@ the role distribution between students and tutors is shown below.</p>
 <div class="sect3">
 <h4 id="current-implementation-12"><a class="link" href="#current-implementation-12">4.13.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>Whenever <code>viewStats</code> command is executed, a ShowChartEvent will be generated and posted to the EventCenter.
-Subsequently, the handleShowChartEvent from ChartPanel will be notified as it is subscribed to the EventCenter.
-ChartPanel will then generate the graph from the ObservableList and it will be displayed on the UI.</p>
+<p>Whenever <code>viewStats</code> command is executed, a <code>ShowChartEvent</code> will be generated and posted to the <code>EventCenter</code>.
+Subsequently, the <code>handleShowChartEvent</code> from <code>ChartPanel</code> will be notified as it is subscribed to the <code>EventCenter</code>.
+<code>ChartPanel</code> will then generate the graph from the <code>ObservableList</code> and it will be displayed on the UI.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1995,7 +1993,7 @@ Why does this work? Executing the <code>viewStats</code> command will generate n
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Replace the details in browser panel with graph.</p>
+<p><strong>Alternative 1 (current choice):</strong> Replace the details in details panel with graph.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -2064,7 +2062,7 @@ Why does this work? Executing the <code>viewStats</code> command will generate n
 <p>A tuition coordinator needs to record which students are receiving tuition from which tutors.
 Intuitively, the <code>match</code> command allows the user to pair a student with a tutor,
 while the <code>unmatch</code> command removes the pair.<br>
-The matched pairs will be stored in STUtor.xml, and displayed on the pair list panel (the leftmost vertical panel).</p>
+The matched pairs will be stored in STUtor.xml, and displayed on the Pair List panel (the leftmost vertical panel).</p>
 </div>
 <div class="sect3">
 <h4 id="current-implementation-13"><a class="link" href="#current-implementation-13">4.14.1. Current Implementation</a></h4>
@@ -2228,7 +2226,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="sect2">
 <h3 id="converting-documentation-to-pdf-format"><a class="link" href="#converting-documentation-to-pdf-format">5.3. Converting Documentation to PDF format</a></h3>
 <div class="paragraph">
-<p>We use <a href="https://www.google.com/chrome/browser/desktop/">Google Chrome</a> for converting documentation to PDF format, as Chrome&#8217;s PDF engine preserves hyperlinks used in webpages.</p>
+<p>We use <a href="https://www.google.com/chrome/details/desktop/">Google Chrome</a> for converting documentation to PDF format, as Chrome&#8217;s PDF engine preserves hyperlinks used in webpages.</p>
 </div>
 <div class="paragraph">
 <p>Here are the steps to convert the project documentation files to PDF format.</p>
@@ -2451,19 +2449,16 @@ b. Require developers to download those libraries manually (this creates extra w
 <div class="ulist">
 <ul>
 <li>
-<p>Tutor coordinator</p>
+<p>Tuition coordinator</p>
 </li>
 <li>
 <p>Has to manage a significant number of tutors and students</p>
 </li>
 <li>
-<p>Prefer desktop application over other types</p>
+<p>Prefers desktop application over other types</p>
 </li>
 <li>
-<p>Can type fast</p>
-</li>
-<li>
-<p>Prefers typing over mouse input</p>
+<p>Prefers typing over mouse input and can type fast</p>
 </li>
 <li>
 <p>Is reasonably comfortable using command line input (CLI) applications</p>
@@ -2471,7 +2466,7 @@ b. Require developers to download those libraries manually (this creates extra w
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Value proposition</strong>: efficient matching of students and tutors based on criteria such as subject, level, price, location</p>
+<p><strong>Value proposition</strong>: Efficient management of students and tutors information and matching them.</p>
 </div>
 <div class="paragraph">
 <p><strong>Feature Contributions</strong>:</p>
@@ -2501,15 +2496,15 @@ This allows the user to view information such as number of students/tutors/match
 <td class="tableblock halign-left valign-top"><p class="tableblock">NG Xin Ler</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Create autofill for commands that are longer or have fixed input. This helps to reduce the amount of time
 the user has to type in a command.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Allow writing of reviews (including <code>remark</code> and <code>rating</code> for a person. This allows the user to take note who are
-performing better or blacklisted, so that the user can refer to them for future matchings.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow writing of review (including <code>remark</code> and <code>rating</code> for a person. This allows the user to evaluate the performance
+of a person, so that the user can refer to them for future matching.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">WANG Zi</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Create shortcut for the user in filling subject, level, status and role. For instance, <code>sub/eng</code> and
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create shortcut for the user in filling subject, level and role. For instance, <code>sub/eng</code> and
 <code>sub/english</code> both result in adding the subject English. After that, accommodate case-insensitive input, and
 standardize display to follow <a href="#proper-case">proper case</a>.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Create <code>match</code> command. This allows the user to match a pair of Tutor and Student from a list of potential matches.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create <code>match</code> and <code>unmatch</code> command. This allows the user to match/unmatch a pair of Tutor and Student.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">YAN Hong Yao Alvin</p></td>
@@ -2526,12 +2521,12 @@ standardize display to follow <a href="#proper-case">proper case</a>.</p></td>
 <div class="paragraph">
 <p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
 </div>
-<table class="tableblock frame-all grid-all" style="width: 59%;">
+<table class="tableblock frame-all grid-all" style="width: 80%;">
 <colgroup>
-<col style="width: 22%;">
-<col style="width: 23%;">
-<col style="width: 25%;">
-<col style="width: 30%;">
+<col style="width: 18.1818%;">
+<col style="width: 19.0082%;">
+<col style="width: 29.752%;">
+<col style="width: 33.058%;">
 </colgroup>
 <thead>
 <tr>
@@ -2569,8 +2564,8 @@ standardize display to follow <a href="#proper-case">proper case</a>.</p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">edit the <a href="#criteria">criteria</a> of a tutor/student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">change criteria without re-adding the entry</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">edit the <a href="#fields">fields</a> of a tutor/student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">change fields without re-adding the entry</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -2581,14 +2576,20 @@ standardize display to follow <a href="#proper-case">proper case</a>.</p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">set a tutor/student’s <a href="#status">status</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">know who is available</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see a tutor/student’s <a href="#status">status</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know who is not matched</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">mark a tutor/student as <a href="#matched">matched</a> with some other tutor/student for a certain subject</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">identify tutor/student status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mark a tutor/student as <a href="#matched">matched</a> with some other tutor/student</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">analytical user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view statistics on tutor/student numbers and statuses</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have a clearer picture of the status of tutor/student</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
@@ -2605,12 +2606,6 @@ standardize display to follow <a href="#proper-case">proper case</a>.</p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">tag a person with role, subject, level, and status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">identify details of each tutor/student easily</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sort matching list by price</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">find the best match at the lowest price</p></td>
 </tr>
@@ -2618,13 +2613,13 @@ standardize display to follow <a href="#proper-case">proper case</a>.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">rate a tutor according to student’s feedback</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">identify tutors’ capability for future references</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">assess tutors’ capability</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">store a list of all tutor/student that have been matched</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">I can have a cleaner list consisting of only unmatched tutor/student and also able to refer to past records if required</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have a cleaner list consisting of only unmatched tutor/student and also able to refer to past records if required</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
@@ -2683,12 +2678,6 @@ standardize display to follow <a href="#proper-case">proper case</a>.</p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">select a particular criteria and get tutors/students fulfilling that criteria</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">easily find a suitable tutor/student if one criteria takes priority</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">allow a tutor/student to have multiple subject to teach/learn</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">have more possibilities when matching tutors and students</p></td>
 </tr>
@@ -2701,14 +2690,8 @@ standardize display to follow <a href="#proper-case">proper case</a>.</p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sync database to google</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sync database to remote centralized database</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">work on multiple devices without losing data</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">view statistics on tutor/student numbers and statuses</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">have a clearer picture of the status of tutor/student</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
@@ -2775,17 +2758,17 @@ standardize display to follow <a href="#proper-case">proper case</a>.</p></td>
 </li>
 </ul>
 </div>
-<h3 id="use-case-edit-the-criteria-of-a-certain-tutor-student" class="discrete">Use case: Edit the criteria of a certain tutor/student</h3>
+<h3 id="use-case-edit-the-field-of-a-certain-tutor-student" class="discrete">Use case: Edit the field of a certain tutor/student</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to edit a criteria of a certain tutor/student</p>
+<p>User requests to edit a field of a certain tutor/student</p>
 </li>
 <li>
-<p>STUtor updates the criteria</p>
+<p>STUtor updates the field</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2828,10 +2811,10 @@ standardize display to follow <a href="#proper-case">proper case</a>.</p></td>
 <p>User selects a tutor/student for matching</p>
 </li>
 <li>
-<p>STUtor returns a list of students/tutors that fulfils the criteria of tutor/student selected</p>
+<p>STUtor returns a list of students/tutors that fulfils the field of tutor/student selected</p>
 </li>
 <li>
-<p>User creates a match with the most suitable criteria</p>
+<p>User creates a match with the most suitable field</p>
 </li>
 <li>
 <p>STUtor creates the match and updates the status of the matched tutor and student to ‘Matching-in-progress’</p>
@@ -2864,7 +2847,7 @@ standardize display to follow <a href="#proper-case">proper case</a>.</p></td>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>4a. The list is empty (no tutor/student fulfills the criteria)</p>
+<p>4a. The list is empty (no tutor/student fulfills the field)</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2941,12 +2924,9 @@ standardize display to follow <a href="#proper-case">proper case</a>.</p></td>
 <p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
 </li>
 <li>
-<p>Should be fast in responding to request (within 2 seconds)</p>
+<p>Data can be easily transferred from one computer to another.</p>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
 </div>
 </div>
 </div>
@@ -2968,9 +2948,9 @@ standardize display to follow <a href="#proper-case">proper case</a>.</p></td>
 <p>Proper case is any text that is written with each of the first letters of every word being capitalized.
 For example, "This Is An Example Of Proper Case."</p>
 </dd>
-<dt class="hdlist1"><a id="criteria"></a> Criteria</dt>
+<dt class="hdlist1"><a id="fields"></a> Fields</dt>
 <dd>
-<p>Subject and grade level</p>
+<p>Name, address, phone, email, subject, level, price and role</p>
 </dd>
 <dt class="hdlist1"><a id="match"></a> Match</dt>
 <dd>
@@ -2986,55 +2966,14 @@ For example, "This Is An Example Of Proper Case."</p>
 </dd>
 <dt class="hdlist1"><a id="status"></a> Status</dt>
 <dd>
-<p>Includes unmatch, matching-in-progress, matched</p>
-</dd>
-<dt class="hdlist1"><a id="unmatch"></a> Unmatch</dt>
-<dd>
-<p>A tutor/student does not have any match</p>
+<p>Includes not matched, matching-in-progress, matched</p>
 </dd>
 </dl>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="product-survey"><a class="link" href="#product-survey">Appendix F: Product Survey</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Product Name</strong></p>
-</div>
-<div class="paragraph">
-<p>Author: &#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Pros:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Cons:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a></h2>
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The instructions given below aims to guide user on how to test the app manually.</p>
@@ -3052,7 +2991,7 @@ These instructions only provide a starting point for testers to work on; testers
 </table>
 </div>
 <div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">F.1. Launch and Shutdown</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3100,7 +3039,7 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="opening-the-help-menu"><a class="link" href="#opening-the-help-menu">G.2. Opening the help menu</a></h3>
+<h3 id="opening-the-help-menu"><a class="link" href="#opening-the-help-menu">F.2. Opening the help menu</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3121,7 +3060,7 @@ Expected: A new window is opened. User guide is shown in the new window.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-person"><a class="link" href="#adding-a-person">G.3. Adding a person</a></h3>
+<h3 id="adding-a-person"><a class="link" href="#adding-a-person">F.3. Adding a person</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3132,12 +3071,12 @@ Expected: A new window is opened. User guide is shown in the new window.</p>
 <p>Prerequisites: None.</p>
 </li>
 <li>
-<p>Test case: <code>add n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 $/50 sub/Math lvl/Lower Sec  r/Student`</code><br>
+<p>Test case: <code>add n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 $/50 sub/Math lvl/Lower Sec  r/Student</code><br>
 Expected: Person is added to the bottom of the  list. Details of the added person shown in the status message.</p>
 </li>
 <li>
 <p>Test case: <code>add</code><br>
-Expected: Detail panel will remain unchanged. Invalid command format, add command format and an example of add shown in the status message.</p>
+Expected: Details panel will remain unchanged. Invalid command format, add command format and an example of add shown in the status message.</p>
 </li>
 </ol>
 </div>
@@ -3146,7 +3085,7 @@ Expected: Detail panel will remain unchanged. Invalid command format, add comman
 </div>
 </div>
 <div class="sect2">
-<h3 id="selecting-a-person"><a class="link" href="#selecting-a-person">G.4. Selecting a person</a></h3>
+<h3 id="selecting-a-person"><a class="link" href="#selecting-a-person">F.4. Selecting a person</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3158,11 +3097,11 @@ Expected: Detail panel will remain unchanged. Invalid command format, add comman
 </li>
 <li>
 <p>Test case: <code>select 1</code><br>
-Expected: First contact is selected from the list, details of person 1 is shown in the detail panel. Status message shows selected person: 1.</p>
+Expected: First contact is selected from the list, details of person 1 is shown in the Details Panel. Status message shows selected person: 1.</p>
 </li>
 <li>
 <p>Test case: <code>select 0</code><br>
-Expected: No person is selected, detail panel will remain unchanged. Invalid command format shown in the status message.</p>
+Expected: No person is selected, Details Panel will remain unchanged. Invalid command format shown in the status message.</p>
 </li>
 <li>
 <p>Other incorrect delete commands to try: <code>select</code>, <code>select x</code> (where x is larger than the list size)<br>
@@ -3175,7 +3114,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.5. Deleting a person</a></h3>
+<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">F.5. Deleting a person</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3194,7 +3133,7 @@ Expected: First contact is deleted from the list. Details of the deleted contact
 Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
+<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size)<br>
 Expected: Similar to previous.</p>
 </li>
 </ol>
@@ -3204,7 +3143,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-data"><a class="link" href="#clearing-all-data">G.6. Clearing all data</a></h3>
+<h3 id="clearing-all-data"><a class="link" href="#clearing-all-data">F.6. Clearing all data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3228,32 +3167,12 @@ Expected: All cleared data are restored. Undo success shown in status message.</
 </ol>
 </div>
 </div>
-<div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.7. Saving data</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Dealing with missing/corrupted data files</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
-</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 11:15:40 UTC
+Last updated 2018-04-14 14:29:44 UTC
 </div>
 </div>
 </body>

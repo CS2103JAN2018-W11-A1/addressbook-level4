@@ -54,28 +54,27 @@
 <li><a href="#undoing-previous-command-code-strong-undo-strong-code-or-code-strong-u-strong-code">3.2.13. Undoing previous command : <code><strong>undo</strong></code> or <code><strong>u</strong></code></a></li>
 <li><a href="#redoing-the-previously-undone-command-code-strong-redo-strong-code-or-code-strong-r-strong-code">3.2.14. Redoing the previously undone command : <code><strong>redo</strong></code> or <code><strong>r</strong></code></a></li>
 <li><a href="#clearing-all-entries-code-strong-clear-strong-code-or-code-strong-c-strong-code">3.2.15. Clearing all entries : <code><strong>clear</strong></code> or <code><strong>c</strong></code></a></li>
-<li><a href="#creating-a-remark-for-a-person-code-strong-remark-strong-code-or-code-strong-rk-strong-code-code-in-v1-3-code">3.2.16. Creating a remark for a person : <code><strong>remark</strong></code> or <code><strong>rk</strong></code> <code>[In V1.3]</code></a></li>
-<li><a href="#giving-a-rating-to-a-person-code-strong-rate-strong-code-or-code-strong-rt-strong-code-code-in-v1-4-code">3.2.17. Giving a rating to a person : <code><strong>rate</strong></code> or <code><strong>rt</strong></code> <code>[In V1.4]</code></a></li>
-<li><a href="#viewing-the-statistic-code-strong-viewstats-strong-code-code-in-v1-4-code">3.2.18. Viewing the statistic : <code><strong>viewStats</strong></code> <code>[In V1.4]</code></a>
-<ul class="sectlevel4">
-<li><a href="#upcoming-improvement-coming-in-v2-0-br-3">Upcoming improvement [Coming in V2.0]<br></a></li>
-</ul>
-</li>
-<li><a href="#exiting-the-program-code-strong-exit-strong-code">3.2.19. Exiting the program : <code><strong>exit</strong></code></a></li>
-<li><a href="#saving-the-data">3.2.20. Saving the data</a></li>
+<li><a href="#exiting-the-program-code-strong-exit-strong-code">3.2.16. Exiting the program : <code><strong>exit</strong></code></a></li>
+<li><a href="#saving-the-data">3.2.17. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#advanced-features">3.3. Advanced Features</a>
 <ul class="sectlevel3">
-<li><a href="#enterprise-version-code-coming-in-v2-0-code">3.3.1. Enterprise Version <code>[Coming in V2.0]</code></a></li>
-<li><a href="#matching-by-location-code-coming-in-v2-0-code">3.3.2. Matching by Location <code>[Coming in V2.0]</code></a></li>
+<li><a href="#creating-a-remark-for-a-person-code-strong-remark-strong-code-or-code-strong-rk-strong-code-code-in-v1-3-code">3.3.1. Creating a remark for a person : <code><strong>remark</strong></code> or <code><strong>rk</strong></code> <code>[In V1.3]</code></a></li>
+<li><a href="#giving-a-rating-to-a-person-code-strong-rate-strong-code-or-code-strong-rt-strong-code-code-in-v1-4-code">3.3.2. Giving a rating to a person : <code><strong>rate</strong></code> or <code><strong>rt</strong></code> <code>[In V1.4]</code></a></li>
+<li><a href="#viewing-the-statistic-code-strong-viewstats-strong-code-code-in-v1-4-code">3.3.3. Viewing the statistic : <code><strong>viewStats</strong></code> <code>[In V1.4]</code></a>
+<ul class="sectlevel4">
+<li><a href="#upcoming-improvement-coming-in-v2-0-br-3">Upcoming improvement [Coming in V2.0]<br></a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a href="#enterprise-version-code-coming-in-v2-0-code">3.4. Enterprise Version <code>[Coming in V2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
 <li><a href="#command-summary">5. Command Summary</a></li>
-<li><a href="#prefix-shortcut-summary">6. Prefix Shortcut Summary</a></li>
+<li><a href="#field-shortcut-summary">6. Field Shortcut Summary</a></li>
 </ul>
 </div>
 </div>
@@ -85,13 +84,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>STUtor is for <strong>tutor coordinators</strong> who prefer to use a <strong>desktop app</strong> for <em>matching</em> and <em>managing</em> a large database of tutors and students.</p>
+<p>STUtor is a <strong>desktop app</strong> tailored for <strong>tuition coordinators</strong> to easily <em>match</em> and <em>manage</em> a database of tutors and students.</p>
 </li>
 <li>
 <p>This app is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI).</p>
 </li>
 <li>
-<p>If you can type fast, STUtor can get your <strong>tutor and student management tasks done faster</strong> than traditional GUI apps.</p>
+<p>If you can type fast, STUtor can get your <strong>tutor and student management tasks done efficiently</strong>.</p>
 </li>
 </ul>
 </div>
@@ -99,9 +98,6 @@
 <ul>
 <li>
 <p>This guide gives you an overview of the <em>basic</em> and <em>advanced</em> features of STUtor.</p>
-</li>
-<li>
-<p>Interested? Jump to the <a href="#getting-started">Section 2, &#8220;Getting Started&#8221;</a> now! Enjoy!</p>
 </li>
 </ul>
 </div>
@@ -172,7 +168,7 @@ This app will not work with earlier versions of Java 8.
 </div>
 </li>
 <li>
-<p>Type the command in the command box and press <kbd>Enter</kbd> to execute it.<br>
+<p>Type the command in the Command Box and press <kbd>Enter</kbd> to execute it.<br>
 e.g. typing <code><strong>help</strong></code> and pressing <kbd>Enter</kbd> will open the help window.</p>
 </li>
 <li>
@@ -205,7 +201,7 @@ e.g. typing <code><strong>help</strong></code> and pressing <kbd>Enter</kbd> wil
 <h2 id="Features"><a class="link" href="#Features">3. Features</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To use the features, you need to key in the commands in the <strong>Command Box</strong>.</p>
+<p>To use the features, you need to key in the commands in the Command Box.</p>
 </div>
 <div class="sect2">
 <h3 id="command-format"><a class="link" href="#command-format">3.1. Command Format</a></h3>
@@ -229,7 +225,7 @@ e.g. typing <code><strong>help</strong></code> and pressing <kbd>Enter</kbd> wil
 </ul>
 </div>
 <div class="paragraph">
-<p>&#160;&#160;&#160;&#160; e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
+<p>&#160;&#160;&#160;&#160; e.g <code><strong>add</strong> n/NAME [$/PRICE]</code> can be used as <code><strong>add</strong> n/John Doe $/40</code> or as <code><strong>add</strong> n/John Doe</code>.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -239,7 +235,7 @@ e.g. typing <code><strong>help</strong></code> and pressing <kbd>Enter</kbd> wil
 </ul>
 </div>
 <div class="paragraph">
-<p>&#160;&#160;&#160;&#160; e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
+<p>&#160;&#160;&#160;&#160; e.g. <code><strong>findmissing</strong> [FIELD]&#8230;&#8203;</code> can be used as <code><strong>findmissing</strong></code> (i.e. no field is supplied), <code><strong>findmissing</strong> phone email</code></p>
 </div>
 <div class="ulist">
 <ul>
@@ -276,53 +272,36 @@ e.g. typing <code><strong>help</strong></code> and pressing <kbd>Enter</kbd> wil
 <h4 id="adding-a-person-code-strong-add-strong-code-or-code-strong-a-strong-code"><a class="link" href="#adding-a-person-code-strong-add-strong-code-or-code-strong-a-strong-code">3.2.2. Adding a person: <code><strong>add</strong></code> or <code><strong>a</strong></code></a></h4>
 <div class="paragraph">
 <p>Adds a new person to STUtor.<br>
-A person can have the following fields: SUBJECT, EDUCATION_LEVEL, PRICE, ROLE, and STATUS.</p>
+You can add a person with the following fields: NAME, PHONE, EMAIL, ADDRESS, SUBJECT, LEVEL, PRICE and ROLE.
+Take note that some fields are restricted to the following options:</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 80%;">
 <colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
+<col style="width: 37.5%;">
+<col style="width: 62.5%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Field</th>
 <th class="tableblock halign-left valign-top">Options</th>
-<th class="tableblock halign-left valign-top">Field Editable by User</th>
-<th class="tableblock halign-left valign-top">Comment</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">subject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SUBJECT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">English, Chinese,  Math, Chemistry, Physics</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LEVEL</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Lower Primary, Upper Primary, Lower Secondary, Upper Secondary</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">price</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PRICE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Must be a positive number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">role</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ROLE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Student, Tutor</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Matched, Not Matched</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Upon adding to STUtor, all persons will have a default status of "Not Matched"</p></td>
 </tr>
 </tbody>
 </table>
@@ -331,13 +310,13 @@ A person can have the following fields: SUBJECT, EDUCATION_LEVEL, PRICE, ROLE, a
 <div class="ulist">
 <ul>
 <li>
-<p>Alias can be used to reduce typing. Refer to <a href="#prefix-shortcut-summary">Section 6, &#8220;Prefix Shortcut Summary&#8221;</a> for more details.</p>
+<p>Alias can be used to reduce typing. Refer to <a href="#field-shortcut-summary">Section 6, &#8220;Field Shortcut Summary&#8221;</a> for more details.</p>
 </li>
 <li>
 <p>These information is displayed as tags for easy reference.</p>
 </li>
 <li>
-<p>Upon adding to STUtor, all persons will have a default status of "Not Matched".</p>
+<p>Upon adding to STUtor, all persons will have a default STATUS of "Not Matched".</p>
 </li>
 </ul>
 </div>
@@ -359,7 +338,7 @@ To fill in the other fields later, you can use the edit command to edit the pers
 </table>
 </div>
 <div class="paragraph">
-<p>Format: <code><strong>add</strong> n/NAME [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [$/PRICE] [sub/SUBJECT] [lvl/EDUCATION_LEVEL][r/ROLE] [t/TAG]&#8230;&#8203;</code></p>
+<p>Format: <code><strong>add</strong> n/NAME [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [$/PRICE] [sub/SUBJECT] [lvl/LEVEL] [r/ROLE] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -419,7 +398,7 @@ You can view the diagram below for a clearer visualization on how it works.<br>
 <h4 id="editing-a-person-code-strong-edit-strong-code-or-code-strong-e-strong-code"><a class="link" href="#editing-a-person-code-strong-edit-strong-code-or-code-strong-e-strong-code">3.2.4. Editing a person : <code><strong>edit</strong></code> or <code><strong>e</strong></code></a></h4>
 <div class="paragraph">
 <p>Edits an existing person in STUtor.<br>
-This also allows you to fill in unentered attributes by simply editing that attribute.</p>
+This also allows you to fill in unentered fields by simply editing that field.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -435,7 +414,7 @@ This also allows you to fill in unentered attributes by simply editing that attr
 <p>Existing values will be updated to the input values.</p>
 </li>
 <li>
-<p>A person&#8217;s STATUS is not ediatble by you. It will automatically update after <a href="#Matching a student and a tutor">[Matching a student and a tutor]</a></p>
+<p>A person&#8217;s STATUS is not editable by you. It will automatically update after <a href="#Matching a student and a tutor">[Matching a student and a tutor]</a></p>
 </li>
 <li>
 <p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
@@ -443,18 +422,12 @@ This also allows you to fill in unentered attributes by simply editing that attr
 <li>
 <p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
 </li>
-<li>
-<p>Attribute tags will still remain after any changes to the other tags.</p>
-</li>
-<li>
-<p>Attribute tags will automatically update to reflect any changes to the actual attributes.</p>
-</li>
 </ul>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>Format: <code><strong>edit</strong> INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [$/PRICE] [sub/SUBJECT] [lvl/EDUCATION_LEVEL] [r/ROLE] [t/TAG]&#8230;&#8203;</code></p>
+<p>Format: <code><strong>edit</strong> INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [$/PRICE] [sub/SUBJECT] [lvl/LEVEL] [r/ROLE] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -499,7 +472,7 @@ You can view the diagram below for a clearer visualization on how it works.<br>
 <div class="sect3">
 <h4 id="filtering-all-persons-list-by-subject-level-role-or-status-code-strong-filter-strong-code-code-in-v1-3-code"><a class="link" href="#filtering-all-persons-list-by-subject-level-role-or-status-code-strong-filter-strong-code-code-in-v1-3-code">3.2.5. Filtering all persons list by subject, level, role or status: <code><strong>filter</strong></code> <code>[In V1.3]</code></a></h4>
 <div class="paragraph">
-<p>Filters all persons list whose SUBJECT, EDUCATION_LEVEL, STATUS, or ROLE contain any of the given keywords.<br>
+<p>Filters all persons list whose SUBJECT, LEVEL, STATUS, or ROLE contain any of the given keywords.<br>
 To get back the list of persons that is unfiltered, you can simply execute the <code><strong>list</strong></code> command.<br></p>
 </div>
 <div class="sidebarblock">
@@ -517,14 +490,13 @@ To get back the list of persons that is unfiltered, you can simply execute the <
 <div class="ulist">
 <ul>
 <li>
-<p>Only full words will be matched e.g. <code>Eng</code> will not match <code>English</code></p>
+<p>Only full words will be matched e.g. <code>Eng</code> will not match <code>English</code>.</p>
 </li>
 <li>
-<p>Persons with matching keyword will be returned</p>
+<p>Persons with matching keyword will be returned.</p>
 </li>
 <li>
-<p>Performing multiple filter does not return a list of persons that match multiple keywords. Instead, it will return
-a fitered list of persons that matches the lastest keyword used for <code><strong>filter</strong></code> command.</p>
+<p>This command is unable to filter an already filtered list.</p>
 </li>
 </ul>
 </div>
@@ -543,16 +515,16 @@ a fitered list of persons that matches the lastest keyword used for <code><stron
 Returns persons with <code>Math</code> subject</p>
 </li>
 <li>
-<p><code><strong>filter</strong> Student</code><br>
-Returns persons with <code>Student</code> role</p>
+<p><code><strong>filter</strong> maTH</code><br>
+Returns persons with <code>Math</code> subject</p>
 </li>
 </ul>
 </div>
 <div class="sect4">
 <h5 id="upcoming-improvement-coming-in-v2-0-br"><a class="link" href="#upcoming-improvement-coming-in-v2-0-br">Upcoming improvement [Coming in V2.0]<br></a></h5>
 <div class="paragraph">
-<p><code><strong>filter</strong> multiple KEYWORD</code><br>
-The proposed improvement of filter command will return you persons who matches all the KEYWORD specified</p>
+<p><code><strong>filter</strong> KEYWORD [MORE_KEYWORDS]</code><br>
+The proposed improvement of filter command will return you persons who matches all the KEYWORD specified.</p>
 </div>
 </div>
 </div>
@@ -576,13 +548,13 @@ The proposed improvement of filter command will return you persons who matches a
 <div class="ulist">
 <ul>
 <li>
-<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
+<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code>.</p>
 </li>
 <li>
 <p>Only the name is searched.</p>
 </li>
 <li>
-<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
+<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code>.</p>
 </li>
 <li>
 <p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search).</p>
@@ -625,10 +597,10 @@ Otherwise, finds all people with an empty value in at least one entered FIELD.</
 <div class="ulist">
 <ul>
 <li>
-<p>The field name is case insensitive</p>
+<p>The field name is case insensitive.</p>
 </li>
 <li>
-<p>List of all possible attributes:</p>
+<p>List of all possible fields:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -813,8 +785,8 @@ You can view the diagram below for a clearer visualization on how it works.</p>
 <div class="sect3">
 <h4 id="matching-a-student-with-a-tutor-code-strong-match-strong-code-or-code-strong-m-strong-code-code-in-v1-4-code"><a class="link" href="#matching-a-student-with-a-tutor-code-strong-match-strong-code-or-code-strong-m-strong-code-code-in-v1-4-code">3.2.10. Matching a student with a tutor : <code><strong>match</strong></code> or <code><strong>m</strong></code> <code>[In V1.4]</code></a></h4>
 <div class="paragraph">
-<p>You can easily match a student with a tutor as if they will have lessons together.
-To indicate who do you want to match, simply provide two index numbers used in the <strong>last person listing</strong>.<br></p>
+<p>You can easily match a student with a tutor if they were to have lessons together.
+To indicate who you want to match, simply provide two index numbers used in the <strong>last person listing</strong>.<br></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -822,7 +794,7 @@ To indicate who do you want to match, simply provide two index numbers used in t
 <ul>
 <li>
 <p>The indices supplied must be <strong>compatible</strong>. They must correspond to one <strong>student</strong> and one <strong>tutor</strong>.
-They must have <strong>the same subject, level and price</strong>.</p>
+They must have <strong>the same subject and level</strong>.</p>
 </li>
 <li>
 <p>The order of entering indices does not matter.
@@ -863,15 +835,15 @@ See the figure below for an illustration.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/matchIllustration1.png" alt="matchIllustration1" width="800">
+<img src="images/matchIllustration1.png" alt="matchIllustration1" width="700">
 </div>
 <div class="title">Figure 1. UI before <code><strong>match</strong> 1 3</code> is executed.</div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/matchIllustration2.png" alt="matchIllustration2" width="800">
+<img src="images/matchIllustration2.png" alt="matchIllustration2" width="700">
 </div>
-<div class="title">Figure 2. UI after <code><strong>match</strong> 1 3</code> is executed. New pair is dispalyed on the leftmost panel, with pair information displayed as tags.</div>
+<div class="title">Figure 2. UI after <code><strong>match</strong> 1 3</code> is executed. New pair is dispalyed on the Pair List, with pair information displayed as tags.</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -899,8 +871,8 @@ For example:<br></p>
 </div>
 </li>
 <li>
-<p>If the tutor demands higher price, the matching will be deemed as incompatible.
-When the tutor can accept a price lower than what the student offered,
+<p>If the tutor demands higher price than what the student offers, the matching will be deemed as incompatible.
+When the tutor can accept a price lower than what the student offers,
 the price for the pair will be the higher price offered by the student.
 <br></p>
 </li>
@@ -941,10 +913,11 @@ You can view the diagram below for a clearer visualization on how it works.</p>
 <ul>
 <li>
 <p>Upon selecting a person with his/her index, a list of compatible match choices will appear.
+You can sort the list based on price, location, rating, etc.
 You can then pair the person with one of the given choices.</p>
 </li>
 <li>
-<p>If the you cannot confirm the match yet but wishes to take note of a potential match,
+<p>If you cannot confirm the match yet but wishes to take note of a potential match,
 you can mark the pair as <code>Matching in Progress</code>.</p>
 </li>
 </ul>
@@ -969,7 +942,7 @@ After selecting a matched pair, such information will be displayed on the <code>
 <h4 id="unmatching-a-student-and-a-tutor-code-strong-ummatch-strong-code-or-code-strong-um-strong-code-code-in-v1-4-code"><a class="link" href="#unmatching-a-student-and-a-tutor-code-strong-ummatch-strong-code-or-code-strong-um-strong-code-code-in-v1-4-code">3.2.11. Unmatching a student and a tutor : <code><strong>ummatch</strong></code> or <code><strong>um</strong></code> <code>[In V1.4]</code></a></h4>
 <div class="paragraph">
 <p>Once a pair finishes the course, you can unmatch them.
-Simply select the pair identified by the index numbers used in the <strong>pair listing</strong>.<br></p>
+Simply select the pair identified by the index numbers used in the Pair List.<br></p>
 </div>
 <div class="paragraph">
 <p>Format: <code><strong>unmatch</strong> INDEX</code> or <code><strong>um</strong> INDEX</code></p>
@@ -1020,7 +993,7 @@ You can view the diagram below for a clearer visualization on how it works.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>You can press <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrows and it will display the previous and next input respectively in the command box.</p>
+<p>You can press <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrows and it will display the previous and next input respectively in the Command Box.</p>
 </div>
 </td>
 </tr>
@@ -1043,7 +1016,7 @@ You can view the diagram below for a clearer visualization on how it works.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Undoable commands: those commands that modify STUtor&#8217;s content (<code><strong>add</strong></code>, <code><strong>delete</strong></code>, <code><strong>edit</strong></code> and <code><strong>clear</strong></code>).</p>
+<p>Undoable commands: those commands that modify STUtor&#8217;s content (e.g. <code><strong>add</strong></code>, <code><strong>delete</strong></code>, <code><strong>edit</strong></code> and <code><strong>clear</strong></code>).</p>
 </div>
 </td>
 </tr>
@@ -1121,7 +1094,26 @@ The <code><strong>redo</strong></code> command fails as there are no <code><stro
 </div>
 </div>
 <div class="sect3">
-<h4 id="creating-a-remark-for-a-person-code-strong-remark-strong-code-or-code-strong-rk-strong-code-code-in-v1-3-code"><a class="link" href="#creating-a-remark-for-a-person-code-strong-remark-strong-code-or-code-strong-rk-strong-code-code-in-v1-3-code">3.2.16. Creating a remark for a person : <code><strong>remark</strong></code> or <code><strong>rk</strong></code> <code>[In V1.3]</code></a></h4>
+<h4 id="exiting-the-program-code-strong-exit-strong-code"><a class="link" href="#exiting-the-program-code-strong-exit-strong-code">3.2.16. Exiting the program : <code><strong>exit</strong></code></a></h4>
+<div class="paragraph">
+<p>Exits the program.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code><strong>exit</strong></code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="saving-the-data"><a class="link" href="#saving-the-data">3.2.17. Saving the data</a></h4>
+<div class="paragraph">
+<p>STUtor data are saved in the hard disk automatically after any command that changes the data.<br>
+There is no need to save manually.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="advanced-features"><a class="link" href="#advanced-features">3.3. Advanced Features</a></h3>
+<div class="sect3">
+<h4 id="creating-a-remark-for-a-person-code-strong-remark-strong-code-or-code-strong-rk-strong-code-code-in-v1-3-code"><a class="link" href="#creating-a-remark-for-a-person-code-strong-remark-strong-code-or-code-strong-rk-strong-code-code-in-v1-3-code">3.3.1. Creating a remark for a person : <code><strong>remark</strong></code> or <code><strong>rk</strong></code> <code>[In V1.3]</code></a></h4>
 <div class="paragraph">
 <p>Creates a remark for the person identified by the index number used in the <strong>last person listing</strong>.<br></p>
 </div>
@@ -1157,14 +1149,24 @@ The <code><strong>redo</strong></code> command fails as there are no <code><stro
 'refresh' the <code>Information Panel</code>.</p>
 </div>
 <div class="paragraph">
-<p>Auto-refreshing of person details will be done is V2.0.</p>
+<p>Auto-refreshing of person details will be done in V2.0.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Format: <code><strong>remark</strong> INDEX r/REMARK</code> or <code><strong>remark</strong> INDEX edit</code> or <code><strong>remark</strong> edit INDEX</code></p>
+<p>Format:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To create a new remark: <code><strong>remark</strong> INDEX r/REMARK</code><br></p>
+</li>
+<li>
+<p>To edit an existing remark: <code><strong>remark</strong> INDEX edit</code> or <code><strong>remark</strong> edit INDEX</code></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -1211,9 +1213,10 @@ You can view the diagram below for a clearer visualization on how it works.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="giving-a-rating-to-a-person-code-strong-rate-strong-code-or-code-strong-rt-strong-code-code-in-v1-4-code"><a class="link" href="#giving-a-rating-to-a-person-code-strong-rate-strong-code-or-code-strong-rt-strong-code-code-in-v1-4-code">3.2.17. Giving a rating to a person : <code><strong>rate</strong></code> or <code><strong>rt</strong></code> <code>[In V1.4]</code></a></h4>
+<h4 id="giving-a-rating-to-a-person-code-strong-rate-strong-code-or-code-strong-rt-strong-code-code-in-v1-4-code"><a class="link" href="#giving-a-rating-to-a-person-code-strong-rate-strong-code-or-code-strong-rt-strong-code-code-in-v1-4-code">3.3.2. Giving a rating to a person : <code><strong>rate</strong></code> or <code><strong>rt</strong></code> <code>[In V1.4]</code></a></h4>
 <div class="paragraph">
-<p>Gives a rating to the person identified by the index number used in the <strong>last person listing</strong>.<br></p>
+<p>Gives a rating to the person identified by the index number used in the <strong>last person listing</strong>.
+By default, the rating will be accumulated.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -1234,7 +1237,7 @@ You can view the diagram below for a clearer visualization on how it works.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>&#160;&#160;&#160;&#160; e.g <code>rate 1 r/2.0-</code> will set rating of the 1st person in the results
+<p>&#160;&#160;&#160;&#160; e.g <code><strong>rate</strong> 1 r/2.0-</code> will set rating of the 1st person in the results
 to 2.0 and number of people who rated the person will be resetted to 1.</p>
 </div>
 <div class="ulist">
@@ -1245,7 +1248,7 @@ to 2.0 and number of people who rated the person will be resetted to 1.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>&#160;&#160;&#160;&#160; e.g <code>rate 1 r/2.0</code> will add on to the current rating of the 1st person
+<p>&#160;&#160;&#160;&#160; e.g <code><strong>rate</strong> 1 r/2.0</code> will add on to the current rating of the 1st person
 and the person&#8217;s average ratings will be displayed. Number of people who rated the person will also increase by 1.</p>
 </div>
 <div class="admonitionblock note">
@@ -1276,7 +1279,7 @@ and the person&#8217;s average ratings will be displayed. Number of people who r
 'refresh' the <code>Information Panel</code>.</p>
 </div>
 <div class="paragraph">
-<p>Auto-refreshing of person details will be done is V2.0.</p>
+<p>Auto-refreshing of person details will be done in V2.0.</p>
 </div>
 </td>
 </tr>
@@ -1325,9 +1328,14 @@ You can view the diagram below for a clearer visualization on how it works.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="viewing-the-statistic-code-strong-viewstats-strong-code-code-in-v1-4-code"><a class="link" href="#viewing-the-statistic-code-strong-viewstats-strong-code-code-in-v1-4-code">3.2.18. Viewing the statistic : <code><strong>viewStats</strong></code> <code>[In V1.4]</code></a></h4>
+<h4 id="viewing-the-statistic-code-strong-viewstats-strong-code-code-in-v1-4-code"><a class="link" href="#viewing-the-statistic-code-strong-viewstats-strong-code-code-in-v1-4-code">3.3.3. Viewing the statistic : <code><strong>viewStats</strong></code> <code>[In V1.4]</code></a></h4>
 <div class="paragraph">
-<p>Shows statistical information such as role distribution(Student/Tutor ratio) in the form of a pie chart.<br></p>
+<p>Shows statistical information for role and subject distribution.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CompleteChartSnap.png" alt="CompleteChartSnap" width="500">
+</div>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -1356,27 +1364,9 @@ You can view the diagram below for a clearer visualization on how it works.</p>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="exiting-the-program-code-strong-exit-strong-code"><a class="link" href="#exiting-the-program-code-strong-exit-strong-code">3.2.19. Exiting the program : <code><strong>exit</strong></code></a></h4>
-<div class="paragraph">
-<p>Exits the program.<br></p>
-</div>
-<div class="paragraph">
-<p>Format: <code><strong>exit</strong></code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="saving-the-data"><a class="link" href="#saving-the-data">3.2.20. Saving the data</a></h4>
-<div class="paragraph">
-<p>STUtor data are saved in the hard disk automatically after any command that changes the data.<br>
-There is no need to save manually.</p>
-</div>
-</div>
 </div>
 <div class="sect2">
-<h3 id="advanced-features"><a class="link" href="#advanced-features">3.3. Advanced Features</a></h3>
-<div class="sect3">
-<h4 id="enterprise-version-code-coming-in-v2-0-code"><a class="link" href="#enterprise-version-code-coming-in-v2-0-code">3.3.1. Enterprise Version <code>[Coming in V2.0]</code></a></h4>
+<h3 id="enterprise-version-code-coming-in-v2-0-code"><a class="link" href="#enterprise-version-code-coming-in-v2-0-code">3.4. Enterprise Version <code>[Coming in V2.0]</code></a></h3>
 <div class="paragraph">
 <p>With added functionalities, the Enterprise Version of STUtor will serve tuition centers and agencies.</p>
 </div>
@@ -1387,11 +1377,10 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Real-time syncing will allow multiple coordinators to work on the same database.</p>
+<p>Real-time synchronization will allow multiple coordinators to work on the same database.</p>
 </li>
 <li>
-<p>Information about the students, tutors and pairs will be stored securely, making backup and recovering
-of data easy.</p>
+<p>Information about the students, tutors and pairs will be stored securely, allowing easy backup and data recovery.</p>
 </li>
 </ul>
 </div>
@@ -1408,11 +1397,6 @@ therefore ensuring the confidentiality of the data.</p>
 </div>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="matching-by-location-code-coming-in-v2-0-code"><a class="link" href="#matching-by-location-code-coming-in-v2-0-code">3.3.2. Matching by Location <code>[Coming in V2.0]</code></a></h4>
-
 </div>
 </div>
 </div>
@@ -1463,7 +1447,7 @@ Note that there is no shortcuts for <code>help</code> and <code>exit</code> comm
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>add</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>a</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS $/PRICE sub/SUBJECT lvl/EDUCATION_LEVEL  r/ROLE [t/TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS $/PRICE sub/SUBJECT lvl/LEVEL  r/ROLE [t/TAG]&#8230;&#8203;</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>add n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 $/50 sub/Math lvl/Lower Sec r/Student</code></p></td>
 </tr>
 <tr>
@@ -1475,8 +1459,14 @@ Note that there is no shortcuts for <code>help</code> and <code>exit</code> comm
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>e</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [$/PRICE] [sub/SUBJECT] [lvl/EDUCATION_LEVEL] [r/ROLE] [t/TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [$/PRICE] [sub/SUBJECT] [lvl/LEVEL] [r/ROLE] [t/TAG]&#8230;&#8203;</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit 2 n/James Lee e/jameslee@example.com</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter KEYWORD</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter Math</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>find</code></p></td>
@@ -1491,12 +1481,6 @@ Note that there is no shortcuts for <code>help</code> and <code>exit</code> comm
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>findmissing phone</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>s</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select INDEX</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select 2</code></p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>match</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>m</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>match INDEX_A INDEX_B</code></p></td>
@@ -1509,10 +1493,10 @@ Note that there is no shortcuts for <code>help</code> and <code>exit</code> comm
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>unmatch 2</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter KEYWORD</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter Math</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rate INDEX r/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rate INDEX r/3.5</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>remark</code></p></td>
@@ -1521,10 +1505,10 @@ Note that there is no shortcuts for <code>help</code> and <code>exit</code> comm
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>remark 2 r/Fast learner.</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rate</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rt</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rate INDEX r/</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rate INDEX r/3.5</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>s</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select 2</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
@@ -1579,7 +1563,7 @@ Note that there is no shortcuts for <code>help</code> and <code>exit</code> comm
 </div>
 </div>
 <div class="sect1">
-<h2 id="prefix-shortcut-summary"><a class="link" href="#prefix-shortcut-summary">6. Prefix Shortcut Summary</a></h2>
+<h2 id="field-shortcut-summary"><a class="link" href="#field-shortcut-summary">6. Field Shortcut Summary</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>To save time in adding a person, or editing a person&#8217;s details, use the following shortcuts.</p>
@@ -1599,52 +1583,52 @@ Note that there is no shortcuts for <code>help</code> and <code>exit</code> comm
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">subject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SUBJECT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/chem</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/chemistry</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">subject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SUBJECT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/phy</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/physics</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">subject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SUBJECT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/chi</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/chinese</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">subject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SUBJECT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/eng</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub/english</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LEVEL</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/us</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/upper sec</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LEVEL</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/ls</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/lower sec</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LEVEL</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/up</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/upper pri</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LEVEL</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/lp</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>lvl/lower pri</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">role</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ROLE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>r/t</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>r/tutor</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">role</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ROLE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>r/s</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>r/student</code></p></td>
 </tr>
@@ -1655,7 +1639,7 @@ Note that there is no shortcuts for <code>help</code> and <code>exit</code> comm
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 11:15:40 UTC
+Last updated 2018-04-14 14:29:44 UTC
 </div>
 </div>
 </body>

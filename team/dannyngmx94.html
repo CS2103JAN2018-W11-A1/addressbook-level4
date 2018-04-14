@@ -117,7 +117,7 @@ Added the ability to <strong>filter list</strong> by <strong>subject</strong>, <
 <div class="sect3">
 <h4 id="filtering-all-persons-list-by-subject-level-role-or-status-code-strong-filter-strong-code-code-in-v1-3-code"><a class="link" href="#filtering-all-persons-list-by-subject-level-role-or-status-code-strong-filter-strong-code-code-in-v1-3-code">Filtering all persons list by subject, level, role or status: <code><strong>filter</strong></code> <code>[In V1.3]</code></a></h4>
 <div class="paragraph">
-<p>Filters all persons list whose SUBJECT, EDUCATION_LEVEL, STATUS, or ROLE contain any of the given keywords.<br>
+<p>Filters all persons list whose SUBJECT, LEVEL, STATUS, or ROLE contain any of the given keywords.<br>
 To get back the list of persons that is unfiltered, you can simply execute the <code><strong>list</strong></code> command.<br></p>
 </div>
 <div class="sidebarblock">
@@ -135,14 +135,13 @@ To get back the list of persons that is unfiltered, you can simply execute the <
 <div class="ulist">
 <ul>
 <li>
-<p>Only full words will be matched e.g. <code>Eng</code> will not match <code>English</code></p>
+<p>Only full words will be matched e.g. <code>Eng</code> will not match <code>English</code>.</p>
 </li>
 <li>
-<p>Persons with matching keyword will be returned</p>
+<p>Persons with matching keyword will be returned.</p>
 </li>
 <li>
-<p>Performing multiple filter does not return a list of persons that match multiple keywords. Instead, it will return
-a fitered list of persons that matches the lastest keyword used for <code><strong>filter</strong></code> command.</p>
+<p>This command is unable to filter an already filtered list.</p>
 </li>
 </ul>
 </div>
@@ -161,23 +160,28 @@ a fitered list of persons that matches the lastest keyword used for <code><stron
 Returns persons with <code>Math</code> subject</p>
 </li>
 <li>
-<p><code><strong>filter</strong> Student</code><br>
-Returns persons with <code>Student</code> role</p>
+<p><code><strong>filter</strong> maTH</code><br>
+Returns persons with <code>Math</code> subject</p>
 </li>
 </ul>
 </div>
 <div class="sect4">
 <h5 id="upcoming-improvement-coming-in-v2-0-br"><a class="link" href="#upcoming-improvement-coming-in-v2-0-br">Upcoming improvement [Coming in V2.0]<br></a></h5>
 <div class="paragraph">
-<p><code><strong>filter</strong> multiple KEYWORD</code><br>
-The proposed improvement of filter command will return you persons who matches all the KEYWORD specified</p>
+<p><code><strong>filter</strong> KEYWORD [MORE_KEYWORDS]</code><br>
+The proposed improvement of filter command will return you persons who matches all the KEYWORD specified.</p>
 </div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="viewing-the-statistic-code-strong-viewstats-strong-code-code-in-v1-4-code"><a class="link" href="#viewing-the-statistic-code-strong-viewstats-strong-code-code-in-v1-4-code">Viewing the statistic : <code><strong>viewStats</strong></code> <code>[In V1.4]</code></a></h4>
 <div class="paragraph">
-<p>Shows statistical information such as role distribution(Student/Tutor ratio) in the form of a pie chart.<br></p>
+<p>Shows statistical information for role and subject distribution.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/CompleteChartSnap.png" alt="CompleteChartSnap" width="500">
+</div>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -308,9 +312,9 @@ the role distribution between students and tutors is shown below.</p>
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
 <div class="paragraph">
-<p>Whenever <code>viewStats</code> command is executed, a ShowChartEvent will be generated and posted to the EventCenter.
-Subsequently, the handleShowChartEvent from ChartPanel will be notified as it is subscribed to the EventCenter.
-ChartPanel will then generate the graph from the ObservableList and it will be displayed on the UI.</p>
+<p>Whenever <code>viewStats</code> command is executed, a <code>ShowChartEvent</code> will be generated and posted to the <code>EventCenter</code>.
+Subsequently, the <code>handleShowChartEvent</code> from <code>ChartPanel</code> will be notified as it is subscribed to the <code>EventCenter</code>.
+<code>ChartPanel</code> will then generate the graph from the <code>ObservableList</code> and it will be displayed on the UI.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -333,7 +337,7 @@ Why does this work? Executing the <code>viewStats</code> command will generate n
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Replace the details in browser panel with graph.</p>
+<p><strong>Alternative 1 (current choice):</strong> Replace the details in details panel with graph.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -497,12 +501,12 @@ Expected: A new window is opened. User guide is shown in the new window.</p>
 <p>Prerequisites: None.</p>
 </li>
 <li>
-<p>Test case: <code>add n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 $/50 sub/Math lvl/Lower Sec  r/Student`</code><br>
+<p>Test case: <code>add n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 $/50 sub/Math lvl/Lower Sec  r/Student</code><br>
 Expected: Person is added to the bottom of the  list. Details of the added person shown in the status message.</p>
 </li>
 <li>
 <p>Test case: <code>add</code><br>
-Expected: Detail panel will remain unchanged. Invalid command format, add command format and an example of add shown in the status message.</p>
+Expected: Details panel will remain unchanged. Invalid command format, add command format and an example of add shown in the status message.</p>
 </li>
 </ol>
 </div>
@@ -523,11 +527,11 @@ Expected: Detail panel will remain unchanged. Invalid command format, add comman
 </li>
 <li>
 <p>Test case: <code>select 1</code><br>
-Expected: First contact is selected from the list, details of person 1 is shown in the detail panel. Status message shows selected person: 1.</p>
+Expected: First contact is selected from the list, details of person 1 is shown in the Details Panel. Status message shows selected person: 1.</p>
 </li>
 <li>
 <p>Test case: <code>select 0</code><br>
-Expected: No person is selected, detail panel will remain unchanged. Invalid command format shown in the status message.</p>
+Expected: No person is selected, Details Panel will remain unchanged. Invalid command format shown in the status message.</p>
 </li>
 <li>
 <p>Other incorrect delete commands to try: <code>select</code>, <code>select x</code> (where x is larger than the list size)<br>
@@ -559,7 +563,7 @@ Expected: First contact is deleted from the list. Details of the deleted contact
 Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
+<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size)<br>
 Expected: Similar to previous.</p>
 </li>
 </ol>
@@ -598,7 +602,7 @@ Expected: All cleared data are restored. Undo success shown in status message.</
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 11:15:40 UTC
+Last updated 2018-04-14 14:29:44 UTC
 </div>
 </div>
 </body>

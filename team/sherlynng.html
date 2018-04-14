@@ -150,14 +150,24 @@ This facilitates the user when typing in commands, especially for long commands 
 'refresh' the <code>Information Panel</code>.</p>
 </div>
 <div class="paragraph">
-<p>Auto-refreshing of person details will be done is V2.0.</p>
+<p>Auto-refreshing of person details will be done in V2.0.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Format: <code><strong>remark</strong> INDEX r/REMARK</code> or <code><strong>remark</strong> INDEX edit</code> or <code><strong>remark</strong> edit INDEX</code></p>
+<p>Format:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To create a new remark: <code><strong>remark</strong> INDEX r/REMARK</code><br></p>
+</li>
+<li>
+<p>To edit an existing remark: <code><strong>remark</strong> INDEX edit</code> or <code><strong>remark</strong> edit INDEX</code></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -206,7 +216,8 @@ You can view the diagram below for a clearer visualization on how it works.</p>
 <div class="sect3">
 <h4 id="giving-a-rating-to-a-person-code-strong-rate-strong-code-or-code-strong-rt-strong-code-code-in-v1-4-code"><a class="link" href="#giving-a-rating-to-a-person-code-strong-rate-strong-code-or-code-strong-rt-strong-code-code-in-v1-4-code">Giving a rating to a person : <code><strong>rate</strong></code> or <code><strong>rt</strong></code> <code>[In V1.4]</code></a></h4>
 <div class="paragraph">
-<p>Gives a rating to the person identified by the index number used in the <strong>last person listing</strong>.<br></p>
+<p>Gives a rating to the person identified by the index number used in the <strong>last person listing</strong>.
+By default, the rating will be accumulated.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -227,7 +238,7 @@ You can view the diagram below for a clearer visualization on how it works.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>&#160;&#160;&#160;&#160; e.g <code>rate 1 r/2.0-</code> will set rating of the 1st person in the results
+<p>&#160;&#160;&#160;&#160; e.g <code><strong>rate</strong> 1 r/2.0-</code> will set rating of the 1st person in the results
 to 2.0 and number of people who rated the person will be resetted to 1.</p>
 </div>
 <div class="ulist">
@@ -238,7 +249,7 @@ to 2.0 and number of people who rated the person will be resetted to 1.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>&#160;&#160;&#160;&#160; e.g <code>rate 1 r/2.0</code> will add on to the current rating of the 1st person
+<p>&#160;&#160;&#160;&#160; e.g <code><strong>rate</strong> 1 r/2.0</code> will add on to the current rating of the 1st person
 and the person&#8217;s average ratings will be displayed. Number of people who rated the person will also increase by 1.</p>
 </div>
 <div class="admonitionblock note">
@@ -269,7 +280,7 @@ and the person&#8217;s average ratings will be displayed. Number of people who r
 'refresh' the <code>Information Panel</code>.</p>
 </div>
 <div class="paragraph">
-<p>Auto-refreshing of person details will be done is V2.0.</p>
+<p>Auto-refreshing of person details will be done in V2.0.</p>
 </div>
 </td>
 </tr>
@@ -473,34 +484,34 @@ be used since create remark command is implemented before edit remark.</p>
 <div class="sect4">
 <h5 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h5>
 <div class="paragraph">
-<p>Rating is from 0.0 (worst performing) to 5.0 (best performing).
+<p>Rating is from 0.0 (low rating) to 5.0 (high rating).
 Regex is used to limit user input to a maximum of 1 decimal place and any number below 0.0 or above 5.0 is rejected.
 Sum of all ratings is stored as a <code>double</code> inside <code>Rate</code> class and the displayed value is calculated by taking the sum
 and divide it by the number of people who rated the person.</p>
 </div>
 <div class="paragraph">
 <p>When a person is first added to STUtor, both total rate <code>value</code> and <code>count</code> is initialized to 0.
-Since the person has yet been rated, rating will be displayed as <code>-</code> in the <code>DetailsPanel</code>.</p>
+Since the person has yet to be rated, rating will be displayed as <code>-</code> in the <code>DetailsPanel</code>.</p>
 </div>
 <div class="paragraph">
 <p>We have decided to allow two types of ratings in STUtor:</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
 <p>Cumulative rating</p>
 </li>
 <li>
 <p>Absolute rating</p>
 </li>
-</ol>
+</ul>
 </div>
 <div class="paragraph">
 <p>Default will be cumulative rating as it is more natural and useful to combine all ratings given to a specific person to gauge his/her
 abilities. In STUtor, <code>value</code> in <code>Rate</code> class stores the total sum of all ratings given to the person.
 To display the cumulated rating, <code>DetailsPanel</code> calls <code>getDisplayedValue</code> method in <code>Rate</code> class and
 cumulated rating is calculated using the total <code>value</code> and divide it by <code>count</code>.
-Every time a new rate is added, <code>count</code> increases incrementally as well.</p>
+Every time a new rate is added, <code>count</code> increases as well.</p>
 </div>
 <div class="paragraph">
 <p>Absolute rating is also implemented for users that wants to clear all old data or wants to shortlist/blacklist a student or tutor.
@@ -703,7 +714,7 @@ less typing from the user.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 11:15:40 UTC
+Last updated 2018-04-14 14:29:44 UTC
 </div>
 </div>
 </body>
