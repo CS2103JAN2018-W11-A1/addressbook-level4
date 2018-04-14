@@ -2062,19 +2062,26 @@ Why does this work? Executing the <code>viewStats</code> command will generate n
 <p>A tuition coordinator needs to record which students are receiving tuition from which tutors.
 Intuitively, the <code>match</code> command allows the user to pair a student with a tutor,
 while the <code>unmatch</code> command removes the pair.<br>
-The matched pairs will be stored in STUtor.xml, and displayed on the Pair List panel (the leftmost vertical panel).</p>
+The matched pairs will be saved to <code>UniquePairList</code> in model,
+stored in STUtor.xml as a <code>XmlAdaptedPair</code>, and displayed on the Pair List panel (the leftmost vertical panel) for user to see.</p>
 </div>
 <div class="sect3">
 <h4 id="current-implementation-13"><a class="link" href="#current-implementation-13">4.14.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>A matched pair is stored as a <code>Pair</code> object.
-To uniquely identify each pair and 'mark' the persons in the pair, we use a <code>PairHash</code> class.<br></p>
+<p>A matched pair is represented by a <code>Pair.java</code> object.
+We use a <code>PairHash.java</code> class to help with creating, deleting and identifying a pair,
+all of which are essential for the <code>match</code> and <code>unmatch</code> commands to work properly.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/PairPairHashClassDiagram.png" alt="PairPairHashClassDiagram" width="700">
 </div>
 <div class="title">Figure 29. Class diagram of Pair and PairHash class.</div>
+</div>
+<div class="paragraph">
+<p>The <code>PairHash</code> is derived using Java&#8217;s <code>Objects.hash()</code> method.
+Among the parameters, student.toString() and tutor.toString() are used instead of the actual
+<code>Student</code> or <code>Tutor</code> objects. The rational for this choice will become clearer later.<br></p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2083,15 +2090,16 @@ To uniquely identify each pair and 'mark' the persons in the pair, we use a <cod
 <div class="title">Figure 30. Diagram showing associations between Person, Pair and PairHash class.</div>
 </div>
 <div class="paragraph">
-<p>Note that a person (<code>Student</code> or <code>Tutor</code>) can have any number of unique <code>PairHash</code>, that is,
-a student can be paired to multiple tutors and vice versa.<br></p>
+<p>As seen from the above diagram, a person (<code>Student</code> or <code>Tutor</code>) can have any number of unique <code>PairHash</code>, that is,
+<strong>a student can be paired to multiple tutors and vice versa.</strong><br></p>
 </div>
 <div class="paragraph">
 <p>The current implementation of <code>match</code> and <code>unmatch</code> relies on the one-to-one association between <code>Pair</code> and <code>PairHash</code>.
 <code>PairHash</code> is used to facilitate matching and unmatching, as well as updating the status of a person.<br></p>
 </div>
 <div class="paragraph">
-<p>When a <code>Pair</code> is created through the <code>match</code> command, a <code>PairHash</code> is generated and automatically stored in the
+<p><code>PairHash</code> objects associated with a particular <code>Person</code> object is stored inside that <code>Person</code> as a list.
+When a <code>Pair</code> is created through the <code>match</code> command, a <code>PairHash</code> is generated and automatically stored in the
 <code>Pair</code> itself, as well as in the <code>Student</code> and <code>Tutor</code> objects involved (see below).
 Similarly, when a <code>Pair</code> is removed through the <code>unmatch</code> command, its <code>PairHash</code> is extracted
 and used to retrieve the <code>Student</code> and <code>Tutor</code> marked by it. This <code>PairHash</code> is then deleted from the persons.</p>
@@ -2102,6 +2110,13 @@ and used to retrieve the <code>Student</code> and <code>Tutor</code> marked by i
 </div>
 <div class="title">Figure 31. Activity diagram for Match Command</div>
 </div>
+<div class="paragraph">
+<p>Now the rational for using toString() instead of the <code>Person</code> object itself is clear:
+since the <code>Person</code> object stores a list of pairHashes, direct hashing with the person object will give different hashes but
+essentially adding duplicates to the <code>UniquePairList</code> in model.
+The toString() method only return fields that are not related to matching, therefore
+prevents duplicates from being saved to the database.</p>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -2109,7 +2124,6 @@ and used to retrieve the <code>Student</code> and <code>Tutor</code> marked by i
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<code>PairHash</code> objects associated with a particular <code>Person</code> object is stored inside that <code>Person</code> as a list.<br>
 Whenever a <code>PairHash</code> is add to/ removed from the list, a check is done to makes sure the status
 of the person remains correct. If the list is empty, that <code>Person</code> 's status will be <code>Not Matched</code>, else it will be <code>Matched</code>.
 </td>
@@ -2124,28 +2138,28 @@ of the person remains correct. If the list is empty, that <code>Person</code> 's
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1:</strong> Only allow one-to-one matches.</p>
+<p><strong>Alternative 1 (current choice):</strong> Allow a student to be paired to multiple tutors and vice versa.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Realistic as as one student may take tuition for several subjects, and a tutor is likely to take a few students.</p>
+</li>
+<li>
+<p>Cons: Requires the <code>Person</code> class to store multiple <code>PairHash</code> instead of one.
+Updating of status requires extra checkings to ensure correctness.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Only allow one-to-one matches.</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Pros: The <code>Person</code> class only need to store one <code>PairHash</code>.</p>
 </li>
 <li>
-<p>Cons: Not realistic as one student may take tuition for several subjects, and a tutor is likely to take a few students.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2 (current choice):</strong> Allow a student to be paired to multiple tutors and vice versa.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: More realistic.</p>
-</li>
-<li>
-<p>Cons: Requires the <code>Person</code> class to store multiple <code>PairHash</code> instead of one.
-Updating of status requires extra checkings to ensure correctness.</p>
+<p>Cons: Not realistic.</p>
 </li>
 </ul>
 </div>
@@ -2158,20 +2172,7 @@ Updating of status requires extra checkings to ensure correctness.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1:</strong> Store the <code>Pair</code> directly in <code>Person</code>.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to code.</p>
-</li>
-<li>
-<p>Cons: High degree of coupling between <code>Pair</code> and <code>Person</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2 (current choice):</strong> Use <code>PairHash</code> to to identify the <code>Pair</code> itself, and mark <code>Person</code> in the Pair.
+<p><strong>Alternative 1 (current choice):</strong> Use <code>PairHash</code> to to identify the <code>Pair</code> itself, and mark <code>Person</code> in the Pair.
 Saving the <code>PairHash</code> to the <code>Person</code> when <code>Pair</code> is created, delete the same <code>PairHash</code> from <code>Person</code>
 when this <code>Pair</code> is unmatched.</p>
 <div class="ulist">
@@ -2180,7 +2181,20 @@ when this <code>Pair</code> is unmatched.</p>
 <p>Pros: Reduce coupling between <code>Pair</code> and <code>Person</code>.</p>
 </li>
 <li>
-<p>Cons: <code>PairHash</code> has a slight chance of having collisions, which might result in errors in data.</p>
+<p>Cons: <code>PairHash</code> has a very slight chance of having collisions, which might result in errors in data.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Store the <code>Pair</code> directly in <code>Person</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to code.</p>
+</li>
+<li>
+<p>Cons: High degree of coupling between <code>Pair</code> and <code>Person</code>.</p>
 </li>
 </ul>
 </div>
@@ -3172,7 +3186,7 @@ Expected: All cleared data are restored. Undo success shown in status message.</
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 15:32:42 UTC
+Last updated 2018-04-14 18:06:55 UTC
 </div>
 </div>
 </body>
