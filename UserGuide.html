@@ -275,14 +275,59 @@ e.g. typing <code><strong>help</strong></code> and pressing <kbd>Enter</kbd> wil
 <div class="sect3">
 <h4 id="adding-a-person-code-strong-add-strong-code-or-code-strong-a-strong-code"><a class="link" href="#adding-a-person-code-strong-add-strong-code-or-code-strong-a-strong-code">3.2.2. Adding a person: <code><strong>add</strong></code> or <code><strong>a</strong></code></a></h4>
 <div class="paragraph">
-<p>Adds a new person to STUtor.<br></p>
+<p>Adds a new person to STUtor.<br>
+A person can have the following fields: SUBJECT, EDUCATION_LEVEL, PRICE, ROLE, and STATUS.</p>
 </div>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field</th>
+<th class="tableblock halign-left valign-top">Options</th>
+<th class="tableblock halign-left valign-top">Field Editable by User</th>
+<th class="tableblock halign-left valign-top">Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">subject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">English, Chinese,  Math, Chemistry, Physics</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lower Primary, Upper Primary, Lower Secondary, Upper Secondary</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">price</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Must be a positive number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">role</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Student, Tutor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Matched, Not Matched</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Upon adding to STUtor, all persons will have a default status of "Not Matched"</p></td>
+</tr>
+</tbody>
+</table>
 <div class="sidebarblock">
 <div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>For PRICE, SUBJECT, EDUCATION_LEVEL, ROLE:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -291,18 +336,8 @@ e.g. typing <code><strong>help</strong></code> and pressing <kbd>Enter</kbd> wil
 <li>
 <p>These information is displayed as tags for easy reference.</p>
 </li>
-</ul>
-</div>
-</li>
-<li>
-<p>For STATUS:</p>
-<div class="ulist">
-<ul>
 <li>
 <p>Upon adding to STUtor, all persons will have a default status of "Not Matched".</p>
-</li>
-</ul>
-</div>
 </li>
 </ul>
 </div>
@@ -1612,7 +1647,7 @@ Note that there is no shortcuts for <code>help</code> and <code>exit</code> comm
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 06:51:39 UTC
+Last updated 2018-04-14 07:01:28 UTC
 </div>
 </div>
 </body>
