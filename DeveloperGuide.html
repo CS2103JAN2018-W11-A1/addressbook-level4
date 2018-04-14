@@ -956,7 +956,8 @@ This is done when user performs <code>add</code> or <code>edit</code> command.</
 </div>
 <div class="paragraph">
 <p>The creation of these tags from attributes is facilitated by static methods from a class in logic, called <code>AttributeTagSetter</code>. This class contains methods to remove existing attribute tags from a person, which can be used when needing to edit or find non-attribute tags of the person.
-Another method is to create the new attribute tags from provided input and return the new set of tags. This class is currently invoked from a static context, as its use currently is solely for managing the tags of a given <code>Person</code>.<br>
+Another method is to create the new attribute tags from provided input and return the new set of tags. This class is currently invoked from a static context, as its use currently is solely for managing the tags of a given <code>Person</code>.
+When parsing and making an add or edit command, it makes use of these methods to obtain the correct attribute tags and sets them.
 The sequence diagram below (figure 18) shows where the creation of these tags in the sequence of parsing an <code>Add</code> command.<br></p>
 </div>
 <div class="imageblock">
@@ -983,7 +984,8 @@ The acceptable inputs for a <code>Tag</code> must necessarily allow all the acce
 <h4 id="model-implementation"><a class="link" href="#model-implementation">4.4.2. Model Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>Tag</code> class can support the ability to classify which attribute the tag was created from. This is done by adding an enum <code>AllTagsType</code> to the <code>Tag</code> class.
-A tag can be created without being from an attribute, with just a tag name. In this case, creating a <code>Tag</code> with no provided <code>AllTagsType</code> will initialise the <code>tagType</code> to <code>DEFAULT</code>.</p>
+A tag can be created without being from an attribute, with just a tag name. In this case, creating a <code>Tag</code> with no provided <code>AllTagsType</code> will initialise the <code>tagType</code> to <code>DEFAULT</code>.
+Otherwise, creation of the tag will require the tagType to be passed in.</p>
 </div>
 <div class="paragraph">
 <p>This is the current <code>Tag</code> class in UML notation</p>
@@ -1525,11 +1527,11 @@ here will focus more on the design considerations and rationale instead of repea
 <div class="paragraph">
 <p>Currently, the command makes use of a new predicate, <code>FindMissingPredicate</code>, to perform the check.<br>
 The implementation of the OR search in the <code>FindMissingPredicate</code> is as follows:<br>
-For each entered field by the user, if that field is unentered by the user, then the predicate will immediately return <code>true</code> as the person fits the criteria.<br>
+For each entered field by the user, if that field is unentered by the user, then the predicate will immediately return <code>true</code> as the person fits the criteria.
 If at the end of checking all values at the list, then the person has all fields specified by the user filled. Therefore, the predicate will return <code>false</code> in this case.<br></p>
 </div>
 <div class="paragraph">
-<p>Rationale for having a new command and predicate is that reusing the <code>Filter</code> command or predicate would violate Single Responsibility Principle and the idea of Separation of Concerns.<br>
+<p>Rationale for having a new command and predicate is that reusing the <code>Filter</code> command or predicate would violate Single Responsibility Principle and the idea of Separation of Concerns.
 The <code>Filter</code> command and classes associated closely to it should have the single concern of listing people according to a search term.<br>
 Therefore, it is better design to create a new command for this feature.</p>
 </div>
@@ -1545,7 +1547,7 @@ Therefore, it is better design to create a new command for this feature.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Ensures the predicate used in the <code>FindMissingCommand</code> remains of type <code>FindMissingPredicate</code>, ensuring better controlled</p>
+<p>Pros: Ensures the predicate used in the <code>FindMissingCommand</code> remains of type <code>FindMissingPredicate</code>. Easy to test and inspect manually and to update the command predicate if needed.</p>
 </li>
 <li>
 <p>Cons: Increased complexity of ensuring the predicate test will correctly give a true or false value.</p>
@@ -3251,7 +3253,7 @@ Expected: All cleared data are restored. Undo success shown in status message.</
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 10:00:47 UTC
+Last updated 2018-04-14 11:15:40 UTC
 </div>
 </div>
 </body>
