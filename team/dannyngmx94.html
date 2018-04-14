@@ -398,10 +398,207 @@ Why does this work? Executing the <code>viewStats</code> command will generate n
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix A: Instructions for Manual Testing</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The instructions given below aims to guide user on how to test the app manually.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+These instructions only provide a starting point for testers to work on; testers are expected to do more <em>exploratory</em> testing.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">Launch and Shutdown</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Initial launch</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Download the jar file and copy into an empty folder</p>
+</li>
+<li>
+<p>Double-click the jar file<br>
+Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.</p>
+</li>
+<li>
+<p>If jar file does not launch as instructed in the previous step, please follow the subsequent steps:<br></p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Run command prompt and navigate to the directory where the jar file is</p>
+</li>
+<li>
+<p>Run <code>java -jar FILENAME.jar</code>. Please change FILENAME to the saved name of the jar file</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Saving window preferences</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Resize the window to an optimum size. Move the window to a different location. Close the window using <code>exit</code> or click on the x on the top right corner.</p>
+</li>
+<li>
+<p>Re-launch the app by double-clicking the jar file.<br>
+Expected: The most recent window size and location is retained.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="opening-the-help-menu"><a class="link" href="#opening-the-help-menu">Opening the help menu</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Opening the help menu</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: None.</p>
+</li>
+<li>
+<p>Test case: <code>help</code><br>
+Expected: A new window is opened. User guide is shown in the new window.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-person"><a class="link" href="#adding-a-person">Adding a person</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a person</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: None.</p>
+</li>
+<li>
+<p>Test case: <code>add n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 $/50 sub/Math lvl/Lower Sec  r/Student`</code><br>
+Expected: Person is added to the bottom of the  list. Details of the added person shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>add</code><br>
+Expected: Detail panel will remain unchanged. Invalid command format, add command format and an example of add shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="selecting-a-person"><a class="link" href="#selecting-a-person">Selecting a person</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Selecting a person while all persons are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+</li>
+<li>
+<p>Test case: <code>select 1</code><br>
+Expected: First contact is selected from the list, details of person 1 is shown in the detail panel. Status message shows selected person: 1.</p>
+</li>
+<li>
+<p>Test case: <code>select 0</code><br>
+Expected: No person is selected, detail panel will remain unchanged. Invalid command format shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>select</code>, <code>select x</code> (where x is larger than the list size)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">Deleting a person</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a person while all persons are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+</li>
+<li>
+<p>Test case: <code>delete 1</code><br>
+Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>delete 0</code><br>
+Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clearing-all-data"><a class="link" href="#clearing-all-data">Clearing all data</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Clearing all data in app</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: None.</p>
+</li>
+<li>
+<p>Test case: <code>clear</code><br>
+Expected: All data in app is cleared. App has been cleared shown in status message.</p>
+</li>
+<li>
+<p>Test case: <code>undo</code><br>
+Expected: All cleared data are restored. Undo success shown in status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 06:04:10 UTC
+Last updated 2018-04-14 06:36:58 UTC
 </div>
 </div>
 </body>
