@@ -98,6 +98,7 @@
 <li><a href="#selecting-a-person">F.4. Selecting a person</a></li>
 <li><a href="#deleting-a-person">F.5. Deleting a person</a></li>
 <li><a href="#clearing-all-data">F.6. Clearing all data</a></li>
+<li><a href="#testing-optional-fields">F.7. Testing optional fields</a></li>
 </ul>
 </li>
 </ul>
@@ -3181,12 +3182,37 @@ Expected: All cleared data are restored. Undo success shown in status message.</
 </ol>
 </div>
 </div>
+<div class="sect2">
+<h3 id="testing-optional-fields"><a class="link" href="#testing-optional-fields">F.7. Testing optional fields</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a person with only name</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: All people entered into STUtor have all attributes filled in.</p>
+</li>
+<li>
+<p>Test case: <code>add n/Johnny Doe</code><br>
+Expected: Person is added to the bottom of the  list. Details of the added person shown in the status message. Person does not have an attribute other than name, and will not have any tags shown.</p>
+</li>
+<li>
+<p>Test case: <code>findmissing</code><br>
+Expected: List of 1 person, containing only Johnny Doe as entered earlier. Message lists successful listing of 1 person.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 06:37:31 UTC
+Last updated 2018-04-15 07:01:26 UTC
 </div>
 </div>
 </body>
