@@ -101,6 +101,7 @@
 <li><a href="#filtering-the-list">F.7. Filtering the list</a></li>
 <li><a href="#viewing-the-statistics">F.8. Viewing the statistics</a></li>
 <li><a href="#testing-optional-fields">F.9. Testing optional fields</a></li>
+<li><a href="#testing-match-and-unmatch">F.10. Testing match and unmatch</a></li>
 </ul>
 </li>
 </ul>
@@ -3098,6 +3099,21 @@ Expected: Details panel will remain unchanged. Invalid command format, add comma
 </ol>
 </div>
 </li>
+<li>
+<p>Adding a person using case insensitive input and shortcuts</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: None.</p>
+</li>
+<li>
+<p>Test case: <code>add n/John al Doe p/98765432 e/johnd@ExaMplE.com a/311, Clementi Ave 2, #02-25 $/50 sub/chEM lvl/Ls r/S</code><br>
+Expected: Person is added to the bottom of the list.Details of the added person shown in the status message.
+The person will be tagged with "Chemistry", "Lower Sec", "Student". His name and email will be kept in mixed case.</p>
+</li>
+</ol>
+</div>
+</li>
 </ol>
 </div>
 </div>
@@ -3267,12 +3283,102 @@ Expected: List of 1 person, containing only Johnny Doe as entered earlier. Messa
 </ol>
 </div>
 </div>
+<div class="sect2">
+<h3 id="testing-match-and-unmatch"><a class="link" href="#testing-match-and-unmatch">F.10. Testing match and unmatch</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Match compatible student and tutor and then unmatch</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: clear your STUtor.</p>
+</li>
+<li>
+<p>Test case:<br></p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p><code>add n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 $/50 sub/Math lvl/Lower Sec  r/Student</code><br></p>
+</li>
+<li>
+<p><code>add n/Mary Chang p/81890003 e/marychang@example.com a/178, Rosewood Garden, #03-01 $/50 sub/Math lvl/Lower Sec  r/Tutor</code><br></p>
+</li>
+<li>
+<p><code>match 1 2</code><br>
+Expected: Pair is added to Pair List panel. Details of the added pair shown in the status message.
+"Math", "Lower Sec" and "50" will be displayed as tags below the newly created pair.
+The two persons have status updated to "Matched".</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case:<br>
+Continue form the previous test case, type the command <code>unmatch 1</code><br>
+Expected: Pair is remove from the Pair List panel. Details of the unmatched pair shown in the status message.
+            The two persons have status updated to "Not Matched".</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Match incompatible student and tutor</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: clear your STUtor.</p>
+</li>
+<li>
+<p>Test case:<br></p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p><code>add n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 $/50 sub/English lvl/Lower Sec  r/Student</code><br></p>
+</li>
+<li>
+<p><code>add n/Mary Chang p/81890003 e/marychang@example.com a/178, Rosewood Garden, #03-01 $/50 sub/Math lvl/Lower Sec  r/Tutor</code><br></p>
+</li>
+<li>
+<p><code>match 1 2</code><br>
+Expected: Error mesage of "Matching failed. Incompatible subject." shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Unmatch pair at invalid index</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: clear your STUtor.</p>
+</li>
+<li>
+<p>Test case:<br></p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p><code>unmatch 1</code><br>
+Expected: Error mesage of "The pair index provided is invalid." shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 07:58:02 UTC
+Last updated 2018-04-15 08:00:39 UTC
 </div>
 </div>
 </body>
