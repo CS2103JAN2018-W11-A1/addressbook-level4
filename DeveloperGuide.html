@@ -619,9 +619,13 @@ You may want to find out about the approach for existing features described here
 <p>The undo/redo mechanism is facilitated by an <code>UndoRedoStack</code>, which resides inside <code>LogicManager</code>. It supports undoing and redoing of commands that modifies the state of the address book (e.g. <code>add</code>, <code>edit</code>). Such commands will inherit from <code>UndoableCommand</code>.</p>
 </div>
 <div class="paragraph">
-<p><code>UndoRedoStack</code> only deals with <code>UndoableCommands</code>. Commands that cannot be undone will inherit from <code>Command</code> instead. The following diagram shows the inheritance diagram for commands:
-.Logic Command Class Diagram
-image::LogicCommandClassDiagram.png[width="800"]</p>
+<p><code>UndoRedoStack</code> only deals with <code>UndoableCommands</code>. Commands that cannot be undone will inherit from <code>Command</code> instead. The following diagram shows the inheritance diagram for commands:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/LogicCommandClassDiagram.png" alt="LogicCommandClassDiagram" width="800">
+</div>
+<div class="title">Figure 11. Logic Command Class Diagram</div>
 </div>
 <div class="paragraph">
 <p>As you can see from the diagram, <code>UndoableCommand</code> adds an extra layer between the abstract <code>Command</code> class and concrete commands that can be undone, such as the <code>DeleteCommand</code>. Note that extra tasks need to be done when executing a command in an <em>undoable</em> way, such as saving the state of the address book before execution. <code>UndoableCommand</code> contains the high-level algorithm for those extra tasks while the child classes implements the details of how to execute the specific command. Note that this technique of putting the high-level algorithm in the parent class and lower-level steps of the algorithm in child classes is also known as the <a href="https://www.tutorialspoint.com/design_pattern/template_pattern.htm">template pattern</a>.</p>
@@ -671,7 +675,7 @@ image::LogicCommandClassDiagram.png[width="800"]</p>
 <div class="content">
 <img src="images/UndoRedoStartingStackDiagram.png" alt="UndoRedoStartingStackDiagram" width="800">
 </div>
-<div class="title">Figure 11. Stack Diagram for Undo/Redo after <code>Delete</code></div>
+<div class="title">Figure 12. Stack Diagram for Undo/Redo after <code>Delete</code></div>
 </div>
 <div class="paragraph">
 <p>As the user continues to use the program, more commands are added into the <code>undoStack</code>. For example, the user may execute <code>add n/David &#8230;&#8203;</code> to add a new person.</p>
@@ -680,7 +684,7 @@ image::LogicCommandClassDiagram.png[width="800"]</p>
 <div class="content">
 <img src="images/UndoRedoNewCommand1StackDiagram.png" alt="UndoRedoNewCommand1StackDiagram" width="800">
 </div>
-<div class="title">Figure 12. Stack Diagram for Undo/Redo after <code>Add</code></div>
+<div class="title">Figure 13. Stack Diagram for Undo/Redo after <code>Add</code></div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -704,7 +708,7 @@ If a command fails its execution, it will not be pushed to the <code>UndoRedoSta
 <div class="content">
 <img src="images/UndoRedoExecuteUndoStackDiagram.png" alt="UndoRedoExecuteUndoStackDiagram" width="800">
 </div>
-<div class="title">Figure 13. Stack Diagram for Undo/Redo after <code>Undo</code></div>
+<div class="title">Figure 14. Stack Diagram for Undo/Redo after <code>Undo</code></div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -725,7 +729,7 @@ If the <code>undoStack</code> is empty, then there are no other commands left to
 <div class="content">
 <img src="images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 14. Sequence Diagram for <code>Undo</code></div>
+<div class="title">Figure 15. Sequence Diagram for <code>Undo</code></div>
 </div>
 <div class="paragraph">
 <p>The redo does the exact opposite (pops from <code>redoStack</code>, push to <code>undoStack</code>, and restores the address book to the state after the command is executed).</p>
@@ -749,7 +753,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <div class="content">
 <img src="images/UndoRedoNewCommand2StackDiagram.png" alt="UndoRedoNewCommand2StackDiagram" width="800">
 </div>
-<div class="title">Figure 15. Stack Diagram for Undo/Redo after a new command <code>Clear</code></div>
+<div class="title">Figure 16. Stack Diagram for Undo/Redo after a new command <code>Clear</code></div>
 </div>
 <div class="paragraph">
 <p>Commands that are not undoable are not added into the <code>undoStack</code>. For example, <code>list</code>, which inherits from <code>Command</code> rather than <code>UndoableCommand</code>, will not be added after execution:</p>
@@ -758,7 +762,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <div class="content">
 <img src="images/UndoRedoNewCommand3StackDiagram.png" alt="UndoRedoNewCommand3StackDiagram" width="800">
 </div>
-<div class="title">Figure 16. Stack Diagram for Undo/Redo after <code>List</code></div>
+<div class="title">Figure 17. Stack Diagram for Undo/Redo after <code>List</code></div>
 </div>
 <div class="paragraph">
 <p>The following activity diagram summarize what happens inside the <code>UndoRedoStack</code> when a user executes a new command:</p>
@@ -767,7 +771,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <div class="content">
 <img src="images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
 </div>
-<div class="title">Figure 17. Activity Diagram for Undo/Redo</div>
+<div class="title">Figure 18. Activity Diagram for Undo/Redo</div>
 </div>
 </div>
 <div class="sect3">
@@ -1090,7 +1094,7 @@ will be shifted accordingly. Below shows the workflow when <code>Delete</code> o
 <div class="content">
 <img src="images/AutofillActivityDiagram.png" alt="AutofillActivityDiagram" width="400">
 </div>
-<div class="title">Figure 18. Activity Diagram for Autofill</div>
+<div class="title">Figure 19. Activity Diagram for Autofill</div>
 </div>
 <div class="sect4">
 <h5 id="find-next-field"><a class="link" href="#find-next-field">Find Next Field</a></h5>
@@ -1102,7 +1106,7 @@ command box. By searching the position of the next <code>/</code>, it indicates 
 <div class="content">
 <img src="images/AutofillAdd_Tab2.png" alt="AutofillAdd Tab2" width="500">
 </div>
-<div class="title">Figure 19. Visualization for find next field</div>
+<div class="title">Figure 20. Visualization for find next field</div>
 </div>
 </div>
 <div class="sect4">
@@ -1116,7 +1120,7 @@ then procedes to find next field to be shifted to. Below shows what happens when
 <div class="content">
 <img src="images/AutofillAdd_Delete.png" alt="AutofillAdd Delete" width="500">
 </div>
-<div class="title">Figure 20. Visualization for delete previous prefix</div>
+<div class="title">Figure 21. Visualization for delete previous prefix</div>
 </div>
 </div>
 </div>
@@ -1130,7 +1134,7 @@ is then highlighted by selecting the caret forward.</p>
 <div class="content">
 <img src="images/AutofillMatch.png" alt="AutofillMatch" width="500">
 </div>
-<div class="title">Figure 21. Visualization for select index to edit</div>
+<div class="title">Figure 22. Visualization for select index to edit</div>
 </div>
 <div class="paragraph">
 <p>We decide to create shortcuts for even for commands that do not have lengthy inputs (e.g. <code>add</code> and <code>edit</code>) as it makes typing
@@ -1228,7 +1232,7 @@ The sequence diagram below (figure 18) shows where the creation of these tags in
 <div class="content">
 <img src="images/AttributeTagsSequenceDiagram.png" alt="AttributeTagsSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 22. Sequence diagram for creating attribute tags</div>
+<div class="title">Figure 23. Sequence diagram for creating attribute tags</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1258,7 +1262,7 @@ Otherwise, creation of the tag will require the tagType to be passed in.</p>
 <div class="content">
 <img src="images/TagClassDiagram.png" alt="TagClassDiagram" width="800">
 </div>
-<div class="title">Figure 23. <code>Tag</code> Class</div>
+<div class="title">Figure 24. <code>Tag</code> Class</div>
 </div>
 <div class="paragraph">
 <p>This new attribute is used to implement the capability to standardize all tags created as a <code>Price</code> attribute to have the same color, all tags created as a <code>Subject</code> attribute to have the same color, and so on.
@@ -1288,7 +1292,7 @@ The respective tagName and tagType can be obtained by splitting the read string 
 <div class="content">
 <img src="images/tagStorage.png" alt="tagStorage" width="400">
 </div>
-<div class="title">Figure 24. Storage of <code>Tag</code></div>
+<div class="title">Figure 25. Storage of <code>Tag</code></div>
 </div>
 </div>
 <div class="sect3">
@@ -1519,7 +1523,7 @@ The sequence diagram below shows how this is achieved in the constructor of <cod
 <div class="content">
 <img src="images/SDforCaseInsensitiveInput.png" alt="SDforCaseInsensitiveInput" width="800">
 </div>
-<div class="title">Figure 25. Sequence Diagram for achieveing case insensitive input</div>
+<div class="title">Figure 26. Sequence Diagram for achieveing case insensitive input</div>
 </div>
 <div class="paragraph">
 <p>The other classes utilise the <code>ProperCaseConverter</code> object in a similar way.</p>
@@ -1823,7 +1827,7 @@ appropriate modifications.</p>
 <div class="content">
 <img src="images/RemarkCommandSequenceDiagram1.png" alt="RemarkCommandSequenceDiagram1" width="370">
 </div>
-<div class="title">Figure 26. Sequence Diagram for <code>remark</code></div>
+<div class="title">Figure 27. Sequence Diagram for <code>remark</code></div>
 </div>
 </div>
 </div>
@@ -1915,7 +1919,7 @@ in the user input. When setting an absolute rating, the app resets <code>count</
 <div class="content">
 <img src="images/RateCommandSequenceDiagram1.png" alt="RateCommandSequenceDiagram1" width="370">
 </div>
-<div class="title">Figure 27. Sequence Diagram for <code>rate</code></div>
+<div class="title">Figure 28. Sequence Diagram for <code>rate</code></div>
 </div>
 </div>
 </div>
@@ -1970,7 +1974,7 @@ the role distribution between students and tutors is shown below.</p>
 <div class="content">
 <img src="images/CompleteChartSnap.png" alt="CompleteChartSnap" width="500">
 </div>
-<div class="title">Figure 28. Snapshot of <code>viewStats</code></div>
+<div class="title">Figure 29. Snapshot of <code>viewStats</code></div>
 </div>
 <div class="sect3">
 <h4 id="current-implementation-12"><a class="link" href="#current-implementation-12">4.13.1. Current Implementation</a></h4>
@@ -2083,7 +2087,7 @@ all of which are essential for the <code>match</code> and <code>unmatch</code> c
 <div class="content">
 <img src="images/PairPairHashClassDiagram.png" alt="PairPairHashClassDiagram" width="700">
 </div>
-<div class="title">Figure 29. Class diagram of Pair and PairHash class.</div>
+<div class="title">Figure 30. Class diagram of Pair and PairHash class.</div>
 </div>
 <div class="paragraph">
 <p>The <code>PairHash</code> is derived using Java&#8217;s <code>Objects.hash()</code> method.
@@ -2094,7 +2098,7 @@ Among the parameters, student.toString() and tutor.toString() are used instead o
 <div class="content">
 <img src="images/PairClassDiagram.png" alt="PairClassDiagram" width="700">
 </div>
-<div class="title">Figure 30. Diagram showing associations between Person, Pair and PairHash class.</div>
+<div class="title">Figure 31. Diagram showing associations between Person, Pair and PairHash class.</div>
 </div>
 <div class="paragraph">
 <p>As seen from the above diagram, a person (<code>Student</code> or <code>Tutor</code>) can have any number of unique <code>PairHash</code>, that is,
@@ -2115,7 +2119,7 @@ and used to retrieve the <code>Student</code> and <code>Tutor</code> marked by i
 <div class="content">
 <img src="images/MatchActivityDiagram.png" alt="MatchActivityDiagram" width="800">
 </div>
-<div class="title">Figure 31. Activity diagram for Match Command</div>
+<div class="title">Figure 32. Activity diagram for Match Command</div>
 </div>
 <div class="paragraph">
 <p>Now the rational for using toString() instead of the <code>Person</code> object itself is clear:
@@ -2272,7 +2276,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 32. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 33. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 </div>
@@ -3489,7 +3493,7 @@ Expected: Error mesage of "The pair index provided is invalid." shown in the sta
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 10:15:23 UTC
+Last updated 2018-04-15 11:41:49 UTC
 </div>
 </div>
 </body>
