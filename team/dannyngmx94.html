@@ -597,12 +597,70 @@ Expected: All cleared data are restored. Undo success shown in status message.</
 </ol>
 </div>
 </div>
+<div class="sect2">
+<h3 id="filtering-the-list"><a class="link" href="#filtering-the-list">Filtering the list</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Filtering the list by KEYWORD</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: None.</p>
+</li>
+<li>
+<p>Test case: <code>filter student</code><br>
+Expected: All persons with student tag are displayed in the list. The number of people that match the KEYWORD is shown in status message.</p>
+</li>
+<li>
+<p>Test case: <code>filter tutor math</code><br>
+Expected: No person is displayed in the list. 0 listed person shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>filter</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-the-statistics"><a class="link" href="#viewing-the-statistics">Viewing the statistics</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Viewing statistics</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: None.</p>
+</li>
+<li>
+<p>Test case: <code>viewStats</code><br>
+Expected: A panel opens within Details Panel. Data represented in graph should match the persons in list.</p>
+</li>
+<li>
+<p>Test case: <code>viewStats 123</code><br>
+Expected: Similar to previous.</p>
+</li>
+<li>
+<p>Test case: <code>viewStats</code> followed by <code>add n/unknown r/tutor</code> and <code>viewStats</code> again<br>
+Expected: The updated pie chart should show 1 more tutor than the previous pie chart.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 07:01:27 UTC
+Last updated 2018-04-15 07:58:02 UTC
 </div>
 </div>
 </body>
