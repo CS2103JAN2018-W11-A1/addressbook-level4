@@ -101,7 +101,10 @@
 <li><a href="#filtering-the-list">F.7. Filtering the list</a></li>
 <li><a href="#viewing-the-statistics">F.8. Viewing the statistics</a></li>
 <li><a href="#testing-optional-fields">F.9. Testing optional fields</a></li>
-<li><a href="#testing-match-and-unmatch">F.10. Testing match and unmatch</a></li>
+<li><a href="#autofill-a-command">F.10. Autofill a command</a></li>
+<li><a href="#adding-a-remark">F.11. Adding a remark</a></li>
+<li><a href="#adding-a-rating">F.12. Adding a rating</a></li>
+<li><a href="#testing-match-and-unmatch">F.13. Testing match and unmatch</a></li>
 </ul>
 </li>
 </ul>
@@ -3284,7 +3287,115 @@ Expected: List of 1 person, containing only Johnny Doe as entered earlier. Messa
 </div>
 </div>
 <div class="sect2">
-<h3 id="testing-match-and-unmatch"><a class="link" href="#testing-match-and-unmatch">F.10. Testing match and unmatch</a></h3>
+<h3 id="autofill-a-command"><a class="link" href="#autofill-a-command">F.10. Autofill a command</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Autofills a command in the command box</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: None.</p>
+</li>
+<li>
+<p>Test case: Type <code>add</code> then press the <code>Tab</code> key<br>
+Expected: Add command with all fields will be displayed: <code>add n/ p/ e/ a/ $/ sub/ lvl/ r/</code>.
+Position of caret will also be shifted to the first field to be entered (i.e. after <code>n/</code>)</p>
+</li>
+<li>
+<p>Test case: Type <code>add</code>, press the <code>Tab</code> key then the <code>Delete</code> key<br>
+Expected: After pressing <code>Tab</code> key, expected output will be the same as above in part ii.
+After pressing <code>Delete</code> key, the field and corresponding prefix will be removed and the caret will shift to the
+next field to be filled in (i.e. the command box now looks like this: <code>add p/ e/ a/ $/ sub/ lvl/ r/</code>, with the caret
+placed after <code>p/</code>.</p>
+</li>
+<li>
+<p>Test case: Type <code>add</code>, press the <code>Tab</code> key, type <code>John Doe</code>, shift caret to after <code>John</code> and press the <code>Delete</code> key (Not Recommended)<br>
+Expected: After pressing <code>Tab</code> key, expected output will be the same as above in part ii.
+By shifting the caret to the middle of a field (i.e. <code>n/John Doe</code>, with the caret positioned after <code>John</code>, input from
+John to its prefix (i.e. <code>n/John</code> will be removed but <code>Doe</code> will still be there (i.e. the command box now looks like this:
+<code>add Doe p/ e/ a/ $/ sub/ lvl/ r/</code>, with the caret positioned after <code>p/</code>.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-remark"><a class="link" href="#adding-a-remark">F.11. Adding a remark</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a remark to a specified person in STUtor</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+</li>
+<li>
+<p>Test case: <code>remark 1 r/Hardworking Student</code><br>
+Expected: Creates a remark 'Hardworking Student' for the 1st person in the list.</p>
+</li>
+<li>
+<p>Test case: <code>remark 1 edit</code><br>
+Expected: Edits a remark for the 1st person in the list. The person&#8217;s previous remark (i.e. 'Hardworking Student' will be
+displayed in the command box and the user will be able to edit the remark from there.</p>
+</li>
+<li>
+<p>Test case: <code>remark 1 r/</code><br>
+Expected: Removes the remark for the 1st person in the list.</p>
+</li>
+<li>
+<p>Test case: <code>remark 0 r/</code><br>
+Expected: No remark is added as the index specified is not within the range of persons in the list. Error details shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-rating"><a class="link" href="#adding-a-rating">F.12. Adding a rating</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a rating to a specified person in STUtor</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+</li>
+<li>
+<p>Test case: <code>rate 1 r/3.3</code><br>
+Expected: If this is the first time the first person in the list is being rated, the person will be given a rating of 3.3 and number of
+people who rated the person will be 1. Else, all ratings for the person will be accumulated, average rating for the
+person (to nearest 1 decimal place) will be displayed and the number of people who rated the person will increase by 1.</p>
+</li>
+<li>
+<p>Test case: <code>rate 1 r/4.0-</code><br>
+Expected: If this is the first time the person is being rated, the person will be given a rating of 4.0 and number of
+people who rated the person will be 1. Else, this will resets the person&#8217;s rating to 4.0 and the number of people who
+rated the person to 1.</p>
+</li>
+<li>
+<p>Test case: <code>rate 0 r/4.0</code><br>
+Expected: No rating is added as the index specified is not within the range of persons in the list.
+Error details shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>rate 1 r/6.0</code><br>
+Expected: No rating is added as the rate specified is not within range. Error details shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="testing-match-and-unmatch"><a class="link" href="#testing-match-and-unmatch">F.13. Testing match and unmatch</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3378,7 +3489,7 @@ Expected: Error mesage of "The pair index provided is invalid." shown in the sta
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 08:00:39 UTC
+Last updated 2018-04-15 08:16:00 UTC
 </div>
 </div>
 </body>
